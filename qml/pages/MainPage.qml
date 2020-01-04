@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../components"
 
@@ -201,19 +201,15 @@ Page {
 		if (status === PageStatus.Active) {
 			//pageStack.pushAttached(Qt.resolvedUrl("database/CurrentPlaylistPage.qml"))
 			if (mPlaylistPage == undefined) {
+				var playlistComponent
+				var playlistPage
 				/* Check if running on large device and load corresponding page */
 				if (Screen.sizeCategory >= Screen.Large) {
-					var playlistComponent = Qt.createComponent(
-								Qt.resolvedUrl(
-									"database/CurrentPlaylistPage_large.qml"))
-					var playlistPage = playlistComponent.createObject(
-								mainWindow)
+					playlistComponent = Qt.createComponent(Qt.resolvedUrl("database/CurrentPlaylistPage_large.qml"))
+					playlistPage = playlistComponent.createObject(mainWindow)
 				} else {
-					var playlistComponent = Qt.createComponent(
-								Qt.resolvedUrl(
-									"database/CurrentPlaylistPage.qml"))
-					var playlistPage = playlistComponent.createObject(
-								mainWindow)
+					playlistComponent = Qt.createComponent(Qt.resolvedUrl("database/CurrentPlaylistPage.qml"))
+					playlistPage = playlistComponent.createObject(mainWindow)
 				}
 				mPlaylistPage = playlistPage
 			}

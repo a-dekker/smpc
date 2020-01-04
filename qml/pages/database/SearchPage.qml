@@ -1,12 +1,12 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../../components"
 
 Page {
 	id: searchpage
+	allowedOrientations: Orientation.All
 	property int currentindex: -1
 	property string selectedsearch
-	allowedOrientations: Orientation.All
 
 	Drawer {
 		id: mainDrawer
@@ -63,10 +63,7 @@ Page {
 
 		SilicaListView {
 			id: searchsongListView
-			anchors {
-				fill: parent
-				//bottomMargin: mainDrawer.open ? undefined : quickControlPanel.visibleSize
-			}
+			anchors.fill: parent
 
 			quickScrollEnabled: jollaQuickscroll
 			SpeedScroller {

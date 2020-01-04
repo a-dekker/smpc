@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../../components"
 
@@ -22,10 +22,7 @@ Page {
 			clip: true
 			ScrollDecorator {}
 
-			anchors {
-				fill: parent
-				//bottomMargin: quickControlPanel.visibleSize
-			}
+			anchors.fill: parent
 			contentWidth: width
 			header: PageHeader {
 				title: qsTr("filebrowser")

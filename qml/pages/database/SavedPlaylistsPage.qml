@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../../components"
 
@@ -8,69 +8,68 @@ Page {
 	property string artistname
 
 	SilicaListView {
-			id: savedPlaylistsListView
-			quickScrollEnabled: jollaQuickscroll
-			anchors.fill: parent
-			//anchors.bottomMargin: quickControlPanel.visibleSize
-			contentWidth: width
+		id: savedPlaylistsListView
+		quickScrollEnabled: jollaQuickscroll
+		anchors.fill: parent
+		contentWidth: width
 
-			SpeedScroller {
-				listview: savedPlaylistsListView
-			}
-			ScrollDecorator {}
+		SpeedScroller {
+			listview: savedPlaylistsListView
+		}
+		ScrollDecorator {}
 
-			header: PageHeader {
-				title: qsTr("playlists")
+		header: PageHeader {
+			title: qsTr("playlists")
+		}
+		model: savedPlaylistsModel
+		delegate: ListItem {
+			menu: contextMenu
+			Column {
+				id: mainColumn
+				anchors {
+					right: parent.right
+					left: parent.left
+					verticalCenter: parent.verticalCenter
+					leftMargin: listPadding
+					rightMargin: listPadding
+				}
+				Label {
+					 text: modelData
+				}
 			}
-			model: savedPlaylistsModel
-			delegate: ListItem {
-				menu: contextMenu
-				Column {
-					id: mainColumn
-					anchors {
-						right: parent.right
-						left: parent.left
-						verticalCenter: parent.verticalCenter
-						leftMargin: listPadding
-						rightMargin: listPadding
-					}
-					Label {
-						 text: modelData
-					}
-				}
-				OpacityRampEffect {
-					sourceItem: mainColumn
-					slope: 3
-					offset: 0.65
-				}
-				onClicked: {
-					savedPlaylistClicked(modelData)
-					pageStack.push(Qt.resolvedUrl("PlaylistTracksPage.qml"), {playlistname: modelData})
-				}
-				function playListRemorse() {
-					remorseAction(qsTr("playing list"), function() { playPlaylist(modelData) }, 3000)
-				}
-				function addListRemorse() {
-					remorseAction(qsTr("adding list"), function() { addPlaylist(modelData) }, 3000)
-				}
-				Component {
-					id: contextMenu
-					ContextMenu {
-						MenuItem {
-							text: qsTr("play playlist")
-							onClicked: {
-								playListRemorse()
-							}
+			OpacityRampEffect {
+				sourceItem: mainColumn
+				slope: 3
+				offset: 0.65
+			}
+			onClicked: {
+				savedPlaylistClicked(modelData)
+				pageStack.push(Qt.resolvedUrl("PlaylistTracksPage.qml"), {playlistname: modelData})
+			}
+			function playListRemorse() {
+				remorseAction(qsTr("playing list"), function() { playPlaylist(modelData) }, 3000)
+			}
+			function addListRemorse() {
+				remorseAction(qsTr("adding list"), function() { addPlaylist(modelData) }, 3000)
+			}
+			Component {
+				id: contextMenu
+				ContextMenu {
+					MenuItem {
+						text: qsTr("play playlist")
+						onClicked: {
+							playListRemorse()
 						}
-						MenuItem {
-							text: qsTr("add list")
-							onClicked: {
-								addListRemorse()
-							}
+					}
+					MenuItem {
+						text: qsTr("add list")
+						onClicked: {
+							addListRemorse()
 						}
 					}
 				}
 			}
+		}
 	}
 
 	Component.onDestruction: {

@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../../components"
 
@@ -10,7 +10,6 @@ Page {
 		id: connectListView
 		model: serverList
 		anchors.fill: parent
-		//anchors.bottomMargin: quickControlPanel.visibleSize
 		contentWidth: width
 		header: PageHeader {
 			title: qsTr("servers")

@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../../components"
 
@@ -325,11 +325,12 @@ Page {
 									anchors.fill: parent
 									visible: !coverImage.ready && showCoverNowPlaying
 
-									Image {
-										anchors.fill: parent
+									Icon {
 										source: "qrc:images/pictogram.svg"
 										sourceSize.width: Screen.width / 2
 										sourceSize.height: Screen.width / 2
+										anchors.centerIn: parent
+										color: Theme.primaryColor
 									}
 								}
 							}
@@ -594,7 +595,9 @@ Page {
 						}
 						IconButton {
 							id: stopButton
-							icon.source: "qrc:images/icon-m-stop.png"
+							icon.source: "qrc:images/icon-l-stop.svg"
+							icon.sourceSize.width: Theme.iconSizeLarge
+							icon.sourceSize.height: Theme.iconSizeLarge
 							onClicked: stop()
 						}
 						IconButton {

@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../components"
 
@@ -44,37 +44,28 @@ CoverBackground {
 			}
 			GradientStop {
 				position: 0.7
-				//color: Qt.rgba(0.0, 0.0, 0.0, 0.3)
 				color: Theme.rgba(Theme.highlightColor, 0.2)
 			}
 			GradientStop {
 				position: 1.0
 				color: Theme.rgba(Theme.highlightColor, 0.5)
-				//color: Qt.rgba(0.0, 0.0, 0.0, 0.8)
 			}
 		}
 	}
 
-	Image {
+	Icon {
 		id: logo
 		visible: !coverimg.ready && mTitle == ""
-		source: "qrc:images/pictogram.png"
+		source: "qrc:images/pictogram.svg"
+		sourceSize.width: Theme.iconSizeExtraLarge
+		sourceSize.height: Theme.iconSizeExtraLarge
 		anchors.centerIn: parent
+		color: Theme.primaryColor
 	}
 
 	onStatusChanged: {
 		recheckActive()
 	}
-
-	//	Image{
-	//		visible: (stopped||(coverimg.sourceprimary==""&&coverimg.sourcesecondary==""))
-	//		anchors.centerIn: coverrpage
-	//		source: "qrc:/images/smpc-big.png"
-	//		width: coverpage.width-(coverpage.width/3)
-	//		height: width
-	//		smooth: true
-	//		opacity: 0.8
-	//	}
 
 	Label {
 		id: textLabel
@@ -94,7 +85,7 @@ CoverBackground {
 		id: coverAction
 
 		CoverAction {
-			iconSource: playbuttoniconsourcecover //"image://theme/icon-cover-pause"
+			iconSource: playbuttoniconsourcecover
 			onTriggered: play()
 		}
 

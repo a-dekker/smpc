@@ -1,11 +1,11 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../../components"
 
 Page {
 	id: currentSongLarge_page
-
 	allowedOrientations: Orientation.All
+
 	Item {
 		id: landscapeImageRow
 		anchors.verticalCenter: parent.verticalCenter
@@ -24,15 +24,18 @@ Page {
 			}
 			cache: false
 			fillMode: Image.PreserveAspectCrop
+
 			Rectangle {
 				color: Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
 				anchors.fill: parent
 				visible: albumImgLandscape.status != Image.Ready
-				Image {
-					anchors.fill: parent
+
+				Icon {
 					source: "qrc:images/pictogram.svg"
 					sourceSize.width: Screen.width / 2
 					sourceSize.height: Screen.width / 2
+					anchors.centerIn: parent
+					color: Theme.primaryColor
 				}
 			}
 		}
@@ -63,24 +66,6 @@ Page {
 				}
 			}
 		}
-
-//		Rectangle {
-//			anchors.fill: landscapeImageRow
-//			gradient: Gradient {
-//				GradientStop {
-//					position: 0.5
-//					color: Qt.rgba(0.0, 0.0, 0.0, 0.0)
-//				}
-//				GradientStop {
-//					position: 0.7
-//					color: Qt.rgba(0.0, 0.0, 0.0, 0.3)
-//				}
-//				GradientStop {
-//					position: 1.0
-//					color: Qt.rgba(0.0, 0.0, 0.0, 1.0)
-//				}
-//			}
-//		}
 	}
 
 	Column {

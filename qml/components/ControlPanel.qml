@@ -1,6 +1,5 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
-
 
 DockedPanel {
 	id: controlPanel
@@ -95,7 +94,9 @@ DockedPanel {
 
 			IconButton {
 				id: stopButton
-				icon.source: "qrc:images/icon-m-stop.png"
+				icon.source: "qrc:images/icon-l-stop.svg"
+				icon.sourceSize.width: Theme.iconSizeLarge
+				icon.sourceSize.height: Theme.iconSizeLarge
 				onClicked: stop()
 			}
 

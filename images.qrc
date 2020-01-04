@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/images">
+        <file alias="pictogram.svg">icons/scalable/pictogram.svg</file>
+        <file alias="icon-l-stop.svg">icons/scalable/icon-l-stop.svg</file>
+    </qresource>
+</RCC>

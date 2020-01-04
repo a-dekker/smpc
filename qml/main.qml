@@ -1,12 +1,9 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "pages"
 import org.nemomobile.mpris 1.0
-
 // FIXME to harbour.smpc.components.whatever import
 import "components"
-
-
 
 ApplicationWindow {
 	id: mainWindow
@@ -51,7 +48,6 @@ ApplicationWindow {
 	signal requestSearch(variant request)
 	// Request an MPD database update (remote mpd db)
 	signal updateDB()
-
 
 	// Signals controller that stack of filemodels can be wiped
 	signal popfilemodelstack()
@@ -113,7 +109,6 @@ ApplicationWindow {
 
 	// Propertys of application
 	property string hostname
-
 	property int port
 	property string password
 	property int listfontsize: 12
@@ -162,7 +157,6 @@ ApplicationWindow {
 
 	property Page mPlaylistPage
 	property Page mCurrentSongPage
-
 
 	// JS-functions
 	//TODO separation
