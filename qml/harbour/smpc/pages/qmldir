@@ -1,0 +1,28 @@
+module harbour.smpc.pages.database
+MainPage 1.0 MainPage.qml
+
+# database
+AddToPlaylistDialog 1.0 database/AddToPlaylistDialog.qml
+AlbumInfoPage 1.0 database/AlbumInfoPage.qml
+AlbumListPage 1.0 database/AlbumListPage.qml
+AlbumTracksPage 1.0 database/AlbumTracksPage.qml
+ArtistInfoPage 1.0 database/ArtistInfoPage.qml
+ArtistListPage 1.0 database/ArtistListPage.qml
+CurrentPlaylistPage_large 1.0 database/CurrentPlaylistPage_large.qml
+CurrentPlaylistPage 1.0 database/CurrentPlaylistPage.qml
+CurrentSong_large 1.0 database/CurrentSong_large.qml
+CurrentSong 1.0 database/CurrentSong.qml
+FileBrowserPage 1.0 database/FileBrowserPage.qml
+PlaylistTracksPage 1.0 database/PlaylistTracksPage.qml
+SavedPlaylistsPage 1.0 database/SavedPlaylistsPage.qml
+SearchPage 1.0 database/SearchPage.qml
+
+# settings
+AboutPage 1.0 settings/AboutPage.qml
+ConnectServerPage 1.0 settings/ConnectServerPage.qml
+DatabaseSettings 1.0 settings/DatabaseSettings.qml
+GUISettings 1.0 settings/GUISettings.qml
+OutputsPage 1.0 settings/OutputsPage.qml
+ServerEditPage 1.0 settings/ServerEditPage.qml
+ServerListPage 1.0 settings/ServerListPage.qml
+SettingsPage 1.0 settings/SettingsPage.qml

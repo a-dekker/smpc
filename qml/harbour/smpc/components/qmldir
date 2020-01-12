@@ -1,0 +1,22 @@
+module harbour.smpc.components
+AlbumDelegate 1.0 AlbumDelegate.qml
+AlbumShowDelegate 1.0 AlbumShowDelegate.qml
+ArtistDelegate 1.0 ArtistDelegate.qml
+ArtistListDelegate 1.0 ArtistListDelegate.qml
+ArtistShowDelegate 1.0 ArtistShowDelegate.qml
+ControlPanel 1.0 ControlPanel.qml
+DeletePlaylistDialog 1.0 DeletePlaylistDialog.qml
+FileDelegate 1.0 FileDelegate.qml
+Heading 1.0 Heading.qml
+InfoBanner 1.0 InfoBanner.qml
+MainGridItem 1.0 MainGridItem.qml
+PlaylistSectionDelegate 1.0 PlaylistSectionDelegate.qml
+SavePlaylistDialog 1.0 SavePlaylistDialog.qml
+ScrollLabel 1.0 ScrollLabel.qml
+Sections 1.0 SectionScroller.js
+SectionScroller 1.0 SectionScroller.qml
+SongDialog 1.0 SongDialog.qml
+SpeedSections 1.0 SpeedScroller.js
+SpeedScroller 1.0 SpeedScroller.qml
+ToggleImage 1.0 ToggleImage.qml
+URLInputDialog 1.0 URLInputDialog.qml

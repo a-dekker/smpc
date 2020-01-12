@@ -1,9 +1,7 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
-import "pages"
 import org.nemomobile.mpris 1.0
-// FIXME to harbour.smpc.components.whatever import
-import "components"
+import harbour.smpc.components 1.0
 
 ApplicationWindow {
 	id: mainWindow
@@ -353,6 +351,6 @@ ApplicationWindow {
 	}
 	bottomMargin: quickControlPanel.visibleSize
 
-	initialPage: Qt.resolvedUrl("pages/MainPage.qml")
+	initialPage: Qt.resolvedUrl("harbour/smpc/pages/MainPage.qml")
 	cover: Qt.resolvedUrl("cover/CoverPage.qml")
 }

@@ -1,6 +1,6 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
-import "../../components"
+import harbour.smpc.components 1.0
 
 Page {
 	id: currentPlaylistPage

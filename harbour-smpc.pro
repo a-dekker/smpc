@@ -6,6 +6,7 @@ QT += network gui sql multimedia svg
 CONFIG += sailfishapp
 
 INCLUDEPATH += src
+QML_IMPORT_PATH += qml
 
 # C++ sources
 SOURCES += \
@@ -66,56 +67,6 @@ HEADERS += \
 	src/streamplayer.h
 
 DISTFILES += \
-	qml/components/AlbumDelegate.qml \
-	qml/components/AlbumListDelegate.qml \
-	qml/components/AlbumShowDelegate.qml \
-	qml/components/ArtistDelegate.qml \
-	qml/components/ArtistListDelegate.qml \
-	qml/components/ArtistShowDelegate.qml \
-	qml/components/ControlPanel.qml \
-	qml/components/DeletePlaylistDialog.qml \
-	qml/components/FileDelegate.qml \
-	qml/components/Heading.qml \
-	qml/components/InfoBanner.qml \
-	qml/components/MainGridItem.qml \
-	qml/components/PlaylistSectionDelegate.qml \
-	qml/components/SavePlaylistDialog.qml \
-	qml/components/ScrollLabel.qml \
-	qml/components/SectionScroller.js \
-	qml/components/SectionScroller.qml \
-	qml/components/SongDialog.qml \
-	qml/components/SpeedScroller.js \
-	qml/components/SpeedScroller.qml \
-	qml/components/ToggleImage.qml \
-	qml/components/URLInputDialog.qml \
-	qml/components/qmldir \
-	qml/cover/CoverPage.qml \
-	qml/pages/MainPage.qml \
-	qml/pages/database/AddToPlaylistDialog.qml \
-	qml/pages/database/AlbumInfoPage.qml \
-	qml/pages/database/AlbumListPage.qml \
-	qml/pages/database/AlbumTracksPage.qml \
-	qml/pages/database/ArtistInfoPage.qml \
-	qml/pages/database/ArtistInformationPage.qml \
-	qml/pages/database/ArtistListPage.qml \
-	qml/pages/database/CurrentPlaylistPage.qml \
-	qml/pages/database/CurrentPlaylistPage_large.qml \
-	qml/pages/database/CurrentPlaylistPage_large.qml \
-	qml/pages/database/CurrentSong.qml \
-	qml/pages/database/CurrentSong_large.qml \
-	qml/pages/database/FileBrowserPage.qml \
-	qml/pages/database/PlaylistTracksPage.qml \
-	qml/pages/database/SavedPlaylistsPage.qml \
-	qml/pages/database/SearchPage.qml \
-	qml/pages/database/SongPage.qml \
-	qml/pages/settings/AboutPage.qml \
-	qml/pages/settings/ConnectServerPage.qml \
-	qml/pages/settings/DatabaseSettings.qml \
-	qml/pages/settings/GUISettings.qml \
-	qml/pages/settings/OutputsPage.qml \
-	qml/pages/settings/ServerEditPage.qml \
-	qml/pages/settings/ServerListPage.qml \
-	qml/pages/settings/SettingsPage.qml \
 	qml/main.qml \
 	rpm/harbour-smpc.changes.in \
 	rpm/harbour-smpc.changes.run.in \
@@ -137,50 +88,3 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += \
 	translations/$${TARGET}_de.ts \
 	translations/$${TARGET}_fr.ts
-
-#lupdate_only {
-#SOURCES += \
-#	qml/components/AlbumDelegate.qml \
-#	qml/components/AlbumListDelegate.qml \
-#	qml/components/AlbumShowDelegate.qml \
-#	qml/components/ArtistDelegate.qml \
-#	qml/components/ArtistListDelegate.qml \
-#	qml/components/ArtistShowDelegate.qml \
-#	qml/components/ControlPanel.qml \
-#	qml/components/FileDelegate.qml \
-#	qml/components/Heading.qml \
-#	qml/components/MainGridItem.qml \
-#	qml/components/ScrollLabel.qml \
-#	qml/components/SectionScroller.js \
-#	qml/components/SectionScroller.qml \
-#	qml/components/SongDialog.qml \
-#	qml/components/SpeedScroller.js \
-#	qml/components/SpeedScroller.qml \
-#	qml/components/ToggleImage.qml \
-#	qml/cover/CoverPage.qml \
-#	qml/pages/MainPage.qml \
-#	qml/pages/database/AddToPlaylistDialog.qml \
-#	qml/pages/database/AlbumInfoPage.qml \
-#	qml/pages/database/AlbumListPage.qml \
-#	qml/pages/database/AlbumTracksPage.qml \
-#	qml/pages/database/ArtistInfoPage.qml \
-#	qml/pages/database/ArtistInformationPage.qml \
-#	qml/pages/database/ArtistListPage.qml \
-#	qml/pages/database/CurrentPlaylistPage.qml \
-#	qml/pages/database/CurrentPlaylistPage_large.qml \
-#	qml/pages/database/CurrentSong.qml \
-#	qml/pages/database/FileBrowserPage.qml \
-#	qml/pages/database/PlaylistTracksPage.qml \
-#	qml/pages/database/SavedPlaylistsPage.qml \
-#	qml/pages/database/SearchPage.qml \
-#	qml/pages/database/SongPage.qml \
-#	qml/pages/settings/AboutPage.qml \
-#	qml/pages/settings/ConnectServerPage.qml \
-#	qml/pages/settings/DatabaseSettings.qml \
-#	qml/pages/settings/GUISettings.qml \
-#	qml/pages/settings/OutputsPage.qml \
-#	qml/pages/settings/ServerEditPage.qml \
-#	qml/pages/settings/ServerListPage.qml \
-#	qml/pages/settings/SettingsPage.qml \
-#	qml/main.qml
-#}
