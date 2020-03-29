@@ -24,7 +24,7 @@ Page {
 		}
 		horizontalAlignment: Text.AlignHCenter
 		color: Theme.highlightColor
-		text: connected ? qsTr("connected to: %1").arg(profilename) : qsTr("disconnected")
+		text: connected ? qsTr("Connected to: %1").arg(profilename) : qsTr("Disconnected")
 	}
 
 	SilicaFlickable {
@@ -90,8 +90,7 @@ Page {
 											x: scale.xScale != 1 ? ((gridItem.width - (2 * Theme.paddingSmall))-itemLabel.width*scale.xScale)/2 : 0
 											y: scale.yScale != 1 ? ((gridItem.height - (2 * Theme.paddingSmall))-itemLabel.height*scale.yScale)/2 : 0
 										}
-									]
-*/
+									]*/
 									 text: name
 								}
 							}
@@ -108,37 +107,37 @@ Page {
 
 	Component.onCompleted: {
 		mainMenuModel.append({
-			name: qsTr("playlist"),
+			name: qsTr("Playlist"),
 			ident: "playlist",
 			icon: "image://theme/icon-m-document"
 		})
 		mainMenuModel.append({
-			name: qsTr("artists"),
+			name: qsTr("Artists"),
 			ident: "artists",
 			icon: "image://theme/icon-m-mic"
 		})
 		mainMenuModel.append({
-			name: qsTr("albums"),
+			name: qsTr("Albums"),
 			ident: "albums",
 			icon: "image://theme/icon-m-music"
 		})
 		mainMenuModel.append({
-			name: qsTr("files"),
+			name: qsTr("Files"),
 			ident: "files",
 			icon: "image://theme/icon-m-folder"
 		})
 		mainMenuModel.append({
-			name: qsTr("search"),
+			name: qsTr("Search"),
 			ident: "search",
 			icon: "image://theme/icon-m-search"
 		})
 		mainMenuModel.append({
-			name: qsTr("connect"),
+			name: qsTr("Connect"),
 			ident: "connectto",
 			icon: "image://theme/icon-m-computer"
 		})
 		mainMenuModel.append({
-			name: qsTr("settings"),
+			name: qsTr("Settings"),
 			ident: "settings",
 			icon: "image://theme/icon-m-developer-mode"
 		})

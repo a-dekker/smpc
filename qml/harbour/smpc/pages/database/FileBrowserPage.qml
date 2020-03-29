@@ -25,24 +25,24 @@ Page {
 			anchors.fill: parent
 			contentWidth: width
 			header: PageHeader {
-				title: qsTr("filebrowser")
+				title: qsTr("Filebrowser")
 			}
 			PullDownMenu {
 				MenuItem {
-					text: qsTr("home")
+					text: qsTr("Home")
 					onClicked: {
 						pageStack.clear()
 						pageStack.push(initialPage)
 					}
 				}
 				MenuItem {
-					text: qsTr("add folder")
+					text: qsTr("Add folder")
 					onClicked: {
 						addFiles(filepath)
 					}
 				}
 				MenuItem {
-					text: qsTr("play folder")
+					text: qsTr("Play folder")
 					onClicked: {
 						playFiles(filepath)
 					}

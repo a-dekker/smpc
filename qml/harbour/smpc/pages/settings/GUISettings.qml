@@ -29,7 +29,7 @@ Page {
 
 			ComboBox {
 				id: albumViewCB
-				label: qsTr("album view:")
+				label: qsTr("Album view:")
 				anchors {
 					right: parent.right
 					left: parent.left
@@ -55,7 +55,7 @@ Page {
 
 			ComboBox {
 				id: artistviewCB
-				label: qsTr("artist view:")
+				label: qsTr("Artist view:")
 				anchors {
 					right: parent.right
 					left: parent.left
@@ -81,7 +81,7 @@ Page {
 
 			ComboBox {
 				id: imageSizeCB
-				label: qsTr("list image size:")
+				label: qsTr("List image size:")
 				anchors {
 					right: parent.right
 					left: parent.left
@@ -89,16 +89,16 @@ Page {
 				currentIndex: listImageSize
 				menu: ContextMenu {
 					MenuItem {
-						text: qsTr("disabled")
+						text: qsTr("Disabled")
 					}
 					MenuItem {
-						text: qsTr("small")
+						text: qsTr("Small")
 					}
 					MenuItem {
-						text: qsTr("medium")
+						text: qsTr("Medium")
 					}
 					MenuItem {
-						text: qsTr("large")
+						text: qsTr("Large")
 					}
 				}
 
@@ -117,7 +117,7 @@ Page {
 
 			TextSwitch {
 				id: sortAlbumsByYearSwitch
-				text: qsTr("sort albums of one artist by year")
+				text: qsTr("Sort albums of one artist by year")
 				checked: sortAlbumsByYear
 				onClicked: {
 					if (checked) {
@@ -129,7 +129,7 @@ Page {
 			}
 			TextSwitch{
 				id: albumArtistSwitch
-				text: qsTr("use albumartist in artists view")
+				text: qsTr("Use albumartist in artists view")
 				checked: artistsViewUseAlbumArtist
 				onClicked: {
 					if (checked) {
@@ -141,7 +141,7 @@ Page {
 			}
 			TextSwitch{
 				id: coverNowPlayingSwitch
-				text: qsTr("show cover in now playing")
+				text: qsTr("Show cover in now playing")
 				checked: showCoverNowPlaying
 				onClicked: {
 					if (checked) {
@@ -154,7 +154,7 @@ Page {
 			}
 			TextSwitch{
 				id: sectionInPlaylistSwitch
-				text: qsTr("show sections in playlists")
+				text: qsTr("Show sections in playlists")
 				checked: sectionsInPlaylist
 				onClicked: {
 					if (checked) {
@@ -167,7 +167,7 @@ Page {
 			}
 			TextSwitch{
 				id: sectionInSearchSwitch
-				text: qsTr("show sections in search")
+				text: qsTr("Show sections in search")
 				checked: sectionsInSearch
 				onClicked: {
 					if (checked) {
@@ -179,7 +179,7 @@ Page {
 			}
 			TextSwitch{
 				id: showViewModeLandscapeSwitch
-				text: qsTr("use show mode in landscape")
+				text: qsTr("Use show mode in landscape")
 				checked: useShowView
 				onClicked: {
 					if (checked) {

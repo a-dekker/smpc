@@ -11,7 +11,6 @@ Page {
 	Loader {
 		id: gridViewLoader
 		anchors.fill: parent
-		//anchors.bottomMargin: quickControlPanel.visibleSize
 		active: false
 
 		sourceComponent: Component {
@@ -46,7 +45,7 @@ Page {
 				ScrollDecorator {}
 
 				header: PageHeader {
-					title: qsTr("artists")
+					title: qsTr("Artists")
 					width: parent.width
 					height: Theme.itemSizeMedium
 				}
@@ -59,7 +58,6 @@ Page {
 	Loader {
 		id: listViewLoader
 		anchors.fill: parent
-		//anchors.bottomMargin: quickControlPanel.visibleSize
 		active: false
 
 		sourceComponent: Component {

@@ -11,14 +11,15 @@ Page {
 		clip: true
 		contentWidth: width
 		header: PageHeader {
-			title: qsTr("settings")
+			title: qsTr("Settings")
 		}
 		model: settingsMenuModel
 		delegate: BackgroundItem {
 			Label {
 				clip: true
+				x: Theme.paddingLarge
 				anchors {
-					horizontalCenter: parent.horizontalCenter
+					//horizontalCenter: parent.horizontalCenter
 					verticalCenter: parent.verticalCenter
 					leftMargin: listPadding
 					rightMargin: listPadding
@@ -32,12 +33,12 @@ Page {
 	}
 
 	Component.onCompleted: {
-		settingsMenuModel.append({name: qsTr("server settings"), "ident": "servers"})
+		settingsMenuModel.append({name: qsTr("Server settings"), "ident": "servers"})
 		settingsMenuModel.append({name: qsTr("database settings"), "ident": "database"})
-		settingsMenuModel.append({name: qsTr("gui settings"), "ident": "guisettings"})
-		settingsMenuModel.append({name: qsTr("outputs"), "ident": "outputs"})
-		settingsMenuModel.append({name: qsTr("update database"), "ident": "updatedb"})
-		settingsMenuModel.append({name: qsTr("about"), "ident": "about"})
+		settingsMenuModel.append({name: qsTr("Gui settings"), "ident": "guisettings"})
+		settingsMenuModel.append({name: qsTr("Outputs"), "ident": "outputs"})
+		settingsMenuModel.append({name: qsTr("Update MPD database"), "ident": "updatedb"})
+		settingsMenuModel.append({name: qsTr("About"), "ident": "about"})
 		// Debug-only
 		if (mDebugEnabled) {
 			settingsMenuModel.append({name: qsTr("garbage collection"), "ident": "gc"})

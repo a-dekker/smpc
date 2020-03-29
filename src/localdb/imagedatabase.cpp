@@ -128,8 +128,8 @@ bool ImageDatabase::hasAlbumArt(QString album,QString artist)
 {
     QSqlQuery query;
     query.prepare("SELECT * FROM albums WHERE "
-                  "albumname=\"" + album + "\" AND "
-                  "artistname=\"" + artist + "\"");
+                  "albumname='" + album + "' AND "
+                  "artistname='" + artist + "'");
     // qDebug() << "Check for image: " << query.lastQuery();
     query.exec();
 
@@ -334,8 +334,8 @@ int ImageDatabase::imageIDFromAlbumArtist(QString album, QString artist)
 {
     QSqlQuery query;
     query.prepare("SELECT * FROM albums WHERE "
-                  "albumname=\"" + album + "\" AND "
-                  "artistname=\"" + artist + "\"");
+                  "albumname='" + album + "' AND "
+                  "artistname='" + artist + "'");
     // qDebug() << "Check for image: " << query.lastQuery();
     query.exec();
 

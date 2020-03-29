@@ -761,7 +761,7 @@ void NetworkAccess::addAlbumToPlaylist(QString album)
         sendMPDCommand("command_list_begin\n");
         for (int i=0;i<temptracks->length();i++)
         {
-            sendMPDCommand(QString("add \"") + temptracks->at(i)->getFileUri() + "\"\n");
+            sendMPDCommand(QString("add \"") + temptracks->at(i)->getFileUri().toUtf8().replace("\\", "\\\\").replace("\"", "\\\"") + "\"\n");
         }
         sendMPDCommand("command_list_end\n");
         MPD_WHILE_PARSE_LOOP
@@ -785,13 +785,15 @@ void NetworkAccess::addArtistAlbumToPlaylist(QString artist, QString album)
         QList<MpdTrack*> *temptracks = new QList<MpdTrack*>();
         //album.replace(QString("\""),QString("\\\""));
         QString response ="";
+        artist = artist.replace("\\", "");
         temptracks = getAlbumTracks_prv(album,artist);
+        qDebug() << "artiest" << artist;
 
         //Add Tracks to Playlist
         sendMPDCommand("command_list_begin\n");
         for (int i=0;i<temptracks->length();i++)
         {
-            sendMPDCommand(QString("add \"") + temptracks->at(i)->getFileUri() + "\"\n");
+            sendMPDCommand(QString("add \"") + temptracks->at(i)->getFileUri().toUtf8().replace("\\", "\\\\").replace("\"", "\\\"") + "\"\n");
         }
         sendMPDCommand("command_list_end\n");
         MPD_WHILE_PARSE_LOOP
@@ -856,6 +858,8 @@ void NetworkAccess::playAlbum(QString album)
 void NetworkAccess::addTrackToPlaylist(QString fileuri)
 {
     if (connected()) {
+        fileuri = fileuri.toUtf8().replace("\\", "\\\\").replace("\"", "\\\"");
+        // qDebug() << fileuri + "\"\n";
         sendMPDCommand(QString("add \"") + fileuri + "\"\n");
         QString response ="";
         //Clear read buffer
@@ -959,6 +963,7 @@ void NetworkAccess::addTrackAfterCurrent(QString fileuri)
 {
     quint32 currentPosition = getPlaybackID();
     if (connected()) {
+        fileuri = fileuri.toUtf8().replace("\\", "\\\\").replace("\"", "\\\"");
         sendMPDCommand(QString("addid \"") + fileuri + "\" " + QString::number(currentPosition+1) + "\n");
         QString response ="";
         //Clear read buffer
@@ -980,6 +985,7 @@ void NetworkAccess::playFiles(QString fileuri)
 {
     clearPlaylist();
     if (connected()) {
+        fileuri = fileuri.toUtf8().replace("\\", "\\\\").replace("\"", "\\\"");
         sendMPDCommand(QString("add \"") + fileuri + "\"\n");
         QString response ="";
         //Clear read buffer
@@ -1005,6 +1011,7 @@ void NetworkAccess::playFiles(QString fileuri)
 void NetworkAccess::playTrack(QString fileuri)
 {
     if (connected()) {
+        fileuri = fileuri.toUtf8().replace("\\", "\\\\").replace("\"", "\\\"");
         sendMPDCommand(QString("add \"") + fileuri + "\"\n");
         QString response ="";
         //Clear read buffer

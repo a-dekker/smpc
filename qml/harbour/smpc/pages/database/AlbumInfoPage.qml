@@ -19,17 +19,19 @@ Page {
 			bottom: parent.bottom
 			right: parent.right
 			left: parent.left
-			//bottomMargin: quickControlPanel.visibleSize
 		}
 		contentHeight: albumText.implicitHeight
 		clip: true
 
-		ScrollDecorator{}
+		ScrollDecorator {}
+
 		Label {
 			id: albumText
-			width: parent.width
+			x: Theme.paddingMedium
+			y: Theme.paddingMedium
+			width: parent.width - 2 * Theme.paddingMedium
 			height: implicitHeight
-			text: albumInfoText
+			text: albumInfoText + "\n"
 			wrapMode: "WordWrap"
 		}
 	}

@@ -56,13 +56,13 @@ Component {
 		}
 
 		function playArtistRemorse() {
-			remorseAction(qsTr("playing artist"), function () {
+			remorseAction(qsTr("Playing artist"), function () {
 				playArtist(artist)
 			}, 3000)
 		}
 
 		function addArtistRemorse() {
-			remorseAction(qsTr("adding artist"), function () {
+			remorseAction(qsTr("Adding artist"), function () {
 				addArtist(artist)
 			}, 3000)
 		}
@@ -72,7 +72,7 @@ Component {
 
 			ContextMenu {
 				MenuItem {
-					text: qsTr("play artist")
+					text: qsTr("Play artist")
 					onClicked: {
 						if (artist !== "") {
 							playArtistRemorse()
@@ -81,7 +81,7 @@ Component {
 				}
 
 				MenuItem {
-					text: qsTr("add artist to list")
+					text: qsTr("Add artist to list")
 					onClicked: {
 						if (artist !== "") {
 							addArtistRemorse()

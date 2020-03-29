@@ -29,7 +29,7 @@ Page {
 					left: parent.left
 					right: parent.right
 				}
-				placeholderText: qsTr("search value")
+				placeholderText: qsTr("Search value")
 				text: ""
 				//inputMethodHints: Qt.ImhNoPredictiveText
 				EnterKey.onClicked: {
@@ -46,16 +46,16 @@ Page {
 				}
 				menu: ContextMenu {
 					MenuItem {
-						text: qsTr("titles")
+						text: qsTr("Titles")
 					}
 					MenuItem {
-						text: qsTr("albums")
+						text: qsTr("Albums")
 					}
 					MenuItem {
-						text: qsTr("artists")
+						text: qsTr("Artists")
 					}
 					MenuItem {
-						text: qsTr("files")
+						text: qsTr("Files")
 					}
 				}
 			}
@@ -72,26 +72,26 @@ Page {
 			ScrollDecorator {}
 
 			header: PageHeader {
-				title: qsTr("search")
+				title: qsTr("Search")
 				width: searchsongListView.width
 			}
-//			populate: Transition {
-//				NumberAnimation { properties: "x"; from: albumsongs_list_view.width * 2; duration: populateDuration }
-//			}
+			//populate: Transition {
+			//	NumberAnimation { properties: "x"; from: albumsongs_list_view.width * 2; duration: populateDuration }
+			//}
 			clip: true
 			model: tracksModel
 
 			PullDownMenu {
 				enabled: searchsongListView.model !== undefined
 				MenuItem {
-					text: qsTr("new search")
+					text: qsTr("New search")
 					visible: searchsongListView.model !== undefined
 					onClicked: {
 						newSearch()
 					}
 				}
 				MenuItem {
-					text: qsTr("add all results")
+					text: qsTr("Add all results")
 					visible: searchsongListView.model !== undefined
 					onClicked: {
 						deletePlaylist()
@@ -99,7 +99,7 @@ Page {
 					}
 				}
 				MenuItem {
-					text: qsTr("play all results")
+					text: qsTr("Play all results")
 					visible: searchsongListView.model !== undefined
 					onClicked: {
 						deletePlaylist()
@@ -193,37 +193,37 @@ Page {
 					ContextMenu {
 						property int lastHeight: 0
 						MenuItem {
-							text: qsTr("play track")
+							text: qsTr("Play track")
 							onClicked: {
 								playTrackRemorse()
 							}
 						}
 						MenuItem {
-							text: qsTr("add track to list")
+							text: qsTr("Add track to list")
 							onClicked: {
 								addTrackRemorse()
 							}
 						}
 						MenuItem {
-							text: qsTr("play after current")
+							text: qsTr("Play after current")
 							onClicked: {
 								addTrackAfterCurrentRemorse()
 							}
 						}
 						MenuItem {
-							text: qsTr("add album to list")
+							text: qsTr("Add album to list")
 							onClicked: {
 								addAlbumRemorse()
 							}
 						}
 						MenuItem {
-							text: qsTr("play album")
+							text: qsTr("Play album")
 							onClicked: {
 								playAlbumRemorse()
 							}
 						}
 						MenuItem {
-							text: qsTr("add to saved list")
+							text: qsTr("Add to saved list")
 							onClicked: {
 								requestSavedPlaylists()
 								pageStack.push(Qt.resolvedUrl("AddToPlaylistDialog.qml"), {url: path})

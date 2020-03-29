@@ -13,6 +13,32 @@ DockedPanel {
 
 	flickableDirection: Flickable.VerticalFlick
 
+	Item {
+		id: progressBarItem
+
+		height: Theme.paddingSmall
+		width: parent.width
+		visible: (mTitle !== "" && mArtist !== "")
+
+		Rectangle {
+			id: progressBar
+			height: parent.height
+			width: parent.width * (mPosition / mLength)
+			color: Theme.highlightColor
+			opacity: 0.5
+		}
+
+		Rectangle {
+			anchors {
+				left: progressBar.right
+				right: parent.right
+			}
+			height: parent.height
+			color: "black"
+			opacity: Theme.highlightBackgroundOpacity
+		}
+	}
+
 	Image {
 		width: parent.width
 		fillMode: Image.PreserveAspectFit
@@ -22,7 +48,7 @@ DockedPanel {
 	Label {
 		id: notPlayingLabel
 		visible: mTitle == "" && mArtist == ""
-		text: qsTr("not playing")
+		text: qsTr("Not playing")
 		anchors.centerIn: parent
 		color: Theme.primaryColor
 		font.pixelSize: Theme.fontSizeLarge
@@ -131,7 +157,7 @@ DockedPanel {
 			minimumValue: 0
 			value: mVolume
 			valueText: value + "%"
-			label: qsTr("volume")
+			label: qsTr("Volume")
 			onPressedChanged: {
 				if (!pressed) {
 					volumeChanging = false

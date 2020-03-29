@@ -6,7 +6,7 @@ Page {
 
 	PageHeader {
 		id: header
-		title: qsTr("database")
+		title: qsTr("Database")
 		anchors {
 			right: parent.right
 			left: parent.left
@@ -44,7 +44,7 @@ Page {
 				text: qsTr("images: ") + dbStatistic.getImageCount()
 			}
 			Label {
-				text: qsTr("filesize: ") + dbStatistic.getDatabaseSize()/(1048576)+ " MB"
+				text: qsTr("filesize: ") + dbStatistic.getDatabaseSize() / 1048576 + " MB"
 			}
 			Label {
 				text: qsTr("artist downloads remaining: ") + dbStatistic.getArtistQueueSize()
@@ -186,40 +186,39 @@ Page {
 				switch (confirmationRole) {
 					// Clear blacklisted albums
 				case 0:
-					confirmationDialog.headerText = qsTr("clear blacklist albums")
+					confirmationDialog.headerText = qsTr("Clear blacklist albums")
 					confirmationDialog.acceptText = confirmationDialog.headerText
 					confirmationDialog.questionText = qsTr("Do you really want to delete all albums which are blacklisted from local database cache? There is no turning back!")
 					break
 					// Clear artists
 				case 1:
-					confirmationDialog.headerText = qsTr("clear artists")
+					confirmationDialog.headerText = qsTr("Clear artists")
 					confirmationDialog.acceptText = confirmationDialog.headerText
 					confirmationDialog.questionText = qsTr("Do you really want to delete all artists from local database cache? There is no turning back!")
 					break
 					// Clear albums
 				case 2:
-					confirmationDialog.headerText = qsTr("clear albums")
+					confirmationDialog.headerText = qsTr("Clear albums")
 					confirmationDialog.acceptText = confirmationDialog.headerText
 					confirmationDialog.questionText = qsTr("Do you really want to delete all albums from local database cache? There is no turning back!")
 					break
 					// Clear all
 				case 3:
-					confirmationDialog.headerText = qsTr("clear database")
+					confirmationDialog.headerText = qsTr("Clear database")
 					confirmationDialog.acceptText = confirmationDialog.headerText
-					confirmationDialog.questionText = qsTr(
-								"Do you really want to delete the complete local database cache? There is no turning back!")
+					confirmationDialog.questionText = qsTr("Do you really want to delete the complete local database cache? There is no turning back!")
 					break
 				case 4:
-					confirmationDialog.headerText = qsTr("download artists")
+					confirmationDialog.headerText = qsTr("Download artists")
 					confirmationDialog.acceptText = confirmationDialog.headerText
-					confirmationDialog.questionText = qsTr("This will download metadata information for all your artists in your MPD database. " +
-						"This action will run in the background but take some time.")
+					confirmationDialog.questionText = qsTr("This will download metadata information for all your artists in your MPD database. "
+						+ "This action will run in the background but take some time.")
 					break
 				case 5:
-					confirmationDialog.headerText = qsTr("download albums")
+					confirmationDialog.headerText = qsTr("Download albums")
 					confirmationDialog.acceptText = confirmationDialog.headerText
-					confirmationDialog.questionText = qsTr("This will download metadata information for all your albums in your MPD database. " +
-						"This action will run in the background but take some time.")
+					confirmationDialog.questionText = qsTr("This will download metadata information for all your albums in your MPD database. "
+						+ "This action will run in the background but take some time.")
 					break
 				}
 			}

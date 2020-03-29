@@ -11,7 +11,7 @@ Page {
 		anchors.fill: parent
 		contentWidth: width
 		header: PageHeader {
-			title: qsTr("servers")
+			title: qsTr("Servers")
 		}
 
 		PullDownMenu {
@@ -33,8 +33,9 @@ Page {
 
 			Label {
 				clip: true
+				x: Theme.paddingLarge
 				anchors {
-					horizontalCenter: parent.horizontalCenter
+					//horizontalCenter: parent.horizontalCenter
 					verticalCenter: parent.verticalCenter
 					leftMargin: listPadding
 					rightMargin: listPadding

@@ -120,7 +120,7 @@ Component {
 
 			ContextMenu {
 				MenuItem {
-					text: isFile ? qsTr("play file") : (isDirectory ? qsTr("play directory") : qsTr("play playlist"))
+					text: isFile ? qsTr("Play file") : (isDirectory ? qsTr("Play directory") : qsTr("Play playlist"))
 					onClicked: {
 						if (isFile) {
 							playTrackRemorse()
@@ -132,7 +132,7 @@ Component {
 					}
 				}
 				MenuItem {
-					text: isFile ? qsTr("add file") : (isDirectory ? qsTr("add directory") : qsTr("add playlist"))
+					text: isFile ? qsTr("Add file") : (isDirectory ? qsTr("Add directory") : qsTr("Add playlist"))
 					onClicked: {
 						if (isFile) {
 							addTrackRemorse()
@@ -146,7 +146,7 @@ Component {
 				MenuItem {
 					enabled: isFile
 					visible: isFile
-					text: qsTr("play after current")
+					text: qsTr("Play after current")
 					onClicked: {
 						addTrackAfterCurrentRemorse()
 					}
@@ -154,7 +154,7 @@ Component {
 				MenuItem {
 					enabled: isFile
 					visible: isFile
-					text: qsTr("add to saved list")
+					text: qsTr("Add to saved list")
 					onClicked: {
 						requestSavedPlaylists()
 						pageStack.push(Qt.resolvedUrl("../pages/database/AddToPlaylistDialog.qml"), {url: path})

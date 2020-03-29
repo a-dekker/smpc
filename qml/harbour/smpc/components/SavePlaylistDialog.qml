@@ -8,15 +8,15 @@ Dialog {
 		spacing: Theme.paddingMedium
 		anchors.margins: Theme.paddingMedium
 		DialogHeader {
-			acceptText: qsTr("save playlist")
+			acceptText: qsTr("Save playlist")
 		}
 		Label {
-			text: qsTr("playlist name:")
+			text: qsTr("Playlist name:")
 		}
 		TextField {
 			id: playlistNameField
 			width: parent.width
-			placeholderText: qsTr("input playlist name")
+			placeholderText: qsTr("Input playlist name")
 		}
 	}
 	onDone: {

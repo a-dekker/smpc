@@ -68,8 +68,7 @@ HEADERS += \
 
 DISTFILES += \
 	qml/main.qml \
-	rpm/harbour-smpc.changes.in \
-	rpm/harbour-smpc.changes.run.in \
+	rpm/harbour-smpc.changes \
 	rpm/harbour-smpc.spec \
 	rpm/harbour-smpc.yaml \
 	harbour-smpc.desktop \

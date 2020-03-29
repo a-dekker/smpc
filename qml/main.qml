@@ -112,8 +112,12 @@ ApplicationWindow {
 	property int listfontsize: 12
 	property int liststretch: 20
 	property int lastsongid: mpd_status.id
-	property string playbuttoniconsource: mpd_status.playbackStatus === 1 ? "image://theme/icon-l-pause" : "image://theme/icon-l-play"
-	property string playbuttoniconsourcecover: mpd_status.playbackStatus === 1 ? "image://theme/icon-cover-pause" : "image://theme/icon-cover-play"
+	property string playbuttoniconsource: mpd_status.playbackStatus === 1
+		? "image://theme/icon-l-pause"
+		: "image://theme/icon-l-play"
+	property string playbuttoniconsourcecover: mpd_status.playbackStatus === 1
+		? "image://theme/icon-cover-pause"
+		: "image://theme/icon-cover-play"
 	property string volumebuttoniconsource
 	property string lastpath
 	property string artistname
@@ -145,7 +149,9 @@ ApplicationWindow {
 	property bool mShuffle: mpd_status.shuffle
 	property bool mDebugEnabled
 	property bool mPositionSliderActive: false
-	property string mAudioProperties: mpd_status.samplerate + " Hz " + mpd_status.bitDepth + " " + qsTr("bits") + " " + mpd_status.channelCount + " " + qsTr("channels")
+	property string mAudioProperties: mpd_status.samplerate + " Hz "
+		+ mpd_status.bitDepth + " " + qsTr("bits") + " "
+		+ mpd_status.channelCount + " " + qsTr("channels")
 	property string mTrackNr: mpd_status.trackNo
 	property string mBitrate: mpd_status.bitrate + " " + qsTr("kbps")
 	property string mUri: mpd_status.uri
@@ -233,7 +239,8 @@ ApplicationWindow {
 		if (temphours === 0) {
 			temp = ((min < 10 ? "0" : "") + min) + ":" + (sec < 10 ? "0" : "") + sec
 		} else {
-			temp = ((temphours < 10 ? "0" : "") + temphours) + ":" + ((min < 10 ? "0" : "") + min) + ":" + (sec < 10 ? "0" : "") + sec
+			temp = ((temphours < 10 ? "0" : "") + temphours) + ":"
+				+ ((min < 10 ? "0" : "") + min) + ":" + (sec < 10 ? "0" : "") + sec
 		}
 		return temp
 	}
@@ -303,7 +310,8 @@ ApplicationWindow {
 			: mpd_status.playbackStatus === 1
 				? Mpris.Playing
 				: Mpris.Stopped
-		onPlaybackStatusChanged: console.debug("mpd_status.playbackStatus", mpd_status.playbackStatus, playbackStatus, "canPlay", canPlay, "canPause", canPause)
+		onPlaybackStatusChanged: console.debug("mpd_status.playbackStatus", mpd_status.playbackStatus, playbackStatus,
+											   "canPlay", canPlay, "canPause", canPause)
 
 		loopStatus: (mpd_status.repeat ? 1 : 0)
 		shuffle: mpd_status.shuffle

@@ -11,7 +11,7 @@ Page {
 		anchors.fill: parent
 		contentWidth: width
 		header: PageHeader {
-			title: qsTr("outputs")
+			title: qsTr("Outputs")
 		}
 		clip: true
 		model: outputsModel

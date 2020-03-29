@@ -24,14 +24,15 @@ Page {
 
 		ScrollDecorator {}
 		header: PageHeader {
-			title: qsTr("servers")
+			title: qsTr("Servers")
 		}
 		delegate: ListItem {
 			contentHeight: Theme.itemSizeSmall
 
 			Label {
+				x: Theme.paddingLarge
 				anchors {
-					horizontalCenter: parent.horizontalCenter
+					//horizontalCenter: parent.horizontalCenter
 					verticalCenter: parent.verticalCenter
 					leftMargin: listPadding
 					rightMargin: listPadding
@@ -40,13 +41,13 @@ Page {
 			}
 
 			function removeProfileRemorse() {
-				remorseAction(qsTr("removing server profile"), function () {
+				remorseAction(qsTr("Removing server profile"), function () {
 					deleteProfile(index)
 				}, 3000)
 			}
 			menu: ContextMenu {
 				MenuItem {
-					text: qsTr("remove server profile")
+					text: qsTr("Remove server profile")
 					onClicked: {
 						removeProfileRemorse()
 					}

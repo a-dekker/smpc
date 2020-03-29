@@ -1,6 +1,4 @@
 import QtQuick 2.2
-
-import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 Dialog {
@@ -48,7 +46,7 @@ Dialog {
 								left: parent.left
 								right: parent.right
 							}
-							acceptText: qsTr("add song")
+							acceptText: qsTr("Add song")
 						}
 
 						Item {
@@ -145,9 +143,9 @@ Dialog {
 								}
 							}
 							Label {
-								text: qsTr("length:")
+								text: qsTr("Length:")
 								color: Theme.secondaryColor
-								font.pixelSize: fontsizegrey
+								font.pixelSize: fontsize
 							}
 							Label {
 								id: lengthText
@@ -161,9 +159,9 @@ Dialog {
 								}
 							}
 							Label {
-								text: qsTr("date:")
+								text: qsTr("Date:")
 								color: Theme.secondaryColor
-								font.pixelSize: fontsizegrey
+								font.pixelSize: fontsize
 							}
 							Label {
 								id: dateText
@@ -177,9 +175,9 @@ Dialog {
 								}
 							}
 							Label {
-								text: qsTr("nr.:")
+								text: qsTr("Nr.:")
 								color: Theme.secondaryColor
-								font.pixelSize: fontsizegrey
+								font.pixelSize: fontsize
 							}
 							Label {
 								id: nrText
@@ -195,7 +193,7 @@ Dialog {
 							Label {
 								text: qsTr("Musicbrainz track id:")
 								color: Theme.secondaryColor
-								font.pixelSize: fontsizegrey
+								font.pixelSize: fontsize
 							}
 							Label {
 								id: trackmbidText
@@ -211,7 +209,7 @@ Dialog {
 							Label {
 								text: qsTr("Musicbrainz album id:")
 								color: Theme.secondaryColor
-								font.pixelSize: fontsizegrey
+								font.pixelSize: fontsize
 							}
 							Label {
 								id: albummbidText
@@ -227,7 +225,7 @@ Dialog {
 							Label {
 								text: qsTr("Musicbrainz artist id:")
 								color: Theme.secondaryColor
-								font.pixelSize: fontsizegrey
+								font.pixelSize: fontsize
 							}
 							Label {
 								id: artistmbidText
@@ -241,7 +239,7 @@ Dialog {
 								}
 							}
 							Label {
-								text: qsTr("uri:")
+								text: qsTr("URI:")
 								color: Theme.secondaryColor
 								font.pixelSize: fontsizegrey
 							}
@@ -260,20 +258,20 @@ Dialog {
 
 						PullDownMenu {
 							MenuItem {
-								text: qsTr("add song")
+								text: qsTr("Add song")
 								onClicked: {
 									accept()
 								}
 							}
 							MenuItem {
-								text: qsTr("play after current")
+								text: qsTr("Play after current")
 								onClicked: {
 									addSongAfterCurrent(filename)
 									pageStack.navigateBack(PageStackAction.Animated)
 								}
 							}
 							MenuItem {
-								text: qsTr("play song")
+								text: qsTr("Play song")
 								onClicked: {
 									playSong(filename)
 									pageStack.navigateBack(PageStackAction.Animated)
@@ -389,7 +387,7 @@ Dialog {
 
 						DialogHeader {
 							id: header
-							acceptText: qsTr("add song")
+							acceptText: qsTr("Add song")
 						}
 
 						Label {
@@ -425,104 +423,92 @@ Dialog {
 							}
 							wrapMode: "WrapAnywhere"
 						}
-						Label {
-							text: qsTr("length:")
-							color: Theme.secondaryColor
-							font.pixelSize: fontsizegrey
+						Row {
+							Label {
+								text: qsTr("Length:")
+								color: Theme.secondaryColor
+								font.pixelSize: fontsizegrey
+							}
+							Label {
+								id: lengthText
+								text: lengthtext
+								color: Theme.primaryColor
+								font.pixelSize: fontsize
+								wrapMode: "WordWrap"
+							}
 						}
-						Label {
-							id: lengthText
-							text: lengthtext
-							color: Theme.primaryColor
-							font.pixelSize: fontsize
-							wrapMode: "WordWrap"
-							anchors {
-								left: parent.left
-								right: parent.right
+						Row {
+							Label {
+								text: qsTr("Date:")
+								color: Theme.secondaryColor
+								font.pixelSize: fontsize
+							}
+							Label {
+								id: dateText
+								text: date
+								color: Theme.primaryColor
+								font.pixelSize: fontsize
+								wrapMode: "WordWrap"
+							}
+						}
+						Row {
+							Label {
+								text: qsTr("Nr.:")
+								color: Theme.secondaryColor
+								font.pixelSize: fontsize
+							}
+							Label {
+								id: nrText
+								text: nr
+								color: Theme.primaryColor
+								font.pixelSize: fontsize
+								wrapMode: "WordWrap"
+							}
+						}
+						Row {
+							Label {
+								text: qsTr("Musicbrainz track id:")
+								color: Theme.secondaryColor
+								font.pixelSize: fontsize
+							}
+							Label {
+								id: trackmbidText
+								text: trackmbid
+								color: Theme.primaryColor
+								font.pixelSize: fontsize
+								wrapMode: "WordWrap"
+							}
+						}
+						Row {
+							Label {
+								text: qsTr("Musicbrainz album id:")
+								color: Theme.secondaryColor
+								font.pixelSize: fontsize
+							}
+							Label {
+								id: albummbidText
+								text: albummbid
+								color: Theme.primaryColor
+								font.pixelSize: fontsize
+								wrapMode: "WordWrap"
+							}
+						}
+						Row {
+							Label {
+								text: qsTr("Musicbrainz artist id:")
+								color: Theme.secondaryColor
+								font.pixelSize: fontsizegrey
+							}
+							Label {
+								id: artistmbidText
+								text: artistmbid
+								color: Theme.primaryColor
+								font.pixelSize: fontsize
+								wrapMode: "WordWrap"
 							}
 						}
 						Label {
-							text: qsTr("date:")
-							color: Theme.secondaryColor
-							font.pixelSize: fontsizegrey
-						}
-						Label {
-							id: dateText
-							text: date
-							color: Theme.primaryColor
-							font.pixelSize: fontsize
-							wrapMode: "WordWrap"
-							anchors {
-								left: parent.left
-								right: parent.right
-							}
-						}
-						Label {
-							text: qsTr("nr.:")
-							color: Theme.secondaryColor
-							font.pixelSize: fontsizegrey
-						}
-						Label {
-							id: nrText
-							text: nr
-							color: Theme.primaryColor
-							font.pixelSize: fontsize
-							wrapMode: "WordWrap"
-							anchors {
-								left: parent.left
-								right: parent.right
-							}
-						}
-						Label {
-							text: qsTr("Musicbrainz track id:")
-							color: Theme.secondaryColor
-							font.pixelSize: fontsizegrey
-						}
-						Label {
-							id: trackmbidText
-							text: trackmbid
-							color: Theme.primaryColor
-							font.pixelSize: fontsize
-							wrapMode: "WordWrap"
-							anchors {
-								left: parent.left
-								right: parent.right
-							}
-						}
-						Label {
-							text: qsTr("Musicbrainz album id:")
-							color: Theme.secondaryColor
-							font.pixelSize: fontsizegrey
-						}
-						Label {
-							id: albummbidText
-							text: albummbid
-							color: Theme.primaryColor
-							font.pixelSize: fontsize
-							wrapMode: "WordWrap"
-							anchors {
-								left: parent.left
-								right: parent.right
-							}
-						}
-						Label {
-							text: qsTr("Musicbrainz artist id:")
-							color: Theme.secondaryColor
-							font.pixelSize: fontsizegrey
-						}
-						Label {
-							id: artistmbidText
-							text: artistmbid
-							color: Theme.primaryColor
-							font.pixelSize: fontsize
-							wrapMode: "WordWrap"
-							anchors {
-								left: parent.left
-								right: parent.right
-							}
-						}
-						Label {
-							text: qsTr("uri:")
+							text: qsTr("URI:")
 							color: Theme.secondaryColor
 							font.pixelSize: fontsizegrey
 						}
@@ -541,20 +527,20 @@ Dialog {
 
 					PullDownMenu {
 						MenuItem {
-							text: qsTr("add song")
+							text: qsTr("Add song")
 							onClicked: {
 								accept()
 							}
 						}
 						MenuItem {
-							text: qsTr("play after current")
+							text: qsTr("Play after current")
 							onClicked: {
 								addSongAfterCurrent(filename)
 								pageStack.navigateBack(PageStackAction.Animated)
 							}
 						}
 						MenuItem {
-							text: qsTr("play song")
+							text: qsTr("Play song")
 							onClicked: {
 								playSong(filename)
 								pageStack.navigateBack(PageStackAction.Animated)

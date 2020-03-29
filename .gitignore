@@ -1,1 +1,31 @@
+# C++ objects and libs
+
+*.slo
+*.lo
+*.o
+*.a
+*.la
+*.lai
+*.so
+*.dll
+*.dylib
+#rpm/*.yaml <- do not ignore, this is the source for the spec file!
+
+# Qt-es
+
+/.qmake.cache
+/.qmake.stash
 *.pro.user
+*.pro.user.*
+*.moc
+moc_*.cpp
+qrc_*.cpp
+ui_*.h
+Makefile*
+*-build-*
+
+# QtCreator
+
+*.autosave
+
+.tx/config

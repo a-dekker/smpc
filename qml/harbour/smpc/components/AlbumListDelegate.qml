@@ -43,11 +43,11 @@ Component {
 				anchors.verticalCenter: parent.verticalCenter
 				Label {
 					id: albumLabel
-					text: title === "" ? qsTr("no album tag") : title
+					text: title === "" ? qsTr("No album tag") : title
 				}
 				Label {
 					id: artistLabel
-					text: artist === "" ? qsTr("no artist tag") : artist
+					text: artist === "" ? qsTr("No artist tag") : artist
 				}
 			}
 		}
@@ -68,13 +68,13 @@ Component {
 		}
 
 		function playAlbumRemorse() {
-			remorseAction(qsTr("playing album"), function () {
+			remorseAction(qsTr("Playing album"), function () {
 				playAlbum([artist, title])
 			}, 3000)
 		}
 
 		function addAlbumRemorse() {
-			remorseAction(qsTr("adding album"), function () {
+			remorseAction(qsTr("Adding album"), function () {
 				addAlbum([artist, title])
 			}, 3000)
 		}
@@ -84,15 +84,16 @@ Component {
 
 			ContextMenu {
 				MenuItem {
-					text: qsTr("play album")
+					text: qsTr("Play album")
 					onClicked: {
 						if (title !== "") {
 							playAlbumRemorse()
 						}
 					}
 				}
+
 				MenuItem {
-					text: qsTr("add album to list")
+					text: qsTr("Add album to list")
 					onClicked: {
 						if (title !== "") {
 							addAlbumRemorse()

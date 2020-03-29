@@ -36,7 +36,7 @@ Page {
 				}
 				quickScrollEnabled: jollaQuickscroll
 				header: PageHeader {
-					title: artistname !== "" ? artistname : qsTr("albums")
+					title: artistname !== "" ? artistname : qsTr("Albums")
 					width: parent.width
 					height: Theme.itemSizeMedium
 				}
@@ -44,13 +44,13 @@ Page {
 				PullDownMenu {
 					visible: artistname !== ""
 					MenuItem {
-						text: qsTr("add albums")
+						text: qsTr("Add albums")
 						onClicked: {
 							addArtist(artistname)
 						}
 					}
 					MenuItem {
-						text: qsTr("play albums")
+						text: qsTr("Play albums")
 						onClicked: {
 							playArtist(artistname)
 						}
@@ -89,7 +89,7 @@ Page {
 				}
 
 				header: PageHeader {
-					title: artistname !== "" ? artistname : qsTr("albums")
+					title: artistname !== "" ? artistname : qsTr("Albums")
 					width: parent.width
 					height: Theme.itemSizeMedium
 				}
@@ -97,13 +97,13 @@ Page {
 				PullDownMenu {
 					enabled: artistname !== ""
 					MenuItem {
-						text: qsTr("add albums")
+						text: qsTr("Add albums")
 						onClicked: {
 							addArtist(artistname)
 						}
 					}
 					MenuItem {
-						text: qsTr("play albums")
+						text: qsTr("Play albums")
 						onClicked: {
 							playArtist(artistname)
 						}

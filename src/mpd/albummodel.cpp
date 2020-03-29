@@ -61,7 +61,7 @@ QVariant AlbumModel::data(const QModelIndex &index, int role) const
             // No image found return dummy url
             if ( imageID == -1 ) {
                 // Start image retrieval
-                qDebug() << "returning dummy image for album: " << album->getTitle();
+                qDebug() << "Returning dummy image for album: " << album->getTitle() << " and artist " << album->getArtist();
                 if ( mDownloadEnabled ) {
                     emit requestAlbumInformation(*album);
                 }

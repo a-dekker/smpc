@@ -1,7 +1,20 @@
 # SMPC
 
-This is a fork of SMPC to do some general cleanup and to introduce an new user interface which should better match the Sailfish user experience.
-
-The code base is directly forked off https://github.com/fuchsmich/smpc which is derived from https://github.com/djselbeck/smpc who discontinued the support in july 2017.
-
 This is a port of the symbian Qt/Qml Application qmobilempd. It uses the old c++ code and a new qml gui written especially for jolla.
+
+This is an full featured Music Player Daemon (MPD) client.
+
+**Features:**
+- album view
+- artist view
+- Landscape GUI, turn your device over
+- local metadata database
+- artist/album information
+- artist/album images db cache
+- filebrowser
+- search
+- basic playlist control
+- multiple server profiles
+- output control
+
+See https://github.com/djselbeck/smpc/wiki for more details please.

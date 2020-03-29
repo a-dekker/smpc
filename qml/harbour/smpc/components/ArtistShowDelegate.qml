@@ -3,12 +3,10 @@ import Sailfish.Silica 1.0
 
 BackgroundItem {
 	id: artistShowDelegate
-	//menu: contextMenu
 	antialiasing: true
 	width: showView.itemWidth
 	height: showView.itemHeight
 	z: PathView.z
-	//scale: PathView.delegateScale
 	property int coverRotation: PathView.delegateRotation
 	property bool flipped: false
 	transform: Rotation {
@@ -119,7 +117,6 @@ BackgroundItem {
 					to: 0.0
 					duration: animationDuration
 					easing.type: Easing.InQuad
-					//onStopped: {}
 				}
 
 
@@ -132,7 +129,6 @@ BackgroundItem {
 					to: 180.0
 					duration: animationDuration
 					easing.type: Easing.InQuad
-					//onStopped: {}
 				}
 				PropertyAnimation {
 					id: blendcolumnIn
@@ -143,7 +139,6 @@ BackgroundItem {
 					to: 1.0
 					duration: animationDuration
 					easing.type: Easing.InQuad
-					//onStopped: {}
 				}
 
 				Column {

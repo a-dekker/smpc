@@ -15,8 +15,8 @@ Dialog {
 		model: savedPlaylistsModel
 		anchors.fill: parent
 		header: DialogHeader {
-			acceptText: qsTr("select playlist")
-			title: qsTr("select playlist")
+			acceptText: qsTr("Select playlist")
+			title: qsTr("Select playlist")
 		}
 		delegate: ListItem {
 			onClicked: {

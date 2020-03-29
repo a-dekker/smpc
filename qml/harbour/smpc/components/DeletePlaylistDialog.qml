@@ -8,10 +8,10 @@ Dialog {
 		spacing: Theme.paddingMedium
 		anchors.margins: Theme.paddingMedium
 		DialogHeader {
-			acceptText: qsTr("delete playlist")
+			acceptText: qsTr("Delete playlist")
 		}
 		Label {
-			text: qsTr("really delete playlist?")
+			text: qsTr("Really delete playlist?")
 		}
 	}
 	onDone: {

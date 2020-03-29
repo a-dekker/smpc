@@ -19,7 +19,7 @@ Page {
 		ScrollDecorator {}
 
 		header: PageHeader {
-			title: qsTr("playlists")
+			title: qsTr("Playlists")
 		}
 		model: savedPlaylistsModel
 		delegate: ListItem {
@@ -56,13 +56,13 @@ Page {
 				id: contextMenu
 				ContextMenu {
 					MenuItem {
-						text: qsTr("play playlist")
+						text: qsTr("Play playlist")
 						onClicked: {
 							playListRemorse()
 						}
 					}
 					MenuItem {
-						text: qsTr("add list")
+						text: qsTr("Add list")
 						onClicked: {
 							addListRemorse()
 						}

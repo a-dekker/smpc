@@ -9,7 +9,7 @@ Item {
 
 	Rectangle {
 		id: sectionFillRect
-		color: Theme.rgba(Theme.highlightBackgroundColor, 0.2) //Qt.rgba(0.0, 0.0, 0.0, 0.2)
+		color: Theme.rgba(Theme.highlightBackgroundColor, 0.2)
 		anchors {
 			fill: parent
 		}
@@ -20,7 +20,6 @@ Item {
 			}
 			GradientStop {
 				position: 1.0
-				//color: Theme.rgba(Theme.highlightBackgroundColor, 0.6)
 				color: Theme.rgba(Theme.highlightBackgroundColor, 0.3)
 			}
 		}

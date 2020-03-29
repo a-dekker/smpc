@@ -24,7 +24,7 @@ Page {
 
 			PageHeader {
 				id: pageHeading
-				title: qsTr("about")
+				title: qsTr("About")
 			}
 
 			Image {

@@ -1,0 +1,15 @@
+# Add new changelog entries following the format below.
+# Add newest entries to the top of the list.
+# Separate entries from eachother with a blank line.
+
+# * date Author's Name <author's email> version-release
+# - Summary of changes
+
+* Wed Mar 25 2020 Arno Dekker <jack.tar@example.com> 1.3.6-1
+- Stop icon: support light themes and scale for higher resolution
+- Other small layout changes
+- Use clear bold text in playlist instead of more fuzzy glass effect
+- Start terms with capital letter
+- Fix issue with double quotes in artistname
+- Compact info on song playing page, so more info fits on page without scrolling
+- Added progress bar on top of media panel

@@ -12,7 +12,6 @@ Page {
 		id: portraitLoader
 		active: false
 		anchors.fill: parent
-		//anchors.bottomMargin: quickControlPanel.visibleSize
 		sourceComponent: Component {
 			SilicaListView {
 				id: albumTracksListView
@@ -102,20 +101,20 @@ Page {
 					MenuItem {
 						enabled: artistname !== ""
 						visible: enabled
-						text: qsTr("show all tracks")
+						text: qsTr("Show all tracks")
 						onClicked: {
 							albumClicked("", albumname)
 							artistname = ""
 						}
 					}
 					MenuItem {
-						text: qsTr("add album")
+						text: qsTr("Add album")
 						onClicked: {
 							addAlbum([artistname, albumname])
 						}
 					}
 					MenuItem {
-						text: qsTr("play album")
+						text: qsTr("Play album")
 						onClicked: {
 							playAlbum([artistname, albumname])
 						}
@@ -130,7 +129,6 @@ Page {
 		id: landscapeLoader
 		anchors {
 			fill: parent
-//			rightMargin: quickControlPanel.visibleSize
 		}
 		active: false
 		sourceComponent: Component {
@@ -207,20 +205,20 @@ Page {
 						MenuItem {
 							enabled: artistname !== ""
 							visible: enabled
-							text: qsTr("show all tracks")
+							text: qsTr("Show all tracks")
 							onClicked: {
 								albumClicked("", albumname)
 								artistname = ""
 							}
 						}
 						MenuItem {
-							text: qsTr("add album")
+							text: qsTr("Add album")
 							onClicked: {
 								addAlbum([artistname, albumname])
 							}
 						}
 						MenuItem {
-							text: qsTr("play album")
+							text: qsTr("Play album")
 							onClicked: {
 								playAlbum([artistname, albumname])
 							}
@@ -355,17 +353,17 @@ Page {
 				albumTrackClicked(title, album, artist, lengthformated, path, year, tracknr, trackmbid, artistmbid, albummbid)
 			}
 			function playTrackRemorse() {
-				remorseAction(qsTr("playing track"), function () {
+				remorseAction(qsTr("Playing track"), function () {
 					playSong(path)
 				}, 3000)
 			}
 			function addTrackRemorse() {
-				remorseAction(qsTr("adding track"), function () {
+				remorseAction(qsTr("Adding track"), function () {
 					addSong(path)
 				}, 3000)
 			}
 			function addTrackAfterCurrentRemorse() {
-				remorseAction(qsTr("adding track"), function () {
+				remorseAction(qsTr("Adding track"), function () {
 					addSongAfterCurrent(path)
 				}, 3000)
 			}
@@ -377,26 +375,26 @@ Page {
 						left: parent != null ? parent.left : undefined
 					}
 					MenuItem {
-						text: qsTr("play track")
+						text: qsTr("Play track")
 						onClicked: {
 							playTrackRemorse()
 						}
 					}
 
 					MenuItem {
-						text: qsTr("add track to list")
+						text: qsTr("Add track to list")
 						onClicked: {
 							addTrackRemorse()
 						}
 					}
 					MenuItem {
-						text: qsTr("play after current")
+						text: qsTr("Play after current")
 						onClicked: {
 							addTrackAfterCurrentRemorse()
 						}
 					}
 					MenuItem {
-						text: qsTr("add to saved list")
+						text: qsTr("Add to saved list")
 						onClicked: {
 							requestSavedPlaylists()
 							pageStack.push(Qt.resolvedUrl("AddToPlaylistDialog.qml"), {url: path})

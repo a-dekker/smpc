@@ -49,7 +49,7 @@ Page {
 
 			PullDownMenu {
 				MenuItem {
-					text: qsTr("show all tracks from album")
+					text: qsTr("Show all tracks from album")
 					visible: album === "" ? false : true
 					onClicked: {
 						albumClicked("", album)
@@ -58,7 +58,7 @@ Page {
 					}
 				}
 				MenuItem {
-					text: qsTr("show albums from artist")
+					text: qsTr("Show albums from artist")
 					visible: artist === "" ? false : true
 					onClicked: {
 						artistClicked(artist)
@@ -282,66 +282,51 @@ Page {
 						}
 					}
 
-					Label {
-						text: qsTr("track no.:")
-						color: Theme.secondaryColor
-						font.pixelSize: fontsizegrey
+					Row {
+						anchors.right: parent.right
 						anchors.left: parent.left
-					}
-					Label {
-						id: nrText
-						text: mTrackNr
-						color: Theme.primaryColor
-						font.pixelSize: fontsize
-						wrapMode: "WordWrap"
+						spacing: (width / 2) * 0.1
+
+						Label {
+							id: nrText
+							width: (parent.width / 2) * 0.95
+							text: qsTr("Track nr: %1").arg(mTrackNr)
+							color: Theme.primaryColor
+							font.pixelSize: fontsize
+							wrapMode: "WordWrap"
+						}
+
+						Label {
+							id: playlistnrText
+							width: (parent.width / 2) * 0.95
+							text: qsTr("Playlist nr: %1/%2").arg(lastsongid + 1).arg(mPlaylistlength)
+							color: Theme.primaryColor
+							font.pixelSize: fontsize
+							wrapMode: "WordWrap"
+							horizontalAlignment: Text.AlignRight
+						}
 					}
 
-					Label {
-						text: qsTr("playlist no.:")
-						color: Theme.secondaryColor
-						font.pixelSize: fontsizegrey
-						anchors.left: parent.left
-					}
-					Label {
-						id: playlistnrText
-						text: (lastsongid+1) + " / " + mPlaylistlength
-						color: Theme.primaryColor
-						font.pixelSize: fontsize
-						wrapMode: "WordWrap"
-					}
-
-					Label {
-						text: qsTr("bitrate:")
-						color: Theme.secondaryColor
-						font.pixelSize: fontsizegrey
-					}
-					Label {
+					ScrollLabel {
 						id: bitrateText
-						text: mBitrate
-						color: Theme.primaryColor
-						font.pixelSize: fontsize
-						wrapMode: "WordWrap"
-					}
-					Label {
-						text: qsTr("properties:")
+						text: mBitrate + ", " + mAudioProperties
 						color: Theme.secondaryColor
-						font.pixelSize: fontsizegrey
-					}
-					Label {
-						id: audiopropertiesText
-						text: mAudioProperties
-						color: Theme.primaryColor
 						font.pixelSize: fontsize
-						wrapMode: "WordWrap"
+						anchors {
+							left: parent.left
+							right: parent.right
+						}
 					}
-					Label {
-						text: qsTr("uri:")
-						color: Theme.secondaryColor
-						font.pixelSize: fontsizegrey
-					}
+					// Label {
+					// 	id: audiopropertiesText
+					// 	text: qsTr("Properties: %1").arg(mAudioProperties)
+					// 	color: Theme.primaryColor
+					// 	font.pixelSize: fontsize
+					// 	wrapMode: "WordWrap"
+					// }
 					Label {
 						id: fileText
-						text: mUri
+						text: qsTr("URI: %1").arg(mUri)
 						color: Theme.primaryColor
 						font.pixelSize: fontsize
 						wrapMode: "WrapAnywhere"
@@ -426,7 +411,7 @@ Page {
 					minimumValue: 0
 					value: mVolume
 					valueText: value + "%"
-					label: qsTr("volume")
+					label: qsTr("Volume")
 					onPressedChanged: {
 						if (!pressed) {
 							volumeChanging = false

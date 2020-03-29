@@ -33,20 +33,20 @@ Page {
 
 			PullDownMenu {
 				MenuItem {
-					text: qsTr("delete list")
+					text: qsTr("Delete list")
 					onClicked: {
 						deleteSavedPlaylistQuestion.playlistname = playlistname
 						pageStack.openDialog(deleteSavedPlaylistQuestion)
 					}
 				}
 				MenuItem {
-					text: qsTr("add list")
+					text: qsTr("Add list")
 					onClicked: {
 						addPlaylist(playlistname)
 					}
 				}
 				MenuItem {
-					text: qsTr("play list")
+					text: qsTr("Play list")
 					onClicked: {
 						playPlaylist(playlistname)
 					}
@@ -137,26 +137,26 @@ Page {
 
 					ContextMenu {
 						MenuItem {
-							text: qsTr("play track")
+							text: qsTr("Play track")
 							onClicked: {
 								playTrackRemorse()
 							}
 						}
 
 						MenuItem {
-							text: qsTr("add track to list")
+							text: qsTr("Add track to list")
 							onClicked: {
 								addTrackRemorse()
 							}
 						}
 						MenuItem {
-							text: qsTr("play after current")
+							text: qsTr("Play after current")
 							onClicked: {
 								addTrackAfterCurrentRemorse()
 							}
 						}
 						MenuItem {
-							text: qsTr("remove from list")
+							text: qsTr("Remove from list")
 							onClicked: {
 								removeFromListRemorse()
 							}
@@ -176,10 +176,10 @@ Page {
 			spacing: 10
 			anchors.margins: Theme.paddingMedium
 			DialogHeader {
-				acceptText: qsTr("delete playlist")
+				acceptText: qsTr("Delete playlist")
 			}
 			Label {
-				text: qsTr("really delete playlist?")
+				text: qsTr("Really delete playlist?")
 			}
 		}
 		onDone: {

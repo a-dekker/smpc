@@ -52,37 +52,37 @@ Page {
 			highlightFollowsCurrentItem: true
 			highlightMoveDuration: 0
 			header: PageHeader {
-				title: qsTr("playlist")
+				title: qsTr("Playlist")
 			}
 
 			PullDownMenu {
 				MenuItem {
-					text: qsTr("add url")
+					text: qsTr("Add url")
 					onClicked: {
 						pageStack.push(urlInputDialog)
 					}
 				}
 				MenuItem {
-					text: qsTr("delete playlist")
+					text: qsTr("Delete playlist")
 					onClicked: {
 						pageStack.push(deleteQuestionDialog)
 					}
 				}
 				MenuItem {
-					text: qsTr("save playlist")
+					text: qsTr("Save playlist")
 					onClicked: {
 						pageStack.push(saveplaylistDialog)
 					}
 				}
 				MenuItem {
-					text: qsTr("open playlist")
+					text: qsTr("Open playlist")
 					onClicked: {
 						requestSavedPlaylists()
 						pageStack.push(Qt.resolvedUrl("SavedPlaylistsPage.qml"))
 					}
 				}
 				MenuItem {
-					text: qsTr("jump to playing song")
+					text: qsTr("Jump to playing song")
 					onClicked: {
 						playlistView.currentIndex = -1
 						playlistView.currentIndex = lastsongid
@@ -107,7 +107,7 @@ Page {
 
 						ContextMenu {
 							MenuItem {
-								text: qsTr("remove song")
+								text: qsTr("Remove song")
 								visible: !mDeleteRemorseRunning
 								enabled: !mDeleteRemorseRunning
 								onClicked: {
@@ -116,14 +116,14 @@ Page {
 								}
 							}
 							MenuItem {
-								text: qsTr("show artist")
+								text: qsTr("Show artist")
 								onClicked: {
 									artistClicked(artist)
 									pageStack.push(Qt.resolvedUrl("AlbumListPage.qml"), {artistname: artist})
 								}
 							}
 							MenuItem {
-								text: qsTr("show album")
+								text: qsTr("Show album")
 								onClicked: {
 										albumClicked("", album)
 										pageStack.push(Qt.resolvedUrl("AlbumTracksPage.qml"), {
@@ -134,18 +134,18 @@ Page {
 							}
 							MenuItem {
 								visible: !playing
-								text: qsTr("play as next")
+								text: qsTr("Play as next")
 								onClicked: {
 									playNextWOTimer.windUp(index)
 								}
 							}
 							MenuItem {
 								visible: playing
-								text: qsTr("show information")
+								text: qsTr("Show information")
 								onClicked: pageStack.navigateForward(PageStackAction.Animated)
 							}
 							MenuItem {
-								text: qsTr("add to saved list")
+								text: qsTr("Add to saved list")
 								onClicked: {
 									requestSavedPlaylists()
 									pageStack.push(Qt.resolvedUrl("AddToPlaylistDialog.qml"), {url: path})
@@ -199,7 +199,7 @@ Page {
 						offset: 0.65
 					}
 					// Disabled until offically supported
-					GlassItem {
+					/*GlassItem {
 						anchors.fill: parent
 						color: Theme.highlightColor
 						visible: opacity != 0.0
@@ -210,7 +210,7 @@ Page {
 								duration: 750
 							}
 						}
-					}
+					}*/
 					onClicked: {
 						playlistView.currentIndex = index
 						if (!playing) {
@@ -265,7 +265,7 @@ Page {
 
 					PullDownMenu {
 						MenuItem {
-							text: qsTr("show all tracks from album")
+							text: qsTr("Show all tracks from album")
 							visible: mAlbum === "" ? false : true
 							onClicked: {
 								albumClicked("", mAlbum)
@@ -273,7 +273,7 @@ Page {
 							}
 						}
 						MenuItem {
-							text: qsTr("show albums from artist")
+							text: qsTr("Show albums from artist")
 							visible: mArtist === "" ? false : true
 							onClicked: {
 								artistClicked(mArtist)
@@ -367,7 +367,7 @@ Page {
 							}
 
 							Label {
-								text: qsTr("track no.:")
+								text: qsTr("Track nr:")
 								color: Theme.secondaryColor
 								font.pixelSize: Theme.fontSizeSmall
 								anchors.left: parent.left
@@ -381,7 +381,7 @@ Page {
 							}
 
 							Label {
-								text: qsTr("playlist no.:")
+								text: qsTr("Playlist nr:")
 								color: Theme.secondaryColor
 								font.pixelSize: Theme.fontSizeSmall
 								anchors.left: parent.left
@@ -395,7 +395,7 @@ Page {
 							}
 
 							Label {
-								text: qsTr("bitrate:")
+								text: qsTr("Bitrate:")
 								color: Theme.secondaryColor
 								font.pixelSize: Theme.fontSizeSmall
 							}
@@ -407,7 +407,7 @@ Page {
 								wrapMode: "WordWrap"
 							}
 							Label {
-								text: qsTr("properties:")
+								text: qsTr("Properties:")
 								color: Theme.secondaryColor
 								font.pixelSize: Theme.fontSizeSmall
 							}
@@ -419,7 +419,7 @@ Page {
 								wrapMode: "WordWrap"
 							}
 							Label {
-								text: qsTr("uri:")
+								text: qsTr("URI:")
 								color: Theme.secondaryColor
 								font.pixelSize: Theme.fontSizeSmall
 							}
@@ -512,7 +512,7 @@ Page {
 							minimumValue: 0
 							value: mVolume
 							valueText: value + "%"
-							label: qsTr("volume")
+							label: qsTr("Volume")
 							onPressedChanged: {
 								if (!pressed) {
 									volumeChanging = false
@@ -676,7 +676,7 @@ Page {
 		interval: 250
 		repeat: false
 		onTriggered: {
-			console.debug("send signal: " + index)
+			console.debug("Send signal: " + index)
 			playPlaylistSongNext(index)
 		}
 

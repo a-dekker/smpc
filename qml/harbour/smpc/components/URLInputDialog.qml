@@ -9,15 +9,15 @@ Dialog {
 		spacing: Theme.paddingMedium
 		anchors.margins: Theme.paddingMedium
 		DialogHeader {
-			acceptText: qsTr("add url")
+			acceptText: qsTr("Add url")
 		}
 		Label {
-			text: qsTr("enter url:")
+			text: qsTr("Enter url:")
 		}
 		TextField {
 			id: urlInputField
 			width: parent.width
-			placeholderText: qsTr("input url (http://, file://, etc)")
+			placeholderText: qsTr("Input url (http://, file://, etc)")
 		}
 	}
 	onDone: {

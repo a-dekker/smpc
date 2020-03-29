@@ -119,7 +119,6 @@ BackgroundItem {
 					to: 0.0
 					duration: animationDuration
 					easing.type: Easing.InQuad
-					//onStopped: {}
 				}
 
 				// Rotate IN
@@ -131,7 +130,6 @@ BackgroundItem {
 					to: 180.0
 					duration: animationDuration
 					easing.type: Easing.InQuad
-					//onStopped: {}
 				}
 				PropertyAnimation {
 					id: blendcolumnIn
@@ -142,7 +140,6 @@ BackgroundItem {
 					to: 1.0
 					duration: animationDuration
 					easing.type: Easing.InQuad
-					//onStopped: {}
 				}
 
 				Row {

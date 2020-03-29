@@ -23,7 +23,7 @@ Dialog {
 
 		PullDownMenu {
 			MenuItem {
-				text: qsTr("remove server profile")
+				text: qsTr("Remove server profile")
 				onClicked: {
 					pageStack.pop()
 					deleteProfile(index)
@@ -44,39 +44,39 @@ Dialog {
 			}
 
 			DialogHeader {
-				title: qsTr("edit profile")
+				title: qsTr("Edit profile")
 			}
 
 			Label {
 				anchors.right: parent.right
 				anchors.left: parent.left
-				text: qsTr("profilename:")
+				text: qsTr("Profilename:")
 			}
 			TextField {
 				anchors.right: parent.right
 				anchors.left: parent.left
 				id: profilenameInputField
-				placeholderText: qsTr("input profilename")
+				placeholderText: qsTr("Input profilename")
 				inputMethodHints: Qt.ImhNoPredictiveText
 			}
 
 			Label {
 				anchors.right: parent.right
 				anchors.left: parent.left
-				text: qsTr("hostname:")
+				text: qsTr("Hostname:")
 			}
 			TextField {
 				anchors.right: parent.right
 				anchors.left: parent.left
 				id: hostnameInputField
-				placeholderText: qsTr("input hostname or ip")
+				placeholderText: qsTr("Input hostname or IP")
 				inputMethodHints: Qt.ImhNoPredictiveText
 			}
 
 			Label {
 				anchors.right: parent.right
 				anchors.left: parent.left
-				text: qsTr("port:")
+				text: qsTr("Port:")
 			}
 			TextField {
 				anchors.right: parent.right
@@ -90,7 +90,7 @@ Dialog {
 			Label {
 				anchors.right: parent.right
 				anchors.left: parent.left
-				text: qsTr("password:")
+				text: qsTr("Password:")
 			}
 			TextField {
 				anchors.right: parent.right
@@ -104,7 +104,7 @@ Dialog {
 				visible: false
 				anchors.right: parent.right
 				anchors.left: parent.left
-				text: qsTr("streaming port:")
+				text: qsTr("Streaming port:")
 			}
 			TextField {
 				anchors.right: parent.right
@@ -119,13 +119,13 @@ Dialog {
 			Label {
 				anchors.right: parent.right
 				anchors.left: parent.left
-				text:qsTr("mac address:")
+				text:qsTr("MAC Address:")
 			}
 			TextField {
 				anchors.right: parent.right
 				anchors.left: parent.left
 				id: macAddressField
-				placeholderText: "optional for wake on lan"
+				placeholderText: "Optional for wake on lan"
 				labelVisible: true
 				inputMethodHints: Qt.ImhPreferLowercase | Qt.ImhNoPredictiveText
 				validator: macValidator
@@ -136,7 +136,7 @@ Dialog {
 				anchors.right: parent.right
 				anchors.left: parent.left
 				id: autoconnectSwitch
-				text: qsTr("autoconnect")
+				text: qsTr("Autoconnect")
 			}
 		}
 	}

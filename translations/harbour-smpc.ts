@@ -4,22 +4,22 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/AboutPage.qml" line="28"/>
-        <source>about</source>
+        <location filename="../qml/harbour/smpc/pages/settings/AboutPage.qml" line="27"/>
+        <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/AboutPage.qml" line="66"/>
+        <location filename="../qml/harbour/smpc/pages/settings/AboutPage.qml" line="65"/>
         <source>Version:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/AboutPage.qml" line="111"/>
+        <location filename="../qml/harbour/smpc/pages/settings/AboutPage.qml" line="110"/>
         <source>Licensed under GPLv3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/AboutPage.qml" line="122"/>
+        <location filename="../qml/harbour/smpc/pages/settings/AboutPage.qml" line="121"/>
         <source>Fetches metadata from last.fm</source>
         <translation type="unfinished"></translation>
     </message>
@@ -29,7 +29,7 @@
     <message>
         <location filename="../qml/harbour/smpc/pages/database/AddToPlaylistDialog.qml" line="18"/>
         <location filename="../qml/harbour/smpc/pages/database/AddToPlaylistDialog.qml" line="19"/>
-        <source>select playlist</source>
+        <source>Select playlist</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -45,32 +45,32 @@
     <name>AlbumListDelegate</name>
     <message>
         <location filename="../qml/harbour/smpc/components/AlbumListDelegate.qml" line="46"/>
-        <source>no album tag</source>
+        <source>No album tag</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/AlbumListDelegate.qml" line="50"/>
-        <source>no artist tag</source>
+        <source>No artist tag</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/AlbumListDelegate.qml" line="71"/>
-        <source>playing album</source>
+        <source>Playing album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/AlbumListDelegate.qml" line="77"/>
-        <source>adding album</source>
+        <source>Adding album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/AlbumListDelegate.qml" line="87"/>
-        <source>play album</source>
+        <source>Play album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/AlbumListDelegate.qml" line="95"/>
-        <source>add album to list</source>
+        <location filename="../qml/harbour/smpc/components/AlbumListDelegate.qml" line="96"/>
+        <source>Add album to list</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -79,19 +79,19 @@
     <message>
         <location filename="../qml/harbour/smpc/pages/database/AlbumListPage.qml" line="39"/>
         <location filename="../qml/harbour/smpc/pages/database/AlbumListPage.qml" line="92"/>
-        <source>albums</source>
+        <source>Albums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/AlbumListPage.qml" line="47"/>
         <location filename="../qml/harbour/smpc/pages/database/AlbumListPage.qml" line="100"/>
-        <source>add albums</source>
+        <source>Add albums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/AlbumListPage.qml" line="53"/>
         <location filename="../qml/harbour/smpc/pages/database/AlbumListPage.qml" line="106"/>
-        <source>play albums</source>
+        <source>Play albums</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -103,22 +103,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/AlbumShowDelegate.qml" line="274"/>
+        <location filename="../qml/harbour/smpc/components/AlbumShowDelegate.qml" line="271"/>
         <source>playing track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/AlbumShowDelegate.qml" line="280"/>
+        <location filename="../qml/harbour/smpc/components/AlbumShowDelegate.qml" line="277"/>
         <source>adding track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/AlbumShowDelegate.qml" line="295"/>
+        <location filename="../qml/harbour/smpc/components/AlbumShowDelegate.qml" line="292"/>
         <source>play track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/AlbumShowDelegate.qml" line="303"/>
+        <location filename="../qml/harbour/smpc/components/AlbumShowDelegate.qml" line="300"/>
         <source>add track to list</source>
         <translation type="unfinished"></translation>
     </message>
@@ -126,52 +126,52 @@
 <context>
     <name>AlbumTracksPage</name>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="106"/>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="211"/>
-        <source>show all tracks</source>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="104"/>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="208"/>
+        <source>Show all tracks</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="113"/>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="218"/>
-        <source>add album</source>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="111"/>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="215"/>
+        <source>Add album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="119"/>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="224"/>
-        <source>play album</source>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="117"/>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="221"/>
+        <source>Play album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="359"/>
-        <source>playing track</source>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="356"/>
+        <source>Playing track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="364"/>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="369"/>
-        <source>adding track</source>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="361"/>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="366"/>
+        <source>Adding track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="381"/>
-        <source>play track</source>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="378"/>
+        <source>Play track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="388"/>
-        <source>add track to list</source>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="385"/>
+        <source>Add track to list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="394"/>
-        <source>play after current</source>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="391"/>
+        <source>Play after current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="400"/>
-        <source>add to saved list</source>
+        <location filename="../qml/harbour/smpc/pages/database/AlbumTracksPage.qml" line="397"/>
+        <source>Add to saved list</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -187,30 +187,34 @@
     <name>ArtistListDelegate</name>
     <message>
         <location filename="../qml/harbour/smpc/components/ArtistListDelegate.qml" line="59"/>
-        <source>playing artist</source>
+        <source>Playing artist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/ArtistListDelegate.qml" line="65"/>
-        <source>adding artist</source>
+        <source>Adding artist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/ArtistListDelegate.qml" line="75"/>
-        <source>play artist</source>
+        <source>Play artist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/ArtistListDelegate.qml" line="84"/>
-        <source>add artist to list</source>
+        <source>Add artist to list</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ArtistListPage</name>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/ArtistListPage.qml" line="49"/>
-        <location filename="../qml/harbour/smpc/pages/database/ArtistListPage.qml" line="87"/>
+        <location filename="../qml/harbour/smpc/pages/database/ArtistListPage.qml" line="48"/>
+        <source>Artists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour/smpc/pages/database/ArtistListPage.qml" line="85"/>
         <source>artists</source>
         <translation type="unfinished"></translation>
     </message>
@@ -218,7 +222,7 @@
 <context>
     <name>ArtistShowDelegate</name>
     <message>
-        <location filename="../qml/harbour/smpc/components/ArtistShowDelegate.qml" line="71"/>
+        <location filename="../qml/harbour/smpc/components/ArtistShowDelegate.qml" line="69"/>
         <source>No Artist Tag</source>
         <translation type="unfinished"></translation>
     </message>
@@ -226,12 +230,12 @@
 <context>
     <name>ConnectServerPage</name>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ConnectServerPage.qml" line="15"/>
-        <source>servers</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ConnectServerPage.qml" line="14"/>
+        <source>Servers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ConnectServerPage.qml" line="20"/>
+        <location filename="../qml/harbour/smpc/pages/settings/ConnectServerPage.qml" line="19"/>
         <source>Add server</source>
         <translation type="unfinished"></translation>
     </message>
@@ -259,13 +263,13 @@
 <context>
     <name>ControlPanel</name>
     <message>
-        <location filename="../qml/harbour/smpc/components/ControlPanel.qml" line="25"/>
-        <source>not playing</source>
+        <location filename="../qml/harbour/smpc/components/ControlPanel.qml" line="51"/>
+        <source>Not playing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/ControlPanel.qml" line="134"/>
-        <source>volume</source>
+        <location filename="../qml/harbour/smpc/components/ControlPanel.qml" line="160"/>
+        <source>Volume</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -286,47 +290,47 @@
     <name>CurrentPlaylistPage</name>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="51"/>
-        <source>playlist</source>
+        <source>Playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="56"/>
-        <source>add url</source>
+        <source>Add url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="62"/>
-        <source>delete playlist</source>
+        <source>Delete playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="68"/>
-        <source>save playlist</source>
+        <source>Save playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="74"/>
-        <source>open playlist</source>
+        <source>Open playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="81"/>
-        <source>jump to playing song</source>
+        <source>Jump to playing song</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="108"/>
-        <source>remove song</source>
+        <source>Remove song</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="118"/>
-        <source>show artist</source>
+        <source>Show artist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="126"/>
-        <source>show album</source>
+        <source>Show album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -336,16 +340,16 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="143"/>
-        <source>show information</source>
+        <source>Show information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="148"/>
-        <source>add to saved list</source>
+        <source>Add to saved list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="226"/>
+        <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage.qml" line="225"/>
         <source>Deleting</source>
         <translation type="unfinished"></translation>
     </message>
@@ -354,62 +358,62 @@
     <name>CurrentPlaylistPage_large</name>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="55"/>
-        <source>playlist</source>
+        <source>Playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="60"/>
-        <source>add url</source>
+        <source>Add url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="66"/>
-        <source>delete playlist</source>
+        <source>Delete playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="72"/>
-        <source>save playlist</source>
+        <source>Save playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="78"/>
-        <source>open playlist</source>
+        <source>Open playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="85"/>
-        <source>jump to playing song</source>
+        <source>Jump to playing song</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="110"/>
-        <source>remove song</source>
+        <source>Remove song</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="119"/>
-        <source>show artist</source>
+        <source>Show artist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="126"/>
-        <source>show album</source>
+        <source>Show album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="137"/>
-        <source>play as next</source>
+        <source>Play as next</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="144"/>
-        <source>show information</source>
+        <source>Show information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="148"/>
-        <source>add to saved list</source>
+        <source>Add to saved list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -419,42 +423,42 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="268"/>
-        <source>show all tracks from album</source>
+        <source>Show all tracks from album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="276"/>
-        <source>show albums from artist</source>
+        <source>Show albums from artist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="370"/>
-        <source>track no.:</source>
+        <source>Track nr:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="384"/>
-        <source>playlist no.:</source>
+        <source>Playlist nr:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="398"/>
-        <source>bitrate:</source>
+        <source>Bitrate:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="410"/>
-        <source>properties:</source>
+        <source>Properties:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="422"/>
-        <source>uri:</source>
+        <source>URI:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentPlaylistPage_large.qml" line="515"/>
-        <source>volume</source>
+        <source>Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -467,46 +471,31 @@
     <name>CurrentSong</name>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="52"/>
-        <source>show all tracks from album</source>
+        <source>Show all tracks from album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="61"/>
-        <source>show albums from artist</source>
+        <source>Show albums from artist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="286"/>
-        <source>track no.:</source>
+        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="293"/>
+        <source>Track nr: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="300"/>
-        <source>playlist no.:</source>
+        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="303"/>
+        <source>Playlist nr: %1/%2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="314"/>
-        <source>bitrate:</source>
+        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="416"/>
+        <source>Volume</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="326"/>
-        <source>properties:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="338"/>
-        <source>uri:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="429"/>
-        <source>volume</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="465"/>
+        <location filename="../qml/harbour/smpc/pages/database/CurrentSong.qml" line="452"/>
         <source>position</source>
         <translation type="unfinished"></translation>
     </message>
@@ -515,7 +504,7 @@
     <name>DatabaseSettings</name>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="9"/>
-        <source>database</source>
+        <source>Database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -600,7 +589,32 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="189"/>
-        <source>clear blacklist albums</source>
+        <source>Clear blacklist albums</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="195"/>
+        <source>Clear artists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="201"/>
+        <source>Clear albums</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="207"/>
+        <source>Clear database</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="212"/>
+        <source>Download artists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="218"/>
+        <source>Download albums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -609,18 +623,8 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="195"/>
-        <source>clear artists</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="197"/>
         <source>Do you really want to delete all artists from local database cache? There is no turning back!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="201"/>
-        <source>clear albums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -629,32 +633,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="207"/>
-        <source>clear database</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="209"/>
         <source>Do you really want to delete the complete local database cache? There is no turning back!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="213"/>
-        <source>download artists</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="215"/>
+        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="214"/>
         <source>This will download metadata information for all your artists in your MPD database. This action will run in the background but take some time.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="219"/>
-        <source>download albums</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="221"/>
+        <location filename="../qml/harbour/smpc/pages/settings/DatabaseSettings.qml" line="220"/>
         <source>This will download metadata information for all your albums in your MPD database. This action will run in the background but take some time.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -663,12 +652,12 @@
     <name>DeletePlaylistDialog</name>
     <message>
         <location filename="../qml/harbour/smpc/components/DeletePlaylistDialog.qml" line="11"/>
-        <source>delete playlist</source>
+        <source>Delete playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/DeletePlaylistDialog.qml" line="14"/>
-        <source>really delete playlist?</source>
+        <source>Really delete playlist?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -676,22 +665,22 @@
     <name>FileBrowserPage</name>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/FileBrowserPage.qml" line="28"/>
-        <source>filebrowser</source>
+        <source>Filebrowser</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/FileBrowserPage.qml" line="32"/>
-        <source>home</source>
+        <source>Home</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/FileBrowserPage.qml" line="39"/>
-        <source>add folder</source>
+        <source>Add folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/FileBrowserPage.qml" line="45"/>
-        <source>play folder</source>
+        <source>Play folder</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -730,42 +719,42 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/FileDelegate.qml" line="123"/>
-        <source>play file</source>
+        <source>Play file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/FileDelegate.qml" line="123"/>
-        <source>play directory</source>
+        <source>Play directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/FileDelegate.qml" line="123"/>
-        <source>play playlist</source>
+        <source>Play playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/FileDelegate.qml" line="135"/>
-        <source>add file</source>
+        <source>Add file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/FileDelegate.qml" line="135"/>
-        <source>add directory</source>
+        <source>Add directory</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/FileDelegate.qml" line="135"/>
-        <source>add playlist</source>
+        <source>Add playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/FileDelegate.qml" line="149"/>
-        <source>play after current</source>
+        <source>Play after current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/FileDelegate.qml" line="157"/>
-        <source>add to saved list</source>
+        <source>Add to saved list</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -778,7 +767,7 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="32"/>
-        <source>album view:</source>
+        <source>Album view:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -795,118 +784,118 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="58"/>
-        <source>artist view:</source>
+        <source>Artist view:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="84"/>
-        <source>list image size:</source>
+        <source>List image size:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="92"/>
-        <source>disabled</source>
+        <source>Disabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="95"/>
-        <source>small</source>
+        <source>Small</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="98"/>
-        <source>medium</source>
+        <source>Medium</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="101"/>
-        <source>large</source>
+        <source>Large</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="120"/>
-        <source>sort albums of one artist by year</source>
+        <source>Sort albums of one artist by year</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="132"/>
-        <source>use albumartist in artists view</source>
+        <source>Use albumartist in artists view</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="144"/>
-        <source>show cover in now playing</source>
+        <source>Show cover in now playing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="157"/>
-        <source>show sections in playlists</source>
+        <source>Show sections in playlists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="170"/>
-        <source>show sections in search</source>
+        <source>Show sections in search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/GUISettings.qml" line="182"/>
-        <source>use show mode in landscape</source>
+        <source>Use show mode in landscape</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MainPage</name>
     <message>
-        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="28"/>
-        <source>connected to: %1</source>
+        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="27"/>
+        <source>Connected to: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="28"/>
-        <source>disconnected</source>
+        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="27"/>
+        <source>Disconnected</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="112"/>
-        <source>playlist</source>
+        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="110"/>
+        <source>Playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="117"/>
-        <source>artists</source>
+        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="115"/>
+        <source>Artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="122"/>
-        <source>albums</source>
+        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="120"/>
+        <source>Albums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="127"/>
-        <source>files</source>
+        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="125"/>
+        <source>Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="132"/>
-        <source>search</source>
+        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="130"/>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="137"/>
-        <source>connect</source>
+        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="135"/>
+        <source>Connect</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="142"/>
-        <source>settings</source>
+        <location filename="../qml/harbour/smpc/pages/MainPage.qml" line="140"/>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>OutputsPage</name>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/OutputsPage.qml" line="15"/>
-        <source>outputs</source>
+        <location filename="../qml/harbour/smpc/pages/settings/OutputsPage.qml" line="14"/>
+        <source>Outputs</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -914,17 +903,17 @@
     <name>PlaylistTracksPage</name>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/PlaylistTracksPage.qml" line="36"/>
-        <source>delete list</source>
+        <source>Delete list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/PlaylistTracksPage.qml" line="43"/>
-        <source>add list</source>
+        <source>Add list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/PlaylistTracksPage.qml" line="49"/>
-        <source>play list</source>
+        <source>Play list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -945,32 +934,32 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/PlaylistTracksPage.qml" line="140"/>
-        <source>play track</source>
+        <source>Play track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/PlaylistTracksPage.qml" line="147"/>
-        <source>add track to list</source>
+        <source>Add track to list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/PlaylistTracksPage.qml" line="153"/>
-        <source>play after current</source>
+        <source>Play after current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/PlaylistTracksPage.qml" line="159"/>
-        <source>remove from list</source>
+        <source>Remove from list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/PlaylistTracksPage.qml" line="179"/>
-        <source>delete playlist</source>
+        <source>Delete playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/PlaylistTracksPage.qml" line="182"/>
-        <source>really delete playlist?</source>
+        <source>Really delete playlist?</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -978,17 +967,17 @@
     <name>SavePlaylistDialog</name>
     <message>
         <location filename="../qml/harbour/smpc/components/SavePlaylistDialog.qml" line="11"/>
-        <source>save playlist</source>
+        <source>Save playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/SavePlaylistDialog.qml" line="14"/>
-        <source>playlist name:</source>
+        <source>Playlist name:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/SavePlaylistDialog.qml" line="19"/>
-        <source>input playlist name</source>
+        <source>Input playlist name</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -996,7 +985,7 @@
     <name>SavedPlaylistsPage</name>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SavedPlaylistsPage.qml" line="22"/>
-        <source>playlists</source>
+        <source>Playlists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1011,65 +1000,65 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SavedPlaylistsPage.qml" line="59"/>
-        <source>play playlist</source>
+        <source>Play playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SavedPlaylistsPage.qml" line="65"/>
-        <source>add list</source>
+        <source>Add list</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SearchPage</name>
     <message>
-        <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="32"/>
-        <source>search value</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="42"/>
         <source>Search for:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="32"/>
+        <source>Search value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="49"/>
-        <source>titles</source>
+        <source>Titles</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="52"/>
-        <source>albums</source>
+        <source>Albums</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="55"/>
-        <source>artists</source>
+        <source>Artists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="58"/>
-        <source>files</source>
+        <source>Files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="75"/>
-        <source>search</source>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="87"/>
-        <source>new search</source>
+        <source>New search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="94"/>
-        <source>add all results</source>
+        <source>Add all results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="102"/>
-        <source>play all results</source>
+        <source>Play all results</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1095,90 +1084,90 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="196"/>
-        <source>play track</source>
+        <source>Play track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="202"/>
-        <source>add track to list</source>
+        <source>Add track to list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="208"/>
-        <source>play after current</source>
+        <source>Play after current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="214"/>
-        <source>add album to list</source>
+        <source>Add album to list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="220"/>
-        <source>play album</source>
+        <source>Play album</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/database/SearchPage.qml" line="226"/>
-        <source>add to saved list</source>
+        <source>Add to saved list</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ServerEditPage</name>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="27"/>
-        <source>remove server profile</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="26"/>
+        <source>Remove server profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="48"/>
-        <source>edit profile</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="47"/>
+        <source>Edit profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="54"/>
-        <source>profilename:</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="53"/>
+        <source>Profilename:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="60"/>
-        <source>input profilename</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="59"/>
+        <source>Input profilename</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="67"/>
-        <source>hostname:</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="66"/>
+        <source>Hostname:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="73"/>
-        <source>input hostname or ip</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="72"/>
+        <source>Input hostname or IP</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="80"/>
-        <source>port:</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="79"/>
+        <source>Port:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="94"/>
-        <source>password:</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="93"/>
+        <source>Password:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="108"/>
-        <source>streaming port:</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="107"/>
+        <source>Streaming port:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="123"/>
-        <source>mac address:</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="122"/>
+        <source>MAC Address:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="140"/>
-        <source>autoconnect</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerEditPage.qml" line="139"/>
+        <source>Autoconnect</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1191,30 +1180,30 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/ServerListPage.qml" line="27"/>
-        <source>servers</source>
+        <source>Servers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerListPage.qml" line="43"/>
-        <source>removing server profile</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerListPage.qml" line="44"/>
+        <source>Removing server profile</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/ServerListPage.qml" line="49"/>
-        <source>remove server profile</source>
+        <location filename="../qml/harbour/smpc/pages/settings/ServerListPage.qml" line="50"/>
+        <source>Remove server profile</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../qml/harbour/smpc/pages/settings/SettingsPage.qml" line="15"/>
-        <source>settings</source>
+        <location filename="../qml/harbour/smpc/pages/settings/SettingsPage.qml" line="14"/>
+        <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/SettingsPage.qml" line="36"/>
-        <source>server settings</source>
+        <source>Server settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1224,22 +1213,22 @@
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/SettingsPage.qml" line="38"/>
-        <source>gui settings</source>
+        <source>Gui settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/SettingsPage.qml" line="39"/>
-        <source>outputs</source>
+        <source>Outputs</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/SettingsPage.qml" line="40"/>
-        <source>update database</source>
+        <source>Update MPD database</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/pages/settings/SettingsPage.qml" line="41"/>
-        <source>about</source>
+        <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1251,65 +1240,65 @@
 <context>
     <name>SongDialog</name>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="51"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="263"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="392"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="544"/>
-        <source>add song</source>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="49"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="261"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="390"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="530"/>
+        <source>Add song</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="148"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="429"/>
-        <source>length:</source>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="146"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="428"/>
+        <source>Length:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="164"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="445"/>
-        <source>date:</source>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="162"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="442"/>
+        <source>Date:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="180"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="461"/>
-        <source>nr.:</source>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="178"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="456"/>
+        <source>Nr.:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="196"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="477"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="194"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="470"/>
         <source>Musicbrainz track id:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="212"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="493"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="210"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="484"/>
         <source>Musicbrainz album id:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="228"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="509"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="226"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="498"/>
         <source>Musicbrainz artist id:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="244"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="525"/>
-        <source>uri:</source>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="242"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="511"/>
+        <source>URI:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="269"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="550"/>
-        <source>play after current</source>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="267"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="536"/>
+        <source>Play after current</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="276"/>
-        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="557"/>
-        <source>play song</source>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="274"/>
+        <location filename="../qml/harbour/smpc/components/SongDialog.qml" line="543"/>
+        <source>Play song</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1317,34 +1306,34 @@
     <name>URLInputDialog</name>
     <message>
         <location filename="../qml/harbour/smpc/components/URLInputDialog.qml" line="12"/>
-        <source>add url</source>
+        <source>Add url</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/URLInputDialog.qml" line="15"/>
-        <source>enter url:</source>
+        <source>Enter url:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/harbour/smpc/components/URLInputDialog.qml" line="20"/>
-        <source>input url (http://, file://, etc)</source>
+        <source>Input url (http://, file://, etc)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>main</name>
     <message>
-        <location filename="../qml/main.qml" line="149"/>
+        <location filename="../qml/main.qml" line="153"/>
         <source>bits</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="149"/>
+        <location filename="../qml/main.qml" line="154"/>
         <source>channels</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/main.qml" line="151"/>
+        <location filename="../qml/main.qml" line="156"/>
         <source>kbps</source>
         <translation type="unfinished"></translation>
     </message>
