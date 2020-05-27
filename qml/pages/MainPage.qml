@@ -1,146 +1,106 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "../components"
+import QtQml.Models 2.2
 
 Page {
     id: mainPage
-    PageHeader {
-        id: mainHeader
-        title: "SMPC"
-        anchors {
-            top: parent.top
-            right: parent.right
-            left: parent.left
+
+    Column {
+        id: col
+        width: mainPage.width
+        PageHeader {
+            id: pageHeader
+            title: "SMPC"
+        }
+        Label {
+            //parent: pageHeader.extraContent
+            width: mainPage.width
+            //anchors.horizontalCenter: col.horizontalCenter
+            horizontalAlignment: Text.AlignHCenter
+            text: connected ? qsTr("Connected to: %1").arg(profilename) : qsTr(
+                                  "Disconnected")
+            color: Theme.highlightColor
         }
     }
-    Label {
-        id: connectedLabel
-        anchors {
-            top: mainHeader.bottom
-            right: parent.right
-            left: parent.left
-        }
-        horizontalAlignment: Text.AlignHCenter
-        color: Theme.highlightColor
-        text: connected ? qsTr("Connected to: %1").arg(profilename) : qsTr(
-                              "Disconnected")
-    }
-    SilicaFlickable {
-        anchors {
-            top: connectedLabel.bottom
-            bottom: parent.bottom
-            right: parent.right
-            left: parent.left
-        }
-        contentHeight: mainGrid.height
-        clip: true
-        Item {
-            height: mainGrid.height
-            width: parent.width
-            Grid {
-                id: mainGrid
 
-                columns: Screen.sizeCategory
-                         >= Screen.Large ? 3 : (orientation === Orientation.Landscape
-                                                || orientation
-                                                === Orientation.LandscapeInverted) ? 4 : 2
-                anchors.horizontalCenter: parent.horizontalCenter
-                Repeater {
-                    model: mainMenuModel
-                    delegate: Component {
-                        BackgroundItem {
-                            id: gridItem
-                            width: Theme.itemSizeHuge
-                            height: Theme.itemSizeHuge
-                            Rectangle {
-                                anchors.fill: parent
-                                anchors.margins: Theme.paddingSmall
-                                color: Theme.rgba(
-                                           Theme.highlightBackgroundColor,
-                                           Theme.highlightBackgroundOpacity)
-                            }
-                            Column {
-                                anchors.centerIn: parent
-                                Image {
-                                    id: itemIcon
-                                    source: icon
-                                    anchors.horizontalCenter: parent.horizontalCenter
-                                }
-                                Label {
-                                    id: itemLabel
-                                    anchors {
-                                        horizontalCenter: parent.horizontalCenter
-                                    }
-                                    font.pixelSize: Theme.fontSizeMedium
-                                    width: gridItem.width - (2 * Theme.paddingSmall)
-                                    horizontalAlignment: "AlignHCenter"
-                                    scale: paintedWidth > width ? (width / paintedWidth) : 1
+    SilicaGridView {
+        id: gridView
+        property int columns:
+            Screen.sizeCategory >= Screen.Large ?
+                3 : (orientation === Orientation.Landscape || orientation === Orientation.LandscapeInverted) ?
+                    4 : 2
+        anchors.top: col.bottom
+        anchors.bottom: mainPage.bottom
+        width: columns*cellWidth
+        anchors.horizontalCenter: parent.horizontalCenter
 
-                                    /*     transform: [
-                                        Scale {
-                                            id: scale
-                                            xScale: yScale
-                                            yScale: itemLabel.width > (gridItem.width - (2 * Theme.paddingSmall)) ? (gridItem.width - (2 * Theme.paddingSmall)) / itemLabel.width : 1
-                                        },
-                                        Translate {
-                                                        x: scale.xScale != 1 ? ((gridItem.width - (2 * Theme.paddingSmall))-itemLabel.width*scale.xScale)/2 : 0 ;
-                                                        y: scale.yScale != 1 ? ((gridItem.height - (2 * Theme.paddingSmall))-itemLabel.height*scale.yScale)/2 : 0;}
-                                    ]
-*/
-                                    text: name
-                                }
-                            }
+        cellHeight: Theme.itemSizeHuge
+        cellWidth: cellHeight
 
-                            onClicked: {
-                                parseClickedMainMenu(ident)
-                            }
-                        }
+        model: ObjectModel {
+            MainMenuItem {
+                text: qsTr("Playlist")
+                iconSource: "image://theme/icon-m-document"
+                onClicked: if (connected)
+                               pageStack.push(Qt.resolvedUrl("database/CurrentPlaylistPage.qml"))
+            }
+            MainMenuItem {
+                text: qsTr("Artists")
+                iconSource: "image://theme/icon-m-mic"
+                enabled: connected
+                onClicked:{
+                    if (connected) {
+                        requestArtists()
+                        pageStack.push(Qt.resolvedUrl("database/ArtistListPage.qml"))
                     }
                 }
             }
+
+            MainMenuItem {
+                text: qsTr("Albums")
+                iconSource: "image://theme/icon-m-music"
+                onClicked: {
+                    artistname = ""
+                    if (connected) {
+                        requestAlbums()
+                        pageStack.push(Qt.resolvedUrl("database/AlbumListPage.qml"), {
+                                           "artistname": artistname
+                                       })
+                    }
+                }
+            }
+
+            MainMenuItem {
+                text: qsTr("Files")
+                iconSource: "image://theme/icon-m-folder"
+                onClicked: if (connected) filesClicked("/")
+            }
+
+            MainMenuItem {
+                text: qsTr("Search")
+                iconSource: "image://theme/icon-m-search"
+                onClicked: if (connected) pageStack.push(Qt.resolvedUrl("database/SearchPage.qml"))
+            }
+
+            MainMenuItem {
+                text: qsTr("Connect")
+                iconSource: "image://theme/icon-m-computer"
+                onClicked: pageStack.push(Qt.resolvedUrl("settings/ConnectServerPage.qml"))
+            }
+            MainMenuItem {
+                text: qsTr("Settings")
+                iconSource: "image://theme/icon-m-developer-mode"
+                onClicked: pageStack.push(Qt.resolvedUrl("settings/SettingsPage.qml"))
+            }
+            MainMenuItem {
+                text: qsTr("Shuffle all")
+                iconSource: "image://theme/icon-m-shuffle"
+                onClicked: {
+
+                }
+            }
         }
-    }
-
-    Component.onCompleted: {
-        mainMenuModel.append({
-                                 "name": qsTr("Playlist"),
-                                 "ident": "playlist",
-                                 "icon": "image://theme/icon-m-document"
-                             })
-        mainMenuModel.append({
-                                 "name": qsTr("Artists"),
-                                 "ident": "artists",
-                                 "icon": "image://theme/icon-m-mic"
-                             })
-        mainMenuModel.append({
-                                 "name": qsTr("Albums"),
-                                 "ident": "albums",
-                                 "icon": "image://theme/icon-m-music"
-                             })
-        mainMenuModel.append({
-                                 "name": qsTr("Files"),
-                                 "ident": "files",
-                                 "icon": "image://theme/icon-m-folder"
-                             })
-        mainMenuModel.append({
-                                 "name": qsTr("Search"),
-                                 "ident": "search",
-                                 "icon": "image://theme/icon-m-search"
-                             })
-        mainMenuModel.append({
-                                 "name": qsTr("Connect"),
-                                 "ident": "connectto",
-                                 "icon": "image://theme/icon-m-computer"
-                             })
-        mainMenuModel.append({
-                                 "name": qsTr("Settings"),
-                                 "ident": "settings",
-                                 "icon": "image://theme/icon-m-developer-mode"
-                             })
-    }
-
-    ListModel {
-        id: mainMenuModel
     }
 
     Timer {
@@ -151,45 +111,6 @@ Page {
             if (connected) {
                 pageStack.navigateForward(PageStackAction.Animated)
             }
-        }
-    }
-
-    function parseClickedMainMenu(ident) {
-        if (ident === "playlist") {
-            if (connected) {
-                //pageStack.navigateForward(PageStackAction.Animated)
-                pageStack.push(Qt.resolvedUrl("database/CurrentPlaylistPage.qml"))
-            }
-        } else if (ident === "settings") {
-            pageStack.push(Qt.resolvedUrl("settings/SettingsPage.qml"))
-        } else if (ident === "currentsong") {
-            if (connected)
-                pageStack.push(currentsongpage)
-        } else if (ident === "albums") {
-            artistname = ""
-            if (connected) {
-                requestAlbums()
-                pageStack.push(Qt.resolvedUrl("database/AlbumListPage.qml"), {
-                                   "artistname": artistname
-                               })
-            }
-        } else if (ident === "artists") {
-            if (connected) {
-                requestArtists()
-                pageStack.push(Qt.resolvedUrl("database/ArtistListPage.qml"))
-            }
-        } else if (ident === "files") {
-            if (connected)
-                filesClicked("/")
-        } else if (ident === "connectto") {
-            pageStack.push(Qt.resolvedUrl("settings/ConnectServerPage.qml"))
-        } else if (ident === "about") {
-            aboutdialog.visible = true
-            aboutdialog.open()
-        } else if (ident === "updatedb") {
-            updateDB()
-        } else if (ident === "search") {
-            pageStack.push(Qt.resolvedUrl("database/SearchPage.qml"))
         }
     }
 
