@@ -131,6 +131,7 @@ QList<MpdAlbum *> *NetworkAccess::parseMPDAlbums(QString listedArtist = nullptr)
     MpdAlbum *tempalbum;
     QString artist = listedArtist;
     QString name = "", mbid = "", date = "", section = "";
+    QString name_old;
     QString tagName;
 
     bool skipFirstAlbum = mServerInfo->getListGroupFormatOld();
@@ -165,7 +166,7 @@ QList<MpdAlbum *> *NetworkAccess::parseMPDAlbums(QString listedArtist = nullptr)
                 /* skip albums with no albumname when listing all albums*/
                 if (!((name.isEmpty() && listedArtist.isEmpty())
                       /* skip first album entry for old list format */
-                      || skipFirstAlbum))
+                      || skipFirstAlbum || name == name_old))
                 {
                     section = name.toUpper()[0];
                     //                    if (mUseAlbumArtist && listedArtist.isEmpty()) {
@@ -187,6 +188,8 @@ QList<MpdAlbum *> *NetworkAccess::parseMPDAlbums(QString listedArtist = nullptr)
                 name = _name;
                 /* set new name for old list format */
                 skipFirstAlbum = false;
+                // remember previous name, workaround for albums displayed multiple times when song name per album are not unique
+                name_old = name;
             }
         }
     }
@@ -624,7 +627,7 @@ void NetworkAccess::pause()
         else {
             playTrackByNumber(getPlaybackID());
         }
-    }   
+    }
 }
 
 void NetworkAccess::stop()
@@ -1001,7 +1004,7 @@ void NetworkAccess::addPlayTrack(QString fileuri)
         }
         //Get song id in playlist
 
-        
+
         playTrackByNumber(getPlaylistLength() - 1);
     }
     //getStatus();

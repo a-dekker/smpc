@@ -101,7 +101,7 @@ Page {
                 }
 
                 Label {
-                    text: " 2016-2020 Michael Fuchs/Arno Dekker"
+                    text: " 2016-2021 Michael Fuchs/Arno Dekker"
                     font.pixelSize: Theme.fontSizeMedium
                 }
             }
