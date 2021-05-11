@@ -254,22 +254,22 @@
     <message>
         <location filename="../qml/pages/settings/ConnectServerPage.qml" line="53"/>
         <source>Removing server profile</source>
-        <translation type="unfinished">Tar bort serverprofil</translation>
+        <translation>Tar bort serverprofil</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/ConnectServerPage.qml" line="61"/>
         <source>Edit server profile</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigera serverprofil</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/ConnectServerPage.qml" line="77"/>
         <source>Remove server profile</source>
-        <translation type="unfinished">Ta bort serverprofil</translation>
+        <translation>Ta bort serverprofil</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/ConnectServerPage.qml" line="84"/>
         <source>Wake server</source>
-        <translation type="unfinished"></translation>
+        <translation>Väck servern</translation>
     </message>
 </context>
 <context>
@@ -784,22 +784,22 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="195"/>
         <source>Remorse options</source>
-        <translation type="unfinished"></translation>
+        <translation>Ångeralternativ</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="200"/>
         <source>Remorse time</source>
-        <translation type="unfinished"></translation>
+        <translation>Ångertid</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="205"/>
         <source>seconds</source>
-        <translation type="unfinished"></translation>
+        <translation>sekunder</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="205"/>
         <source>second</source>
-        <translation type="unfinished"></translation>
+        <translation>sekund</translation>
     </message>
 </context>
 <context>
@@ -807,67 +807,67 @@
     <message>
         <location filename="../qml/pages/MainPage.qml" line="11"/>
         <source>Saved playlists</source>
-        <translation type="unfinished"></translation>
+        <translation>Sparade spelningslistor</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="20"/>
         <source>Shuffle all</source>
-        <translation type="unfinished"></translation>
+        <translation>Blanda alla</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="53"/>
         <source>Connected to: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Ansluten till: %1</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="53"/>
         <source>Disconnected</source>
-        <translation type="unfinished"></translation>
+        <translation>Nerkopplad</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="66"/>
         <source>Playlist</source>
-        <translation type="unfinished">Spelningslista</translation>
+        <translation>Spelningslista</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="72"/>
         <source>Artists</source>
-        <translation type="unfinished">Artister</translation>
+        <translation>Artister</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="84"/>
         <source>Albums</source>
-        <translation type="unfinished">Album</translation>
+        <translation>Album</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="98"/>
         <source>Files</source>
-        <translation type="unfinished">Filer</translation>
+        <translation>Filer</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="104"/>
         <source>Search</source>
-        <translation type="unfinished">Sök</translation>
+        <translation>Sök</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="110"/>
         <source>Connect</source>
-        <translation type="unfinished"></translation>
+        <translation>Anslut</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="115"/>
         <source>Settings</source>
-        <translation type="unfinished">Inställningar</translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="120"/>
         <source>About</source>
-        <translation type="unfinished">Om</translation>
+        <translation>Om</translation>
     </message>
     <message>
         <location filename="../qml/pages/MainPage.qml" line="128"/>
         <source>Playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppspelning</translation>
     </message>
 </context>
 <context>
@@ -883,57 +883,57 @@
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="8"/>
         <source>Playback settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppspelningsinställningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="32"/>
         <source>Shuffle</source>
-        <translation type="unfinished"></translation>
+        <translation>Blanda</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="33"/>
         <source>Play in random order</source>
-        <translation type="unfinished"></translation>
+        <translation>Spela upp i slumpmässig ordning</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="40"/>
         <source>Repeat</source>
-        <translation type="unfinished"></translation>
+        <translation>Upprepa</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="42"/>
         <source>Play in never ending loop</source>
-        <translation type="unfinished"></translation>
+        <translation>Spela upp i en oändlig loop</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="49"/>
         <source>Consume track</source>
-        <translation type="unfinished"></translation>
+        <translation>Förbruka spår</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="51"/>
         <source>Each song played is removed from playlist</source>
-        <translation type="unfinished"></translation>
+        <translation>Varje låt som spelats tas bort från spelningslistan</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="59"/>
         <source>Playback is stopped after current song, or song is repeated if the ‘repeat’ mode is enabled</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppspelningen stoppas efter aktuell låt, eller låten upprepas om &quot;Upprepa&quot; är aktiverat.</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="70"/>
         <source>Use hardware volume keys</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd hårdvarans volymknappar</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="72"/>
         <source>Claim the volume rocker for MPD volume control when SMPC is active</source>
-        <translation type="unfinished"></translation>
+        <translation>Gör anspråk på volymreglaget för MPD-volymkontroll när SMPC är aktivt</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="57"/>
         <source>Single playback</source>
-        <translation type="unfinished"></translation>
+        <translation>Enkel uppspelning</translation>
     </message>
 </context>
 <context>
@@ -1259,12 +1259,12 @@
     <message>
         <location filename="../qml/pages/settings/SettingsPage.qml" line="72"/>
         <source>Playback settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppspelningsinställningar</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/SettingsPage.qml" line="82"/>
         <source>Update server database</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppdatera serverdatabasen</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/SettingsPage.qml" line="94"/>
