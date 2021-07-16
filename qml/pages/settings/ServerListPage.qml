@@ -12,8 +12,7 @@ Page {
         header: PageHeader {
             title: qsTr("Servers")
         }
-        ScrollDecorator {
-        }
+        ScrollDecorator {}
         PullDownMenu {
             MenuItem {
                 text: qsTr("Add server")

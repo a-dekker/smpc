@@ -80,6 +80,21 @@ Page {
                     }
                 }
             }
+            TextSwitch {
+                id: stopMPD
+                text: qsTr("Stop local MPD server on exit")
+                description: qsTr("Unchecked will keep MPD running if started")
+                checked: stopMPDOnExit
+                onClicked: {
+                    if (checked) {
+                        newSettingKey(["stopMPDOnExit", "1"])
+                        resourceHandler.acquire()
+                    } else {
+                        newSettingKey(["stopMPDOnExit", "0"])
+                        resourceHandler.release()
+                    }
+                }
+            }
         }
     }
 }

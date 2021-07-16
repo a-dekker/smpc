@@ -18,8 +18,7 @@ Dialog {
         anchors.fill: parent
         clip: true
         contentHeight: settingsContent.height
-        VerticalScrollDecorator {
-        }
+        VerticalScrollDecorator {}
         PullDownMenu {
             MenuItem {
                 text: qsTr("Remove server profile")

@@ -154,6 +154,7 @@ private:
     int mRemorseTimerSecs;
 
     int mUseVolumeRocker;
+    int mStopMPDOnExit;
 
     void readSettings();
     void writeSettings();

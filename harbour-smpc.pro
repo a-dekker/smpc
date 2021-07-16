@@ -1,7 +1,7 @@
 # The name of your app
 TARGET = harbour-smpc
 
-QT += network gui sql multimedia svg
+QT += network gui sql multimedia svg dbus
 
 CONFIG += sailfishapp
 
@@ -97,3 +97,4 @@ TRANSLATIONS += \
     translations/$${TARGET}-fr.ts
 
 PKGCONFIG += libresourceqt5
+PKGCONFIG += nemonotifications-qt5

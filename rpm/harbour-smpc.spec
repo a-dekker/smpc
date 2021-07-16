@@ -6,7 +6,7 @@ Name:       harbour-smpc
 # << macros
 
 Summary:    SailfishOS Port of qmobilempd client
-Version:    1.3.22
+Version:    1.3.23
 Release:    1
 Group:      Qt/Qt
 License:    GPLv3
@@ -25,6 +25,7 @@ BuildRequires:  pkgconfig(Qt5Multimedia)
 BuildRequires:  pkgconfig(Qt5Svg)
 BuildRequires:  pkgconfig(libresourceqt5)
 BuildRequires:  desktop-file-utils
+BuildRequires:  pkgconfig(nemonotifications-qt5)
 
 %description
 This is a port the symbian based mpd-client qmobilempd to SailfishOS

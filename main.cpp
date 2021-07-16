@@ -1,11 +1,60 @@
 #include <QGuiApplication>
 #include <QQuickView>
 #include <QDebug>
+#include <QProcess>
 
+#include <nemonotifications-qt5/notification.h>
 #include "src/controller.h"
 #include "src/resourcehandler.h"
 
 #include <sailfishapp.h>
+
+quint32 m_notificationId = 0;
+
+void showNotification(QString body, QString summary) {
+    qWarning() << Q_FUNC_INFO;
+
+    Notification n;
+    n.setReplacesId(m_notificationId);
+    n.setPreviewBody(body);
+    n.setPreviewSummary(summary);
+    n.publish();
+    m_notificationId = n.replacesId();
+}
+
+void removeNotification() {
+    if (m_notificationId == 0) {
+        return;
+    }
+
+    Notification n;
+    n.setReplacesId(m_notificationId);
+    n.close();
+
+    m_notificationId = 0;
+}
+
+void stopMPD() {
+    QProcess process;
+    QString exitMessage = "";
+    process.start("/usr/bin/systemctl", QStringList() << "--user"
+                                                      << "is-active"
+                                                      << "mpd");
+    process.waitForFinished(-1);
+    if (process.exitCode() == 0) {
+        qDebug() << "Stopping MPD ";
+        process.start("/usr/bin/systemctl", QStringList() << "--user"
+                                                          << "stop"
+                                                          << "mpd");
+        exitMessage = "Stopped MPD service";
+        process.waitForFinished(-1);
+    }
+    if (!exitMessage.isEmpty()) {
+        removeNotification();
+        showNotification(exitMessage, "");
+    }
+    exit(0);
+}
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
@@ -14,12 +63,6 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     app->setOrganizationName("harbour-smpc");
     app->setApplicationName("harbour-smpc");
-    // QString locale = QLocale::system().name();
-    // QString translationFile = QString(":translations/harbour-smpc_") + locale;
-    // QTranslator translator;
-    // translator.load(translationFile);
-    // app->installTranslator(&translator);
-//    QScopedPointer<QQuickView> view(SailfishApp::createView());
     appinfo.start("/bin/rpm", QStringList() << "-qa"
                                             << "--queryformat"
                                             << "%{version}-%{RELEASE}"
@@ -39,12 +82,16 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     view->rootContext()->setContextProperty("version", appversion);
     view->rootContext()->setContextProperty(QLatin1String("resourceHandler"), resourceHandler);
 
-    foreach (QString path, view->engine()->importPathList()) {
+    foreach(QString path, view->engine()->importPathList()) {
         qDebug() << path;
     }
 
+    QSettings mySets;
+    int stopMPDOnExit = mySets.value("general_properties/stop_mpd_on_exit", "0").toInt();
     Controller *control = new Controller(view, nullptr);
     view->rootContext()->setContextProperty("ctl", control);
     view->show();
-    return app->exec();
+    int retVal = app->exec();
+    if (stopMPDOnExit == 1) { stopMPD(); }
+    return retVal;
 }

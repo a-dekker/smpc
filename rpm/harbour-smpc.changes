@@ -8,6 +8,8 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon May 10 2021 Arno Dekker <jack.tar@example.com> 1.3.23-1
+- Added option to stop local mpd service on exit
 * Mon May 10 2021 Arno Dekker <jack.tar@example.com> 1.3.22-1
 - Adapted default cover icon for light theme
 - workaround for: albums with multiple identical tracknames are listed multiple times when showing artists albums

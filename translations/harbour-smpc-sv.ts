@@ -931,6 +931,16 @@
         <translation>Gör anspråk på volymreglaget för MPD-volymkontroll när SMPC är aktivt</translation>
     </message>
     <message>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="85"/>
+        <source>Stop local MPD server on exit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="86"/>
+        <source>Unchecked will keep MPD running if started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="57"/>
         <source>Single playback</source>
         <translation>Enkel uppspelning</translation>
@@ -1161,47 +1171,47 @@
 <context>
     <name>ServerEditPage</name>
     <message>
-        <location filename="../qml/pages/settings/ServerEditPage.qml" line="25"/>
+        <location filename="../qml/pages/settings/ServerEditPage.qml" line="24"/>
         <source>Remove server profile</source>
         <translation>Ta bort serverprofil</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerEditPage.qml" line="37"/>
+        <location filename="../qml/pages/settings/ServerEditPage.qml" line="36"/>
         <source>Edit profile</source>
         <translation>Redigera profil</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerEditPage.qml" line="42"/>
+        <location filename="../qml/pages/settings/ServerEditPage.qml" line="41"/>
         <source>Profile name</source>
         <translation>Profilnamn</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerEditPage.qml" line="49"/>
+        <location filename="../qml/pages/settings/ServerEditPage.qml" line="48"/>
         <source>Hostname or IP address</source>
         <translation>Värdnamn eller IP-adress</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerEditPage.qml" line="56"/>
+        <location filename="../qml/pages/settings/ServerEditPage.qml" line="55"/>
         <source>Port</source>
         <translation>Port</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerEditPage.qml" line="65"/>
+        <location filename="../qml/pages/settings/ServerEditPage.qml" line="64"/>
         <source>Password</source>
         <translation>Lösenord</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerEditPage.qml" line="73"/>
+        <location filename="../qml/pages/settings/ServerEditPage.qml" line="72"/>
         <source>Streaming port</source>
         <translation>Strömningsport</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerEditPage.qml" line="84"/>
+        <location filename="../qml/pages/settings/ServerEditPage.qml" line="83"/>
         <source>MAC address for WOL (optional)</source>
         <translation>MAC-adress för WOL (valfritt)</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerEditPage.qml" line="95"/>
+        <location filename="../qml/pages/settings/ServerEditPage.qml" line="94"/>
         <source>Autoconnect</source>
         <translation>Anslut automatiskt</translation>
     </message>
@@ -1214,17 +1224,17 @@
         <translation>Servrar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerListPage.qml" line="19"/>
+        <location filename="../qml/pages/settings/ServerListPage.qml" line="18"/>
         <source>Add server</source>
         <translation>Lägg till server</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerListPage.qml" line="49"/>
+        <location filename="../qml/pages/settings/ServerListPage.qml" line="48"/>
         <source>Removing server profile</source>
         <translation>Tar bort serverprofil</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/ServerListPage.qml" line="55"/>
+        <location filename="../qml/pages/settings/ServerListPage.qml" line="54"/>
         <source>Remove server profile</source>
         <translation>Ta bort serverprofil</translation>
     </message>
