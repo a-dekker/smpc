@@ -933,12 +933,12 @@
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="85"/>
         <source>Stop local MPD server on exit</source>
-        <translation type="unfinished"></translation>
+        <translation>Stoppa lokal MPD-server vid avslut</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="86"/>
         <source>Unchecked will keep MPD running if started</source>
-        <translation type="unfinished"></translation>
+        <translation>Om ej markerad, kommer startad MPD att fortsätta köras</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="57"/>
