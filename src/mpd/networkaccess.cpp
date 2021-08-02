@@ -183,13 +183,15 @@ QList<MpdAlbum *> *NetworkAccess::parseMPDAlbums(QString listedArtist = nullptr)
                     QQmlEngine::setObjectOwnership(tempalbum, QQmlEngine::CppOwnership);
                     albums->append(tempalbum);
                 }
-
+                // remember previous name, workaround for albums displayed multiple times when song name per album are not unique
+                // old mdp - like in volumio distribution - shows empty album list if 'name_old = name' is behind 'name = _name;'
+                // doit before: name = _name;
+                name_old = name;
                 /* set new name for old list format */
                 name = _name;
                 /* set new name for old list format */
                 skipFirstAlbum = false;
-                // remember previous name, workaround for albums displayed multiple times when song name per album are not unique
-                name_old = name;
+
             }
         }
     }
