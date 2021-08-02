@@ -95,14 +95,6 @@ DockedPanel {
     PushUpMenu {
         id: pushUp
 
-        PositionSlider {
-            id: positionSlider
-            width: parent.width
-            onPressedChanged: {
-                mPositionSliderActive = pressed
-            }
-        }
-
         PlaybackControls {}
 
         VolumeSlider {
