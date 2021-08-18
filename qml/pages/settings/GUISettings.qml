@@ -190,6 +190,30 @@ Page {
                     }
                 }
             }
+            TextSwitch {
+                id: showVolSlider
+                text: qsTr("Show Volume slider")
+                checked: showVolumeSlider
+                onClicked: {
+                    if (checked) {
+                        newSettingKey(["showVolumeSlider", "1"])
+                    } else {
+                        newSettingKey(["showVolumeSlider", "0"])
+                    }
+                }
+            }
+            TextSwitch {
+                id: showPosSlider
+                text: qsTr("Show position slider")
+                checked: showPositionSlider
+                onClicked: {
+                    if (checked) {
+                        newSettingKey(["showPositionSlider", "1"])
+                    } else {
+                        newSettingKey(["showPositionSlider", "0"])
+                    }
+                }
+            }
 
             SectionHeader {
                 text: qsTr("Remorse options")

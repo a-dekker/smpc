@@ -783,21 +783,31 @@
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="195"/>
+        <source>Show Volume slider</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="207"/>
+        <source>Show position slider</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="219"/>
         <source>Remorse options</source>
         <translation>Opciones de remordimiento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="200"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="224"/>
         <source>Remorse time</source>
         <translation>Tiempo de remordimiento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="205"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="229"/>
         <source>seconds</source>
         <translation>segundos</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="205"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="229"/>
         <source>second</source>
         <translation>segundo</translation>
     </message>

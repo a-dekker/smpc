@@ -151,8 +151,9 @@ private:
     int mArtistsViewUseAlbumArtist;
     int mCoverInNowPlaying;
     int mShowModeLandscape;
+    int mShowPositionSlider;
+    int mShowVolumeSlider;
     int mRemorseTimerSecs;
-
     int mUseVolumeRocker;
     int mStopMPDOnExit;
 

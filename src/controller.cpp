@@ -470,6 +470,8 @@ void Controller::readSettings()
     mNetAccess->setUseAlbumArtist(settings.value("artist_view_albumartist", 0).toInt());
     mCoverInNowPlaying = settings.value("show_covernowplaying", 1).toInt();
     mShowModeLandscape = settings.value("useShowView", 1).toInt();
+    mShowVolumeSlider = settings.value("showVolumeSlider", 1).toInt();
+    mShowPositionSlider = settings.value("showPositionSlider", 0).toInt();
     mRemorseTimerSecs = settings.value("remorse_timer_secs", 3).toInt();
     mUseVolumeRocker = settings.value("use_volume_rocker", 0).toInt();
     mStopMPDOnExit = settings.value("stop_mpd_on_exit", 0).toInt();
@@ -487,6 +489,8 @@ void Controller::readSettings()
     mQuickView->rootContext()->setContextProperty("showCoverNowPlaying", mCoverInNowPlaying);
 
     mQuickView->rootContext()->setContextProperty("useShowView", mShowModeLandscape);
+    mQuickView->rootContext()->setContextProperty("showVolumeSlider", mShowVolumeSlider);
+    mQuickView->rootContext()->setContextProperty("showPositionSlider", mShowPositionSlider);
     mQuickView->rootContext()->setContextProperty("remorseTimerSecs", mRemorseTimerSecs);
     mQuickView->rootContext()->setContextProperty("useVolumeRocker", mUseVolumeRocker);
     mQuickView->rootContext()->setContextProperty("stopMPDOnExit", mStopMPDOnExit);
@@ -534,6 +538,8 @@ void Controller::writeSettings()
     settings.setValue("artist_view_albumartist",mNetAccess->useAlbumArtist());
     settings.setValue("show_covernowplaying",mCoverInNowPlaying);
     settings.setValue("useShowView",mShowModeLandscape);
+    settings.setValue("showVolumeSlider",mShowVolumeSlider);
+    settings.setValue("showPositionSlider",mShowPositionSlider);
     settings.setValue("remorse_timer_secs",mRemorseTimerSecs);
     settings.setValue("use_volume_rocker",mUseVolumeRocker);
     settings.setValue("stop_mpd_on_exit",mStopMPDOnExit);
@@ -834,6 +840,14 @@ void Controller::receiveSettingKey(QVariant setting)
         } else if ( settings.at(0) == "showModeLandscape" ) {
             mShowModeLandscape = settings.at(1).toInt();
             mQuickView->rootContext()->setContextProperty("useShowView", mShowModeLandscape);
+
+        } else if ( settings.at(0) == "showVolumeSlider" ) {
+            mShowVolumeSlider = settings.at(1).toInt();
+            mQuickView->rootContext()->setContextProperty("showVolumeSlider", mShowVolumeSlider);
+        } else if ( settings.at(0) == "showPositionSlider" ) {
+            mShowPositionSlider = settings.at(1).toInt();
+            mQuickView->rootContext()->setContextProperty("showPositionSlider", mShowPositionSlider);
+
         } else if ( settings.at(0) == "remorseTimerSecs" ) {
             mRemorseTimerSecs = settings.at(1).toInt();
             mQuickView->rootContext()->setContextProperty("remorseTimerSecs", mRemorseTimerSecs);
