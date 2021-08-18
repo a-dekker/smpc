@@ -192,7 +192,7 @@ Page {
             }
             TextSwitch {
                 id: showVolSlider
-                text: qsTr("Show Volume slider")
+                text: qsTr("Show volume slider in control panel")
                 checked: showVolumeSlider
                 onClicked: {
                     if (checked) {
@@ -204,7 +204,7 @@ Page {
             }
             TextSwitch {
                 id: showPosSlider
-                text: qsTr("Show position slider")
+                text: qsTr("Show position slider in control panel")
                 checked: showPositionSlider
                 onClicked: {
                     if (checked) {

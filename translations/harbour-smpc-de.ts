@@ -783,13 +783,13 @@
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="195"/>
-        <source>Show Volume slider</source>
+        <source>Show volume slider in control panel</source>
         <translation>Zeige Lautstärkeschieberegler</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="207"/>
-        <source>Show position slider</source>
-        <translation>Zeige Positionsschieberegler  </translation>
+        <source>Show position slider in control panel</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="219"/>
