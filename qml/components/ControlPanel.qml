@@ -97,8 +97,18 @@ DockedPanel {
 
         PlaybackControls {}
 
+        PositionSlider {
+            id: positionSlider
+            visible: showPositionSlider
+            width: parent.width
+            onPressedChanged: {
+                mPositionSliderActive = pressed
+            }
+        }
+
         VolumeSlider {
             id: volumeSlider
+            visible: showVolumeSlider
             width: parent.width
         }
     }
