@@ -145,10 +145,10 @@ QList<MpdAlbum *> *NetworkAccess::parseMPDAlbums(QString listedArtist = nullptr)
             //qDebug() << response;
             if (response.startsWith(tagName = "AlbumArtist:")) {
                 artist = response.split(tagName).takeLast().trimmed();
-                        //response.right(response.length() - (tagName.length() + 1));
+                //response.right(response.length() - (tagName.length() + 1));
             } else if (response.startsWith(tagName = "Date:")) {
                 date = response.split(tagName).takeLast().trimmed().left(4);
-                        //response.right(response.length() - (tagName.length() + 1));
+                //response.right(response.length() - (tagName.length() + 1));
             } else if (response.startsWith(tagName = "MUSICBRAINZ_ALBUMID:")) {
                 mbid = response.split(tagName).takeLast().trimmed();
             } else if (response.startsWith(tagName = "Album:")
@@ -156,7 +156,7 @@ QList<MpdAlbum *> *NetworkAccess::parseMPDAlbums(QString listedArtist = nullptr)
                        || (response == "OK" && mServerInfo->getListGroupFormatOld()))
             {
                 QString _name = response.split(tagName).takeLast().trimmed();
-                        //response.right(response.length() - (tagName.length()));
+                //response.right(response.length() - (tagName.length()));
 
                 /* add album
                  * (for old format, use previous albumname): */
@@ -533,7 +533,7 @@ void NetworkAccess::getStatus()
                         // qDebug() << response;
                         QString r = response.right(response.length()-8);
                         mPlaybackStatus->setSingle(r == "1" ? MPD_SINGLE_ON :
-                                                               r == "3" ? MPD_SINGLE_ONESHOT : MPD_SINGLE_OFF);
+                                                              r == "3" ? MPD_SINGLE_ONESHOT : MPD_SINGLE_OFF);
                     }
                 }
                 else if (response.startsWith("random: ")) {
@@ -559,6 +559,7 @@ void NetworkAccess::getStatus()
             //mPlaybackStatus->clearPlayback();
             response = "";
             sendMPDCommand("currentsong\n");
+            mPlaybackStatus->setArtist(""); // because radio doesn't set Artist - possibly use name instead...
             MPD_WHILE_PARSE_LOOP
             {
                 mTCPSocket->waitForReadyRead(READYREAD);
@@ -742,7 +743,7 @@ void NetworkAccess::addAlbumToPlaylist(QString album)
 {
     emit busy();
     if (connected()) {
-        QList<MpdTrack*> *temptracks = new QList<MpdTrack*>();
+        QList<MpdTrack*> *temptracks; // = new QList<MpdTrack*>(); // new -- potential memory leak - here i just need the pointer not the object
         QString response ="";
 
         temptracks = getAlbumTracks_prv(album);
@@ -771,7 +772,7 @@ void NetworkAccess::addArtistAlbumToPlaylist(QString artist, QString album)
 {
     emit busy();
     if (connected()) {
-        QList<MpdTrack*> *temptracks = new QList<MpdTrack*>();
+        QList<MpdTrack*> *temptracks;// = new QList<MpdTrack*>();// new -- potential memory leak - here i just need the pointer not the object
         //album.replace(QString("\""),QString("\\\""));
         QString response ="";
         temptracks = getAlbumTracks_prv(album,artist);
@@ -1109,12 +1110,12 @@ void NetworkAccess::setConsume(bool consume)
 void NetworkAccess::setSingle(quint8 single)
 {
     if (connected()) {
-//        QString arg;
-//        if (single == 0 || single == 1) {
-//            arg = QString(single);
-//        } else if (single == 3) {
-//            arg = QString("oneshot");
-//        } else return;
+        //        QString arg;
+        //        if (single == 0 || single == 1) {
+        //            arg = QString(single);
+        //        } else if (single == 3) {
+        //            arg = QString("oneshot");
+        //        } else return;
         // qDebug() << single;
         // sendMPDCommand(QString("single %1\n").arg((single == 3 ? "oneshot" : QString(single))));
         sendMPDCommand(QString("single %1\n").arg((single == 3 ? "oneshot" : single == 2 ? "0" : "1")));
@@ -1163,9 +1164,9 @@ void NetworkAccess::setVolume(quint8 volume)
             }
         }
         //TODO do we need this at all?
-//        if( mPlaybackStatus ) {
-//            mPlaybackStatus->setVolume(volume);
-//        }
+        //        if( mPlaybackStatus ) {
+        //            mPlaybackStatus->setVolume(volume);
+        //        }
         //getStatus();
     }
 }
@@ -1405,8 +1406,6 @@ void NetworkAccess::getDirectory(QString path)
     QList<MpdFileEntry*> *tempfiles = new QList<MpdFileEntry*>();
     if (connected()) {
         path.replace(QString("\""),QString("\\\""));
-
-
         //TODO escape path??
         sendMPDCommand(QString("lsinfo \"") + path + "\"\n");
         QString response ="";
@@ -1684,52 +1683,41 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
 
         MpdTrack *temptrack=nullptr;
         QString title;
+        QString tmpTitle = "";
         QString artist;
         QString albumartist;
         QString albumstring;
         QString datestring;
-        int nr,albumnrs;
-        nr = albumnrs = 0;
-        QString file;
+        int nr = 0, albumnrs = 0;
+        QString file = "";
+        QString nextFile = "";
         QString trackMBID;
         QString albumMBID;
         QString artistMBID;
         quint32 length=0;
-        MPD_WHILE_PARSE_LOOP
-        {
-            if (!mTCPSocket->waitForReadyRead(READYREAD))
-            {
-            }
-
-            while (Q_LIKELY(mTCPSocket->canReadLine()))
-            {
+        int trackNr = 0;
+        bool lastLine = false;
+        bool gotit = false;
+        temptrack = new MpdTrack(nullptr);
+        QRegExp rxWebUrl("https?://",Qt::CaseInsensitive);
+        MPD_WHILE_PARSE_LOOP  {
+            if (!mTCPSocket->waitForReadyRead(READYREAD))   {  }
+            lastLine  = !mTCPSocket->canReadLine();
+            while (!lastLine)   {
                 response = QString::fromUtf8(mTCPSocket->readLine());
                 // Remove new line
                 response.chop(1);
                 if (response.startsWith("file: ")) {
-                    if (temptrack!=nullptr)
-                    {
-                        // Discard track if artist filter mismatches
-                        if (albumartist==cartist||artist==cartist||cartist=="") {
-                            temptracks->append(temptrack);
-                            artistMBID = "";
-                            temptrack->moveToThread(mQMLThread);
-                            QQmlEngine::setObjectOwnership(temptrack, QQmlEngine::CppOwnership);
-                        } else {
-                            delete(temptrack);
-                        }
-                        temptrack=nullptr;
-                    }
-                    if (temptrack==nullptr)
-                    {
-                        temptrack = new MpdTrack(nullptr);
-                    }
-                    file = response.right(response.length()-6);
-                    temptrack->setFileUri(file);
+                    nextFile = response.right(response.length()-6);
+                    trackNr++;
+                    gotit = true;
                 }
                 else if (response.startsWith("Title: ")) {
                     title = response.right(response.length()-7);
                     temptrack->setTitle(title);
+                }
+                else if (response.startsWith("Name: ")) {// in m3u radio Station Name
+                    tmpTitle = response.right(response.length()-6);
                 }
                 else if (response.startsWith("Artist: ")) {
                     artist = response.right(response.length()-8);
@@ -1743,7 +1731,6 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
                     albumstring = response.right(response.length()-7);
                     temptrack->setAlbum(albumstring);
                 }
-
                 else if (response.startsWith("Time: ")) {
                     albumstring = response.right(response.length()-6);
                     length = albumstring.toUInt();
@@ -1781,26 +1768,168 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
                     }
                     temptrack->setTrackNr(nr);
                 }
-            }
 
-        }
-        if (temptrack!=nullptr)
-        {
-            if (albumartist==cartist||artist==cartist||cartist=="") {
-                temptrack->setPlaying(false);
-                temptracks->append(temptrack);
-                temptrack->moveToThread(mQMLThread);
-                QQmlEngine::setObjectOwnership(temptrack, QQmlEngine::CppOwnership);
+                lastLine = !mTCPSocket->canReadLine();
+                qDebug() << "lastLine: " <<  lastLine << " trackNr: " << trackNr << " file: " << temptrack->getFileName();
+                if ((trackNr > 1 && gotit) || (lastLine && trackNr > 0)) {
+                    gotit = false;
+                    temptrack->setFileUri(file);
+                    if (tmpTitle.isEmpty()) {
+                        tmpTitle = file.split('#').last();
+                    }
+
+                    if (albumartist==cartist||artist==cartist||cartist=="") {
+                        if(temptrack->getTitle().isEmpty() && rxWebUrl.indexIn(temptrack->getFileUri()) == 0) {
+                            temptrack->setTitle(tmpTitle);
+                        }
+                        tmpTitle.clear();
+                        temptrack->setPlaying(false);
+                        qDebug() << "add: " <<  temptrack->getTitle();
+                        temptracks->append(temptrack);
+                        temptrack->moveToThread(mQMLThread);
+                        QQmlEngine::setObjectOwnership(temptrack, QQmlEngine::CppOwnership);
+                    }
+                    else {
+                        delete(temptrack);
+                    }
+                    temptrack = new MpdTrack(nullptr);
+                }
+                file = nextFile;
             }
-            else {
-                delete(temptrack);
-                temptrack = nullptr;
-            }
         }
+        delete(temptrack);
     }
     return temptracks;
 }
+/*
+                QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
+                {
+                    QList<MpdTrack*> *temptracks = new QList<MpdTrack*>();
+                    if (connected()) {
+                        QString response ="";
 
+                        MpdTrack *temptrack=nullptr;
+                        QString title;
+                        QString tmpTitle = 0;
+                        QString artist;
+                        QString albumartist;
+                        QString albumstring;
+                        QString datestring;
+                        int nr = 0, albumnrs = 0;
+                        QString file;
+                        QString trackMBID;
+                        QString albumMBID;
+                        QString artistMBID;
+                        quint32 length=0;
+                        MPD_WHILE_PARSE_LOOP
+                        {
+                            if (!mTCPSocket->waitForReadyRead(READYREAD))
+                            {
+                            }
+
+                            while (Q_LIKELY(mTCPSocket->canReadLine()))
+                            {
+                                response = QString::fromUtf8(mTCPSocket->readLine());
+                                // Remove new line
+                                response.chop(1);
+                                if (response.startsWith("file: ")) {
+                                    if (temptrack!=nullptr)
+                                    {
+                                        // Discard track if artist filter mismatches
+                                        if (albumartist==cartist||artist==cartist||cartist=="") {
+                                            temptracks->append(temptrack);
+                                            artistMBID = "";
+                                            temptrack->moveToThread(mQMLThread);
+                                            QQmlEngine::setObjectOwnership(temptrack, QQmlEngine::CppOwnership);
+                                        } else {
+                                            delete(temptrack);
+                                        }
+                                        temptrack=nullptr;
+                                    }
+                                    if (temptrack==nullptr)
+                                    {
+                                        temptrack = new MpdTrack(nullptr);
+                                    }
+                                    file = response.right(response.length()-6);
+                                    temptrack->setFileUri(file);
+                                }
+                                else if (response.startsWith("Title: ")) {
+                                    title = response.right(response.length()-7);
+                                    temptrack->setTitle(title);
+                                }
+                                else if (response.startsWith("Name: ")) {// in m3u radio Station Name
+                                    tmpTitle = response.right(response.length()-6);
+                                }
+                                else if (response.startsWith("Artist: ")) {
+                                    artist = response.right(response.length()-8);
+                                    temptrack->setArtist(artist);
+                                }
+                                else if (response.startsWith("AlbumArtist: ")) {
+                                    albumartist = response.right(response.length()-13);
+                                    temptrack->setAlbumArtist(albumartist);
+                                }
+                                else if (response.startsWith("Album: ")) {
+                                    albumstring = response.right(response.length()-7);
+                                    temptrack->setAlbum(albumstring);
+                                }
+
+                                else if (response.startsWith("Time: ")) {
+                                    albumstring = response.right(response.length()-6);
+                                    length = albumstring.toUInt();
+                                    temptrack->setLength(length);
+                                }
+                                else if (response.startsWith("Date: ")) {
+                                    datestring = response.right(response.length()-6);
+                                    temptrack->setYear(datestring);
+                                }
+                                else if (response.startsWith("MUSICBRAINZ_TRACKID: ")) {
+                                    trackMBID = response.right(response.length()-21);
+                                    temptrack->setTrackMBID(trackMBID);
+                                }
+                                else if (response.startsWith("MUSICBRAINZ_ALBUMID: ")) {
+                                    albumMBID = response.right(response.length()-21);
+                                    temptrack->setAlbumMBID(albumMBID);
+                                }
+                                else if (response.startsWith("MUSICBRAINZ_ARTISTID: ")) {
+                                    if ( artistMBID == "" ) {
+                                        artistMBID = response.right(response.length()-22);
+                                        temptrack->setArtistMBID(artistMBID);
+                                    }
+                                }
+                                else if (response.startsWith("Track: ")) {
+                                    albumstring = response.right(response.length()-7);
+                                    QStringList tracknrs;
+                                    tracknrs = albumstring.split('/');
+                                    if(tracknrs.length()>0)
+                                    {
+                                        nr = tracknrs.at(0).toInt();
+                                        if(tracknrs.length()>1) {
+                                            albumnrs = tracknrs.at(1).toInt();
+                                            temptrack->setAlbumTracks(albumnrs);
+                                        }
+                                    }
+                                    temptrack->setTrackNr(nr);
+                                }
+                            }
+
+                        }
+                        if (temptrack!=nullptr)
+                        {
+                            if (albumartist==cartist||artist==cartist||cartist=="") {
+                                temptrack->setPlaying(false);
+                                temptracks->append(temptrack);
+                                temptrack->moveToThread(mQMLThread);
+                                QQmlEngine::setObjectOwnership(temptrack, QQmlEngine::CppOwnership);
+                            }
+                            else {
+                                delete(temptrack);
+                                temptrack = nullptr;
+                            }
+                        }
+                    }
+                    return temptracks;
+                }
+                */
 void NetworkAccess::exitRequest()
 {
     this->disconnectFromServer();
@@ -1912,8 +2041,8 @@ void NetworkAccess::checkServerCapabilities() {
 
 
     /*
-     * Get allowed commands
-     */
+                     * Get allowed commands
+                     */
     if (connected()) {
         sendMPDCommand("commands\n");
         QString response = "";
@@ -1935,8 +2064,8 @@ void NetworkAccess::checkServerCapabilities() {
             }
         }
         /*
-         * Get allowed tags
-         */
+                         * Get allowed tags
+                         */
         sendMPDCommand("tagtypes\n");
         response = "";
         bool mbTrackId = false, mbArtistId = false, mbAlbumId = false;
@@ -1990,35 +2119,35 @@ MPD_PLAYBACK_STATE NetworkAccess::getPlaybackState()
 {
     //FIXME fooxl: what for???
 
-//    MPD_PLAYBACK_STATE playbackState = MPD_STOP;
-//    if (connected()) {
-//        sendMPDCommand("status\n");
-//        QString response;
-//        MPD_WHILE_PARSE_LOOP
-//        {
-//            mTCPSocket->waitForReadyRead(READYREAD);
-//            while (mTCPSocket->canReadLine())
-//            {
-//                response = QString::fromUtf8(mTCPSocket->readLine()).trimmed();
-//                if (response.startsWith("state: ")) {
-//                    {
-//                        response = response.right(response.length()-7);
-//                        if (response == "play")
-//                        {
-//                            playbackState = MPD_PLAYING;
-//                        }
-//                        else if (response == "pause") {
-//                            playbackState = MPD_PAUSE;
-//                        }
-//                        else if (response == "stop") {
-//                            playbackState = MPD_STOP;
-//                        }
-//                    }
-//                }
-//            }
-//        }
-//    }
-//    return playbackState;
+    //    MPD_PLAYBACK_STATE playbackState = MPD_STOP;
+    //    if (connected()) {
+    //        sendMPDCommand("status\n");
+    //        QString response;
+    //        MPD_WHILE_PARSE_LOOP
+    //        {
+    //            mTCPSocket->waitForReadyRead(READYREAD);
+    //            while (mTCPSocket->canReadLine())
+    //            {
+    //                response = QString::fromUtf8(mTCPSocket->readLine()).trimmed();
+    //                if (response.startsWith("state: ")) {
+    //                    {
+    //                        response = response.right(response.length()-7);
+    //                        if (response == "play")
+    //                        {
+    //                            playbackState = MPD_PLAYING;
+    //                        }
+    //                        else if (response == "pause") {
+    //                            playbackState = MPD_PAUSE;
+    //                        }
+    //                        else if (response == "stop") {
+    //                            playbackState = MPD_STOP;
+    //                        }
+    //                    }
+    //                }
+    //            }
+    //        }
+    //    }
+    //    return playbackState;
     return mPlaybackStatus->getPlaybackStatus();
 }
 
@@ -2026,48 +2155,48 @@ quint32 NetworkAccess::getPlaybackID()
 {
     //FIXME fooxl: what for???
     // qDebug() << "::getPlaybackID";
-//    quint32 playbackID = 0;
-//    if (connected()) {
-//        sendMPDCommand("status\n");
-//        QString response = "";
-//        MPD_WHILE_PARSE_LOOP
-//        {
-//            // qDebug() << response;
-//            mTCPSocket->waitForReadyRead(READYREAD);
-//            while (mTCPSocket->canReadLine())
-//            {
-//                response = QString::fromUtf8(mTCPSocket->readLine()).trimmed();
-//                if (response.startsWith("song: ")) {
-//                    playbackID = response.right(response.length()-6).toUInt();
-//                }
-//            }
-//        }
-//    }
-//    // qDebug() << "ID: " << playbackID;
-//    return playbackID;
+    //    quint32 playbackID = 0;
+    //    if (connected()) {
+    //        sendMPDCommand("status\n");
+    //        QString response = "";
+    //        MPD_WHILE_PARSE_LOOP
+    //        {
+    //            // qDebug() << response;
+    //            mTCPSocket->waitForReadyRead(READYREAD);
+    //            while (mTCPSocket->canReadLine())
+    //            {
+    //                response = QString::fromUtf8(mTCPSocket->readLine()).trimmed();
+    //                if (response.startsWith("song: ")) {
+    //                    playbackID = response.right(response.length()-6).toUInt();
+    //                }
+    //            }
+    //        }
+    //    }
+    //    // qDebug() << "ID: " << playbackID;
+    //    return playbackID;
     return mPlaybackStatus->getID();
 }
 
 quint32 NetworkAccess::getPlaylistLength()
 {
     //FIXME fooxl: what for???
-//    quint32 playlistLength = 0;
-//    if (connected()) {
-//        sendMPDCommand("status\n");
-//        QString response = "";
-//        MPD_WHILE_PARSE_LOOP
-//        {
-//            mTCPSocket->waitForReadyRead(READYREAD);
-//            while (mTCPSocket->canReadLine())
-//            {
-//                response = QString::fromUtf8(mTCPSocket->readLine()).trimmed();
-//                if (response.startsWith("playlistlength: ")) {
-//                    playlistLength = response.right(response.length()-16).toUInt();
-//                }
-//            }
-//        }
-//    }
-//    return playlistLength;
+    //    quint32 playlistLength = 0;
+    //    if (connected()) {
+    //        sendMPDCommand("status\n");
+    //        QString response = "";
+    //        MPD_WHILE_PARSE_LOOP
+    //        {
+    //            mTCPSocket->waitForReadyRead(READYREAD);
+    //            while (mTCPSocket->canReadLine())
+    //            {
+    //                response = QString::fromUtf8(mTCPSocket->readLine()).trimmed();
+    //                if (response.startsWith("playlistlength: ")) {
+    //                    playlistLength = response.right(response.length()-16).toUInt();
+    //                }
+    //            }
+    //        }
+    //    }
+    //    return playlistLength;
     return mPlaybackStatus->getLength();
 }
 
@@ -2156,13 +2285,13 @@ void NetworkAccess::onNewNetworkData()
 }
 
 /*
- * React on changes of sockets connection state. This is required to get notified
- * about connection timeouts for example. This controls the busy indication */
+                 * React on changes of sockets connection state. This is required to get notified
+                 * about connection timeouts for example. This controls the busy indication */
 void NetworkAccess::onConnectionStateChanged(QAbstractSocket::SocketState socketState)
 {
     // qDebug() << "New connection state: " << socketState;
     switch ( socketState ) {
-        case QAbstractSocket::UnconnectedState: {
+    case QAbstractSocket::UnconnectedState: {
         if ( mTimeoutTimer ) {
             mTimeoutTimer->stop();
             delete(mTimeoutTimer);
@@ -2231,7 +2360,7 @@ void NetworkAccess::sendMPDCommand(QString cmd)
 {
     if (connected()) {
         /* It is important to cancel the idle command first
-         * otherwise MPD disconnects the client */
+                         * otherwise MPD disconnects the client */
         if (mIdling) {
             cancelIdling();
         }

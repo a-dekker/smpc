@@ -135,7 +135,20 @@ QString MpdTrack::getFileName() const {
     splitted = getFileUri().split('/');
     return (splitted.last() !="" ? splitted.last() : getFileUri());
 }
-
+/*
+QString MpdTrack::getFileName() const {
+    QStringList splitted;
+    QString fileUri = getFileUri();
+    if (fileUri.toLower().startsWith("http://") || fileUri.toLower().startsWith("https://")) {
+        splitted = fileUri.split('#');
+        if (splitted.last() !="") {
+           return splitted.last();
+        }
+    }
+    splitted = fileUri.split('/');
+    return (splitted.last() !="" ? splitted.last() : getFileUri());
+}
+*/
 QString MpdTrack::getTrackMBID() const {
     return mTrackMBID;
 }
