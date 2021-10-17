@@ -117,11 +117,6 @@ void NetworkAccess::getAlbums()
     emit ready();
 }
 
-//QList<MpdAlbum *> *NetworkAccess::parseMPDAlbums()
-//{
-//    return parseMPDAlbums("");
-//}
-
 QList<MpdAlbum *> *NetworkAccess::parseMPDAlbums(QString listedArtist = nullptr)
 {
 
@@ -798,31 +793,6 @@ void NetworkAccess::addArtistAlbumToPlaylist(QString artist, QString album)
     //     getStatus();
 }
 
-
-
-//void NetworkAccess::addArtistAlbumToPlaylist(QVariant albuminfo)
-//{
-//    // New qt 5.4 qml->c++ qvariant cast
-//    if (albuminfo.userType() == qMetaTypeId<QJSValue>()) {
-//        albuminfo = qvariant_cast<QJSValue>(albuminfo).toVariant();
-//    }
-
-//    QStringList strings = albuminfo.toStringList();
-//    addArtistAlbumToPlaylist(strings[0],strings[1]);
-//}
-
-//void NetworkAccess::playArtistAlbum(QVariant albuminfo)
-//{
-//    clearPlaylist();
-//    // New qt 5.4 qml->c++ qvariant cast
-//    if (albuminfo.userType() == qMetaTypeId<QJSValue>()) {
-//        albuminfo = qvariant_cast<QJSValue>(albuminfo).toVariant();
-//    }
-////    addArtistAlbumToPlaylist(albuminfo);
-//    playTrackByNumber(0);
-//    setRandom(false);
-//    setRepeat(false);
-//}
 
 void NetworkAccess::playArtistAlbum(QString artist, QString album)
 {
