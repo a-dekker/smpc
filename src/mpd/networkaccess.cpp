@@ -1740,12 +1740,12 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
                 }
 
                 lastLine = !mTCPSocket->canReadLine();
-                qDebug() << "lastLine: " <<  lastLine << " trackNr: " << trackNr << " file: " << temptrack->getFileName();
+                // qDebug() << "lastLine: " <<  lastLine << " trackNr: " << trackNr << " file: " << temptrack->getFileName();
                 if ((trackNr > 1 && gotit) || (lastLine && trackNr > 0)) {
                     gotit = false;
                     temptrack->setFileUri(file);
                     if (tmpTitle.isEmpty()) {
-                        tmpTitle = file.split('#').last();
+                        tmpTitle = file.split('#').last().replace("StreamName=", "").replace("%20"," ");
                     }
 
                     if (albumartist==cartist||artist==cartist||cartist=="") {
@@ -1754,7 +1754,7 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
                         }
                         tmpTitle.clear();
                         temptrack->setPlaying(false);
-                        qDebug() << "add: " <<  temptrack->getTitle();
+                        // qDebug() << "add: " <<  temptrack->getTitle();
                         temptracks->append(temptrack);
                         temptrack->moveToThread(mQMLThread);
                         QQmlEngine::setObjectOwnership(temptrack, QQmlEngine::CppOwnership);
