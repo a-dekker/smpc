@@ -1,7 +1,6 @@
 #include <QGuiApplication>
 #include <QQuickView>
 #include <QDebug>
-#include <QProcess>
 
 #include <nemonotifications-qt5/notification.h>
 #include "src/controller.h"
@@ -58,20 +57,9 @@ void stopMPD() {
 
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
-    QProcess appinfo;
-    QString appversion;
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     app->setOrganizationName("harbour-smpc");
     app->setApplicationName("harbour-smpc");
-    appinfo.start("/bin/rpm", QStringList() << "-qa"
-                                            << "--queryformat"
-                                            << "%{version}-%{RELEASE}"
-                                            << "harbour-smpc");
-    appinfo.waitForFinished(-1);
-    if (appinfo.bytesAvailable() > 0) {
-        appversion = appinfo.readAll();
-    }
-
     ResourceHandler *resourceHandler = new ResourceHandler();
 
     QLocale::setDefault(QLocale::c());
@@ -79,7 +67,7 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     view->engine()->addImportPath("/usr/share/harbour-smpc/qml/");
     view->setSource(SailfishApp::pathTo("qml/main.qml"));
     view->setDefaultAlphaBuffer(true);
-    view->rootContext()->setContextProperty("version", appversion);
+    view->rootContext()->setContextProperty("version", APP_VERSION);
     view->rootContext()->setContextProperty(QLatin1String("resourceHandler"), resourceHandler);
 
     foreach(QString path, view->engine()->importPathList()) {

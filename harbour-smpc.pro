@@ -72,6 +72,13 @@ HEADERS += \
     src/resourcehandler.h \
     src/playlist.h
 
+isEmpty(VERSION) {
+    VERSION = $$system( egrep "^Version:\|^Release:" rpm/harbour-smpc.spec |tr -d "[A-Z][a-z]: " | tr "\\\n" "-" | sed "s/\.$//g"| tr -d "[:space:]")
+    message("VERSION is unset, assuming $$VERSION")
+}
+DEFINES += APP_VERSION=\\\"$$VERSION\\\"
+
+
 DISTFILES += \
     harbour-smpc.desktop \
     qml/components/ConsumeSwitch.qml \

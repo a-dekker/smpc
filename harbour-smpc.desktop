@@ -5,3 +5,6 @@ Icon=harbour-smpc
 Exec=harbour-smpc
 Comment=SMPC MPD remote control
 X-Nemo-Application-Type=silica-qt5
+
+[X-Sailjail]
+Sandboxing=Disabled
