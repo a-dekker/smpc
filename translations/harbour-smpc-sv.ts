@@ -784,12 +784,12 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="195"/>
         <source>Show volume slider in control panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa volymreglage i kontrollpanelen</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="207"/>
         <source>Show position slider in control panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa positionsreglage i kontrollpanelen</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="219"/>
