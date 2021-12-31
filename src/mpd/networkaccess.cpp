@@ -1666,14 +1666,12 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
         QString artistMBID;
         quint32 length=0;
         int trackNr = 0;
-        bool lastLine = false;
         bool gotit = false;
         temptrack = new MpdTrack(nullptr);
         QRegExp rxWebUrl("https?://",Qt::CaseInsensitive);
         MPD_WHILE_PARSE_LOOP  {
             if (!mTCPSocket->waitForReadyRead(READYREAD))   {  }
-            lastLine  = !mTCPSocket->canReadLine();
-            while (!lastLine)   {
+            while (Q_LIKELY(mTCPSocket->canReadLine())) {
                 response = QString::fromUtf8(mTCPSocket->readLine());
                 // Remove new line
                 response.chop(1);
@@ -1738,23 +1736,18 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
                     }
                     temptrack->setTrackNr(nr);
                 }
-
-                lastLine = !mTCPSocket->canReadLine();
-                // qDebug() << "lastLine: " <<  lastLine << " trackNr: " << trackNr << " file: " << temptrack->getFileName();
-                if ((trackNr > 1 && gotit) || (lastLine && trackNr > 0)) {
+                if ((trackNr > 1 && gotit) || (response.startsWith("OK") && trackNr > 0)) {
                     gotit = false;
                     temptrack->setFileUri(file);
                     if (tmpTitle.isEmpty()) {
                         tmpTitle = file.split('#').last().replace("StreamName=", "").replace("%20"," ");
                     }
-
                     if (albumartist==cartist||artist==cartist||cartist=="") {
                         if(temptrack->getTitle().isEmpty() && rxWebUrl.indexIn(temptrack->getFileUri()) == 0) {
                             temptrack->setTitle(tmpTitle);
                         }
                         tmpTitle.clear();
                         temptrack->setPlaying(false);
-                        // qDebug() << "add: " <<  temptrack->getTitle();
                         temptracks->append(temptrack);
                         temptrack->moveToThread(mQMLThread);
                         QQmlEngine::setObjectOwnership(temptrack, QQmlEngine::CppOwnership);
