@@ -100,8 +100,9 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += \
     translations/$${TARGET}-de.ts \
     translations/$${TARGET}-es.ts \
-    translations/$${TARGET}-sv.ts \
-    translations/$${TARGET}-fr.ts
+    translations/$${TARGET}-fr.ts \
+    translations/$${TARGET}-nl.ts \
+    translations/$${TARGET}-sv.ts
 
 PKGCONFIG += libresourceqt5
 PKGCONFIG += nemonotifications-qt5
