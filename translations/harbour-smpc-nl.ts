@@ -198,6 +198,11 @@
 <context>
     <name>ArtistListDelegate</name>
     <message>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="38"/>
+        <source>No Artist Tag</source>
+        <translation>Geen artiest-tag</translation>
+    </message>
+    <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="55"/>
         <source>Playing artist</source>
         <translation>artiest afspelen</translation>
@@ -283,14 +288,12 @@
 <context>
     <name>Controller</name>
     <message>
-        <location filename="../src/controller.cpp" line="381"/>
         <source>Connected to: </source>
-        <translation>Verbonden met: </translation>
+        <translation type="vanished">Verbonden met: </translation>
     </message>
     <message>
-        <location filename="../src/controller.cpp" line="389"/>
         <source>Disconnected from server</source>
-        <translation>Verbinding verbroken met server</translation>
+        <translation type="vanished">Verbinding verbroken met server</translation>
     </message>
 </context>
 <context>
