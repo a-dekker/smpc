@@ -31,7 +31,7 @@
     <message>
         <location filename="../qml/pages/settings/AboutPage.qml" line="123"/>
         <source>Fetches metadata from last.fm</source>
-        <translation>Télécharge les méta données depuis last.fm</translation>
+        <translation>Télécharge les métadonnées depuis last.fm</translation>
     </message>
 </context>
 <context>
@@ -58,7 +58,7 @@
     <message>
         <location filename="../qml/components/AlbumListDelegate.qml" line="53"/>
         <source>Playing album</source>
-        <translation>Album en lecutre</translation>
+        <translation>Album en lecture</translation>
     </message>
     <message>
         <location filename="../qml/components/AlbumListDelegate.qml" line="58"/>
@@ -143,7 +143,7 @@
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="25"/>
         <source>Replace album</source>
-        <translation>Remplacer l&apos;albumer</translation>
+        <translation>Remplacer l&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="33"/>
@@ -192,7 +192,7 @@
     <message>
         <location filename="../qml/components/ArtistDelegate.qml" line="65"/>
         <source>No Artist Tag</source>
-        <translation>Pas de tag d&apos;artiste</translation>
+        <translation>Pas de tag artiste</translation>
     </message>
 </context>
 <context>
@@ -200,12 +200,12 @@
     <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="38"/>
         <source>No Artist Tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Pas de tag artiste</translation>
     </message>
     <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="55"/>
         <source>Playing artist</source>
-        <translation>Artiste joué</translation>
+        <translation>Artiste en cours</translation>
     </message>
     <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="60"/>
@@ -233,7 +233,7 @@
     <message>
         <location filename="../qml/pages/database/ArtistListPage.qml" line="83"/>
         <source>artists</source>
-        <translation>Artistes</translation>
+        <translation>artistes</translation>
     </message>
 </context>
 <context>
@@ -386,7 +386,7 @@
     <message>
         <location filename="../qml/pages/database/CurrentPlaylistPage_large.qml" line="264"/>
         <source>Bitrate:</source>
-        <translation>Débit binaire</translation>
+        <translation>Débit binaire :</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/CurrentPlaylistPage_large.qml" line="277"/>
@@ -414,12 +414,12 @@
     <message>
         <location filename="../qml/pages/database/CurrentSong.qml" line="294"/>
         <source>Track nr: </source>
-        <translation>Piste № :</translation>
+        <translation>Piste № : </translation>
     </message>
     <message>
         <location filename="../qml/pages/database/CurrentSong.qml" line="303"/>
         <source>Playlist nr: </source>
-        <translation>Liste de lecture № :</translation>
+        <translation>Liste de lecture № : </translation>
     </message>
 </context>
 <context>
@@ -605,27 +605,27 @@
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="30"/>
         <source>Filebrowser</source>
-        <translation type="unfinished">Navigateur de fichiers</translation>
+        <translation>Navigateur de fichiers</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="35"/>
         <source>Home</source>
-        <translation type="unfinished">Accueil</translation>
+        <translation>Accueil</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="42"/>
         <source>Replace folder</source>
-        <translation type="unfinished">Remplacer le dossier</translation>
+        <translation>Remplacer le dossier</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="50"/>
         <source>Add folder</source>
-        <translation type="unfinished">Ajouter un dossier</translation>
+        <translation>Ajouter un dossier</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="56"/>
         <source>Play folder</source>
-        <translation type="unfinished">Lire le dossier</translation>
+        <translation>Lire le dossier</translation>
     </message>
 </context>
 <context>
@@ -764,7 +764,7 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="133"/>
         <source>Use albumartist in artists view</source>
-        <translation>Utiliser  albumartist dans la vue des artistes</translation>
+        <translation>Utiliser albumartist dans la vue des artistes</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="145"/>
@@ -784,7 +784,7 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="183"/>
         <source>Use show mode in landscape</source>
-        <translation type="unfinished"></translation>
+        <translation>Utiliser le mode show en paysage</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="195"/>
@@ -1061,7 +1061,7 @@
     <message>
         <location filename="../qml/pages/database/SavedPlaylistsPage.qml" line="49"/>
         <source>Playing list</source>
-        <translation>Lecutre de la liste</translation>
+        <translation>Lecture de la liste</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/SavedPlaylistsPage.qml" line="54"/>
@@ -1321,25 +1321,25 @@
         <location filename="../qml/components/SongDialog.qml" line="200"/>
         <location filename="../qml/components/SongDialog.qml" line="443"/>
         <source>Nr.: </source>
-        <translation>№ :</translation>
+        <translation>№ : </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="214"/>
         <location filename="../qml/components/SongDialog.qml" line="457"/>
         <source>Musicbrainz track id: </source>
-        <translation>ID piste Musicbrainz</translation>
+        <translation>ID piste Musicbrainz : </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="228"/>
         <location filename="../qml/components/SongDialog.qml" line="471"/>
         <source>Musicbrainz album id: </source>
-        <translation>ID album Musicbrainz</translation>
+        <translation>ID album Musicbrainz : </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="242"/>
         <location filename="../qml/components/SongDialog.qml" line="485"/>
         <source>Musicbrainz artist id: </source>
-        <translation>ID artist Musicbrainz</translation>
+        <translation>ID artist Musicbrainz : </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="255"/>
