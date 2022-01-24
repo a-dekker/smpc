@@ -39,6 +39,8 @@ Page {
                 }
                 color: parent.pressed ? Theme.highlightColor : Theme.primaryColor
                 text: name
+                width: parent.width - image.width - 2 * listPadding
+                truncationMode: TruncationMode.Fade
             }
             Rectangle {
                 width: parent.width

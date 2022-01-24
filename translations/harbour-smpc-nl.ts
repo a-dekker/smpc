@@ -288,12 +288,14 @@
 <context>
     <name>Controller</name>
     <message>
+        <location filename="../src/controller.cpp" line="381"/>
         <source>Connected to: </source>
-        <translation type="vanished">Verbonden met: </translation>
+        <translation>Verbonden met: </translation>
     </message>
     <message>
+        <location filename="../src/controller.cpp" line="389"/>
         <source>Disconnected from server</source>
-        <translation type="vanished">Verbinding verbroken met server</translation>
+        <translation>Verbinding verbroken met server</translation>
     </message>
 </context>
 <context>
@@ -1260,37 +1262,37 @@
         <translation>Instellingen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="57"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="59"/>
         <source>Server settings</source>
         <translation>Server-instellingen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="62"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="64"/>
         <source>Database settings</source>
         <translation>Databank-instellingen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="67"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="69"/>
         <source>Gui settings</source>
         <translation>Weergave-instellingen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="77"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="79"/>
         <source>Outputs</source>
         <translation>Uitgangen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="72"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="74"/>
         <source>Playback settings</source>
         <translation>Afspeel-instellingen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="82"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="84"/>
         <source>Update server database</source>
         <translation>Databank op server bijwerken</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="94"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="96"/>
         <source>Garbage collection</source>
         <translation>Garbage collection</translation>
     </message>

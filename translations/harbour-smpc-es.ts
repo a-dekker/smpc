@@ -198,6 +198,11 @@
 <context>
     <name>ArtistListDelegate</name>
     <message>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="38"/>
+        <source>No Artist Tag</source>
+        <translation>No etiqueta de artista</translation>
+    </message>
+    <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="55"/>
         <source>Playing artist</source>
         <translation>Reproduciendo artista</translation>
@@ -254,7 +259,7 @@
     <message>
         <location filename="../qml/pages/settings/ConnectServerPage.qml" line="53"/>
         <source>Removing server profile</source>
-        <translation type="unfinished">Quitando perfil de servidor</translation>
+        <translation>Quitando perfil de servidor</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/ConnectServerPage.qml" line="61"/>
@@ -264,7 +269,7 @@
     <message>
         <location filename="../qml/pages/settings/ConnectServerPage.qml" line="77"/>
         <source>Remove server profile</source>
-        <translation type="unfinished">Quitar perfil</translation>
+        <translation>Quitar perfil</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/ConnectServerPage.qml" line="84"/>
@@ -1257,37 +1262,37 @@
         <translation>Ajustes</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="57"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="59"/>
         <source>Server settings</source>
         <translation>Servidor</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="62"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="64"/>
         <source>Database settings</source>
         <translation>Base de datos</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="67"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="69"/>
         <source>Gui settings</source>
         <translation>Interfaz</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="77"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="79"/>
         <source>Outputs</source>
         <translation>Salidas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="72"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="74"/>
         <source>Playback settings</source>
         <translation>Reproducir config</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="82"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="84"/>
         <source>Update server database</source>
         <translation>Actualizar base  de datos</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="94"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="96"/>
         <source>Garbage collection</source>
         <translation>Recolección de basura</translation>
     </message>

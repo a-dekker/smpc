@@ -198,6 +198,11 @@
 <context>
     <name>ArtistListDelegate</name>
     <message>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="38"/>
+        <source>No Artist Tag</source>
+        <translation type="unfinished">Ingen artisttagg</translation>
+    </message>
+    <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="55"/>
         <source>Playing artist</source>
         <translation>Spelar upp artist</translation>
@@ -1257,37 +1262,37 @@
         <translation>Inställningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="57"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="59"/>
         <source>Server settings</source>
         <translation>Serverinställningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="62"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="64"/>
         <source>Database settings</source>
         <translation>Databasinställningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="67"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="69"/>
         <source>Gui settings</source>
         <translation>GUI-inställningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="77"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="79"/>
         <source>Outputs</source>
         <translation>Utdata</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="72"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="74"/>
         <source>Playback settings</source>
         <translation>Uppspelningsinställningar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="82"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="84"/>
         <source>Update server database</source>
         <translation>Uppdatera serverdatabasen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="94"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="96"/>
         <source>Garbage collection</source>
         <translation>Skräpsamling</translation>
     </message>

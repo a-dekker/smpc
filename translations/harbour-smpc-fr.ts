@@ -63,17 +63,17 @@
     <message>
         <location filename="../qml/components/AlbumListDelegate.qml" line="58"/>
         <source>Adding album</source>
-        <translation>Ajout d'un album</translation>
+        <translation>Ajout d&apos;un album</translation>
     </message>
     <message>
         <location filename="../qml/components/AlbumListDelegate.qml" line="66"/>
         <source>Play album</source>
-        <translation>Lecture de l'album</translation>
+        <translation>Lecture de l&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/components/AlbumListDelegate.qml" line="75"/>
         <source>Add album to list</source>
-        <translation>Ajouter l'album dans la liste</translation>
+        <translation>Ajouter l&apos;album dans la liste</translation>
     </message>
 </context>
 <context>
@@ -143,7 +143,7 @@
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="25"/>
         <source>Replace album</source>
-        <translation>Remplacer l'albumer</translation>
+        <translation>Remplacer l&apos;albumer</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="33"/>
@@ -153,7 +153,7 @@
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="39"/>
         <source>Play album</source>
-        <translation>Lire l'album</translation>
+        <translation>Lire l&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="354"/>
@@ -198,6 +198,11 @@
 <context>
     <name>ArtistListDelegate</name>
     <message>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="38"/>
+        <source>No Artist Tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="55"/>
         <source>Playing artist</source>
         <translation>Artiste joué</translation>
@@ -210,12 +215,12 @@
     <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="68"/>
         <source>Play artist</source>
-        <translation>Lire l'artiste</translation>
+        <translation>Lire l&apos;artiste</translation>
     </message>
     <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="77"/>
         <source>Add artist to list</source>
-        <translation>Ajouter l'artiste à la liste</translation>
+        <translation>Ajouter l&apos;artiste à la liste</translation>
     </message>
 </context>
 <context>
@@ -303,7 +308,7 @@
     <message>
         <location filename="../qml/pages/database/CurrentPlaylistPage.qml" line="48"/>
         <source>Add url</source>
-        <translation>Ajouter l'URL</translation>
+        <translation>Ajouter l&apos;URL</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/CurrentPlaylistPage.qml" line="62"/>
@@ -336,7 +341,7 @@
     <message>
         <location filename="../qml/pages/database/CurrentPlaylistPage_large.qml" line="46"/>
         <source>Add url</source>
-        <translation>Ajouter l'URL</translation>
+        <translation>Ajouter l&apos;URL</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/CurrentPlaylistPage_large.qml" line="52"/>
@@ -361,12 +366,12 @@
     <message>
         <location filename="../qml/pages/database/CurrentPlaylistPage_large.qml" line="123"/>
         <source>Show all tracks from album</source>
-        <translation>Afficher toutes les pistes de l'album</translation>
+        <translation>Afficher toutes les pistes de l&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/CurrentPlaylistPage_large.qml" line="135"/>
         <source>Show albums from artist</source>
-        <translation>Afficher les albums de l'artiste</translation>
+        <translation>Afficher les albums de l&apos;artiste</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/CurrentPlaylistPage_large.qml" line="230"/>
@@ -399,12 +404,12 @@
     <message>
         <location filename="../qml/pages/database/CurrentSong.qml" line="51"/>
         <source>Show all tracks from album</source>
-        <translation>Afficher toutes les pistes de l'album</translation>
+        <translation>Afficher toutes les pistes de l&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/CurrentSong.qml" line="62"/>
         <source>Show albums from artist</source>
-        <translation>Afficher tous les albums de l'artiste</translation>
+        <translation>Afficher tous les albums de l&apos;artiste</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/CurrentSong.qml" line="294"/>
@@ -457,12 +462,12 @@
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="121"/>
         <source>Artist downloads remaining</source>
-        <translation>Téléchargements d'artiste restant</translation>
+        <translation>Téléchargements d&apos;artiste restant</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="137"/>
         <source>Album downloads remaining</source>
-        <translation>Téléchargements d'album restant</translation>
+        <translation>Téléchargements d&apos;album restant</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="150"/>
@@ -507,12 +512,12 @@
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="214"/>
         <source>Download artist images</source>
-        <translation>Télécharger les images d'artiste</translation>
+        <translation>Télécharger les images d&apos;artiste</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="226"/>
         <source>Download album images</source>
-        <translation>Télécharger les images d'album</translation>
+        <translation>Télécharger les images d&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="237"/>
@@ -522,12 +527,12 @@
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="248"/>
         <source>Clear artist images</source>
-        <translation>Vider les images d'artiste</translation>
+        <translation>Vider les images d&apos;artiste</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="259"/>
         <source>Clear album images</source>
-        <translation>Vider les images d'album</translation>
+        <translation>Vider les images d&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="268"/>
@@ -582,7 +587,7 @@
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="332"/>
         <source>This will download metadata information for all your artists in your MPD database. This action will run in the background but take some time.</source>
-        <translation>Cela téléchargera les métadonnées de tous les artistes de la base de donnée. Cette action s'effectue en arrière-plan et nécessite du temps.</translation>
+        <translation>Cela téléchargera les métadonnées de tous les artistes de la base de donnée. Cette action s&apos;effectue en arrière-plan et nécessite du temps.</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="337"/>
@@ -592,35 +597,35 @@
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="338"/>
         <source>This will download metadata information for all your albums in your MPD database. This action will run in the background but take some time.</source>
-        <translation>Cela téléchargera toutes les métadonnées de tous les albums de la base de donnée. Cette action s'effectue en arrière-plan et nécessite du temps.</translation>
+        <translation>Cela téléchargera toutes les métadonnées de tous les albums de la base de donnée. Cette action s&apos;effectue en arrière-plan et nécessite du temps.</translation>
     </message>
 </context>
 <context>
-    <name>rPage</name>
+    <name>FileBrowserPage</name>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="30"/>
         <source>Filebrowser</source>
-        <translation>Navigateur de fichiers</translation>
+        <translation type="unfinished">Navigateur de fichiers</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="35"/>
         <source>Home</source>
-        <translation>Accueil</translation>
+        <translation type="unfinished">Accueil</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="42"/>
         <source>Replace folder</source>
-        <translation>Remplacer le dossier</translation>
+        <translation type="unfinished">Remplacer le dossier</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="50"/>
         <source>Add folder</source>
-        <translation>Ajouter un dossier</translation>
+        <translation type="unfinished">Ajouter un dossier</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="56"/>
         <source>Play folder</source>
-        <translation>Lire le dossier</translation>
+        <translation type="unfinished">Lire le dossier</translation>
     </message>
 </context>
 <context>
@@ -687,7 +692,7 @@
         <translation>Ajouter la liste de lecture</translation>
     </message>
     <message>
-        <lon filename="../qml/components/FileDelegate.qml" line="151"/>
+        <location filename="../qml/components/FileDelegate.qml" line="151"/>
         <source>Play after current</source>
         <translation>Lire à la suite</translation>
     </message>
@@ -707,7 +712,7 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="33"/>
         <source>Album view:</source>
-        <translation>Vue de l'album</translation>
+        <translation>Vue de l&apos;album:</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="41"/>
@@ -724,12 +729,12 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="59"/>
         <source>Artist view:</source>
-        <translation>Vue de l'artiste</translation>
+        <translation>Vue de l&apos;artiste:</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="86"/>
         <source>List image size:</source>
-        <translation>Lister la taille des images</translation>
+        <translation>Lister la taille des images:</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="94"/>
@@ -754,7 +759,7 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="121"/>
         <source>Sort albums of one artist by year</source>
-        <translation>Trier les albums d'un artiste par année</translation>
+        <translation>Trier les albums d&apos;un artiste par année</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="133"/>
@@ -764,7 +769,7 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="145"/>
         <source>Show cover in now playing</source>
-        <translation>Afficher la pochette dans </translation>
+        <translation>Afficher la pochette dans</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="158"/>
@@ -774,12 +779,12 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="171"/>
         <source>Show sections in search</source>
-        <translation>Afficher les sections dans la recherche<translation>
+        <translation>Afficher les sections dans la recherche</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="183"/>
         <source>Use show mode in landscape</source>
-        <translation>U</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="195"/>
@@ -794,12 +799,12 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="219"/>
         <source>Remorse options</source>
-        <translation>Options d'annulation</translation>
+        <translation>Options d&apos;annulation</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="224"/>
         <source>Remorse time</source>
-        <translation>Délai d'annulation</translation>
+        <translation>Délai d&apos;annulation</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="229"/>
@@ -869,7 +874,7 @@
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
-    <mes
+    <message>
         <location filename="../qml/pages/MainPage.qml" line="120"/>
         <source>About</source>
         <translation>À propos</translation>
@@ -928,7 +933,7 @@
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="59"/>
         <source>Playback is stopped after current song, or song is repeated if the ‘repeat’ mode is enabled</source>
-        <translation>La lecture est stoppée après la chanson actuelle ou répétée si le mode 'répéter' est actif</translation>
+        <translation>La lecture est stoppée après la chanson actuelle ou répétée si le mode &apos;répéter&apos; est actif</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/PlaybackSettings.qml" line="70"/>
@@ -957,7 +962,7 @@
     </message>
 </context>
 <context>
- ame>PlaylistTracksPage</name>
+    <name>PlaylistTracksPage</name>
     <message>
         <location filename="../qml/pages/database/PlaylistTracksPage.qml" line="35"/>
         <source>Delete list</source>
@@ -1046,7 +1051,8 @@
         <translation>Insérer le nom de la liste de lecture</translation>
     </message>
 </context>
-<context>me>SavedPlaylistsPage</name>
+<context>
+    <name>SavedPlaylistsPage</name>
     <message>
         <location filename="../qml/pages/database/SavedPlaylistsPage.qml" line="19"/>
         <source>Playlists</source>
@@ -1137,14 +1143,14 @@
         <translation>Ajout de la piste</translation>
     </message>
     <message>
-        <location filenaml/pages/database/SearchPage.qml" line="190"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="190"/>
         <source>Playing album</source>
-        <translation>Lecture de l'album</translation>
+        <translation>Lecture de l&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/SearchPage.qml" line="195"/>
         <source>Adding album</source>
-        <translation>Ajout de l'album</translation>
+        <translation>Ajout de l&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/SearchPage.qml" line="209"/>
@@ -1164,12 +1170,12 @@
     <message>
         <location filename="../qml/pages/database/SearchPage.qml" line="228"/>
         <source>Add album to list</source>
-        <translation>Ajouter l'album à la liste</translation>
+        <translation>Ajouter l&apos;album à la liste</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/SearchPage.qml" line="234"/>
         <source>Play album</source>
-        <translation>Lire l'album</translation>
+        <translation>Lire l&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/SearchPage.qml" line="241"/>
@@ -1228,7 +1234,7 @@
 <context>
     <name>ServerListPage</name>
     <message>
-        <location filename="../qml/pagesServerListPage.qml" line="13"/>
+        <location filename="../qml/pages/settings/ServerListPage.qml" line="13"/>
         <source>Servers</source>
         <translation>Serveurs</translation>
     </message>
@@ -1256,37 +1262,37 @@
         <translation>Paramètres</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="57"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="59"/>
         <source>Server settings</source>
         <translation>Paramètres du serveur</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="62"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="64"/>
         <source>Database settings</source>
         <translation>Paramètres de la base de donnée</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="67"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="69"/>
         <source>Gui settings</source>
-        <translation>Paramètres de l'interface</translation>
+        <translation>Paramètres de l&apos;interface</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="77"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="79"/>
         <source>Outputs</source>
         <translation>Sorties</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="72"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="74"/>
         <source>Playback settings</source>
         <translation>Paramètres de lecture</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="82"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="84"/>
         <source>Update server database</source>
         <translation>Mettre à jour la base de donnée du serveur</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="94"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="96"/>
         <source>Garbage collection</source>
         <translation>Ramasse-miettes</translation>
     </message>
@@ -1303,13 +1309,13 @@
     <message>
         <location filename="../qml/components/SongDialog.qml" line="172"/>
         <source>Length: </source>
-        <translation>Longueur :</translation>
+        <translation>Longueur: </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="186"/>
         <location filename="../qml/components/SongDialog.qml" line="429"/>
         <source>Date: </source>
-        <translation>Date :</translation>
+        <translation>Date: </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="200"/>
@@ -1318,7 +1324,7 @@
         <translation>№ :</translation>
     </message>
     <message>
-        <location fi/qml/components/SongDialog.qml" line="214"/>
+        <location filename="../qml/components/SongDialog.qml" line="214"/>
         <location filename="../qml/components/SongDialog.qml" line="457"/>
         <source>Musicbrainz track id: </source>
         <translation>ID piste Musicbrainz</translation>
@@ -1372,12 +1378,12 @@
     <message>
         <location filename="../qml/components/TrackDelegate.qml" line="99"/>
         <source>Show artist</source>
-        <translation>Afficher l'artiste</translation>
+        <translation>Afficher l&apos;artiste</translation>
     </message>
     <message>
         <location filename="../qml/components/TrackDelegate.qml" line="110"/>
         <source>Show album</source>
-        <translation>Afficher l'album</translation>
+        <translation>Afficher l&apos;album</translation>
     </message>
     <message>
         <location filename="../qml/components/TrackDelegate.qml" line="122"/>
@@ -1400,17 +1406,17 @@
     <message>
         <location filename="../qml/components/URLInputDialog.qml" line="10"/>
         <source>Add url</source>
-        <translation>Ajouter l'URL</translation>
+        <translation>Ajouter l&apos;URL</translation>
     </message>
     <message>
         <location filename="../qml/components/URLInputDialog.qml" line="14"/>
         <source>Enter url:</source>
-        <translation>Insérer l'URL :</translation>
+        <translation>Insérer l&apos;URL :</translation>
     </message>
     <message>
-        <location filenamemponents/URLInputDialog.qml" line="19"/>
+        <location filename="../qml/components/URLInputDialog.qml" line="19"/>
         <source>Input url (http://, file://, etc)</source>
-        <translation>Insérer l'URL (http://, file://, etc.)</translation>
+        <translation>Insérer l&apos;URL (http://, file://, etc.)</translation>
     </message>
 </context>
 <context>
