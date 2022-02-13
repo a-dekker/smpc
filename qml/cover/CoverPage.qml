@@ -67,6 +67,16 @@ CoverBackground {
     }
 
     Label {
+        horizontalAlignment: implicitWidth > width ? Text.AlignLeft : Text.AlignHCenter
+        anchors.top: parent.top
+        anchors.topMargin: Theme.paddingMedium
+        color: Theme.highlightColor
+        text: ctl.player.playbackStatus.artist
+        truncationMode: TruncationMode.Fade
+        width: parent.width
+    }
+
+    Label {
         id: textLabel
         anchors.centerIn: coverpage
         width: coverpage.width - (2 * listPadding)
