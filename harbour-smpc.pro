@@ -1,7 +1,7 @@
 # The name of your app
 TARGET = harbour-smpc
 
-QT += network gui sql multimedia svg
+QT += network gui sql multimedia svg dbus
 
 CONFIG += sailfishapp
 

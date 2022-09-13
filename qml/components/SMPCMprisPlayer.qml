@@ -1,23 +1,18 @@
 import QtQuick 2.0
-import org.nemomobile.mpris 1.0
+import Amber.Mpris 1.0
 
 MprisPlayer {
     id: mprisPlayer
 
     property string artist: ctl.player.playbackStatus.artist
     onArtistChanged: {
-        var metadata = mprisPlayer.metadata
-        metadata[Mpris.metadataToString(Mpris.Artist)] = [artist] // List of strings
-        mprisPlayer.metadata = metadata
+        metaData.contributingArtist = artist
     }
 
     property string song: ctl.player.playbackStatus.title
     onSongChanged: {
-        var metadata = mprisPlayer.metadata
-        metadata[Mpris.metadataToString(Mpris.Title)] = song // String
-        mprisPlayer.metadata = metadata
+        metaData.title = song
     }
-
 
     property string message: ""
     onMessageChanged: {
@@ -41,11 +36,12 @@ MprisPlayer {
     canPause: true //got to be always true for MprisController::playPause to work!
     canPlay: true //mprisPlayer.playbackStatus !== Mpris.Playing
     //onCanPlayChanged: console.debug("canPlay", canPlay)
-    canSeek: mprisPlayer.playbackStatus === Mpris.Playing || mprisPlayer.playbackStatus === Mpris.Paused
+    canSeek: mprisPlayer.playbackStatus === Mpris.Playing
+             || mprisPlayer.playbackStatus === Mpris.Paused
 
-    playbackStatus: (ctl.player.playbackStatus.playbackStatus === 0 ?
-                         Mpris.Paused : (ctl.player.playbackStatus.playbackStatus === 1 ?
-                                          Mpris.Playing : Mpris.Stopped))
+    playbackStatus: (ctl.player.playbackStatus.playbackStatus
+                     === 0 ? Mpris.Paused : (ctl.player.playbackStatus.playbackStatus
+                                             === 1 ? Mpris.Playing : Mpris.Stopped))
 
     loopStatus: (ctl.player.playbackStatus.repeat ? 1 : 0)
     shuffle: ctl.player.playbackStatus.shuffle
@@ -59,7 +55,10 @@ MprisPlayer {
         message = "Play requested"
         ctl.player.play()
     }
-    onPlayPauseRequested: message = "Play/Pause requested"
+    onPlayPauseRequested: {
+        message = "Play/Pause requested"
+        ctl.player.play()
+    }
     onStopRequested: {
         message = "Stop requested"
         ctl.player.stop()

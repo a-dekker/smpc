@@ -8,6 +8,8 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue Sep 13 2022 Arno Dekker <jack.tar@example.com> 1.3.31-1
+- Switch from org.nemomobile.mpris to Amber.Mpris
 * Sun Feb 13 2022 Arno Dekker <jack.tar@example.com> 1.3.30-1
 - Added artistname on coverpage
 * Tue Jan 25 2022 Arno Dekker <jack.tar@example.com> 1.3.29-1
