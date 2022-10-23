@@ -80,6 +80,7 @@ Page {
                 }
                 delegate: AlbumGridDelegate {
                     title: model.title === "" ? qsTr("No album tag") : model.title
+                    artist: model.artist === "" ? qsTr("No artist tag") : model.artist
                     cover: GridView.view.scrolling ? "" : coverURL
                     onClicked: {
                         GridView.view.currentIndex = index

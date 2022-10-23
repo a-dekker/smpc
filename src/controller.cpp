@@ -469,6 +469,7 @@ void Controller::readSettings()
     mNetAccess->setSortAlbumsByYear(settings.value("sort_album_by_year", 0).toInt());
     mNetAccess->setUseAlbumArtist(settings.value("artist_view_albumartist", 0).toInt());
     mCoverInNowPlaying = settings.value("show_covernowplaying", 1).toInt();
+    mArtistOnCover = settings.value("show_artist_on_cover", 0).toInt();
     mShowModeLandscape = settings.value("useShowView", 1).toInt();
     mShowVolumeSlider = settings.value("showVolumeSlider", 1).toInt();
     mShowPositionSlider = settings.value("showPositionSlider", 0).toInt();
@@ -487,6 +488,7 @@ void Controller::readSettings()
     mQuickView->rootContext()->setContextProperty("artistsViewUseAlbumArtist", mNetAccess->useAlbumArtist());
     mQuickView->rootContext()->setContextProperty("sortAlbumsByYear", mNetAccess->sortAlbumsByYear());
     mQuickView->rootContext()->setContextProperty("showCoverNowPlaying", mCoverInNowPlaying);
+    mQuickView->rootContext()->setContextProperty("showArtistOnCover", mArtistOnCover);
 
     mQuickView->rootContext()->setContextProperty("useShowView", mShowModeLandscape);
     mQuickView->rootContext()->setContextProperty("showVolumeSlider", mShowVolumeSlider);
@@ -537,6 +539,7 @@ void Controller::writeSettings()
     settings.setValue("sort_album_by_year",mNetAccess->sortAlbumsByYear());
     settings.setValue("artist_view_albumartist",mNetAccess->useAlbumArtist());
     settings.setValue("show_covernowplaying",mCoverInNowPlaying);
+    settings.setValue("show_artist_on_cover",mArtistOnCover);
     settings.setValue("useShowView",mShowModeLandscape);
     settings.setValue("showVolumeSlider",mShowVolumeSlider);
     settings.setValue("showPositionSlider",mShowPositionSlider);
@@ -837,6 +840,9 @@ void Controller::receiveSettingKey(QVariant setting)
         } else if ( settings.at(0) == "showCoverNowPlaying" ) {
             mCoverInNowPlaying = settings.at(1).toInt();
             mQuickView->rootContext()->setContextProperty("showCoverNowPlaying", mCoverInNowPlaying);
+        } else if ( settings.at(0) == "showArtistOnCover" ) {
+            mArtistOnCover = settings.at(1).toInt();
+            mQuickView->rootContext()->setContextProperty("showArtistOnCover", mArtistOnCover);
         } else if ( settings.at(0) == "showModeLandscape" ) {
             mShowModeLandscape = settings.at(1).toInt();
             mQuickView->rootContext()->setContextProperty("useShowView", mShowModeLandscape);

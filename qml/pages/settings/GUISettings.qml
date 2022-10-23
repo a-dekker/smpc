@@ -154,6 +154,18 @@ Page {
                 }
             }
             TextSwitch {
+                id: coverShowArtistNameSwitch
+                text: qsTr("Show artist on cover in album grid")
+                checked: showArtistOnCover
+                onClicked: {
+                    if (checked) {
+                        newSettingKey(["showArtistOnCover", "1"])
+                    } else {
+                        newSettingKey(["showArtistOnCover", "0"])
+                    }
+                }
+            }
+            TextSwitch {
                 id: sectionInPlaylistSwitch
                 text: qsTr("Show sections in playlists")
                 checked: sectionsInPlaylist

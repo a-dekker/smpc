@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 
 ListItem {
     property alias title: titleLbl.text
+    property alias artist: artistLbl.text
     property alias cover: albumImage.source
 
     width: GridView.view.cellWidth
@@ -46,6 +47,45 @@ ListItem {
                 }
             }
         }
+        Rectangle {
+            id: gradientRectTop
+            visible: showArtistOnCover
+            anchors {
+                bottom: parent.bottom
+                top: parent.top
+                horizontalCenter: parent.horizontalCenter
+            }
+            width: parent.width
+
+            gradient: Gradient {
+                GradientStop {
+                    position: 0.0
+                    color: Qt.rgba(0.0, 0.0, 0.0, 0.8)
+                }
+                GradientStop {
+                    position: 0.5
+                    color: Qt.rgba(0.0, 0.0, 0.0, 0.0)
+                }
+            }
+        }
+        Label {
+            id: artistLbl
+            visible: showArtistOnCover
+            anchors {
+                top: albumImage.top
+                horizontalCenter: albumImage.horizontalCenter
+            }
+            height: parent.height * 0.5
+            width: parent.width
+            wrapMode: "WordWrap"
+            elide: Text.ElideRight
+            font.pixelSize: Theme.fontSizeSmall
+            style: Text.Raised
+            styleColor: Theme.darkSecondaryColor
+            color: Theme.secondaryColor
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignTop
+        }
         Label {
             id: titleLbl
             anchors {
@@ -59,6 +99,7 @@ ListItem {
             font.pixelSize: Theme.fontSizeSmall
             style: Text.Raised
             styleColor: Theme.secondaryColor
+            color: Theme.primaryColor
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignBottom
             //text: title === "" ? qsTr("No album tag") : title

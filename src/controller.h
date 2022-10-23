@@ -150,6 +150,7 @@ private:
     int mSectionsInPlaylist;
     int mArtistsViewUseAlbumArtist;
     int mCoverInNowPlaying;
+    int mArtistOnCover;
     int mShowModeLandscape;
     int mShowPositionSlider;
     int mShowVolumeSlider;
