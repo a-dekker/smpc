@@ -80,7 +80,7 @@
     <name>AlbumListPage</name>
     <message>
         <location filename="../qml/pages/database/AlbumListPage.qml" line="77"/>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="123"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="124"/>
         <source>Albums</source>
         <translation>Albums</translation>
     </message>
@@ -103,6 +103,11 @@
         <location filename="../qml/pages/database/AlbumListPage.qml" line="82"/>
         <source>No album tag</source>
         <translation>Geen album-tag</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="83"/>
+        <source>No artist tag</source>
+        <translation>Geen artiest-tag</translation>
     </message>
 </context>
 <context>
@@ -288,12 +293,10 @@
 <context>
     <name>Controller</name>
     <message>
-        <location filename="../src/controller.cpp" line="381"/>
         <source>Connected to: </source>
         <translation>Verbonden met: </translation>
     </message>
     <message>
-        <location filename="../src/controller.cpp" line="389"/>
         <source>Disconnected from server</source>
         <translation>Verbinding verbroken met server</translation>
     </message>
@@ -773,46 +776,51 @@
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="158"/>
+        <source>Show artist on cover in album grid</source>
+        <translation>Artiest weergeven op hoes in het album raster</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="170"/>
         <source>Show sections in playlists</source>
         <translation>Secties weergeven in afspeellijst</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="171"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="183"/>
         <source>Show sections in search</source>
         <translation>Secties weergeven in zoeken</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="183"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="195"/>
         <source>Use show mode in landscape</source>
         <translation>Gebruik landschapsmodus voor weergave</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="195"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="207"/>
         <source>Show volume slider in control panel</source>
         <translation>Volumeschuifbalk weergeven in controlepaneel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="207"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="219"/>
         <source>Show position slider in control panel</source>
         <translation>Positieschuifbalk weergeven in controlepaneel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="219"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="231"/>
         <source>Remorse options</source>
         <translation>Hersteltijd opties</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="224"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="236"/>
         <source>Remorse time</source>
         <translation>Hersteltijd</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="229"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="241"/>
         <source>seconds</source>
         <translation>seconde</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="229"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="241"/>
         <source>second</source>
         <translation>seconde</translation>
     </message>
