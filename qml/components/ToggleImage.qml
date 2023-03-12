@@ -51,6 +51,9 @@ Item {
             if (status == Image.Ready) {
                 setActiveImage()
                 tglImg.ready = true
+                primaryImg.grabToImage(function (result) {
+                    result.saveToFile("/tmp/harbour-smpc/" + Qt.btoa(coverimageurl) + ".png")
+                })
             } else {
                 if (secondaryImg.status != Image.Ready) {
                     ready = false
@@ -75,7 +78,6 @@ Item {
             }
         }
     }
-
 
     Timer {
         id: waitTimer

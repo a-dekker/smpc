@@ -55,6 +55,23 @@ void stopMPD() {
     exit(0);
 }
 
+QString mkdir(QString path, QString name)
+{
+    QDir dir(path);
+    QDir rmdir(path + "/" + name);
+
+    rmdir.removeRecursively();
+    if (!dir.mkdir(name)) {
+        QFileInfo info(path);
+        if (!info.isWritable())
+            return QString("No permissions to create %1").arg(name);
+
+        return QString("Cannot create folder %1").arg(name);
+    }
+
+    return QString();
+}
+
 Q_DECL_EXPORT int main(int argc, char *argv[])
 {
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
@@ -68,12 +85,14 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     view->setSource(SailfishApp::pathTo("qml/main.qml"));
     view->setDefaultAlphaBuffer(true);
     view->rootContext()->setContextProperty("version", APP_VERSION);
+    view->rootContext()->setContextProperty("buildyear", BUILD_YEAR);
     view->rootContext()->setContextProperty(QLatin1String("resourceHandler"), resourceHandler);
 
     foreach(QString path, view->engine()->importPathList()) {
         qDebug() << path;
     }
 
+    mkdir("/tmp", "harbour-smpc");
     QSettings mySets;
     int stopMPDOnExit = mySets.value("general_properties/stop_mpd_on_exit", "0").toInt();
     Controller *control = new Controller(view, nullptr);

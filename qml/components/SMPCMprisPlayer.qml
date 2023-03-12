@@ -5,11 +5,34 @@ MprisPlayer {
     id: mprisPlayer
 
     property string artist: ctl.player.playbackStatus.artist
+    property string artUrl: ""
+    property string coverImageUrl: ""
     onArtistChanged: {
         metaData.contributingArtist = artist
     }
 
+    Component.onCompleted: {
+        timer.start()
+    }
+
+    onCoverImageUrlChanged: {
+        timer.start()
+    }
+
     property string song: ctl.player.playbackStatus.title
+    property Timer timer: Timer {
+        interval: 2000
+        repeat: false
+        onTriggered: {
+            console.log(coverimageurl)
+            if (coverimageurl !== "") {
+                artUrl = "file:///tmp/harbour-smpc/" + Qt.btoa(
+                            coverImageUrl) + ".png"
+                metaData.artUrl = artUrl
+            }
+        }
+    }
+
     onSongChanged: {
         metaData.title = song
     }
@@ -58,6 +81,7 @@ MprisPlayer {
     onPlayPauseRequested: {
         message = "Play/Pause requested"
         ctl.player.play()
+        timer.start()
     }
     onStopRequested: {
         message = "Stop requested"

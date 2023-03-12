@@ -77,6 +77,7 @@ isEmpty(VERSION) {
     message("VERSION is unset, assuming $$VERSION")
 }
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
+DEFINES += BUILD_YEAR=$$system(date '+%Y')
 
 
 DISTFILES += \

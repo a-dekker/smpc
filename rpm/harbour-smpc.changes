@@ -8,6 +8,8 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sun Mar 12 2023 Arno Dekker <jack.tar@example.com> 1.3.33-1
+- Added cover-art on MPRIS lockscreen control
 * Sun Oct 23 2022 Arno Dekker <jack.tar@example.com> 1.3.32-1
 - Added option to show artistname on covers in albumgrid view
 * Tue Sep 13 2022 Arno Dekker <jack.tar@example.com> 1.3.31-1

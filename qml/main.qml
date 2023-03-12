@@ -242,6 +242,7 @@ ApplicationWindow {
 
     function coverArtReceiver(url) {
         coverimageurl = url
+        mprisPlayer.coverImageUrl = coverimageurl
     }
 
     function coverArtistArtReceiver(url) {
@@ -294,6 +295,7 @@ ApplicationWindow {
     }
 
     SMPCMprisPlayer {
+        id: mprisPlayer
     }
 
     ControlPanel {
