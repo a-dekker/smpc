@@ -12,24 +12,25 @@ MprisPlayer {
     }
 
     Component.onCompleted: {
-        timer.start()
+        albumArtRefresh.start()
     }
 
     onCoverImageUrlChanged: {
-        timer.start()
+        albumArtRefresh.start()
     }
 
     property string song: ctl.player.playbackStatus.title
-    property Timer timer: Timer {
+    property Timer albumArtRefresh: Timer {
         interval: 2000
         repeat: false
         onTriggered: {
-            console.log(coverimageurl)
-            if (coverimageurl !== "") {
+            if (mainWindow.coverimageurl !== "") {
                 artUrl = "file:///tmp/harbour-smpc/" + Qt.btoa(
-                            coverImageUrl) + ".png"
+                    coverImageUrl) + ".png"
                 metaData.artUrl = artUrl
+                console.debug(metaData.artUrl)
             }
+            console.debug("changed over url")
         }
     }
 
@@ -39,8 +40,14 @@ MprisPlayer {
 
     property string message: ""
     onMessageChanged: {
-        console.debug("MPRIS Message: ", message)
-        //console.debug(ctl.player.playbackStatus.playlistSize, ctl.player.playbackStatus.trackNo)
+        if (message !== "") {
+            console.debug("MPRIS Message: ", message)
+            //console.debug(ctl.player.playbackStatus.playlistSize, ctl.player.playbackStatus.trackNo)
+            console.debug("playlistSize and trackNo:")
+            console.debug(ctl.player.playbackStatus.playlistSize,
+                          ctl.player.playbackStatus.trackNo)
+        }
+        message = ""
     }
 
     serviceName: (connected ? "smpc" : "") //this (un)registers the service due to connection to mpd_server
@@ -52,9 +59,10 @@ MprisPlayer {
 
     //Mpris2 Player Interface
     canControl: true
-    canGoNext: true //playbackStatus !== Mpris.Stopped && ctl.player.playbackStatus.trackNo < ctl.player.playbackStatus.playlistSize
+    canGoNext: playbackStatus !== Mpris.Stopped
+               && ctl.player.playbackStatus.playlistSize > 1 && ctl.player.playbackStatus.playlistSize !== ctl.player.playbackStatus.trackNo
     //onCanGoNextChanged: console.debug(canGoNext)
-    canGoPrevious: true //playbackStatus !== Mpris.Stopped && ctl.player.playbackStatus.trackNo > 1
+    canGoPrevious: true
     //onCanGoPreviousChanged: console.debug(canGoPrevious, ctl.player.playbackStatus.trackNo)
     canPause: true //got to be always true for MprisController::playPause to work!
     canPlay: true //mprisPlayer.playbackStatus !== Mpris.Playing
@@ -81,7 +89,7 @@ MprisPlayer {
     onPlayPauseRequested: {
         message = "Play/Pause requested"
         ctl.player.play()
-        timer.start()
+        albumArtRefresh.start()
     }
     onStopRequested: {
         message = "Stop requested"

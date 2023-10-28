@@ -21,6 +21,19 @@ Page {
                     artistname = ""
                 }
             }
+        MenuItem {
+            text: qsTr("Show artist")
+            onClicked: {
+                artistClicked(artistname)
+                pageStack.pop()
+                pageStack.pop()
+                pageStack.replace(Qt.resolvedUrl(
+                                   "AlbumListPage.qml"), {
+                                   "artistname": artistname
+                               })
+            }
+        }
+
             MenuItem {
                 text: qsTr("Replace album")
                 enabled: ctl.player.playbackStatus.title === "" && mArtist === ""
