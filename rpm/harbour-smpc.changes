@@ -8,6 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Mon Oct 30 2023 Arno Dekker <jack.tar@example.com> 1.3.34-1
+- Added 'show artist' on AlbumTracksPage
+- Some improvements on showing coverart in MPRIS lockscreen
+- Rework done on layout SongDialog page
+- Added genre to SongDialog page
 * Sun Mar 12 2023 Arno Dekker <jack.tar@example.com> 1.3.33-1
 - Added cover-art on MPRIS lockscreen control
 * Sun Oct 23 2022 Arno Dekker <jack.tar@example.com> 1.3.32-1

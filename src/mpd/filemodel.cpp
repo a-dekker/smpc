@@ -60,6 +60,8 @@ QVariant FileModel::data(const QModelIndex &index, int role) const
         return mEntries->at(index.row())->getArtistMBID();
     else if(role==tracknoRole)
         return mEntries->at(index.row())->getTrackNr();
+    else if(role==genreRole)
+        return mEntries->at(index.row())->getGenre();
     else if(role==yearRole)
         return mEntries->at(index.row())->getYear();
     else if(role==imageURLRole) {
@@ -136,6 +138,7 @@ QHash<int, QByteArray> FileModel::roleNames() const {
     roles[trackmbidRole] = "trackmbid";
     roles[albummbidRole] = "albummbid";
     roles[artistmbidRole] = "artistmbid";
+    roles[genreRole] = "genre";
 
     return roles;
 }

@@ -148,6 +148,10 @@ QString MpdTrack::getArtistMBID() const {
     return mArtistMBID;
 }
 
+QString MpdTrack::getGenre() const {
+    return mGenre;
+}
+
 void MpdTrack::setAlbum(QString al)
 {
     mAlbum = al;
@@ -209,4 +213,7 @@ void MpdTrack::setAlbumMBID(QString mbid) {
 
 void MpdTrack::setArtistMBID(QString mbid) {
     mArtistMBID = mbid;
+}
+void MpdTrack::setGenre(QString mbid) {
+    mGenre = mbid;
 }

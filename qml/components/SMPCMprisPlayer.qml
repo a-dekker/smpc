@@ -30,7 +30,6 @@ MprisPlayer {
                 metaData.artUrl = artUrl
                 console.debug(metaData.artUrl)
             }
-            console.debug("changed over url")
         }
     }
 

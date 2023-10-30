@@ -27,6 +27,7 @@ class MpdTrack : public QObject
     Q_PROPERTY(QString trackmbid READ getTrackMBID NOTIFY changed )
     Q_PROPERTY(QString albummbid READ getAlbumMBID NOTIFY changed )
     Q_PROPERTY(QString artistmbid READ getArtistMBID NOTIFY changed )
+    Q_PROPERTY(QString genre READ getGenre NOTIFY changed )
 public:
     explicit MpdTrack(QObject *parent = 0);
     MpdTrack(QObject *parent,QString file,QString mTitle, quint32 mLength);
@@ -50,6 +51,7 @@ public:
     QString getTrackMBID() const;
     QString getAlbumMBID() const;
     QString getArtistMBID() const;
+    QString getGenre() const;
 
     void setTitle(QString);
     void setFileUri(QString);
@@ -64,6 +66,7 @@ public:
     void setTrackMBID(QString mbid);
     void setAlbumMBID(QString mbid);
     void setArtistMBID(QString mbid);
+    void setGenre(QString mbid);
 
     bool getPlaying() const;
     void setPlaying(bool mPlaying);
@@ -81,6 +84,7 @@ private:
     QString mTrackMBID;
     QString mArtistMBID;
     QString mAlbumMBID;
+    QString mGenre;
 
     bool mPlaying;
 

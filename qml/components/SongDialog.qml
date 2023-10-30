@@ -9,6 +9,7 @@ Dialog {
     property string lengthtext
     property string nr
     property string date
+    property string genre
     property string filename
     property int fontsize: Theme.fontSizeMedium
     property int fontsizegrey: Theme.fontSizeSmall
@@ -29,16 +30,14 @@ Dialog {
                 text: qsTr("Play after current")
                 onClicked: {
                     ctl.player.playlist.addTrackAfterCurrent(filename)
-                    pageStack.navigateBack(
-                                PageStackAction.Animated)
+                    pageStack.navigateBack(PageStackAction.Animated)
                 }
             }
             MenuItem {
                 text: qsTr("Play song")
                 onClicked: {
                     ctl.player.playlist.playTrack(filename)
-                    pageStack.navigateBack(
-                                PageStackAction.Animated)
+                    pageStack.navigateBack(PageStackAction.Animated)
                 }
             }
         }
@@ -129,6 +128,7 @@ Dialog {
 
                         Column {
                             id: infocolumn
+                            width: parent.width
                             clip: true
                             anchors {
                                 right: parent.right
@@ -197,7 +197,7 @@ Dialog {
                             }
                             Row {
                                 Label {
-                                    text: qsTr("Nr.: ")
+                                    text: qsTr("Nr: ")
                                     color: Theme.secondaryColor
                                     font.pixelSize: fontsize
                                 }
@@ -210,46 +210,60 @@ Dialog {
                                 }
                             }
                             Row {
+                                visible: genre !== ""
                                 Label {
-                                    text: qsTr("Musicbrainz track id: ")
+                                    text: qsTr("Genre: ")
                                     color: Theme.secondaryColor
                                     font.pixelSize: fontsize
                                 }
                                 Label {
-                                    id: trackmbidText
-                                    text: trackmbid
+                                    id: genreText
+                                    text: genre
                                     color: Theme.primaryColor
                                     font.pixelSize: fontsize
                                     wrapMode: "WordWrap"
                                 }
                             }
-                            Row {
-                                Label {
-                                    text: qsTr("Musicbrainz album id: ")
-                                    color: Theme.secondaryColor
-                                    font.pixelSize: fontsize
-                                }
-                                Label {
-                                    id: albummbidText
-                                    text: albummbid
-                                    color: Theme.primaryColor
-                                    font.pixelSize: fontsize
-                                    wrapMode: "WordWrap"
-                                }
+                            Label {
+                                visible: trackmbid !== ""
+                                text: qsTr("Musicbrainz track id: ")
+                                color: Theme.secondaryColor
+                                font.pixelSize: fontsize
                             }
-                            Row {
-                                Label {
-                                    text: qsTr("Musicbrainz artist id: ")
-                                    color: Theme.secondaryColor
-                                    font.pixelSize: fontsize
-                                }
-                                Label {
-                                    id: artistmbidText
-                                    text: artistmbid
-                                    color: Theme.primaryColor
-                                    font.pixelSize: fontsize
-                                    wrapMode: "WordWrap"
-                                }
+                            Label {
+                                visible: trackmbid !== ""
+                                id: trackmbidText
+                                text: trackmbid
+                                color: Theme.primaryColor
+                                font.pixelSize: fontsize
+                                wrapMode: "WordWrap"
+                            }
+                            Label {
+                                visible: albummbid !== ""
+                                text: qsTr("Musicbrainz album id: ")
+                                color: Theme.secondaryColor
+                                font.pixelSize: fontsize
+                            }
+                            Label {
+                                visible: albummbid !== ""
+                                id: albummbidText
+                                text: albummbid
+                                color: Theme.primaryColor
+                                font.pixelSize: fontsize
+                                wrapMode: "WrapAnywhere"
+                            }
+                            Label {
+                                visible: artistmbid !== ""
+                                text: qsTr("Musicbrainz artist id: ")
+                                color: Theme.secondaryColor
+                                font.pixelSize: fontsize
+                            }
+                            Label {
+                                visible: artistmbid !== ""
+                                text: artistmbid
+                                color: Theme.primaryColor
+                                font.pixelSize: fontsize
+                                wrapMode: "WordWrap"
                             }
                             Label {
                                 text: qsTr("URI:")
@@ -268,7 +282,6 @@ Dialog {
                                 }
                             }
                         }
-
 
                         Component.onCompleted: pullDownComp.createObject(this)
                     }
@@ -377,7 +390,7 @@ Dialog {
                             acceptText: qsTr("Add song")
                         }
 
-                        Label {
+                        ScrollLabel {
                             id: titleText
                             text: title
                             color: Theme.primaryColor
@@ -386,9 +399,8 @@ Dialog {
                                 left: parent.left
                                 right: parent.right
                             }
-                            wrapMode: "WrapAnywhere"
                         }
-                        Label {
+                        ScrollLabel {
                             id: albumText
                             text: album
                             color: Theme.primaryColor
@@ -397,9 +409,8 @@ Dialog {
                                 left: parent.left
                                 right: parent.right
                             }
-                            wrapMode: "WrapAnywhere"
                         }
-                        Label {
+                        ScrollLabel {
                             id: artistText
                             text: artist
                             color: Theme.primaryColor
@@ -408,13 +419,13 @@ Dialog {
                                 left: parent.left
                                 right: parent.right
                             }
-                            wrapMode: "WrapAnywhere"
                         }
                         Row {
                             Label {
                                 text: qsTr("Length:")
                                 color: Theme.secondaryColor
                                 font.pixelSize: fontsize
+                                width: infocolumn.width / 6
                             }
                             Label {
                                 id: lengthText
@@ -422,13 +433,13 @@ Dialog {
                                 color: Theme.primaryColor
                                 font.pixelSize: fontsize
                                 wrapMode: "WordWrap"
+                                width: infocolumn.width / 3
                             }
-                        }
-                        Row {
                             Label {
                                 text: qsTr("Date: ")
                                 color: Theme.secondaryColor
                                 font.pixelSize: fontsize
+                                width: infocolumn.width / 7
                             }
                             Label {
                                 id: dateText
@@ -436,13 +447,15 @@ Dialog {
                                 color: Theme.primaryColor
                                 font.pixelSize: fontsize
                                 wrapMode: "WordWrap"
+                                width: infocolumn.width / 3
                             }
                         }
                         Row {
                             Label {
-                                text: qsTr("Nr.: ")
+                                text: qsTr("Nr: ")
                                 color: Theme.secondaryColor
                                 font.pixelSize: fontsize
+                                width: infocolumn.width / 6
                             }
                             Label {
                                 id: nrText
@@ -450,9 +463,27 @@ Dialog {
                                 color: Theme.primaryColor
                                 font.pixelSize: fontsize
                                 wrapMode: "WordWrap"
+                                width: infocolumn.width / 3
+                            }
+                            Label {
+                                visible: genre !== ""
+                                text: qsTr("Genre: ")
+                                color: Theme.secondaryColor
+                                font.pixelSize: fontsize
+                                width: infocolumn.width / 7
+                            }
+                            Label {
+                                id: genreText
+                                visible: genre !== ""
+                                text: genre
+                                color: Theme.primaryColor
+                                font.pixelSize: fontsize
+                                wrapMode: "WordWrap"
+                                width: infocolumn.width / 3
                             }
                         }
                         Row {
+                            visible: trackmbid !== ""
                             Label {
                                 text: qsTr("Musicbrainz track id: ")
                                 color: Theme.secondaryColor
@@ -467,6 +498,7 @@ Dialog {
                             }
                         }
                         Row {
+                            visible: albummbid !== ""
                             Label {
                                 text: qsTr("Musicbrainz album id: ")
                                 color: Theme.secondaryColor
@@ -481,33 +513,37 @@ Dialog {
                             }
                         }
                         Row {
+                            visible: artistmbid !== ""
                             Label {
                                 text: qsTr("Musicbrainz artist id: ")
                                 color: Theme.secondaryColor
-                                font.pixelSize: fontsizegrey
+                                font.pixelSize: fontsize
                             }
                             Label {
-                                id: artistmbidText
                                 text: artistmbid
                                 color: Theme.primaryColor
                                 font.pixelSize: fontsize
                                 wrapMode: "WordWrap"
                             }
                         }
-                        Label {
-                            text: qsTr("URI:")
-                            color: Theme.secondaryColor
-                            font.pixelSize: fontsizegrey
-                        }
-                        Label {
-                            id: fileText
-                            text: filename
-                            color: Theme.primaryColor
-                            font.pixelSize: fontsize
-                            wrapMode: "WrapAnywhere"
+                        Row {
                             anchors {
                                 left: parent.left
                                 right: parent.right
+                            }
+                            Label {
+                                id: uriTxt
+                                text: qsTr("URI: ")
+                                color: Theme.secondaryColor
+                                font.pixelSize: fontsize
+                            }
+                            Label {
+                                id: fileText
+                                text: filename
+                                width: parent.width - uriTxt.width
+                                color: Theme.primaryColor
+                                font.pixelSize: fontsize
+                                wrapMode: "WrapAnywhere"
                             }
                         }
                     }

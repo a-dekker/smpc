@@ -65,7 +65,8 @@ Component {
             }
             if (isFile) {
                 albumTrackClicked(title, album, artist, length, path, year,
-                                  tracknr, trackmbid, artistmbid, albummbid)
+                                  tracknr, trackmbid, artistmbid,
+                                  albummbid, genre)
             }
             if (isPlaylist) {
                 savedPlaylistClicked(
@@ -95,7 +96,8 @@ Component {
         }
         function addFolderRemorse() {
             remorseAction(qsTr("adding directory"), function () {
-                ctl.player.playlist.addTrack((prepath == "/" ? "" : prepath + "/") + name)
+                ctl.player.playlist.addTrack(
+                            (prepath == "/" ? "" : prepath + "/") + name)
             }, remorseTimerSecs * 1000)
         }
         function playTrackRemorse() {
@@ -110,7 +112,8 @@ Component {
         }
         function playFolderRemorse() {
             remorseAction(qsTr("playing directory"), function () {
-                ctl.player.playlist.playTrack((prepath == "/" ? "" : prepath + "/") + name)
+                ctl.player.playlist.playTrack(
+                            (prepath == "/" ? "" : prepath + "/") + name)
             }, remorseTimerSecs * 1000)
         }
         Component {

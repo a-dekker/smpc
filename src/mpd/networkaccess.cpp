@@ -1398,6 +1398,7 @@ void NetworkAccess::getDirectory(QString path)
         QString trackMBID;
         QString artistMBID;
         QString albumMBID;
+        QString genre;
 
         MPD_WHILE_PARSE_LOOP
         {
@@ -1406,6 +1407,7 @@ void NetworkAccess::getDirectory(QString path)
             {
                 response = QString::fromUtf8(mTCPSocket->readLine());
                 response.chop(1);
+                // qDebug() << response;
                 //New file: so new track begins in mpds output
                 if (response.startsWith("file: ")) {
                     if (file!=""&&length!=0)
@@ -1420,6 +1422,7 @@ void NetworkAccess::getDirectory(QString path)
                             temptrack->setAlbumMBID(albumMBID);
                             temptrack->setArtistMBID(artistMBID);
                             temptrack->setTrackMBID(trackMBID);
+                            temptrack->setGenre(genre);
                             prepath ="";
                             for (int j=0;j<tempsplitter.length()-1;j++)
                             {
@@ -1451,6 +1454,7 @@ void NetworkAccess::getDirectory(QString path)
                         trackMBID = "";
                         artistMBID = "";
                         albumMBID = "";
+                        genre = "";
                     }
                     file = response.right(response.length()-6);
                 }
@@ -1487,6 +1491,9 @@ void NetworkAccess::getDirectory(QString path)
                 }
                 else if (response.startsWith("MUSICBRAINZ_ALBUMID: ")) {
                     albumMBID = response.right(response.length()-21);
+                }
+                else if (response.startsWith("Genre: ")) {
+                    genre = response.right(response.length()-7);
                 }
                 else if (response.startsWith("MUSICBRAINZ_ARTISTID: ")) {
                     if ( artistMBID == "" ) {
@@ -1558,6 +1565,7 @@ void NetworkAccess::getDirectory(QString path)
                 temptrack->setAlbumMBID(albumMBID);
                 temptrack->setArtistMBID(artistMBID);
                 temptrack->setTrackMBID(trackMBID);
+                temptrack->setGenre(genre);
                 prepath ="";
                 for (int j=0;j<tempsplitter.length()-1;j++)
                 {
@@ -1664,6 +1672,7 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
         QString trackMBID;
         QString albumMBID;
         QString artistMBID;
+        QString genre;
         quint32 length=0;
         int trackNr = 0;
         bool gotit = false;
@@ -1716,6 +1725,10 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
                     albumMBID = response.right(response.length()-21);
                     temptrack->setAlbumMBID(albumMBID);
                 }
+                else if (response.startsWith("Genre: ")) {
+                    genre = response.right(response.length()-7);
+                    temptrack->setGenre(genre);
+                }
                 else if (response.startsWith("MUSICBRAINZ_ARTISTID: ")) {
                     if ( artistMBID == "" ) {
                         artistMBID = response.right(response.length()-22);
@@ -1764,135 +1777,7 @@ QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
     }
     return temptracks;
 }
-/*
-                QList<MpdTrack*>* NetworkAccess::parseMPDTracks(QString cartist)
-                {
-                    QList<MpdTrack*> *temptracks = new QList<MpdTrack*>();
-                    if (connected()) {
-                        QString response ="";
 
-                        MpdTrack *temptrack=nullptr;
-                        QString title;
-                        QString tmpTitle = 0;
-                        QString artist;
-                        QString albumartist;
-                        QString albumstring;
-                        QString datestring;
-                        int nr = 0, albumnrs = 0;
-                        QString file;
-                        QString trackMBID;
-                        QString albumMBID;
-                        QString artistMBID;
-                        quint32 length=0;
-                        MPD_WHILE_PARSE_LOOP
-                        {
-                            if (!mTCPSocket->waitForReadyRead(READYREAD))
-                            {
-                            }
-
-                            while (Q_LIKELY(mTCPSocket->canReadLine()))
-                            {
-                                response = QString::fromUtf8(mTCPSocket->readLine());
-                                // Remove new line
-                                response.chop(1);
-                                if (response.startsWith("file: ")) {
-                                    if (temptrack!=nullptr)
-                                    {
-                                        // Discard track if artist filter mismatches
-                                        if (albumartist==cartist||artist==cartist||cartist=="") {
-                                            temptracks->append(temptrack);
-                                            artistMBID = "";
-                                            temptrack->moveToThread(mQMLThread);
-                                            QQmlEngine::setObjectOwnership(temptrack, QQmlEngine::CppOwnership);
-                                        } else {
-                                            delete(temptrack);
-                                        }
-                                        temptrack=nullptr;
-                                    }
-                                    if (temptrack==nullptr)
-                                    {
-                                        temptrack = new MpdTrack(nullptr);
-                                    }
-                                    file = response.right(response.length()-6);
-                                    temptrack->setFileUri(file);
-                                }
-                                else if (response.startsWith("Title: ")) {
-                                    title = response.right(response.length()-7);
-                                    temptrack->setTitle(title);
-                                }
-                                else if (response.startsWith("Name: ")) {// in m3u radio Station Name
-                                    tmpTitle = response.right(response.length()-6);
-                                }
-                                else if (response.startsWith("Artist: ")) {
-                                    artist = response.right(response.length()-8);
-                                    temptrack->setArtist(artist);
-                                }
-                                else if (response.startsWith("AlbumArtist: ")) {
-                                    albumartist = response.right(response.length()-13);
-                                    temptrack->setAlbumArtist(albumartist);
-                                }
-                                else if (response.startsWith("Album: ")) {
-                                    albumstring = response.right(response.length()-7);
-                                    temptrack->setAlbum(albumstring);
-                                }
-
-                                else if (response.startsWith("Time: ")) {
-                                    albumstring = response.right(response.length()-6);
-                                    length = albumstring.toUInt();
-                                    temptrack->setLength(length);
-                                }
-                                else if (response.startsWith("Date: ")) {
-                                    datestring = response.right(response.length()-6);
-                                    temptrack->setYear(datestring);
-                                }
-                                else if (response.startsWith("MUSICBRAINZ_TRACKID: ")) {
-                                    trackMBID = response.right(response.length()-21);
-                                    temptrack->setTrackMBID(trackMBID);
-                                }
-                                else if (response.startsWith("MUSICBRAINZ_ALBUMID: ")) {
-                                    albumMBID = response.right(response.length()-21);
-                                    temptrack->setAlbumMBID(albumMBID);
-                                }
-                                else if (response.startsWith("MUSICBRAINZ_ARTISTID: ")) {
-                                    if ( artistMBID == "" ) {
-                                        artistMBID = response.right(response.length()-22);
-                                        temptrack->setArtistMBID(artistMBID);
-                                    }
-                                }
-                                else if (response.startsWith("Track: ")) {
-                                    albumstring = response.right(response.length()-7);
-                                    QStringList tracknrs;
-                                    tracknrs = albumstring.split('/');
-                                    if(tracknrs.length()>0)
-                                    {
-                                        nr = tracknrs.at(0).toInt();
-                                        if(tracknrs.length()>1) {
-                                            albumnrs = tracknrs.at(1).toInt();
-                                            temptrack->setAlbumTracks(albumnrs);
-                                        }
-                                    }
-                                    temptrack->setTrackNr(nr);
-                                }
-                            }
-
-                        }
-                        if (temptrack!=nullptr)
-                        {
-                            if (albumartist==cartist||artist==cartist||cartist=="") {
-                                temptrack->setPlaying(false);
-                                temptracks->append(temptrack);
-                                temptrack->moveToThread(mQMLThread);
-                                QQmlEngine::setObjectOwnership(temptrack, QQmlEngine::CppOwnership);
-                            }
-                            else {
-                                delete(temptrack);
-                                temptrack = nullptr;
-                            }
-                        }
-                    }
-                    return temptracks;
-                }
-                */
 void NetworkAccess::exitRequest()
 {
     this->disconnectFromServer();

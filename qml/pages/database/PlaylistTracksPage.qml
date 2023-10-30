@@ -12,10 +12,9 @@ Page {
         quickScroll: jollaQuickscroll
         SpeedScroller {
             listview: playlistTracksListView
-            visible: ! pulleyTop.active
+            visible: !pulleyTop.active
         }
-        ScrollDecorator {
-        }
+        ScrollDecorator {}
         anchors.fill: parent
         contentWidth: width
         clip: true
@@ -118,7 +117,7 @@ Page {
                 playlistTracksListView.currentIndex = index
                 albumTrackClicked(title, album, artist, lengthformated, path,
                                   year, tracknr, trackmbid, artistmbid,
-                                  albummbid)
+                                  albummbid, genre)
             }
             function playTrackRemorse() {
                 remorseAction(qsTr("Playing track"), function () {
@@ -133,13 +132,13 @@ Page {
             function addTrackAfterCurrentRemorse() {
                 remorseAction(qsTr("Adding track"), function () {
                     ctl.player.playlist.addTrackAfterCurrent(path)
-                },  remorseTimerSecs * 1000)
+                }, remorseTimerSecs * 1000)
             }
             function removeFromListRemorse() {
                 remorseAction(qsTr("Removing track"), function () {
                     removeSongFromSaved([index, playlistname])
                     savedPlaylistClicked(playlistname)
-                },  remorseTimerSecs * 1000)
+                }, remorseTimerSecs * 1000)
             }
             Component {
                 id: contextMenu
@@ -205,7 +204,7 @@ Page {
         }
     }
 
-//    Component.onDestruction: {
-//        clearPlaylistTracks()
-//    }
+    //    Component.onDestruction: {
+    //        clearPlaylistTracks()
+    //    }
 }

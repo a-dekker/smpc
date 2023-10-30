@@ -75,6 +75,8 @@ QVariant PlaylistModel::data(const QModelIndex &index, int role) const
         return mEntries->at(index.row())->getAlbumMBID();
     else if(role==artistmbidRole)
         return mEntries->at(index.row())->getArtistMBID();
+    else if(role==genreRole)
+        return mEntries->at(index.row())->getGenre();
     else if ( role== sectionImageURLRole ) {
         MpdTrack *track = mEntries->at(index.row());
         QString album = track->getAlbum();
@@ -156,6 +158,7 @@ QHash<int, QByteArray> PlaylistModel::roleNames() const {
     roles[trackmbidRole] = "trackmbid";
     roles[albummbidRole] = "albummbid";
     roles[artistmbidRole] = "artistmbid";
+    roles[genreRole] = "genre";
 
     return roles;
 }

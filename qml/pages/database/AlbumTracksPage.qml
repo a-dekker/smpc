@@ -21,22 +21,22 @@ Page {
                     artistname = ""
                 }
             }
-        MenuItem {
-            text: qsTr("Show artist")
-            onClicked: {
-                artistClicked(artistname)
-                pageStack.pop()
-                pageStack.pop()
-                pageStack.replace(Qt.resolvedUrl(
-                                   "AlbumListPage.qml"), {
-                                   "artistname": artistname
-                               })
+            MenuItem {
+                text: qsTr("Show artist")
+                onClicked: {
+                    artistClicked(artistname)
+                    pageStack.pop()
+                    pageStack.pop()
+                    pageStack.replace(Qt.resolvedUrl("AlbumListPage.qml"), {
+                                          "artistname": artistname
+                                      })
+                }
             }
-        }
 
             MenuItem {
                 text: qsTr("Replace album")
-                enabled: ctl.player.playbackStatus.title === "" && mArtist === ""
+                visible: ctl.player.playbackStatus.title === ""
+                         && mArtist === ""
                 onClicked: {
                     ctl.player.playlist.clear()
                     ctl.player.playlist.addAlbum(artistname, albumname)
@@ -56,7 +56,6 @@ Page {
             }
         }
     }
-
 
     Loader {
         id: portraitLoader
@@ -134,7 +133,8 @@ Page {
                                 MouseArea {
                                     anchors.fill: albumImage
                                     onClicked: {
-                                        ctl.player.playlist.playAlbum(artistname, albumname)
+                                        ctl.player.playlist.playAlbum(
+                                                    artistname, albumname)
                                     }
                                 }
                             }
@@ -209,7 +209,8 @@ Page {
                         MouseArea {
                             anchors.fill: albumImageLC
                             onClicked: {
-                                ctl.player.playlist.playAlbum(artistname, albumname)
+                                ctl.player.playlist.playAlbum(artistname,
+                                                              albumname)
                             }
                         }
                     }
@@ -361,7 +362,7 @@ Page {
                 //albumTracksListView.currentIndex = index
                 albumTrackClicked(title, album, artist, lengthformated, path,
                                   year, tracknr, trackmbid, artistmbid,
-                                  albummbid)
+                                  albummbid, genre)
             }
             function playTrackRemorse() {
                 remorseAction(qsTr("Playing track"), function () {

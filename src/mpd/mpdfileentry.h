@@ -20,6 +20,7 @@ class MpdFileEntry : public QObject
     Q_PROPERTY(QString length READ getLengthFormatted NOTIFY changed )
     Q_PROPERTY(int tracknr READ getTrackNr NOTIFY changed )
     Q_PROPERTY(QString year READ getYear NOTIFY changed )
+    Q_PROPERTY(QString genre READ getGenre NOTIFY changed )
 public:
     enum MpdFileType {MpdFileType_File,MpdFileType_Directory,MpdFileType_Playlist,MpdFileType_NR};
     explicit MpdFileEntry(QObject *parent = 0);
@@ -45,6 +46,7 @@ public:
     QString getTrackMBID() const;
     QString getAlbumMBID() const;
     QString getArtistMBID() const;
+    QString getGenre() const;
 
     int getTrackNr() const;
     bool operator< (const MpdFileEntry& other) const;

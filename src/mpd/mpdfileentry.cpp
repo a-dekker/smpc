@@ -133,6 +133,13 @@ int MpdFileEntry::getTrackNr() const
     return 0;
 }
 
+QString MpdFileEntry::getGenre() const
+{
+    if(mTrack!=NULL)
+        return getTrack()->getGenre();
+    return "";
+}
+
 bool MpdFileEntry::operator< (const MpdFileEntry& other) const
 {
     return (mName.compare(other.mName,Qt::CaseInsensitive)<0?1:0);
