@@ -107,7 +107,7 @@
     <message>
         <location filename="../qml/pages/database/AlbumListPage.qml" line="83"/>
         <source>No artist tag</source>
-        <translation type="unfinished">Ingen artisttagg</translation>
+        <translation>Ingen artisttagg</translation>
     </message>
 </context>
 <context>
@@ -148,7 +148,7 @@
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="25"/>
         <source>Show artist</source>
-        <translation type="unfinished">Visa artist</translation>
+        <translation>Visa artist</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="37"/>
@@ -210,7 +210,7 @@
     <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="38"/>
         <source>No Artist Tag</source>
-        <translation type="unfinished">Ingen artisttagg</translation>
+        <translation>Ingen artisttagg</translation>
     </message>
     <message>
         <location filename="../qml/components/ArtistListDelegate.qml" line="55"/>
@@ -784,7 +784,7 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="158"/>
         <source>Show artist on cover in album grid</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa artist på miniatyren i albumvyn</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="170"/>
@@ -1336,12 +1336,12 @@
         <location filename="../qml/components/SongDialog.qml" line="200"/>
         <location filename="../qml/components/SongDialog.qml" line="455"/>
         <source>Nr: </source>
-        <translation type="unfinished"></translation>
+        <translation>Nr: </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="536"/>
         <source>URI: </source>
-        <translation type="unfinished"></translation>
+        <translation>URI: </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="229"/>
@@ -1380,7 +1380,7 @@
         <location filename="../qml/components/SongDialog.qml" line="215"/>
         <location filename="../qml/components/SongDialog.qml" line="470"/>
         <source>Genre: </source>
-        <translation type="unfinished"></translation>
+        <translation>Genre: </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="425"/>
