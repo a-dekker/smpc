@@ -133,7 +133,7 @@ bool ImageDatabase::hasAlbumArt(QString album,QString artist)
     query.prepare("SELECT * FROM albums WHERE "
                   "albumname=\"" + album + "\" AND "
                   "artistname=\"" + artist + "\"");
-    // qDebug() << "Check for image: " << query.lastQuery();
+    qDebug() << "Check for <imagedatabase.cpp ImageDatabase::hasAlbumArt>: " << query.lastQuery();
     query.exec();
 
     // remove extra double quote again
@@ -349,14 +349,14 @@ int ImageDatabase::imageIDFromAlbumArtist(QString album, QString artist)
     query.prepare("SELECT * FROM albums WHERE "
             "albumname=\"" + album + "\" AND "
             "artistname=\"" + artist + "\"");
-    // qDebug() << "Check for image: " << query.lastQuery();
+    qDebug() << "Check for image ImageDatabase::imageIDFromAlbumArtist: " << query.lastQuery();
     query.exec();
     album = album.replace("\"\"", "\"");
 
     while ( query.next() ) {
         QString albumName = query.value("albumname").toString();
         if ( albumName == album ) {
-            // qDebug() << "Found album cover ID: " << query.value("imageID").toInt();
+            qDebug() << "<ImageDatabase::imageIDFromAlbumArtist> Found album cover ID: " << query.value("imageID").toInt();
             return query.value("imageID").toInt();
         }
     }
@@ -371,7 +371,7 @@ int ImageDatabase::imageIDFromAlbum(QString album)
     query.prepare("SELECT * FROM albums WHERE "
                   "albumname=\"" + album + "\" "
                   " AND imageid>=\"0\"");
-    // qDebug() << "Check for image: " << query.lastQuery();
+    qDebug() << "[ImageDatabase::imageIDFromAlbum] Check for image: " << query.lastQuery();
     query.exec();
     // remove extra double quotes again
     album = album.replace("\"\"", "\"");
@@ -420,7 +420,7 @@ int ImageDatabase::imageIDFromArtist(QString artist)
  */
 QPixmap ImageDatabase::getAlbumImage(QString album, QString artist, bool download)
 {
-    // qDebug() << "get Image for: " << album << artist;
+    qDebug() << "<ImageDatabase::getAlbumImage> get Image for: " << album << artist;
     int artworkID = imageIDFromAlbumArtist(album,artist);
     //    if ( artworkID == -1 ) {
     //        return QImage();
@@ -444,13 +444,13 @@ QPixmap ImageDatabase::getAlbumImage(QString album)
 {
     int artworkID = imageIDFromAlbum(album);
     if ( artworkID == -1 ) {
-        // qDebug() << "Returning empty image";
+        qDebug() << "Returning empty image";
         return QPixmap();
     }
     QSqlQuery query;
     query.prepare("SELECT * FROM images WHERE "
                   "id=\"" + QString::number(artworkID) + "\"");
-    // qDebug() << "Check for image: " << query.lastQuery();
+    qDebug() << "Check for imagedatabase.cpp ImageDatabase::getAlbumImage : " << query.lastQuery();
     query.exec();
 
     while ( query.next() ) {
@@ -684,7 +684,7 @@ void ImageDatabase::createTables()
 void ImageDatabase::requestCoverImage(MpdAlbum album)
 {
     mCoverAlbum = album;
-    // qDebug() << "get Image for: " << album.getTitle() << album.getArtist();
+    qDebug() << "<ImageDatabase::requestCoverImage> get Image for: " << album.getTitle() << album.getArtist();
     int artworkID = imageIDFromAlbumArtist(album.getTitle(),album.getArtist());
 
     if (artworkID >= 0 ) {

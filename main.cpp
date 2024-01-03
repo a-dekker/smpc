@@ -1,12 +1,12 @@
+#include <nemonotifications-qt5/notification.h>
+#include <sailfishapp.h>
+
+#include <QDebug>
 #include <QGuiApplication>
 #include <QQuickView>
-#include <QDebug>
 
-#include <nemonotifications-qt5/notification.h>
 #include "src/controller.h"
 #include "src/resourcehandler.h"
-
-#include <sailfishapp.h>
 
 quint32 m_notificationId = 0;
 
@@ -55,8 +55,7 @@ void stopMPD() {
     exit(0);
 }
 
-QString mkdir(QString path, QString name)
-{
+QString mkdir(QString path, QString name) {
     QDir dir(path);
     QDir rmdir(path + "/" + name);
 
@@ -72,8 +71,7 @@ QString mkdir(QString path, QString name)
     return QString();
 }
 
-Q_DECL_EXPORT int main(int argc, char *argv[])
-{
+Q_DECL_EXPORT int main(int argc, char *argv[]) {
     QScopedPointer<QGuiApplication> app(SailfishApp::application(argc, argv));
     app->setOrganizationName("harbour-smpc");
     app->setApplicationName("harbour-smpc");
@@ -86,19 +84,28 @@ Q_DECL_EXPORT int main(int argc, char *argv[])
     view->setDefaultAlphaBuffer(true);
     view->rootContext()->setContextProperty("version", APP_VERSION);
     view->rootContext()->setContextProperty("buildyear", BUILD_YEAR);
-    view->rootContext()->setContextProperty(QLatin1String("resourceHandler"), resourceHandler);
+    view->rootContext()->setContextProperty(QLatin1String("resourceHandler"),
+                                            resourceHandler);
 
-    foreach(QString path, view->engine()->importPathList()) {
+    foreach (QString path, view->engine()->importPathList()) {
         qDebug() << path;
     }
 
     mkdir("/tmp", "harbour-smpc");
     QSettings mySets;
-    int stopMPDOnExit = mySets.value("general_properties/stop_mpd_on_exit", "0").toInt();
+    int stopMPDOnExit =
+        mySets.value("general_properties/stop_mpd_on_exit", "0").toInt();
+    // Turn on/off debuglogging according to setting
+    bool debugLogEnabled =
+        mySets.value("general_properties/debuglog_enabled", false).toBool();
+    QLoggingCategory::defaultCategory()->setEnabled(QtMsgType::QtDebugMsg,
+                                                    debugLogEnabled);
     Controller *control = new Controller(view, nullptr);
     view->rootContext()->setContextProperty("ctl", control);
     view->show();
     int retVal = app->exec();
-    if (stopMPDOnExit == 1) { stopMPD(); }
+    if (stopMPDOnExit == 1) {
+        stopMPD();
+    }
     return retVal;
 }

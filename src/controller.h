@@ -154,9 +154,11 @@ private:
     int mShowModeLandscape;
     int mShowPositionSlider;
     int mShowVolumeSlider;
+    int mShowPlayButtonDockedPanel;
     int mRemorseTimerSecs;
     int mUseVolumeRocker;
     int mStopMPDOnExit;
+    bool mShowDebugLog;
 
     void readSettings();
     void writeSettings();

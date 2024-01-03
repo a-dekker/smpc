@@ -74,7 +74,7 @@ void NetworkAccess::connectToHost(QString hostname, quint16 port,QString passwor
     mIdling = false;
 
     // Initiate TCP connection here
-    qDebug() << "Connecting to: " << hostname << ":" << port;
+    qInfo() << "Connecting to: " << hostname << ":" << port;
     mTCPSocket->connectToHost(hostname, port, QIODevice::ReadWrite);
 }
 
@@ -1296,7 +1296,7 @@ void NetworkAccess::onServerDisconnected()
 }
 
 void NetworkAccess::onServerConnected() {
-    qDebug() << "Connected to mpd server";
+    qInfo() << "Connected to mpd server";
 
     mIdling = false;
 

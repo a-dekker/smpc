@@ -91,6 +91,15 @@ DockedPanel {
             active: controlPanel.open && Qt.application.active
         }
     }
+    IconButton {
+        id: playButton
+        icon.source: ctl.player.playbackStatus.playbackStatus
+                     === 1 ? "image://theme/icon-m-pause" : "image://theme/icon-m-play"
+        anchors.verticalCenter: parent.verticalCenter
+        anchors.right: parent.right
+        onClicked: ctl.player.play()
+        visible: !pushUp.active && showPlayButtonOnDockedPanel
+    }
 
     PushUpMenu {
         id: pushUp

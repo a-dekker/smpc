@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 import "../../components"
 
 Page {
-    id: currentsong_page
+    id: currentSongPage
     property string title: ctl.player.playbackStatus.title
     property string album: mAlbum
     property string artist: mArtist
@@ -34,10 +34,10 @@ Page {
                 id: drawerOpenBackgroundItem
                 anchors.fill: parent
                 onClicked: {
-                    if (currentsong_page.state == "landscape"
+                    if (currentSongPage.state == "landscape"
                             && mainDrawer.open) {
                         mainDrawer.hide()
-                    } else if (currentsong_page.state == "landscape"
+                    } else if (currentSongPage.state == "landscape"
                                && !mainDrawer.open) {
                         mainDrawer.show()
                         // volumeControl.state = "slideVisible"
@@ -84,7 +84,7 @@ Page {
                 Rectangle {
                     opacity: 0.0
                     // Center landscapeimages
-                    height: (currentsong_page.height - landscapeImageRow.height) / 2
+                    height: (currentSongPage.height - landscapeImageRow.height) / 2
                     width: parent.width
                     visible: landscapeImageRow.visible
                 }
@@ -248,7 +248,7 @@ Page {
                     Rectangle {
                         opacity: 0.0
                         // Center landscapeimages
-                        height: (currentsong_page.height - landscapeImageRow.height) / 2
+                        height: (currentSongPage.height - landscapeImageRow.height) / 2
                         width: parent.width
                         visible: landscapeImageRow.visible
                     }

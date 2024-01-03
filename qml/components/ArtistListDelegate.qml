@@ -27,9 +27,6 @@ Component {
                     cache: false
                     fillMode: Image.PreserveAspectCrop
                     asynchronous: true
-
-                    /*sourceSize.width: width
-                    sourceSize.height: height*/
                     source: (listImageSize === 0) ? "" : imageURL
                 }
             }

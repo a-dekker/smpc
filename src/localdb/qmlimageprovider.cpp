@@ -8,7 +8,12 @@ QMLImageProvider::QMLImageProvider(ImageDatabase *db) : QQuickImageProvider(QQui
 QPixmap QMLImageProvider::requestPixmap(const QString &id, QSize *size, const QSize &requestedSize)
 {
     // Format is artist/album
-    QStringList idList = id.split('/');
+    QString id_no_slash = id;
+    id_no_slash = id_no_slash.replace(" / ", " |~ ");
+    QStringList idList = id_no_slash.split('/');
+    qDebug() << "<QMLImageProvider::requestPixmap> id" << id_no_slash;
+    qDebug() << "<QMLImageProvider::requestPixmap> idList" << idList;
+    qDebug() << "<QMLImageProvider::requestPixmap> idList.length" << idList.length();
     if(id.length()<2) {
         size->setHeight(0);
         size->setWidth(0);
@@ -32,7 +37,7 @@ QPixmap QMLImageProvider::requestPixmap(const QString &id, QSize *size, const QS
             }
             return tmpImg;
         } else if (idList[0] == "album" && idList.length() == 3 ) {
-            QPixmap tmpImg = mDB->getAlbumImage(idList[2],idList[1],false);
+            QPixmap tmpImg = mDB->getAlbumImage(idList[2].replace(" |~ ", " / "),idList[1].replace(" |~ ", " / "),false);
             if ( tmpImg.size().height() == 0 || tmpImg.size().width()== 0) {
                 // Try searching for album without artist (samplers,etc)
                 tmpImg = mDB->getAlbumImage(idList[2]);
@@ -44,7 +49,7 @@ QPixmap QMLImageProvider::requestPixmap(const QString &id, QSize *size, const QS
             }
             return tmpImg;
         } else if (idList[0] == "artistfromalbum" ) {
-            QPixmap tmpImg = mDB->getArtistImageForAlbum(idList[1]);
+            QPixmap tmpImg = mDB->getArtistImageForAlbum(idList[1].replace(" |~ ", " / "));
             size->setHeight(tmpImg.height());
             size->setWidth(tmpImg.width());
             if ( requestedSize.isValid() && !tmpImg.isNull() ) {
@@ -61,7 +66,7 @@ QPixmap QMLImageProvider::requestPixmap(const QString &id, QSize *size, const QS
             return tmpImg;
         }
         else {
-            QPixmap tmpImg = mDB->getAlbumImage(idList[1]);
+            QPixmap tmpImg = mDB->getAlbumImage(idList[1].replace(" |~ ", " / "));
             size->setHeight(tmpImg.height());
             size->setWidth(tmpImg.width());
             if ( requestedSize.isValid() && !tmpImg.isNull() ) {

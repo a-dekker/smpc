@@ -1,9 +1,18 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
+import Nemo.Notifications 1.0
 import "../../components"
 
 Page {
     id: aboutPage
+
+    Component.onDestruction: notification.close()
+
+    Notification {
+        id: notification
+        appName: "harbour-smpc"
+    }
+
     SilicaFlickable {
         id: aboutFlickable
         anchors.fill: parent
@@ -30,6 +39,8 @@ Page {
                     onPressAndHold: {
                         mDebugEnabled = !mDebugEnabled
                         console.log("Debug: ", mDebugEnabled)
+                        notification.previewBody = qsTr("Debuglog toggle in Settings enabled: ") + mDebugEnabled
+                        notification.publish()
                     }
                     anchors.fill: parent
                 }
@@ -101,7 +112,25 @@ Page {
                 }
 
                 Label {
-                    text: " 2016-" + buildyear + " Michael Fuchs/Arno Dekker"
+                    text: " 2016-2020 Michael Fuchs/Arno Dekker"
+                    font.pixelSize: Theme.fontSizeMedium
+                }
+            }
+            Row {
+                anchors.horizontalCenter: parent.horizontalCenter
+                Label {
+                    text: "©"
+                    transform: Rotation {
+                        origin.x: copyLeft.width / 2
+                        axis.x: 0
+                        axis.y: 1
+                        axis.z: 0
+                        angle: 180
+                    }
+                }
+
+                Label {
+                    text: " 2021-" + buildyear + " Arno Dekker"
                     font.pixelSize: Theme.fontSizeMedium
                 }
             }

@@ -109,6 +109,7 @@ ListItem {
         MenuItem {
             text: qsTr("Show album")
             onClicked: {
+                console.log(model.album)
                 albumClicked("", model.album)
                 pageStack.push(Qt.resolvedUrl(
                                    "../pages/database/AlbumTracksPage.qml"), {

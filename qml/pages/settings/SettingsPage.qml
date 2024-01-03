@@ -4,52 +4,76 @@ import "../../components"
 
 Page {
     id: settingsPage
-    SilicaListView {
-        id: settingsListView
+    SilicaFlickable {
         anchors.fill: parent
-        clip: true
-        contentWidth: width
-        header: PageHeader {
-            title: qsTr("Settings")
-        }
-        model: settingsMenuModel
-        delegate: MouseArea {
-
-            width: parent.width
-            height: lbl.height + Theme.paddingLarge * 2
-
-            Image {
-                id: image
-                source: "image://theme/" + img
-                x: Theme.paddingLarge
-                anchors.verticalCenter: parent.verticalCenter
-                fillMode: Image.PreserveAspectFit
-                opacity: parent.enabled ? 1.0 : 0.4
-            }
-
-            Label {
-                id: lbl
+        Column {
+            id: column
+            width: settingsPage.width
+            SilicaListView {
+                id: settingsListView
                 clip: true
-                x: Theme.paddingLarge
-                anchors {
-                    left: image.right
-                    verticalCenter: parent.verticalCenter
-                    leftMargin: listPadding
-                    rightMargin: listPadding
-                }
-                color: parent.pressed ? Theme.highlightColor : Theme.primaryColor
-                text: name
-                width: parent.width - image.width - 2 * listPadding
-                truncationMode: TruncationMode.Fade
-            }
-            Rectangle {
+                height: mDebugEnabled ? settingsPage.height - showDebug.height : settingsPage.height
                 width: parent.width
-                height: parent.height
-                color: Theme.secondaryHighlightColor
-                opacity: parent.pressed ? .25 : 0
+                header: PageHeader {
+                    title: qsTr("Settings")
+                }
+                VerticalScrollDecorator {}
+                model: settingsMenuModel
+                delegate: MouseArea {
+
+                    width: parent.width
+                    height: lbl.height + Theme.paddingLarge * 2
+
+                    Image {
+                        id: image
+                        source: "image://theme/" + img
+                        x: Theme.paddingLarge
+                        anchors.verticalCenter: parent.verticalCenter
+                        fillMode: Image.PreserveAspectFit
+                        opacity: parent.enabled ? 1.0 : 0.4
+                    }
+
+                    Label {
+                        id: lbl
+                        clip: true
+                        x: Theme.paddingLarge
+                        anchors {
+                            left: image.right
+                            verticalCenter: parent.verticalCenter
+                            leftMargin: listPadding
+                            rightMargin: listPadding
+                        }
+                        color: parent.pressed ? Theme.highlightColor : Theme.primaryColor
+                        text: name
+                        width: parent.width - image.width - 2 * listPadding
+                        truncationMode: TruncationMode.Fade
+                    }
+                    Rectangle {
+                        width: parent.width
+                        height: parent.height
+                        color: Theme.secondaryHighlightColor
+                        opacity: parent.pressed ? .25 : 0
+                    }
+                    onClicked: {
+                        parseClickedSettings(ident)
+                    }
+                }
             }
-            onClicked: {
-                parseClickedSettings(ident)
+            TextSwitch {
+                id: showDebug
+                visible: mDebugEnabled
+                text: qsTr("Debuglog output to console")
+                description: qsTr("for troubleshooting, requires restart")
+                checked: showDebugLog
+                onClicked: {
+                    if (checked) {
+                        newSettingKey(["showDebugLog", "true"])
+                        resourceHandler.acquire()
+                    } else {
+                        newSettingKey(["showDebugLog", "false"])
+                        resourceHandler.release()
+                    }
+                }
             }
         }
     }
@@ -85,11 +109,6 @@ Page {
                                      "ident": "updatedb",
                                      "img": "icon-m-refresh"
                                  })
-        // settingsMenuModel.append({
-        //                              "name": qsTr("About"),
-        //                              "ident": "about",
-        //                              "img": "icon-m-about"
-        //                          })
         // Debug-only
         if (mDebugEnabled) {
             settingsMenuModel.append({

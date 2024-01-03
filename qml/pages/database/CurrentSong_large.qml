@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 import "../../components"
 
 Page {
-    id: currentSongLarge_page
+    id: currentSongLargePage
 
     Item {
         id: landscapeImageRow
@@ -64,9 +64,9 @@ Page {
     Column {
         id: landscapeTextScrollColumn
         anchors {
-            bottom: currentSongLarge_page.bottom
+            bottom: currentSongLargePage.bottom
         }
-        width: currentSongLarge_page.width
+        width: currentSongLargePage.width
 
         ScrollLabel {
             id: titleTextLC

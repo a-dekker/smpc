@@ -23,8 +23,6 @@ ListItem {
             Image{
                 id: albumPicture
                 anchors.fill: parent
-                /*sourceSize.width: width
-                    sourceSize.height: height*/
                 cache: false
                 asynchronous: true
                 source: ( listImageSize === 0 ) ? "" : coverURL

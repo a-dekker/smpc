@@ -166,12 +166,6 @@ void Controller::updateArtistsModel(QList<QObject*>* list)
     emit artistsReady();
 }
 
-//void Controller::updateArtistAlbumsModel(QList<QObject*>* list)
-//{
-//    viewer->rootContext()->setContextProperty("albumsModel",QVariant::fromValue(*list));
-//    emit artistAlbumsReady();
-//}
-
 void Controller::updateAlbumsModel(QList<QObject*>* list)
 {
     mQuickView->rootContext()->setContextProperty("albumsModel",0);
@@ -399,7 +393,7 @@ void Controller::onNewAlbum()
     if ( m_player->playbackStatus()->getPlaybackStatus() != MPD_STOP ) {
         // Request cover/artist art if song has changed
         MpdAlbum tmpAlbum(this,m_player->playbackStatus()->getAlbum(),m_player->playbackStatus()->getArtist());
-        // qDebug()  << "Requesting cover Image for currently playing album: " << tmpAlbum.getTitle() << tmpAlbum.getArtist();
+        qDebug()  << "Requesting cover Image for currently playing album: " << tmpAlbum.getTitle() << tmpAlbum.getArtist();
         emit requestCoverArt(tmpAlbum);
     } else {
         // Clear cover/artist image by requesting empty images
@@ -413,11 +407,11 @@ void Controller::onNewArtist()
     if ( m_player->playbackStatus()->getPlaybackStatus() != MPD_STOP ) {
         // Request cover/artist art if song has changed
         MpdAlbum tmpAlbum(this,m_player->playbackStatus()->getAlbum(),m_player->playbackStatus()->getArtist());
-        // qDebug()  << "Requesting cover Image for currently playing album: " << tmpAlbum.getTitle() << tmpAlbum.getArtist();
+        qDebug()  << "Requesting cover Image for currently playing album: " << tmpAlbum.getTitle() << tmpAlbum.getArtist();
         emit requestCoverArt(tmpAlbum);
 
         MpdArtist tmpArtist(this,m_player->playbackStatus()->getArtist());
-        // qDebug() << "Requesting cover artist Image for currently playing title: " << tmpArtist.getName();
+        qDebug() << "Requesting cover artist Image for currently playing title: " << tmpArtist.getName();
         emit requestCoverArtistArt(tmpArtist);
     } else {
         MpdArtist tmpArtist(this,"");
@@ -473,9 +467,11 @@ void Controller::readSettings()
     mShowModeLandscape = settings.value("useShowView", 1).toInt();
     mShowVolumeSlider = settings.value("showVolumeSlider", 1).toInt();
     mShowPositionSlider = settings.value("showPositionSlider", 0).toInt();
+    mShowPlayButtonDockedPanel = settings.value("showPlayButtonOnDockedPanel", 0).toInt();
     mRemorseTimerSecs = settings.value("remorse_timer_secs", 3).toInt();
     mUseVolumeRocker = settings.value("use_volume_rocker", 0).toInt();
     mStopMPDOnExit = settings.value("stop_mpd_on_exit", 0).toInt();
+    mShowDebugLog = settings.value("debuglog_enabled", false).toBool();
 
     emit newDownloadEnabled(mDownloadEnabled);
 
@@ -489,15 +485,16 @@ void Controller::readSettings()
     mQuickView->rootContext()->setContextProperty("sortAlbumsByYear", mNetAccess->sortAlbumsByYear());
     mQuickView->rootContext()->setContextProperty("showCoverNowPlaying", mCoverInNowPlaying);
     mQuickView->rootContext()->setContextProperty("showArtistOnCover", mArtistOnCover);
-
     mQuickView->rootContext()->setContextProperty("useShowView", mShowModeLandscape);
     mQuickView->rootContext()->setContextProperty("showVolumeSlider", mShowVolumeSlider);
     mQuickView->rootContext()->setContextProperty("showPositionSlider", mShowPositionSlider);
+    mQuickView->rootContext()->setContextProperty("showPlayButtonOnDockedPanel", mShowPlayButtonDockedPanel);
     mQuickView->rootContext()->setContextProperty("remorseTimerSecs", mRemorseTimerSecs);
     mQuickView->rootContext()->setContextProperty("useVolumeRocker", mUseVolumeRocker);
     mQuickView->rootContext()->setContextProperty("stopMPDOnExit", mStopMPDOnExit);
-
+    mQuickView->rootContext()->setContextProperty("showDebugLog", mShowDebugLog);
     mQuickView->rootContext()->setContextProperty("downloadSize",dlSize);
+
     mDownloadSize = dlSize;
     emit newDownloadSize(getLastFMArtSize(mDownloadSize));
     settings.endGroup();
@@ -543,9 +540,11 @@ void Controller::writeSettings()
     settings.setValue("useShowView",mShowModeLandscape);
     settings.setValue("showVolumeSlider",mShowVolumeSlider);
     settings.setValue("showPositionSlider",mShowPositionSlider);
+    settings.setValue("showPlayButtonOnDockedPanel",mShowPlayButtonDockedPanel);
     settings.setValue("remorse_timer_secs",mRemorseTimerSecs);
     settings.setValue("use_volume_rocker",mUseVolumeRocker);
     settings.setValue("stop_mpd_on_exit",mStopMPDOnExit);
+    settings.setValue("debuglog_enabled",mShowDebugLog);
     settings.endGroup();
 }
 
@@ -644,7 +643,7 @@ void Controller::connectProfile(int index)
     setPort(profile->getPort());
     setPassword(profile->getPassword());
     mHostname = profile->getHostname();
-    mPort =  profile->getPort();
+    mPort = profile->getPort();
     mPassword = profile->getPassword();
     mProfilename = profile->getName();
     mReconnectTimer.setInterval(5000);
@@ -846,14 +845,15 @@ void Controller::receiveSettingKey(QVariant setting)
         } else if ( settings.at(0) == "showModeLandscape" ) {
             mShowModeLandscape = settings.at(1).toInt();
             mQuickView->rootContext()->setContextProperty("useShowView", mShowModeLandscape);
-
         } else if ( settings.at(0) == "showVolumeSlider" ) {
             mShowVolumeSlider = settings.at(1).toInt();
             mQuickView->rootContext()->setContextProperty("showVolumeSlider", mShowVolumeSlider);
         } else if ( settings.at(0) == "showPositionSlider" ) {
             mShowPositionSlider = settings.at(1).toInt();
             mQuickView->rootContext()->setContextProperty("showPositionSlider", mShowPositionSlider);
-
+        } else if ( settings.at(0) == "showPlayButtonOnDockedPanel" ) {
+            mShowPlayButtonDockedPanel = settings.at(1).toInt();
+            mQuickView->rootContext()->setContextProperty("showPlayButtonOnDockedPanel", mShowPlayButtonDockedPanel);
         } else if ( settings.at(0) == "remorseTimerSecs" ) {
             mRemorseTimerSecs = settings.at(1).toInt();
             mQuickView->rootContext()->setContextProperty("remorseTimerSecs", mRemorseTimerSecs);
@@ -863,8 +863,10 @@ void Controller::receiveSettingKey(QVariant setting)
         } else if ( settings.at(0) == "stopMPDOnExit" ) {
             mStopMPDOnExit = settings.at(1).toInt();
             mQuickView->rootContext()->setContextProperty("stopMPDOnExit", mStopMPDOnExit);
+        } else if ( settings.at(0) == "showDebugLog" ) {
+            mShowDebugLog = QVariant(settings.at(1)).toBool();
+            mQuickView->rootContext()->setContextProperty("showDebugLog", mShowDebugLog);
         }
-
     }
     writeSettings();
 }

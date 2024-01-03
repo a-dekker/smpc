@@ -1,9 +1,6 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#include <QDebug>
-
-
 // ONLY FOR USE WITH JOLLAMPC
 #define LASTFMAPIKEY "1c728df8f626849518971eaae29e01a1"
 #define LASTFMDEFAULTSIZE "mega"
@@ -22,5 +19,4 @@ struct serverprofile {
     bool defaultprofile;
 };
 
-
-#endif // COMMON_H
+#endif  // COMMON_H

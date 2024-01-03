@@ -4,32 +4,37 @@
 <context>
     <name>AboutPage</name>
     <message>
-        <location filename="../qml/pages/settings/AboutPage.qml" line="16"/>
+        <location filename="../qml/pages/settings/AboutPage.qml" line="25"/>
         <source>About</source>
         <translation>Acerca de</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/AboutPage.qml" line="47"/>
+        <location filename="../qml/pages/settings/AboutPage.qml" line="42"/>
+        <source>Debuglog toggle in Settings enabled: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/settings/AboutPage.qml" line="58"/>
         <source>A MPD client for Sailfish OS</source>
         <translation>Un cliente MPD para Sailfish SO</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/AboutPage.qml" line="55"/>
+        <location filename="../qml/pages/settings/AboutPage.qml" line="66"/>
         <source>Version: %1</source>
         <translation>Versión: %1</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/AboutPage.qml" line="59"/>
+        <location filename="../qml/pages/settings/AboutPage.qml" line="70"/>
         <source>source code</source>
         <translation>Código fuente</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/AboutPage.qml" line="111"/>
+        <location filename="../qml/pages/settings/AboutPage.qml" line="140"/>
         <source>Licensed under GPLv3</source>
         <translation>Usa la licencia GPLv3</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/AboutPage.qml" line="123"/>
+        <location filename="../qml/pages/settings/AboutPage.qml" line="152"/>
         <source>Fetches metadata from last.fm</source>
         <translation>Metadatos por last.fm</translation>
     </message>
@@ -46,32 +51,32 @@
 <context>
     <name>AlbumListDelegate</name>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="38"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="36"/>
         <source>No album tag</source>
         <translation>No etiqueta de álbum</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="42"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="40"/>
         <source>No artist tag</source>
         <translation>No etiqueta de artista</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="53"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="51"/>
         <source>Playing album</source>
         <translation>Reproduciendo álbum</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="58"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="56"/>
         <source>Adding album</source>
         <translation>Agregando álbum</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="66"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="64"/>
         <source>Play album</source>
         <translation>Reproducir álbum</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="75"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="73"/>
         <source>Add album to list</source>
         <translation>Agregar álbum a lista</translation>
     </message>
@@ -208,27 +213,27 @@
 <context>
     <name>ArtistListDelegate</name>
     <message>
-        <location filename="../qml/components/ArtistListDelegate.qml" line="38"/>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="35"/>
         <source>No Artist Tag</source>
         <translation>No etiqueta de artista</translation>
     </message>
     <message>
-        <location filename="../qml/components/ArtistListDelegate.qml" line="55"/>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="52"/>
         <source>Playing artist</source>
         <translation>Reproduciendo artista</translation>
     </message>
     <message>
-        <location filename="../qml/components/ArtistListDelegate.qml" line="60"/>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="57"/>
         <source>Adding artist</source>
         <translation>Agregando artista</translation>
     </message>
     <message>
-        <location filename="../qml/components/ArtistListDelegate.qml" line="68"/>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="65"/>
         <source>Play artist</source>
         <translation>Reproducir artista</translation>
     </message>
     <message>
-        <location filename="../qml/components/ArtistListDelegate.qml" line="77"/>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="74"/>
         <source>Add artist to list</source>
         <translation>Agregar artista a lista</translation>
     </message>
@@ -298,14 +303,12 @@
 <context>
     <name>Controller</name>
     <message>
-        <location filename="../src/controller.cpp" line="381"/>
         <source>Connected to: </source>
-        <translation>Conectado para: </translation>
+        <translation type="vanished">Conectado para: </translation>
     </message>
     <message>
-        <location filename="../src/controller.cpp" line="389"/>
         <source>Disconnected from server</source>
-        <translation>Desconectado desde el servidor</translation>
+        <translation type="vanished">Desconectado desde el servidor</translation>
     </message>
 </context>
 <context>
@@ -812,22 +815,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="231"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="232"/>
+        <source>Show play/pause button on docked panel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="245"/>
         <source>Remorse options</source>
         <translation>Opciones de remordimiento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="236"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="250"/>
         <source>Remorse time</source>
         <translation>Tiempo de remordimiento</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="241"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="255"/>
         <source>seconds</source>
         <translation>segundos</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="241"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="255"/>
         <source>second</source>
         <translation>segundo</translation>
     </message>
@@ -1272,42 +1280,52 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="13"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="18"/>
         <source>Settings</source>
         <translation>Ajustes</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="59"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="65"/>
+        <source>Debuglog output to console</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="66"/>
+        <source>for troubleshooting, requires restart</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="83"/>
         <source>Server settings</source>
         <translation>Servidor</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="64"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="88"/>
         <source>Database settings</source>
         <translation>Base de datos</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="69"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="93"/>
         <source>Gui settings</source>
         <translation>Interfaz</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="79"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="103"/>
         <source>Outputs</source>
         <translation>Salidas</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="74"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="98"/>
         <source>Playback settings</source>
         <translation>Reproducir config</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="84"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="108"/>
         <source>Update server database</source>
         <translation>Actualizar base  de datos</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/SettingsPage.qml" line="96"/>
+        <location filename="../qml/pages/settings/SettingsPage.qml" line="115"/>
         <source>Garbage collection</source>
         <translation>Recolección de basura</translation>
     </message>
@@ -1411,17 +1429,17 @@
         <translation>Mostrar álbum</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="122"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="123"/>
         <source>Play as next</source>
         <translation>Reproducir siguiente</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="130"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="131"/>
         <source>Show information</source>
         <translation>Mostrar detalles</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="135"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="136"/>
         <source>Add to saved list</source>
         <translation>Agregar a lista guardada</translation>
     </message>
@@ -1447,7 +1465,7 @@
 <context>
     <name>VolumeSlider</name>
     <message>
-        <location filename="../qml/components/VolumeSlider.qml" line="13"/>
+        <location filename="../qml/components/VolumeSlider.qml" line="11"/>
         <source>Volume</source>
         <translation>Volumen</translation>
     </message>

@@ -227,6 +227,20 @@ Page {
                 }
             }
 
+            TextSwitch {
+                id: showPlayButtonDockedPanel
+                text: qsTr("Show play/pause button on docked panel")
+                checked: showPlayButtonOnDockedPanel
+                onClicked: {
+                    if (checked) {
+                        newSettingKey(["showPlayButtonOnDockedPanel", "1"])
+                    } else {
+                        newSettingKey(["showPlayButtonOnDockedPanel", "0"])
+                    }
+                }
+            }
+
+
             SectionHeader {
                 text: qsTr("Remorse options")
             }

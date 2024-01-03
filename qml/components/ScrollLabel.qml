@@ -12,20 +12,6 @@ Item {
     height: lbl.height
     clip: true
 
-    //    OpacityRampEffect {
-    //        sourceItem: mainItm
-    //        slope: 3
-    //        offset: lbl.shouldScroll ? 0.65 : 1.0
-    //        enabled: lbl.shouldScroll
-    //    }
-
-    //    OpacityRampEffect {
-    //        direction: OpacityRamp.RightToLeft
-    //        sourceItem: mainItm
-    //        slope: 3
-    //        offset: lbl.shouldScroll ? 0.65 : 1.0
-    //        enabled:  lbl.shouldScroll
-    //    }
     function checkAnimation() {
         if (lbl.contentWidth > parent.width) {
             lbl.anchors.horizontalCenter = undefined
