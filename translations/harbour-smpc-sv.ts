@@ -11,7 +11,7 @@
     <message>
         <location filename="../qml/pages/settings/AboutPage.qml" line="42"/>
         <source>Debuglog toggle in Settings enabled: </source>
-        <translation type="unfinished"></translation>
+        <translation>Felsökningslogg aktiverad i Inställningar: </translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/AboutPage.qml" line="58"/>
@@ -295,7 +295,7 @@
 <context>
     <name>ControlPanel</name>
     <message>
-        <location filename="../qml/components/ControlPanel.qml" line="63"/>
+        <location filename="../qml/components/ControlPanel.qml" line="50"/>
         <source>Not playing</source>
         <translation>Spelar inte</translation>
     </message>
@@ -816,26 +816,26 @@
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="232"/>
-        <source>Show play/pause plus coverart on docked panel</source>
-        <translation type="unfinished"></translation>
+        <source>Show play/pause button on docked panel</source>
+        <translation>Visa Uppspelnings-/Pausknapp på dockad panel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="244"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="245"/>
         <source>Remorse options</source>
         <translation>Ångeralternativ</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="249"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="250"/>
         <source>Remorse time</source>
         <translation>Ångertid</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="254"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="255"/>
         <source>seconds</source>
         <translation>sekunder</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="254"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="255"/>
         <source>second</source>
         <translation>sekund</translation>
     </message>
@@ -1287,12 +1287,12 @@
     <message>
         <location filename="../qml/pages/settings/SettingsPage.qml" line="65"/>
         <source>Debuglog output to console</source>
-        <translation type="unfinished"></translation>
+        <translation>Felsökningsutdata till konsolen</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/SettingsPage.qml" line="66"/>
         <source>for troubleshooting, requires restart</source>
-        <translation type="unfinished"></translation>
+        <translation>vid felsökning, kräver omstart.</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/SettingsPage.qml" line="83"/>
