@@ -229,7 +229,7 @@ Page {
 
             TextSwitch {
                 id: showPlayButtonDockedPanel
-                text: qsTr("Show play/pause button on docked panel")
+                text: qsTr("Show play/pause plus coverart on docked panel")
                 checked: showPlayButtonOnDockedPanel
                 onClicked: {
                     if (checked) {
@@ -239,7 +239,6 @@ Page {
                     }
                 }
             }
-
 
             SectionHeader {
                 text: qsTr("Remorse options")

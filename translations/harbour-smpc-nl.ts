@@ -295,7 +295,7 @@
 <context>
     <name>ControlPanel</name>
     <message>
-        <location filename="../qml/components/ControlPanel.qml" line="50"/>
+        <location filename="../qml/components/ControlPanel.qml" line="63"/>
         <source>Not playing</source>
         <translation>Speelt niet</translation>
     </message>
@@ -816,26 +816,34 @@
     </message>
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="232"/>
-        <source>Show play/pause button on docked panel</source>
-        <translation>Speel/Pauze knop in docked paneel</translation>
+        <source>Show play/pause plus coverart on docked panel</source>
+        <translation>Play/pauze knop en album afbeelding op docked panel</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="245"/>
+        <source>Show play/pause button on docked panel</source>
+        <translation type="vanished">Speel/Pauze knop in docked paneel</translation>
+    </message>
+    <message>
+        <source>Show coverart on docked panel</source>
+        <translation type="vanished">Album afbeelding op docked paneel</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="244"/>
         <source>Remorse options</source>
         <translation>Hersteltijd opties</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="250"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="249"/>
         <source>Remorse time</source>
         <translation>Hersteltijd</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="255"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="254"/>
         <source>seconds</source>
         <translation>seconde</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/GUISettings.qml" line="255"/>
+        <location filename="../qml/pages/settings/GUISettings.qml" line="254"/>
         <source>second</source>
         <translation>seconde</translation>
     </message>

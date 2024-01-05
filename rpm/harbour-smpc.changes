@@ -8,6 +8,8 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Fri Jan 05 2024 Arno Dekker <jack.tar@example.com> 1.3.36-1
+- Also display albumart on activation of play button in docked panel
 * Wed Jan 03 2024 Arno Dekker <jack.tar@example.com> 1.3.35-1
 - Fix albumart in some cases when a backslash is in its name
 - Optional play/pause button on docked panel itself

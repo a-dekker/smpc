@@ -15,9 +15,10 @@ DockedPanel {
 
     Item {
         id: progressBarItem
-        width: parent.width
+        width: albumImg.visible ? parent.width - albumImg.width : parent.width
         height: Theme.paddingSmall
         visible: ctl.player.playbackStatus.title !== "" && mArtist !== ""
+        x: albumImg.visible ? albumImg.width : 0
 
         Rectangle {
             id: progressBar
@@ -44,6 +45,24 @@ DockedPanel {
         source: "image://theme/graphic-gradient-edge"
     }
 
+    Image {
+        id: albumImg
+        source: coverimageurl
+        height: parent.height
+        width: height
+        anchors.left: parent.left
+        anchors.top: parent.top
+        cache: false
+        fillMode: Image.PreserveAspectCrop
+        visible: !pushUp.active && showPlayButtonOnDockedPanel
+        onStatusChanged: {
+            if (albumImg.status == 3) {
+                // we do not have coverart
+                coverimageurl = "image://theme/icon-m-music"
+            }
+        }
+    }
+
     Label {
         id: notPlayingLabel
         visible: ctl.player.playbackStatus.title == "" && mArtist == ""
@@ -59,8 +78,8 @@ DockedPanel {
         id: textColumn
         anchors {
             top: parent.top
-            right: parent.right
-            left: parent.left
+            right: playButton.visible ? playButton.left : parent.right
+            left: albumImg.visible ? albumImg.right : parent.left
         }
 
         ScrollLabel {
@@ -75,6 +94,12 @@ DockedPanel {
                 right: parent.right
             }
             active: controlPanel.open && Qt.application.active
+            onTextChanged: {
+                if (albumImg.status == 3) {
+                    // we do not have coverart
+                    coverimageurl = "image://theme/icon-m-music"
+                }
+            }
         }
 
         ScrollLabel {
