@@ -7,7 +7,7 @@ Name:       harbour-smpc
 
 Summary:    SailfishOS Port of qmobilempd client
 Version:    1.3.36
-Release:    1
+Release:    2
 Group:      Qt/Qt
 License:    GPLv3
 URL:        https://github.com/a-dekker/smpc

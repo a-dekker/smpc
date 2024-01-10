@@ -55,6 +55,12 @@ DockedPanel {
         cache: false
         fillMode: Image.PreserveAspectCrop
         visible: !pushUp.active && showPlayButtonOnDockedPanel
+        Image {
+            id: dummyImage
+            anchors.fill: parent
+            visible: (parent.status !== Image.Ready)
+            source: "image://theme/icon-l-music"
+        }
         onStatusChanged: {
             if (albumImg.status == 3) {
                 // we do not have coverart
