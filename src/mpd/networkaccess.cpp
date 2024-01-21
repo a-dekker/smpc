@@ -4,6 +4,12 @@
   */
 
 #define MPD_WHILE_PARSE_LOOP while (Q_LIKELY((mTCPSocket->state()==QTcpSocket::ConnectedState)&&(!response.startsWith("OK"))&&(!response.startsWith("ACK"))))
+QString totalArtists = "";
+QString totalAlbums = "";
+QString totalSongs = "";
+QString dBplayTimeFmt = "";
+QString lastDbUpdate = "";
+QString mpdVersion = "";
 
 NetworkAccess::NetworkAccess(QObject *parent) :
     QThread(parent)
@@ -1296,7 +1302,7 @@ void NetworkAccess::onServerDisconnected()
 }
 
 void NetworkAccess::onServerConnected() {
-    qInfo() << "Connected to mpd server";
+    qDebug() << "Connected to mpd server";
 
     mIdling = false;
 
@@ -1315,6 +1321,7 @@ void NetworkAccess::onServerConnected() {
             response += mTCPSocket->readLine();
         }
         if (response.startsWith("OK MPD")) {
+            mpdVersion = response.remove("OK MPD ").trimmed();
             QStringList versionParts = response.remove("OK MPD ").split(".");
             if (versionParts.length() == 3) {
                 MPD_version_t version;
@@ -1329,9 +1336,10 @@ void NetworkAccess::onServerConnected() {
             authenticate(mPassword);
         }
         checkServerCapabilities();
+        getCollectionInfo();
         emit ready();
         emit connectionEstablished();
-        // qDebug() << "Handshake with server done";
+        qDebug() << "Handshake with server done";
     }
 
 
@@ -1878,7 +1886,7 @@ QMap<MpdArtist*, QList<MpdAlbum*>* > *NetworkAccess::getArtistsAlbumsMap_prv()
 void NetworkAccess::checkServerCapabilities() {
     MPD_version_t *version = mServerInfo->getVersion();
     /* Check server version */
-    //qDebug() << version->mpdMajor1 << version->mpdMajor2 << version->mpdMinor;
+    qDebug() << "MPD server version:" << version->mpdMajor1 << version->mpdMajor2 << version->mpdMinor;
     //grouping reimplemented and format of response changed for grouped lists with reimplemenation as of >= 0.21.x
     //https://github.com/MusicPlayerDaemon/MPD/issues/408
     mServerInfo->setListGroupSupported((version->mpdMajor2 >= 19 && version->mpdMajor1 == 0) || (version->mpdMajor1 > 0));
@@ -1936,6 +1944,56 @@ void NetworkAccess::checkServerCapabilities() {
             }
         }
         mServerInfo->setMBIDTagsSupported(mbTrackId && mbArtistId && mbAlbumId);
+    }
+}
+
+void NetworkAccess::getCollectionInfo() {
+    quint32 dBplayTime = 0;
+    quint32 dBUpdateTime = 0;
+    if (connected()) {
+        sendMPDCommand("stats\n");
+        QString response = "";
+        MPD_WHILE_PARSE_LOOP {
+            mTCPSocket->waitForReadyRead(READYREAD);
+            while (mTCPSocket->canReadLine()) {
+                response = QString::fromUtf8(mTCPSocket->readLine()).trimmed();
+                qDebug() << response;
+                if (response.startsWith("songs: ")) {
+                    totalSongs = response.right(response.length() - 7);
+                    qDebug() << "Songs:" << totalSongs;
+                }
+                if (response.startsWith("albums: ")) {
+                    totalAlbums = response.right(response.length() - 8);
+                    qDebug() << "Albums:" << totalAlbums;
+                }
+                if (response.startsWith("artists: ")) {
+                    totalArtists = response.right(response.length() - 9);
+                    qDebug() << "Artists:" << totalArtists;
+                }
+                if (response.startsWith("db_playtime: ")) {
+                    dBplayTime =
+                        response.right(response.length() - 13).toUInt();
+                    qDebug() << "db_play_time:" << dBplayTime;
+                    int days = dBplayTime / 60 / 60 / 24;
+                    int hours = (dBplayTime / 60 / 60) % 24;
+                    int minutes = (dBplayTime / 60) % 60;
+                    int seconds = dBplayTime % 60;
+                    dBplayTimeFmt =
+                        QString::number(days) + " days, " +
+                        QString::number(hours).rightJustified(2, '0') + ":" +
+                        QString::number(minutes).rightJustified(2, '0') + ":" +
+                        QString::number(seconds).rightJustified(2, '0');
+                    qDebug() << days << " days, " << hours << ":"
+                             << ":" << minutes << ":" << seconds;
+                }
+                if (response.startsWith("db_update: ")) {
+                    dBUpdateTime =
+                        response.right(response.length() - 11).toUInt();
+                    lastDbUpdate = QDateTime::fromTime_t(dBUpdateTime)
+                                       .toString("ddd MMM d yyyy hh:mm:ss");
+                }
+            }
+        }
     }
 }
 

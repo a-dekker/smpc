@@ -29,6 +29,12 @@
 
 #include <player.h>
 
+extern QString totalArtists;
+extern QString totalAlbums;
+extern QString totalSongs;
+extern QString dBplayTimeFmt;
+extern QString lastDbUpdate;
+extern QString mpdVersion;
 
 class Controller : public QObject
 {

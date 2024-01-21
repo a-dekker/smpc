@@ -14,7 +14,6 @@ Controller::Controller(QQuickView *viewer, QObject *parent) :
 
     mNetAccess = new NetworkAccess(nullptr);
     mNetAccess->setUpdateInterval(1000);
-    //mPlaybackStatus = mNetAccess->getMPDPlaybackStatus();
 
     mNetworkThread = new QThread(this);
     mDBThread = new QThread(this);
@@ -24,12 +23,8 @@ Controller::Controller(QQuickView *viewer, QObject *parent) :
     mDBThread->start();
     m_player = new Player(mNetAccess, mImgDB);
 
-    //mPlaylist = new PlaylistModel(mImgDB, this);
     mOtherTracks = new PlaylistModel(mImgDB, this);
 
-//    mStreamPlayer = new StreamPlayer(this);
-
-    //mCurrentSongID=0;
     mPlaylistVersion = 0;
     mOutputs = nullptr;
     mOldArtistModel = nullptr;
@@ -44,8 +39,6 @@ Controller::Controller(QQuickView *viewer, QObject *parent) :
     qmlRegisterType<ServerProfile>();
     qRegisterMetaType<MpdAlbum>("MpdAlbum");
     qRegisterMetaType<MpdArtist>("MpdArtist");
-    //volIncTimer.setInterval(250);
-    //volDecTimer.setInterval(250);
     mWasConnected = false;
     mFileModels = new QStack<FileModel*>();
     // Set empty qml properties for later usage
@@ -59,8 +52,6 @@ Controller::Controller(QQuickView *viewer, QObject *parent) :
     //mQuickView->rootContext()->setContextProperty("playlistModel", mPlaylist);
     mQuickView->rootContext()->setContextProperty("tracksModel",mOtherTracks);
 
-
-    //mQuickView->rootContext()->setContextProperty("mpd_status",mPlaybackStatus);
 
     viewer->engine()->addImageProvider("imagedbprovider",mQMLImgProvider);
     mNetAccess->setQMLThread(viewer->thread());
@@ -362,21 +353,26 @@ void Controller::setPort(int port)
 
 void Controller::connectToServer()
 {
-    //netaccess->connectToHost(hostname,port,password);
     mNetAccess->setConnectParameters(mHostname,mPort,mPassword);
     emit requestConnect();
     //Try authentication
 
 }
 
-void Controller::connectedToServer()
-{
+void Controller::connectedToServer() {
     mReconnectTimer.stop();
     QString popupString = tr("Connected to: ") + mProfilename;
     mReconnectTimer.stop();
     mWasConnected = true;
     emit sendPopup(popupString);
     emit connected(mProfilename);
+    mQuickView->rootContext()->setContextProperty("totalArtists", totalArtists);
+    mQuickView->rootContext()->setContextProperty("totalAlbums", totalAlbums);
+    mQuickView->rootContext()->setContextProperty("totalSongs", totalSongs);
+    mQuickView->rootContext()->setContextProperty("dBplayTimeFmt",
+                                                  dBplayTimeFmt);
+    mQuickView->rootContext()->setContextProperty("lastDbUpdate", lastDbUpdate);
+    mQuickView->rootContext()->setContextProperty("mpdVersion", mpdVersion);
 }
 
 void Controller::disconnectedToServer()
@@ -393,7 +389,7 @@ void Controller::onNewAlbum()
     if ( m_player->playbackStatus()->getPlaybackStatus() != MPD_STOP ) {
         // Request cover/artist art if song has changed
         MpdAlbum tmpAlbum(this,m_player->playbackStatus()->getAlbum(),m_player->playbackStatus()->getArtist());
-        qDebug()  << "Requesting cover Image for currently playing album: " << tmpAlbum.getTitle() << tmpAlbum.getArtist();
+        qDebug() << "Requesting cover Image for currently playing album: " << tmpAlbum.getTitle() << tmpAlbum.getArtist();
         emit requestCoverArt(tmpAlbum);
     } else {
         // Clear cover/artist image by requesting empty images

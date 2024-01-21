@@ -31,10 +31,11 @@ class MpdArtist;
 class MpdTrack;
 class MpdFileEntry;
 
+
 class NetworkAccess : public QThread
 {
     Q_OBJECT
-    
+
 public:
     explicit NetworkAccess(QObject *parent = 0);
 
@@ -739,6 +740,13 @@ private:
      * @return escaped arg
      */
     QString escapeCommandArgument(const QString arg);
+
+    /**
+     * @brief getCollectionInfo();
+     * Get all stats from current collection
+     */
+     void getCollectionInfo();
+
 };
 
 #endif // NETWORKACCESS_H

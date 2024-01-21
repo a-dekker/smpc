@@ -21,8 +21,7 @@ Page {
         contentHeight: mainColumn.height
         clip: true
 
-        VerticalScrollDecorator {
-        }
+        VerticalScrollDecorator {}
 
         Column {
             id: mainColumn
@@ -30,7 +29,25 @@ Page {
                 right: parent.right
                 left: parent.left
             }
-
+            SectionHeader {
+                text: qsTr("MPD server stats")
+            }
+            Row {
+                x: Theme.paddingLarge
+                y: Theme.paddingLarge
+                width: parent.width
+                Label {
+                    text: qsTr("Artists")
+                    width: mainColumn.width - artistCount.width - Theme.paddingLarge * 2
+                }
+                Label {
+                    id: artistCount
+                    text: totalArtists
+                    horizontalAlignment: Text.AlignRight
+                    width: parent.width - (Theme.paddingLarge * 2)
+                    color: Theme.secondaryColor
+                }
+            }
             Row {
                 x: Theme.paddingLarge
                 y: Theme.paddingLarge
@@ -41,6 +58,90 @@ Page {
                 }
                 Label {
                     id: albumCount
+                    text: totalAlbums
+                    horizontalAlignment: Text.AlignRight
+                    width: parent.width - (Theme.paddingLarge * 2)
+                    color: Theme.secondaryColor
+                }
+            }
+            Row {
+                x: Theme.paddingLarge
+                y: Theme.paddingLarge
+                width: parent.width
+                Label {
+                    text: qsTr("Songs")
+                    width: mainColumn.width - songCount.width - Theme.paddingLarge * 2
+                }
+                Label {
+                    id: songCount
+                    text: totalSongs
+                    horizontalAlignment: Text.AlignRight
+                    width: parent.width - (Theme.paddingLarge * 2)
+                    color: Theme.secondaryColor
+                }
+            }
+            Row {
+                x: Theme.paddingLarge
+                y: Theme.paddingLarge
+                width: parent.width
+                Label {
+                    text: qsTr("DB playtime")
+                    width: mainColumn.width - dbplayTime.width - Theme.paddingLarge * 2
+                }
+                Label {
+                    id: dbplayTime
+                    text: dBplayTimeFmt
+                    horizontalAlignment: Text.AlignRight
+                    width: parent.width - (Theme.paddingLarge * 2)
+                    color: Theme.secondaryColor
+                }
+            }
+            Row {
+                x: Theme.paddingLarge
+                y: Theme.paddingLarge
+                width: parent.width
+                Label {
+                    text: qsTr("DB update")
+                    width: mainColumn.width - dbUpdateTime.width - Theme.paddingLarge * 2
+                }
+                Label {
+                    id: dbUpdateTime
+                    text: lastDbUpdate
+                    horizontalAlignment: Text.AlignRight
+                    width: parent.width - (Theme.paddingLarge * 2)
+                    color: Theme.secondaryColor
+                }
+            }
+            Row {
+                x: Theme.paddingLarge
+                y: Theme.paddingLarge
+                width: parent.width
+                Label {
+                    text: qsTr("MPD version")
+                    width: mainColumn.width - mpdVer.width - Theme.paddingLarge * 2
+                }
+                Label {
+                    id: mpdVer
+                    text: mpdVersion
+                    horizontalAlignment: Text.AlignRight
+                    width: parent.width - (Theme.paddingLarge * 2)
+                    color: Theme.secondaryColor
+                }
+            }
+
+            SectionHeader {
+                text: qsTr("Local stats")
+            }
+            Row {
+                x: Theme.paddingLarge
+                y: Theme.paddingLarge
+                width: parent.width
+                Label {
+                    text: qsTr("Albums")
+                    width: mainColumn.width - albumCount.width - Theme.paddingLarge * 2
+                }
+                Label {
+                    id: dbsongCount
                     text: dbStatistic.getAlbumCount()
                     horizontalAlignment: Text.AlignRight
                     width: parent.width - (Theme.paddingLarge * 2)
@@ -117,6 +218,7 @@ Page {
                 x: Theme.paddingLarge
                 y: Theme.paddingLarge
                 width: parent.width
+                visible: artistsRemaining.text !== ""
                 Label {
                     text: qsTr("Artist downloads remaining")
                     width: mainColumn.width - artistsRemaining.width - Theme.paddingLarge * 2
@@ -133,6 +235,7 @@ Page {
                 x: Theme.paddingLarge
                 y: Theme.paddingLarge
                 width: parent.width
+                visible: albumRemaining.text !== ""
                 Label {
                     text: qsTr("Album downloads remaining")
                     width: mainColumn.width - albumRemaining.width - Theme.paddingLarge * 2
