@@ -6,7 +6,7 @@ DockedPanel {
 
     open: !hideControl && !Qt.inputMethod.visible
     width: parent.width
-    height: textColumn.height + Theme.paddingMedium
+    height: textColumn.height + (2 * Theme.paddingMedium)
     contentHeight: height
 
     property bool hideControl: false
@@ -86,6 +86,7 @@ DockedPanel {
             top: parent.top
             right: playButton.visible ? playButton.left : parent.right
             left: albumImg.visible ? albumImg.right : parent.left
+            topMargin: Theme.paddingSmall
         }
 
         ScrollLabel {
