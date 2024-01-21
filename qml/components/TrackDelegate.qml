@@ -58,7 +58,7 @@ ListItem {
                 clip: true
                 wrapMode: Text.WrapAnywhere
                 elide: Text.ElideRight
-                font.italic: model.playing
+                font.italic: ctl.player.playbackStatus.playbackStatus === 0 && model.playing
                 font.bold: model.playing
                 color: model.playing ? Theme.highlightColor : Theme.primaryColor
                 text: (model.title === "" ? model.filename + " " : model.title + " ")
