@@ -527,32 +527,32 @@
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="33"/>
         <source>MPD server stats</source>
-        <translation type="unfinished"></translation>
+        <translation>MPD Serverstatistik</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="72"/>
         <source>Songs</source>
-        <translation type="unfinished"></translation>
+        <translation>Låtar</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="88"/>
         <source>DB playtime</source>
-        <translation type="unfinished"></translation>
+        <translation>DB Spelningstid</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="104"/>
         <source>DB update</source>
-        <translation type="unfinished"></translation>
+        <translation>DB-uppdatering</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="120"/>
         <source>MPD version</source>
-        <translation type="unfinished"></translation>
+        <translation>MPD-version</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="133"/>
         <source>Local stats</source>
-        <translation type="unfinished"></translation>
+        <translation>Lokal statistik</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="317"/>
@@ -849,7 +849,7 @@
     <message>
         <location filename="../qml/pages/settings/GUISettings.qml" line="232"/>
         <source>Show play/pause plus coverart on docked panel</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa Spela/Pausa plus omslagsbild på dockad panel</translation>
     </message>
     <message>
         <source>Show play/pause button on docked panel</source>
