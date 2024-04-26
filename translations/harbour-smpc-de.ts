@@ -84,8 +84,8 @@
 <context>
     <name>AlbumListPage</name>
     <message>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="77"/>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="124"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="75"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="121"/>
         <source>Albums</source>
         <translation>Alben</translation>
     </message>
@@ -105,12 +105,12 @@
         <translation>Alben abspielen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="82"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="80"/>
         <source>No album tag</source>
         <translation type="unfinished">Kein Album-Tag</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="83"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="81"/>
         <source>No artist tag</source>
         <translation type="unfinished">Kein Interpreten-Tag</translation>
     </message>
@@ -151,9 +151,13 @@
         <translation>Alle Lieder anzeigen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="25"/>
         <source>Show artist</source>
-        <translation type="unfinished">Interpret anzeigen</translation>
+        <translation type="obsolete">Interpret anzeigen</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="25"/>
+        <source>Show albums from artist</source>
+        <translation type="unfinished">Zeige alle Alben des Interpreten</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="37"/>
@@ -171,33 +175,33 @@
         <translation>Album abspielen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="368"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="370"/>
         <source>Playing track</source>
         <translation>Spiele Lied ab</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="373"/>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="378"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="375"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="380"/>
         <source>Adding track</source>
         <translation>Füge Lied hinzu</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="390"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="392"/>
         <source>Play track</source>
         <translation>Lied abspielen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="397"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="399"/>
         <source>Add track to list</source>
         <translation>Lied hinzufügen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="403"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="405"/>
         <source>Play after current</source>
         <translation>Lied als nächstes abspielen</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="409"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="411"/>
         <source>Add to saved list</source>
         <translation>Zur gespeicherten Liste hinzufügen</translation>
     </message>
@@ -444,18 +448,18 @@
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="56"/>
-        <location filename="../qml/pages/settings/DatabaseSettings.qml" line="140"/>
+        <location filename="../qml/pages/settings/DatabaseSettings.qml" line="156"/>
         <source>Albums</source>
         <translation>Alben</translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/DatabaseSettings.qml" line="156"/>
+        <location filename="../qml/pages/settings/DatabaseSettings.qml" line="172"/>
         <source>Blacklisted albums</source>
         <translation>Blockierte Alben</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="40"/>
-        <location filename="../qml/pages/settings/DatabaseSettings.qml" line="172"/>
+        <location filename="../qml/pages/settings/DatabaseSettings.qml" line="140"/>
         <source>Artists</source>
         <translation>Interpreten</translation>
     </message>
@@ -956,62 +960,62 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="32"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="33"/>
         <source>Shuffle</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="33"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="34"/>
         <source>Play in random order</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="40"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="41"/>
         <source>Repeat</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="42"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="43"/>
         <source>Play in never ending loop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="49"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="50"/>
         <source>Consume track</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="51"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="52"/>
         <source>Each song played is removed from playlist</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="59"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="60"/>
         <source>Playback is stopped after current song, or song is repeated if the ‘repeat’ mode is enabled</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="70"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="71"/>
         <source>Use hardware volume keys</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="72"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="73"/>
         <source>Claim the volume rocker for MPD volume control when SMPC is active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="85"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="86"/>
         <source>Stop local MPD server on exit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="86"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="87"/>
         <source>Unchecked will keep MPD running if started</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="57"/>
+        <location filename="../qml/pages/settings/PlaybackSettings.qml" line="58"/>
         <source>Single playback</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1451,9 +1455,13 @@
         <translation type="unfinished">Lied entfernen</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="99"/>
         <source>Show artist</source>
-        <translation type="unfinished">Interpret anzeigen</translation>
+        <translation type="obsolete">Interpret anzeigen</translation>
+    </message>
+    <message>
+        <location filename="../qml/components/TrackDelegate.qml" line="99"/>
+        <source>Show albums from artist</source>
+        <translation type="unfinished">Zeige alle Alben des Interpreten</translation>
     </message>
     <message>
         <location filename="../qml/components/TrackDelegate.qml" line="110"/>

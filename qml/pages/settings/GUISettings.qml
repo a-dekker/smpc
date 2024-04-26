@@ -17,9 +17,9 @@ Page {
         anchors.fill: parent
         contentHeight: mainColumn.height
         anchors.topMargin: header.height
+        clip: true
 
-        VerticalScrollDecorator {
-        }
+        VerticalScrollDecorator {}
 
         Column {
             id: mainColumn

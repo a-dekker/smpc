@@ -35,8 +35,7 @@ Page {
     }
     function pushTracksPage(artist, title) {
         albumClicked(artist, title)
-        pageStack.push(Qt.resolvedUrl("AlbumTracksPage.qml"),
-                       {
+        pageStack.push(Qt.resolvedUrl("AlbumTracksPage.qml"), {
                            "artistname": artist,
                            "albumname": title
                        })
@@ -69,8 +68,7 @@ Page {
                         duration: populateDuration
                     }
                 }
-                ScrollDecorator {
-                }
+                ScrollDecorator {}
 
                 quickScroll: jollaQuickscroll
                 header: PageHeader {
@@ -117,8 +115,7 @@ Page {
                         duration: populateDuration
                     }
                 }
-                ScrollDecorator {
-                }
+                ScrollDecorator {}
 
                 header: PageHeader {
                     title: artistname !== "" ? artistname : qsTr("Albums")
@@ -127,7 +124,7 @@ Page {
                 }
                 delegate: AlbumListDelegate {
                     onClicked: {
-                        listView.currentIndex = index;
+                        listView.currentIndex = index
                         pushTracksPage(model.artist, model.title)
                     }
                 }
@@ -165,8 +162,7 @@ Page {
 
                 cacheItemCount: pathItemCount + 2
                 pathItemCount: 12 // width/itemWidth
-                delegate: AlbumShowDelegate {
-                }
+                delegate: AlbumShowDelegate {}
                 snapMode: PathView.NoSnap
 
                 preferredHighlightBegin: 0.5
@@ -297,7 +293,7 @@ Page {
             }
             requestArtistInfo(artistname)
         } else if (status === PageStatus.Active) {
-            if (artistname != "")
+            if (artistname != "" && artistInfoText !== "")
                 pageStack.pushAttached(Qt.resolvedUrl("ArtistInfoPage.qml"), {
                                            "artistname": artistname
                                        })

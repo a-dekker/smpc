@@ -137,6 +137,22 @@ Page {
                 y: Theme.paddingLarge
                 width: parent.width
                 Label {
+                    text: qsTr("Artists")
+                    width: mainColumn.width - artistsCount.width - Theme.paddingLarge * 2
+                }
+                Label {
+                    id: artistsCount
+                    text: dbStatistic.getArtistCount()
+                    horizontalAlignment: Text.AlignRight
+                    width: parent.width - (Theme.paddingLarge * 2)
+                    color: Theme.secondaryColor
+                }
+            }
+            Row {
+                x: Theme.paddingLarge
+                y: Theme.paddingLarge
+                width: parent.width
+                Label {
                     text: qsTr("Albums")
                     width: mainColumn.width - albumCount.width - Theme.paddingLarge * 2
                 }
@@ -159,22 +175,6 @@ Page {
                 Label {
                     id: blacklistCount
                     text: dbStatistic.getAlbumBlacklistCount()
-                    horizontalAlignment: Text.AlignRight
-                    width: parent.width - (Theme.paddingLarge * 2)
-                    color: Theme.secondaryColor
-                }
-            }
-            Row {
-                x: Theme.paddingLarge
-                y: Theme.paddingLarge
-                width: parent.width
-                Label {
-                    text: qsTr("Artists")
-                    width: mainColumn.width - artistsCount.width - Theme.paddingLarge * 2
-                }
-                Label {
-                    id: artistsCount
-                    text: dbStatistic.getArtistCount()
                     horizontalAlignment: Text.AlignRight
                     width: parent.width - (Theme.paddingLarge * 2)
                     color: Theme.secondaryColor

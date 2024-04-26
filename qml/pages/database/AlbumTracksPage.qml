@@ -22,7 +22,7 @@ Page {
                 }
             }
             MenuItem {
-                text: qsTr("Show artist")
+                text: qsTr("Show albums from artist")
                 onClicked: {
                     artistClicked(artistname)
                     pageStack.pop()
@@ -275,9 +275,11 @@ Page {
         } else if (status === PageStatus.Active) {
 
             requestAlbumInfo([albumname, artistname])
-            pageStack.pushAttached(Qt.resolvedUrl("AlbumInfoPage.qml"), {
-                                       "albumname": albumname
-                                   })
+            if (albumInfoText !== "") {
+                pageStack.pushAttached(Qt.resolvedUrl("AlbumInfoPage.qml"), {
+                                           "albumname": albumname
+                                       })
+            }
         }
     }
     onOrientationTransitionRunningChanged: {

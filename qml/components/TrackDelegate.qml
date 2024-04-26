@@ -96,7 +96,7 @@ ListItem {
         }
 
         MenuItem {
-            text: qsTr("Show artist")
+            text: qsTr("Show albums from artist")
             onClicked: {
                 artistClicked(model.artist)
                 pageStack.push(Qt.resolvedUrl(
