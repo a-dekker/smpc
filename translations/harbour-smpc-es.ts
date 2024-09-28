@@ -1450,7 +1450,7 @@
         <translation>Borrando</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="88"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="90"/>
         <source>Remove song</source>
         <translation>Quitar canción</translation>
     </message>
@@ -1459,27 +1459,27 @@
         <translation type="vanished">Mostrar artista</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="99"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="101"/>
         <source>Show albums from artist</source>
         <translation type="unfinished">Mostrar álbumes del artista</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="110"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="112"/>
         <source>Show album</source>
         <translation>Mostrar álbum</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="123"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="125"/>
         <source>Play as next</source>
         <translation>Reproducir siguiente</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="131"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="133"/>
         <source>Show information</source>
         <translation>Mostrar detalles</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="136"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="138"/>
         <source>Add to saved list</source>
         <translation>Agregar a lista guardada</translation>
     </message>

@@ -12,14 +12,15 @@ ListItem {
     }
 
     Rectangle {
-        width: parent.width
+        width: parent.width * (ctl.player.playbackStatus.currentTime
+                               / ctl.player.playbackStatus.length)
         height: parent.height
-        opacity: 0.5
+        opacity: 0.8
         radius: 10
         gradient: Gradient {
             GradientStop {
                 position: 0.0
-                color: Theme.rgba(Theme.primaryColor, 0.1)
+                color: Theme.rgba(Theme.primaryColor, 0.2)
             }
             GradientStop {
                 position: 1.0
@@ -58,7 +59,8 @@ ListItem {
                 clip: true
                 wrapMode: Text.WrapAnywhere
                 elide: Text.ElideRight
-                font.italic: ctl.player.playbackStatus.playbackStatus === 0 && model.playing
+                font.italic: ctl.player.playbackStatus.playbackStatus === 0
+                             && model.playing
                 font.bold: model.playing
                 color: model.playing ? Theme.highlightColor : Theme.primaryColor
                 text: (model.title === "" ? model.filename + " " : model.title + " ")

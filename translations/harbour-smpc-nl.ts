@@ -1458,7 +1458,7 @@
         <translation>Verwijderen</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="88"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="90"/>
         <source>Remove song</source>
         <translation>Liedje verwijderen</translation>
     </message>
@@ -1467,27 +1467,27 @@
         <translation type="vanished">Artiest weergeven</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="99"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="101"/>
         <source>Show albums from artist</source>
         <translation>Alle albums van artiest weergeven</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="110"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="112"/>
         <source>Show album</source>
         <translation>Album weergeven</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="123"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="125"/>
         <source>Play as next</source>
         <translation>Als volgende afspelen</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="131"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="133"/>
         <source>Show information</source>
         <translation>Informatie weergeven</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="136"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="138"/>
         <source>Add to saved list</source>
         <translation>Toevoegen aan opgeslagen afspeellijst</translation>
     </message>

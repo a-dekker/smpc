@@ -8,6 +8,8 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Sat Sep 28 2024 Arno Dekker <jack.tar@example.com> 1.3.39-1
+- Converted translucent bar under track playing to a progress bar on Playlist page
 * Fri Apr 26 2024 Arno Dekker <jack.tar@example.com> 1.3.38-1
 - Hide artist bio page if no info is availble
 - corrected some pulldown entry names

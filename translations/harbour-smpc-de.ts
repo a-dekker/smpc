@@ -1450,7 +1450,7 @@
         <translation type="unfinished">Lösche</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="88"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="90"/>
         <source>Remove song</source>
         <translation type="unfinished">Lied entfernen</translation>
     </message>
@@ -1459,27 +1459,27 @@
         <translation type="obsolete">Interpret anzeigen</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="99"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="101"/>
         <source>Show albums from artist</source>
         <translation type="unfinished">Zeige alle Alben des Interpreten</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="110"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="112"/>
         <source>Show album</source>
         <translation type="unfinished">Album anzeigen</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="123"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="125"/>
         <source>Play as next</source>
         <translation type="unfinished">Lied als nächstes abspielen</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="131"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="133"/>
         <source>Show information</source>
         <translation type="unfinished">Zeige Informationen</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="136"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="138"/>
         <source>Add to saved list</source>
         <translation type="unfinished">Zur gespeicherten Liste hinzufügen</translation>
     </message>
