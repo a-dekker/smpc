@@ -7,28 +7,39 @@ Page {
     property string artistname
     property int lastIndex
     property int lastOrientation
+
+    RemorsePopup {
+        id: timerRemorse
+    }
+
     Component {
         id: pullDownComp
         PullDownMenu {
             visible: artistname !== ""
             MenuItem {
                 text: qsTr("Replace albums")
-                enabled: ctl.player.playbackStatus.title == "" && mArtist == ""
+                visible: ctl.player.playbackStatus.title == "" && mArtist == ""
                 onClicked: {
-                    ctl.player.playlist.clear()
-                    ctl.player.playlist.addArtist(artistname)
+                    timerRemorse.execute(qsTr("Add albums"), function () {
+                        ctl.player.playlist.clear()
+                        ctl.player.playlist.addArtist(artistname)
+                    }, remorseTimerSecs * 1000)
                 }
             }
             MenuItem {
                 text: qsTr("Add albums")
                 onClicked: {
-                    ctl.player.playlist.addArtist(artistname)
+                    timerRemorse.execute(qsTr("Add albums"), function () {
+                        ctl.player.playlist.addArtist(artistname)
+                    }, remorseTimerSecs * 1000)
                 }
             }
             MenuItem {
                 text: qsTr("Play albums")
                 onClicked: {
-                    ctl.player.playlist.playArtist(artistname)
+                    timerRemorse.execute(qsTr("Play albums"), function () {
+                        ctl.player.playlist.playArtist(artistname)
+                    }, remorseTimerSecs * 1000)
                 }
             }
         }

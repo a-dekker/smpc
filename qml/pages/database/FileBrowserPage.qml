@@ -7,6 +7,11 @@ Page {
     property string filepath
     property var listmodel
     property int lastContentPosY: 0
+
+    RemorsePopup {
+        id: timerRemorse
+    }
+
     SilicaListView {
         id: fileListView
         model: listmodel
@@ -15,11 +20,10 @@ Page {
         SpeedScroller {
             listview: fileListView
             scrollenabled: fastscrollenabled
-            visible: ! pulleyTop.active
+            visible: !pulleyTop.active
         }
         clip: true
-        ScrollDecorator {
-        }
+        ScrollDecorator {}
 
         anchors {
             fill: parent
@@ -40,28 +44,34 @@ Page {
             }
             MenuItem {
                 text: qsTr("Replace folder")
-                enabled: ctl.player.playbackStatus.title === "" && mArtist === ""
+                enabled: ctl.player.playbackStatus.title === ""
+                         && mArtist === ""
                 onClicked: {
-                    ctl.player.playlist.clear()
-                    ctl.player.playlist.addTrack(filepath)
+                    timerRemorse.execute(qsTr("Replacing folder"), function () {
+                        ctl.player.playlist.clear()
+                        ctl.player.playlist.addTrack(filepath)
+                    }, remorseTimerSecs * 1000)
                 }
             }
             MenuItem {
                 text: qsTr("Add folder")
                 onClicked: {
-                    ctl.player.playlist.addTrack(filepath)
+                    timerRemorse.execute(qsTr("Adding folder"), function () {
+                        ctl.player.playlist.addTrack(filepath)
+                    }, remorseTimerSecs * 1000)
                 }
             }
             MenuItem {
                 text: qsTr("Play folder")
                 onClicked: {
-                    //FIXME does it work for paths??
-                    ctl.player.playlist.playTrack(filepath)
+                    timerRemorse.execute(qsTr("Playing folder"), function () {
+                        //FIXME does it work for paths??
+                        ctl.player.playlist.playTrack(filepath)
+                    }, remorseTimerSecs * 1000)
                 }
             }
         }
-        delegate: FileDelegate {
-        }
+        delegate: FileDelegate {}
     }
 
     onStatusChanged: {

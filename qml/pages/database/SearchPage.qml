@@ -7,10 +7,13 @@ Page {
     property int currentindex: -1
     property string selectedsearch
 
+    RemorsePopup {
+        id: timerRemorse
+    }
+
     Drawer {
         id: mainDrawer
         anchors.fill: parent
-        //        anchors.bottomMargin: quickControlPanel.visibleSize
         open: true
         dock: Dock.Bottom
         backgroundSize: searchhead.height
@@ -66,12 +69,11 @@ Page {
                 fill: parent
                 //bottomMargin: mainDrawer.open ? undefined : quickControlPanel.visibleSize
             }
-            ScrollDecorator {
-            }
+            ScrollDecorator {}
             quickScroll: jollaQuickscroll
             SpeedScroller {
                 listview: searchsongListView
-                visible: ! pulleyTop.active
+                visible: !pulleyTop.active
             }
 
             header: PageHeader {
@@ -98,17 +100,23 @@ Page {
                     text: qsTr("Add all results")
                     visible: searchsongListView.model !== undefined
                     onClicked: {
-                        ctl.player.deletePlaylist()
-                        addlastsearch()
+                        timerRemorse.execute(qsTr("Adding all results"),
+                                             function () {
+                                                 ctl.player.deletePlaylist()
+                                                 addlastsearch()
+                                             }, remorseTimerSecs * 1000)
                     }
                 }
                 MenuItem {
                     text: qsTr("Play all results")
                     visible: searchsongListView.model !== undefined
                     onClicked: {
-                        ctl.player.deletePlaylist()
-                        addlastsearch()
-                        playPlaylistTrack(0)
+                        timerRemorse.execute(qsTr("Playing all results"),
+                                             function () {
+                                                 ctl.player.deletePlaylist()
+                                                 addlastsearch()
+                                                 playPlaylistTrack(0)
+                                             }, remorseTimerSecs * 1000)
                     }
                 }
             }

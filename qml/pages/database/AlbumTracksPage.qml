@@ -9,6 +9,10 @@ Page {
     property string artistname
     property int lastIndex: 0
 
+    RemorsePopup {
+        id: timerRemorse
+    }
+
     Component {
         id: pullDownComp
         PullDownMenu {
@@ -38,20 +42,26 @@ Page {
                 visible: ctl.player.playbackStatus.title === ""
                          && mArtist === ""
                 onClicked: {
-                    ctl.player.playlist.clear()
-                    ctl.player.playlist.addAlbum(artistname, albumname)
+                    timerRemorse.execute(qsTr("Replacing album"), function () {
+                        ctl.player.playlist.clear()
+                        ctl.player.playlist.addAlbum(artistname, albumname)
+                    }, remorseTimerSecs * 1000)
                 }
             }
             MenuItem {
                 text: qsTr("Add album")
                 onClicked: {
-                    ctl.player.playlist.addAlbum(artistname, albumname)
+                    timerRemorse.execute(qsTr("Adding album"), function () {
+                        ctl.player.playlist.addAlbum(artistname, albumname)
+                    }, remorseTimerSecs * 1000)
                 }
             }
             MenuItem {
                 text: qsTr("Play album")
                 onClicked: {
-                    ctl.player.playlist.playAlbum(artistname, albumname)
+                    timerRemorse.execute(qsTr("Playing album"), function () {
+                        ctl.player.playlist.playAlbum(artistname, albumname)
+                    }, remorseTimerSecs * 1000)
                 }
             }
         }
