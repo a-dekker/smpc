@@ -7,7 +7,7 @@
 
 #define IMAGEPROVIDERNAME "imagedbprovider"
 #define DUMMY_ALBUMIMAGE "image://theme/icon-l-music"
-#define DUMMY_ARTISTIMAGE "image://theme/icon-l-music"
+#define DUMMY_ARTISTIMAGE "image://theme/icon-m-mic"
 
 #include <QString>
 
@@ -19,4 +19,4 @@ struct serverprofile {
     bool defaultprofile;
 };
 
-#endif  // COMMON_H
+#endif // COMMON_H

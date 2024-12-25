@@ -28,7 +28,6 @@ ListItem {
         }
         Rectangle {
             id: gradientRect
-            visible: true
             anchors {
                 bottom: parent.bottom
                 top: parent.top
@@ -80,8 +79,8 @@ ListItem {
             wrapMode: "WordWrap"
             elide: Text.ElideRight
             font.pixelSize: Theme.fontSizeSmall
-            style: Text.Raised
-            styleColor: Theme.darkSecondaryColor
+            style: isLightTheme ? Text.Outline : Text.Raised
+            styleColor: isLightTheme ? "#CCCCCC" : Theme.darkSecondaryColor
             color: Theme.secondaryColor
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignTop
@@ -97,9 +96,9 @@ ListItem {
             wrapMode: "WordWrap"
             elide: Text.ElideRight
             font.pixelSize: Theme.fontSizeSmall
-            style: Text.Raised
-            styleColor: Theme.secondaryColor
+            style: isLightTheme ? Text.Outline : Text.Raised
             color: Theme.primaryColor
+            styleColor: isLightTheme ? "#FFFFFF" : Theme.primaryColor
             horizontalAlignment: Text.AlignHCenter
             verticalAlignment: Text.AlignBottom
             //text: title === "" ? qsTr("No album tag") : title

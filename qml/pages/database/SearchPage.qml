@@ -102,7 +102,7 @@ Page {
                     onClicked: {
                         timerRemorse.execute(qsTr("Adding all results"),
                                              function () {
-                                                 ctl.player.deletePlaylist()
+                                                 ctl.player.playlist.clear()
                                                  addlastsearch()
                                              }, remorseTimerSecs * 1000)
                     }
@@ -113,7 +113,7 @@ Page {
                     onClicked: {
                         timerRemorse.execute(qsTr("Playing all results"),
                                              function () {
-                                                 ctl.player.deletePlaylist()
+                                                 ctl.player.playlist.clear()
                                                  addlastsearch()
                                                  playPlaylistTrack(0)
                                              }, remorseTimerSecs * 1000)

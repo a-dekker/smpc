@@ -138,6 +138,12 @@ ApplicationWindow {
     property Page mPlaylistPage
     property Page mCurrentSongPage
     property bool applicationActive: Qt.application.active
+    property bool isLightTheme: {
+        if (Theme.colorScheme === Theme.LightOnDark)
+            return false
+        else
+            return true
+    }
 
     allowedOrientations: Orientation.Portrait | Orientation.Landscape
                          | Orientation.LandscapeInverted

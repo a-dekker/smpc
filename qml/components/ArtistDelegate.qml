@@ -27,10 +27,14 @@ Component {
                     console.debug(
                                 "Source size: " + sourceSize.width + ":" + sourceSize.height)
                 }
+                onStatusChanged: {
+                    if (status == Image.Error) {
+                        gradientRect.visible = false
+                    }
+                }
             }
             Rectangle {
                 id: gradientRect
-                visible: true //artistImage.source!=""
                 anchors {
                     bottom: parent.bottom
                     top: parent.top
@@ -58,8 +62,8 @@ Component {
                 wrapMode: "WordWrap"
                 elide: Text.ElideRight
                 font.pixelSize: Theme.fontSizeSmall
-                style: Text.Raised
-                styleColor: Theme.secondaryColor
+                style: isLightTheme ? Text.Outline : Text.Raised
+                styleColor: isLightTheme ? "#CCCCCC" : Theme.secondaryColor
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignBottom
                 text: artist === "" ? qsTr("No Artist Tag") : artist
