@@ -35,7 +35,7 @@ ListItem {
     Column {
         id: mainColumn
         clip: true
-        height: Math.max(trackRow.height + artistLbl.height,
+        height: Math.max(titleLbl.height + artistLbl.height,
                          Theme.itemSizeSmall)
         anchors {
             right: parent.right
@@ -44,32 +44,17 @@ ListItem {
             leftMargin: listPadding
             rightMargin: listPadding
         }
-        Row {
-            id: trackRow
-            Label {
-                id: numberLbl
-                text: "%1. ".arg(model.index + 1)
-                anchors {
-                    verticalCenter: parent.verticalCenter
-                }
-            }
-            Label {
-                id: titleLbl
-                anchors.verticalCenter: parent.verticalCenter
-                clip: true
-                wrapMode: Text.WrapAnywhere
-                elide: Text.ElideRight
-                font.italic: ctl.player.playbackStatus.playbackStatus === 0
-                             && model.playing
-                font.bold: model.playing
-                color: model.playing ? Theme.highlightColor : Theme.primaryColor
-                text: (model.title === "" ? model.filename + " " : model.title + " ")
-            }
-            Label {
-                id: lengthLbl
-                anchors.verticalCenter: parent.verticalCenter
-                text: (model.length === 0 ? "" : " (" + lengthformated + ")")
-            }
+        Label {
+            id: titleLbl
+            text: "%1. ".arg(model.index + 1)
+                  + (model.title === "" ? model.filename + " " : model.title + " ")
+                  + (model.length === 0 ? "" : " (" + lengthformated + ")")
+            font.italic: ctl.player.playbackStatus.playbackStatus === 0
+                         && model.playing
+            font.bold: model.playing
+            color: model.playing ? Theme.highlightColor : Theme.primaryColor
+            truncationMode: TruncationMode.Fade
+            width: parent.width
         }
         Label {
             id: artistLbl
@@ -77,12 +62,9 @@ ListItem {
             font.pixelSize: Theme.fontSizeSmall
             text: (model.artist !== "" ? model.artist + " - " : "")
                   + (model.album !== "" ? model.album : "")
+            width: parent.width
+            truncationMode: TruncationMode.Fade
         }
-    }
-    OpacityRampEffect {
-        sourceItem: mainColumn
-        slope: 3.5
-        offset: 0.75
     }
 
     menu: ContextMenu {

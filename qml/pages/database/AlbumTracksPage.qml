@@ -330,46 +330,25 @@ Page {
                     left: parent.left
                     verticalCenter: parent.verticalCenter
                     leftMargin: listPadding
-                    rightMargin: listPadding
                 }
 
-                Row {
+                Label {
                     id: titleRow
-                    Label {
-                        text: tracknr + ". "
-                        anchors {
-                            verticalCenter: parent.verticalCenter
-                        }
-                    }
-                    Label {
-                        clip: true
-                        wrapMode: Text.WrapAnywhere
-                        elide: Text.ElideRight
-                        text: (title === "" ? filename : title)
-                        anchors {
-                            verticalCenter: parent.verticalCenter
-                        }
-                    }
-                    Label {
-                        text: (length === 0 ? "" : " (" + lengthformated + ")")
-                        anchors {
-                            verticalCenter: parent.verticalCenter
-                        }
-                    }
+                    text: tracknr + ". " + (title === "" ? filename : title)
+                          + (length === 0 ? "" : " (" + lengthformated + ")")
+                    width: parent.width - Theme.paddingSmall
+                    truncationMode: TruncationMode.Fade
                 }
                 Label {
                     id: artistLabel
                     text: (artist !== "" ? artist + " - " : "") + (album !== "" ? album : "")
                     color: Theme.secondaryColor
                     font.pixelSize: Theme.fontSizeSmall
+                    width: parent.width - Theme.paddingSmall
+                    truncationMode: TruncationMode.Fade
                 }
             }
 
-            OpacityRampEffect {
-                sourceItem: mainColumn
-                slope: 3.5
-                offset: 0.75
-            }
             onClicked: {
                 //albumTracksListView.currentIndex = index
                 albumTrackClicked(title, album, artist, lengthformated, path,

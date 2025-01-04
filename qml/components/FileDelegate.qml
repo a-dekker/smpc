@@ -32,6 +32,8 @@ Component {
                 rightMargin: listPadding
                 leftMargin: Theme.paddingMedium
             }
+            width: parent.width - Theme.paddingSmall
+            truncationMode: TruncationMode.Fade
         }
         Label {
             id: trackLabel
@@ -40,6 +42,8 @@ Component {
                              + (artist === "" ? "" : artist))
             font.pixelSize: Theme.fontSizeSmall
             color: Theme.secondaryColor
+            width: parent.width - Theme.paddingSmall
+            truncationMode: TruncationMode.Fade
             anchors {
                 top: filenametext.bottom
                 left: fileicon.right
@@ -47,16 +51,6 @@ Component {
                 rightMargin: listPadding
                 leftMargin: Theme.paddingMedium
             }
-        }
-        OpacityRampEffect {
-            sourceItem: filenametext
-            slope: 3
-            offset: 0.65
-        }
-        OpacityRampEffect {
-            sourceItem: trackLabel
-            slope: 3
-            offset: 0.65
         }
         onClicked: {
             if (isDirectory) {

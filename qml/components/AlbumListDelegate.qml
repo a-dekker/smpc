@@ -34,17 +34,16 @@ ListItem {
             Label {
                 id: albumLabel
                 text: (title === "" ? qsTr("No album tag") : title)
+                truncationMode: TruncationMode.Fade
+                width: mainRow.width - imageRectangle.width
             }
             Label {
                 id: artistLabel
                 text: (artist === "" ? qsTr("No artist tag") : artist)
+                truncationMode: TruncationMode.Fade
+                width: mainRow.width - imageRectangle.width
             }
         }
-    }
-    OpacityRampEffect {
-        sourceItem: mainRow
-        slope: 3
-        offset: 0.65
     }
 
     function playAlbumRemorse() {
