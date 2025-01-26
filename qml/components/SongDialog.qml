@@ -211,7 +211,9 @@ Dialog {
                             }
                             Row {
                                 visible: genre !== ""
+                                width: parent.width
                                 Label {
+                                    id: genreLabel
                                     text: qsTr("Genre: ")
                                     color: Theme.secondaryColor
                                     font.pixelSize: fontsize
@@ -221,6 +223,7 @@ Dialog {
                                     text: genre
                                     color: Theme.primaryColor
                                     font.pixelSize: fontsize
+                                    width: parent.width - genreLabel.width
                                     wrapMode: "WordWrap"
                                 }
                             }
