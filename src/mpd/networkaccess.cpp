@@ -370,6 +370,7 @@ QList<MpdAlbum *> *NetworkAccess::getArtistsAlbums_prv(QString artist) {
 }
 
 void NetworkAccess::getAlbumTracks(QString album) {
+    qDebug() << "Gettings tracks for album:" << album;
     emit busy();
     emit trackListReady(getAlbumTracks_prv(album));
     emit ready();
@@ -385,12 +386,15 @@ QList<MpdTrack *> *NetworkAccess::getAlbumTracks_prv(QString album) {
 }
 
 void NetworkAccess::getAlbumTracks(QString album, QString cartist) {
+    qDebug() << "Gettings tracks for album:" << album
+             << "and artist: " << cartist;
     emit busy();
     emit trackListReady(getAlbumTracks_prv(album, cartist));
     emit ready();
 }
 
 void NetworkAccess::getAlbumTracks(QVariant albuminfo) {
+    qDebug() << "Gettings tracks for albuminfo:" << albuminfo;
     emit busy();
     // New qt 5.4 qml->c++ qvariant cast
     if (albuminfo.userType() == qMetaTypeId<QJSValue>()) {

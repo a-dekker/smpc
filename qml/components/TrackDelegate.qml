@@ -94,10 +94,10 @@ ListItem {
             text: qsTr("Show album")
             onClicked: {
                 console.log(model.album)
-                albumClicked("", model.album)
+                albumClicked(model.artist, model.album)
                 pageStack.push(Qt.resolvedUrl(
                                    "../pages/database/AlbumTracksPage.qml"), {
-                                   "artistname": "",
+                                   "artistname": model.artist,
                                    "albumname": model.album
                                })
             }
