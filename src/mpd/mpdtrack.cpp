@@ -12,6 +12,7 @@ MpdTrack::MpdTrack(QObject *parent) :
   mFileURI="";
   mYear ="";
   mTrackNR = 0;
+  mDiscNR = 0;
   mAlbumTracks = 0;
   mPlaying = false;
 }
@@ -120,6 +121,11 @@ int MpdTrack::getTrackNr() const
     return mTrackNR;
 }
 
+int MpdTrack::getDiscNr() const
+{
+    return mDiscNR;
+}
+
 int MpdTrack::getAlbumTracks() const
 {
     return mAlbumTracks;
@@ -188,6 +194,14 @@ void MpdTrack::setPlaying(bool playing)
     emit playingchanged();
 }
 
+bool MpdTrack::lessThanTrackNr(const MpdTrack *lhs, const MpdTrack *rhs)
+{
+    if (lhs->getDiscNr() != rhs->getDiscNr()) {
+        return lhs->getDiscNr() < rhs->getDiscNr();
+    }
+    return lhs->getTrackNr() < rhs->getTrackNr();
+}
+
 void MpdTrack::setYear(QString year)
 {
     this->mYear = year;
@@ -196,6 +210,11 @@ void MpdTrack::setYear(QString year)
 void MpdTrack::setTrackNr(int nr)
 {
     this->mTrackNR = nr;
+}
+
+void MpdTrack::setDiscNr(int nr)
+{
+    this->mDiscNR = nr;
 }
 
 void MpdTrack::setAlbumTracks(int nr)

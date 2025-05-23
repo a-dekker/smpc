@@ -133,6 +133,13 @@ int MpdFileEntry::getTrackNr() const
     return 0;
 }
 
+int MpdFileEntry::getDiscNr() const
+{
+    if(mTrack!=NULL)
+        return getTrack()->getDiscNr();
+    return 0;
+}
+
 QString MpdFileEntry::getGenre() const
 {
     if(mTrack!=NULL)
