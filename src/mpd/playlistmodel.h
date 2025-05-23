@@ -44,6 +44,7 @@ public:
         albummbidRole,
         artistmbidRole,
         genreRole,
+        discnoRole,
     };
 
 private:

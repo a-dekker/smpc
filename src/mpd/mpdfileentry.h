@@ -19,6 +19,7 @@ class MpdFileEntry : public QObject
     Q_PROPERTY(QString artist READ getArtist NOTIFY changed )
     Q_PROPERTY(QString length READ getLengthFormatted NOTIFY changed )
     Q_PROPERTY(int tracknr READ getTrackNr NOTIFY changed )
+    Q_PROPERTY(int discnr READ getDiscNr NOTIFY changed )
     Q_PROPERTY(QString year READ getYear NOTIFY changed )
     Q_PROPERTY(QString genre READ getGenre NOTIFY changed )
 public:
@@ -49,6 +50,7 @@ public:
     QString getGenre() const;
 
     int getTrackNr() const;
+    int getDiscNr() const;
     bool operator< (const MpdFileEntry& other) const;
     bool operator==(MpdFileEntry & rhs);
     static bool lessThan(const MpdFileEntry *lhs, const MpdFileEntry* rhs);

@@ -382,7 +382,9 @@ QList<MpdTrack *> *NetworkAccess::getAlbumTracks_prv(QString album) {
         sendMPDCommand(QString("find album \"") + escapeCommandArgument(album) +
                        "\"\n");
     }
-    return parseMPDTracks("");
+    QList<MpdTrack *> *tracks = parseMPDTracks("");
+    std::sort(tracks->begin(), tracks->end(), MpdTrack::lessThanTrackNr);
+    return tracks;
 }
 
 void NetworkAccess::getAlbumTracks(QString album, QString cartist) {
@@ -416,7 +418,9 @@ QList<MpdTrack *> *NetworkAccess::getAlbumTracks_prv(QString album,
         sendMPDCommand(
             QString("find album \"%1\"\n").arg(escapeCommandArgument(album)));
     }
-    return parseMPDTracks(cartist);
+    QList<MpdTrack *> *tracks = parseMPDTracks(cartist);
+    std::sort(tracks->begin(), tracks->end(), MpdTrack::lessThanTrackNr);
+    return tracks;
 }
 
 void NetworkAccess::getTracks() {
@@ -1537,6 +1541,7 @@ QList<MpdTrack *> *NetworkAccess::parseMPDTracks(QString cartist) {
         QString albumstring;
         QString datestring;
         int nr = 0, albumnrs = 0;
+        int discnr = 0;
         QString file = "";
         QString nextFile = "";
         QString trackMBID;
@@ -1606,6 +1611,10 @@ QList<MpdTrack *> *NetworkAccess::parseMPDTracks(QString cartist) {
                         }
                     }
                     temptrack->setTrackNr(nr);
+                } else if (response.startsWith("Disc: ")){
+                    albumstring = response.right(response.length() - 6);
+                    discnr = albumstring.toInt();
+                    temptrack->setDiscNr(discnr);
                 }
                 if ((trackNr > 1 && gotit) ||
                     (response.startsWith("OK") && trackNr > 0)) {
@@ -1643,6 +1652,7 @@ QList<MpdTrack *> *NetworkAccess::parseMPDTracks(QString cartist) {
         }
         delete (temptrack);
     }
+
     return temptracks;
 }
 

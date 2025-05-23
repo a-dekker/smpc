@@ -43,6 +43,7 @@ public:
         albummbidRole,
         artistmbidRole,
         genreRole,
+        discoNoRole
     };
 
 private:
