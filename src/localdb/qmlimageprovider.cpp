@@ -10,9 +10,8 @@ QPixmap QMLImageProvider::requestPixmap(const QString &id, QSize *size,
                                         const QSize &requestedSize) {
     // Format is artist/album
     QString id_no_slash = id;
-    // id_no_slash = id_no_slash.replace(" / ", " |~ ").replace(" // ", "
-    // |~|~");
-    id_no_slash = id_no_slash.replace(" / ", "").replace(" // ", "");
+    id_no_slash = id_no_slash.replace(" / ", " |~ ").replace(" // ", "|~|~");
+    // id_no_slash = id_no_slash.replace(" / ", "").replace(" // ", "");
     QStringList idList = id_no_slash.split('/');
     qDebug() << "<QMLImageProvider::requestPixmap> id" << id_no_slash;
     qDebug() << "<QMLImageProvider::requestPixmap> idList" << idList;
