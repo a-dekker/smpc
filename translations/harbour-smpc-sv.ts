@@ -56,27 +56,27 @@
         <translation>Ingen albumtagg</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="40"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="42"/>
         <source>No artist tag</source>
         <translation>Ingen artisttagg</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="51"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="50"/>
         <source>Playing album</source>
         <translation>Spelar upp album</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="56"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="55"/>
         <source>Adding album</source>
         <translation>Lägger till album</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="64"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="63"/>
         <source>Play album</source>
         <translation>Spela upp album</translation>
     </message>
     <message>
-        <location filename="../qml/components/AlbumListDelegate.qml" line="73"/>
+        <location filename="../qml/components/AlbumListDelegate.qml" line="72"/>
         <source>Add album to list</source>
         <translation>Lägg till album till listan</translation>
     </message>
@@ -84,33 +84,36 @@
 <context>
     <name>AlbumListPage</name>
     <message>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="75"/>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="121"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="86"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="132"/>
         <source>Albums</source>
         <translation>Album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumListPage.qml" line="23"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="30"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="32"/>
         <source>Add albums</source>
         <translation>Lägg till album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="15"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="20"/>
         <source>Replace albums</source>
         <translation>Ersätt album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="29"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="38"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="40"/>
         <source>Play albums</source>
         <translation>Spela upp album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="80"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="91"/>
         <source>No album tag</source>
         <translation>Ingen albumtagg</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumListPage.qml" line="81"/>
+        <location filename="../qml/pages/database/AlbumListPage.qml" line="92"/>
         <source>No artist tag</source>
         <translation>Ingen artisttagg</translation>
     </message>
@@ -146,7 +149,7 @@
 <context>
     <name>AlbumTracksPage</name>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="18"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="22"/>
         <source>Show all tracks</source>
         <translation>Visa alla spår</translation>
     </message>
@@ -155,53 +158,68 @@
         <translation type="vanished">Visa artist</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="25"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="29"/>
         <source>Show albums from artist</source>
         <translation type="unfinished">Visa album av artist</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="37"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="41"/>
         <source>Replace album</source>
         <translation>Ersätt album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="46"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="45"/>
+        <source>Replacing album</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="52"/>
         <source>Add album</source>
         <translation>Lägg till album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="52"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="54"/>
+        <source>Adding album</source>
+        <translation type="unfinished">Lägger till album</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="60"/>
         <source>Play album</source>
         <translation>Spela upp album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="370"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="62"/>
+        <source>Playing album</source>
+        <translation type="unfinished">Spelar upp album</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="357"/>
         <source>Playing track</source>
         <translation>Spelar upp spår</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="375"/>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="380"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="362"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="367"/>
         <source>Adding track</source>
         <translation>Lägger till spår</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="392"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="379"/>
         <source>Play track</source>
         <translation>Spela upp spår</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="399"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="386"/>
         <source>Add track to list</source>
         <translation>Lägg till spår till listan</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="405"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="392"/>
         <source>Play after current</source>
         <translation>Spela upp efter nuvarande</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="411"/>
+        <location filename="../qml/pages/database/AlbumTracksPage.qml" line="398"/>
         <source>Add to saved list</source>
         <translation>lägg till i sparad lista</translation>
     </message>
@@ -209,7 +227,7 @@
 <context>
     <name>ArtistDelegate</name>
     <message>
-        <location filename="../qml/components/ArtistDelegate.qml" line="65"/>
+        <location filename="../qml/components/ArtistDelegate.qml" line="69"/>
         <source>No Artist Tag</source>
         <translation>Ingen artisttagg</translation>
     </message>
@@ -222,22 +240,22 @@
         <translation>Ingen artisttagg</translation>
     </message>
     <message>
-        <location filename="../qml/components/ArtistListDelegate.qml" line="52"/>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="49"/>
         <source>Playing artist</source>
         <translation>Spelar upp artist</translation>
     </message>
     <message>
-        <location filename="../qml/components/ArtistListDelegate.qml" line="57"/>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="54"/>
         <source>Adding artist</source>
         <translation>Lägger till artist</translation>
     </message>
     <message>
-        <location filename="../qml/components/ArtistListDelegate.qml" line="65"/>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="62"/>
         <source>Play artist</source>
         <translation>Spela upp artist</translation>
     </message>
     <message>
-        <location filename="../qml/components/ArtistListDelegate.qml" line="74"/>
+        <location filename="../qml/components/ArtistListDelegate.qml" line="71"/>
         <source>Add artist to list</source>
         <translation>Lägg till artist till listan</translation>
     </message>
@@ -652,101 +670,116 @@
 <context>
     <name>FileBrowserPage</name>
     <message>
-        <location filename="../qml/pages/database/FileBrowserPage.qml" line="30"/>
+        <location filename="../qml/pages/database/FileBrowserPage.qml" line="34"/>
         <source>Filebrowser</source>
         <translation>Filbläddrare</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/FileBrowserPage.qml" line="35"/>
+        <location filename="../qml/pages/database/FileBrowserPage.qml" line="39"/>
         <source>Home</source>
         <translation>Hem</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/FileBrowserPage.qml" line="42"/>
+        <location filename="../qml/pages/database/FileBrowserPage.qml" line="46"/>
         <source>Replace folder</source>
         <translation>Ersätt mapp</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="50"/>
+        <source>Replacing folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/FileBrowserPage.qml" line="57"/>
         <source>Add folder</source>
         <translation>Lägg till mapp</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/FileBrowserPage.qml" line="56"/>
+        <location filename="../qml/pages/database/FileBrowserPage.qml" line="59"/>
+        <source>Adding folder</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/FileBrowserPage.qml" line="65"/>
         <source>Play folder</source>
         <translation>Spela upp mapp</translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/FileBrowserPage.qml" line="67"/>
+        <source>Playing folder</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>FileDelegate</name>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="83"/>
-        <location filename="../qml/components/FileDelegate.qml" line="88"/>
+        <location filename="../qml/components/FileDelegate.qml" line="77"/>
+        <location filename="../qml/components/FileDelegate.qml" line="82"/>
         <source>adding track</source>
         <translation>Lägger till språk</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="93"/>
+        <location filename="../qml/components/FileDelegate.qml" line="87"/>
         <source>adding playlist</source>
         <translation>Lägger till spelningslista</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="98"/>
+        <location filename="../qml/components/FileDelegate.qml" line="92"/>
         <source>adding directory</source>
         <translation>Lägger till mapp</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="104"/>
+        <location filename="../qml/components/FileDelegate.qml" line="98"/>
         <source>playing track</source>
         <translation>Spelar upp spår</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="109"/>
+        <location filename="../qml/components/FileDelegate.qml" line="103"/>
         <source>playing playlist</source>
         <translation>Spelar upp spelningslista</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="114"/>
+        <location filename="../qml/components/FileDelegate.qml" line="108"/>
         <source>playing directory</source>
         <translation>Spelar upp mapp</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="123"/>
+        <location filename="../qml/components/FileDelegate.qml" line="117"/>
         <source>Play file</source>
         <translation>Spela upp fil</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="124"/>
+        <location filename="../qml/components/FileDelegate.qml" line="118"/>
         <source>Play directory</source>
         <translation>Spela upp mapp</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="124"/>
+        <location filename="../qml/components/FileDelegate.qml" line="118"/>
         <source>Play playlist</source>
         <translation>Spela upp spelningslista</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="138"/>
+        <location filename="../qml/components/FileDelegate.qml" line="132"/>
         <source>Add file</source>
         <translation>Lägg till fil</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="139"/>
+        <location filename="../qml/components/FileDelegate.qml" line="133"/>
         <source>Add directory</source>
         <translation>Lägg till mapp</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="139"/>
+        <location filename="../qml/components/FileDelegate.qml" line="133"/>
         <source>Add playlist</source>
         <translation>Lägg till spelningslista</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="154"/>
+        <location filename="../qml/components/FileDelegate.qml" line="148"/>
         <source>Play after current</source>
         <translation>Spela upp efter nuvarande</translation>
     </message>
     <message>
-        <location filename="../qml/components/FileDelegate.qml" line="162"/>
+        <location filename="../qml/components/FileDelegate.qml" line="156"/>
         <source>Add to saved list</source>
         <translation>Lägg till i sparad lista</translation>
     </message>
@@ -1145,103 +1178,113 @@
 <context>
     <name>SearchPage</name>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="31"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="34"/>
         <source>Search value</source>
         <translation>Sökvärde</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="41"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="44"/>
         <source>Search for:</source>
         <translation>Sök efter:</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="48"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="51"/>
         <source>Titles</source>
         <translation>Titlar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="51"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="54"/>
         <source>Albums</source>
         <translation>Album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="54"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="57"/>
         <source>Artists</source>
         <translation>Artister</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="57"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="60"/>
         <source>Files</source>
         <translation>Filer</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="78"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="80"/>
         <source>Search</source>
         <translation>Sök</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="91"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="93"/>
         <source>New search</source>
         <translation>Ny sökning</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="98"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="100"/>
         <source>Add all results</source>
         <translation>Lägg till alla sökträffar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="106"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="103"/>
+        <source>Adding all results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/SearchPage.qml" line="111"/>
         <source>Play all results</source>
         <translation>Spela upp alla sökträffar</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="179"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="114"/>
+        <source>Playing all results</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/database/SearchPage.qml" line="187"/>
         <source>Playing track</source>
         <translation>Spelar upp spår</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="184"/>
-        <location filename="../qml/pages/database/SearchPage.qml" line="200"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="192"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="208"/>
         <source>Adding track</source>
         <translation>Lägger till spår</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="190"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="198"/>
         <source>Playing album</source>
         <translation>Spelar upp album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="195"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="203"/>
         <source>Adding album</source>
         <translation>Lägger till album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="209"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="217"/>
         <source>Play track</source>
         <translation>Spela upp spår</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="216"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="224"/>
         <source>Add track to list</source>
         <translation>Lägg till spår i lista</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="222"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="230"/>
         <source>Play after current</source>
         <translation>Spela upp efter nuvarande</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="228"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="236"/>
         <source>Add album to list</source>
         <translation>Lägg till album i lista</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="234"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="242"/>
         <source>Play album</source>
         <translation>Spela upp album</translation>
     </message>
     <message>
-        <location filename="../qml/pages/database/SearchPage.qml" line="241"/>
+        <location filename="../qml/pages/database/SearchPage.qml" line="249"/>
         <source>Add to saved list</source>
         <translation>Lägg till i sparad lista</translation>
     </message>
@@ -1373,75 +1416,84 @@
 <context>
     <name>SongDialog</name>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="24"/>
-        <location filename="../qml/components/SongDialog.qml" line="74"/>
-        <location filename="../qml/components/SongDialog.qml" line="390"/>
+        <location filename="../qml/components/SongDialog.qml" line="25"/>
+        <location filename="../qml/components/SongDialog.qml" line="75"/>
+        <location filename="../qml/components/SongDialog.qml" line="409"/>
         <source>Add song</source>
         <translation>Lägg till låt</translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="172"/>
+        <location filename="../qml/components/SongDialog.qml" line="173"/>
         <source>Length: </source>
         <translation>Längd: </translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="186"/>
-        <location filename="../qml/components/SongDialog.qml" line="439"/>
+        <location filename="../qml/components/SongDialog.qml" line="187"/>
+        <location filename="../qml/components/SongDialog.qml" line="458"/>
         <source>Date: </source>
         <translation>Datum: </translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="200"/>
-        <location filename="../qml/components/SongDialog.qml" line="455"/>
         <source>Nr: </source>
-        <translation>Nr: </translation>
+        <translation type="vanished">Nr: </translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="536"/>
+        <location filename="../qml/components/SongDialog.qml" line="555"/>
         <source>URI: </source>
         <translation>URI: </translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="229"/>
-        <location filename="../qml/components/SongDialog.qml" line="488"/>
+        <location filename="../qml/components/SongDialog.qml" line="248"/>
+        <location filename="../qml/components/SongDialog.qml" line="507"/>
         <source>Musicbrainz track id: </source>
         <translation>Musicbrainz spår-ID: </translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="243"/>
-        <location filename="../qml/components/SongDialog.qml" line="503"/>
+        <location filename="../qml/components/SongDialog.qml" line="201"/>
+        <location filename="../qml/components/SongDialog.qml" line="474"/>
+        <source>Track: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SongDialog.qml" line="216"/>
+        <source>Disc: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/components/SongDialog.qml" line="262"/>
+        <location filename="../qml/components/SongDialog.qml" line="522"/>
         <source>Musicbrainz album id: </source>
         <translation>Musicbrainz album-ID: </translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="257"/>
-        <location filename="../qml/components/SongDialog.qml" line="518"/>
+        <location filename="../qml/components/SongDialog.qml" line="276"/>
+        <location filename="../qml/components/SongDialog.qml" line="537"/>
         <source>Musicbrainz artist id: </source>
         <translation>Musicbrainz artist-ID: </translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="269"/>
+        <location filename="../qml/components/SongDialog.qml" line="288"/>
         <source>URI:</source>
         <translation>URI:</translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="30"/>
+        <location filename="../qml/components/SongDialog.qml" line="31"/>
         <source>Play after current</source>
         <translation>Spela upp efter nuvarande</translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="37"/>
+        <location filename="../qml/components/SongDialog.qml" line="38"/>
         <source>Play song</source>
         <translation>Spela upp låt</translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="215"/>
-        <location filename="../qml/components/SongDialog.qml" line="470"/>
+        <location filename="../qml/components/SongDialog.qml" line="233"/>
+        <location filename="../qml/components/SongDialog.qml" line="489"/>
         <source>Genre: </source>
         <translation>Genre: </translation>
     </message>
     <message>
-        <location filename="../qml/components/SongDialog.qml" line="425"/>
+        <location filename="../qml/components/SongDialog.qml" line="444"/>
         <source>Length:</source>
         <translation>Längd:</translation>
     </message>
@@ -1454,7 +1506,7 @@
         <translation>Tar bort</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="90"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="72"/>
         <source>Remove song</source>
         <translation>Ta bort låt</translation>
     </message>
@@ -1463,27 +1515,27 @@
         <translation type="vanished">Visa artist</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="101"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="83"/>
         <source>Show albums from artist</source>
         <translation type="unfinished">Visa album av artist</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="112"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="94"/>
         <source>Show album</source>
         <translation>Visa album</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="125"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="107"/>
         <source>Play as next</source>
         <translation>Spela upp som nästa</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="133"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="115"/>
         <source>Show information</source>
         <translation>Visa information</translation>
     </message>
     <message>
-        <location filename="../qml/components/TrackDelegate.qml" line="138"/>
+        <location filename="../qml/components/TrackDelegate.qml" line="120"/>
         <source>Add to saved list</source>
         <translation>Lägg till i sparad lista</translation>
     </message>
