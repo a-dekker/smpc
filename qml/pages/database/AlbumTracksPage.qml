@@ -283,7 +283,6 @@ Page {
                 landscapeLoader.active = false
             }
         } else if (status === PageStatus.Active) {
-
             requestAlbumInfo([albumname, artistname])
             if (albumInfoText !== "") {
                 pageStack.pushAttached(Qt.resolvedUrl("AlbumInfoPage.qml"), {
@@ -297,7 +296,6 @@ Page {
             // Activate correct loader
             if ((orientation === Orientation.Portrait)
                     || (orientation === Orientation.PortraitInverted)) {
-
                 portraitLoader.active = true
             } else if ((orientation === Orientation.Landscape)
                        || (orientation === Orientation.LandscapeInverted)) {
@@ -352,7 +350,7 @@ Page {
             onClicked: {
                 //albumTracksListView.currentIndex = index
                 albumTrackClicked(title, album, artist, lengthformated, path,
-                                  year, tracknr, trackmbid, artistmbid,
+                                  year, tracknr, discnr, trackmbid, artistmbid,
                                   albummbid, genre)
             }
             function playTrackRemorse() {

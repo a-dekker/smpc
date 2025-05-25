@@ -116,7 +116,7 @@ Page {
             onClicked: {
                 playlistTracksListView.currentIndex = index
                 albumTrackClicked(title, album, artist, lengthformated, path,
-                                  year, tracknr, trackmbid, artistmbid,
+                                  year, tracknr, discnr, trackmbid, artistmbid,
                                   albummbid, genre)
             }
             function playTrackRemorse() {

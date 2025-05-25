@@ -8,6 +8,7 @@ Dialog {
     property string artist
     property string lengthtext
     property string nr
+    property string discnr
     property string date
     property string genre
     property string filename
@@ -197,13 +198,28 @@ Dialog {
                             }
                             Row {
                                 Label {
-                                    text: qsTr("Nr: ")
+                                    text: qsTr("Track: ")
                                     color: Theme.secondaryColor
                                     font.pixelSize: fontsize
                                 }
                                 Label {
                                     id: nrText
                                     text: nr
+                                    color: Theme.primaryColor
+                                    font.pixelSize: fontsize
+                                    wrapMode: "WordWrap"
+                                }
+                            }
+                            Row {
+                                visible: discnr !== ""
+                                Label {
+                                    text: qsTr("Disc: ")
+                                    color: Theme.secondaryColor
+                                    font.pixelSize: fontsize
+                                }
+                                Label {
+                                    id: discnrText
+                                    text: discnr
                                     color: Theme.primaryColor
                                     font.pixelSize: fontsize
                                     wrapMode: "WordWrap"
@@ -234,8 +250,8 @@ Dialog {
                                 font.pixelSize: fontsize
                             }
                             Label {
-                                visible: trackmbid !== ""
                                 id: trackmbidText
+                                visible: trackmbid !== ""
                                 text: trackmbid
                                 color: Theme.primaryColor
                                 font.pixelSize: fontsize
@@ -248,8 +264,8 @@ Dialog {
                                 font.pixelSize: fontsize
                             }
                             Label {
-                                visible: albummbid !== ""
                                 id: albummbidText
+                                visible: albummbid !== ""
                                 text: albummbid
                                 color: Theme.primaryColor
                                 font.pixelSize: fontsize
@@ -379,6 +395,7 @@ Dialog {
                     contentHeight: infocolumn.height
                     clip: true
                     Column {
+                        id: infocolumn
                         clip: true
                         anchors {
                             right: parent.right
@@ -387,7 +404,6 @@ Dialog {
                             leftMargin: listPadding
                             rightMargin: listPadding
                         }
-                        id: infocolumn
                         DialogHeader {
                             id: header
                             acceptText: qsTr("Add song")
@@ -455,14 +471,14 @@ Dialog {
                         }
                         Row {
                             Label {
-                                text: qsTr("Nr: ")
+                                text: qsTr("Track: ")
                                 color: Theme.secondaryColor
                                 font.pixelSize: fontsize
                                 width: infocolumn.width / 6
                             }
                             Label {
                                 id: nrText
-                                text: nr
+                                text: nr + " (disc " + discnr + ")"
                                 color: Theme.primaryColor
                                 font.pixelSize: fontsize
                                 wrapMode: "WordWrap"
@@ -592,7 +608,6 @@ Dialog {
             // Activate correct loader
             if ((orientation === Orientation.Portrait)
                     || (orientation === Orientation.PortraitInverted)) {
-
                 portraitLoader.active = true
             } else if ((orientation === Orientation.Landscape)
                        || (orientation === Orientation.LandscapeInverted)) {

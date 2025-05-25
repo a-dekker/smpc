@@ -180,7 +180,7 @@ Page {
                 }
                 onClicked: {
                     albumTrackClicked(title, album, artist, lengthformated,
-                                      path, year, tracknr, trackmbid,
+                                      path, year, tracknr, discnr, trackmbid,
                                       artistmbid, albummbid)
                 }
                 function playTrackRemorse() {

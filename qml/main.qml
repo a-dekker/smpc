@@ -183,7 +183,7 @@ ApplicationWindow {
         requestFilesPage(path)
     }
 
-    function albumTrackClicked(title, album, artist, lengthformatted, uri, year, tracknr, trackmbid, artistmbid, albummbid, genre) {
+    function albumTrackClicked(title, album, artist, lengthformatted, uri, year, tracknr, discnr, trackmbid, artistmbid, albummbid, genre) {
         pageStack.push(Qt.resolvedUrl("components/SongDialog.qml"), {
                            "title": title,
                            "album": album,
@@ -192,6 +192,7 @@ ApplicationWindow {
                            "lengthtext": lengthformatted,
                            "date": year,
                            "nr": tracknr,
+                           "discnr": discnr,
                            "trackmbid": trackmbid,
                            "artistmbid": artistmbid,
                            "albummbid": albummbid,

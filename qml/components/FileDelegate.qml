@@ -3,10 +3,11 @@ import Sailfish.Silica 1.0
 
 Component {
     ListItem {
-        menu: contextMenu
         id: filesDelegate
+        menu: contextMenu
         contentHeight: fileicon.height
         Image {
+            id: fileicon
             height: (filenametext.height + trackLabel
                      >= Theme.itemSizeSmall ? filenametext.height
                                               + trackLabel : Theme.itemSizeSmall)
@@ -15,7 +16,6 @@ Component {
                 verticalCenter: parent.verticalCenter
                 left: parent.left
             }
-            id: fileicon
             source: (isDirectory ? "image://theme/icon-m-folder" : (isPlaylist ? "image://theme/icon-m-document" : imageURL))
             width: height
         }
@@ -59,7 +59,7 @@ Component {
             }
             if (isFile) {
                 albumTrackClicked(title, album, artist, length, path, year,
-                                  tracknr, trackmbid, artistmbid,
+                                  tracknr, discnr, trackmbid, artistmbid,
                                   albummbid, genre)
             }
             if (isPlaylist) {
