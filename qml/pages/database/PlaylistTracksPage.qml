@@ -77,35 +77,30 @@ Page {
                     leftMargin: listPadding
                     rightMargin: listPadding
                 }
-                Row {
+                Item {
                     id: trackRow
+                    width: parent.width
                     Label {
-                        text: (index + 1) + ". "
-                        anchors {
-                            verticalCenter: parent.verticalCenter
-                        }
+                        id: trackName
+                        text: tracknr + ". " + (title === "" ? filename : title)
+                        width: parent.width - 4 * listPadding
+                        truncationMode: TruncationMode.Fade
                     }
                     Label {
-                        clip: true
-                        wrapMode: Text.WrapAnywhere
-                        elide: Text.ElideRight
-                        text: (title === "" ? filename : title)
-                        anchors {
-                            verticalCenter: parent.verticalCenter
-                        }
+                        text: length === 0 ? "" : lengthformatted
+                        width: parent.width - trackName.width - listPadding
+                        anchors.left: trackName.right
+                        horizontalAlignment: Text.AlignRight
                     }
                     Label {
-                        text: (length === 0 ? "" : " (" + lengthformated + ")")
-                        anchors {
-                            verticalCenter: parent.verticalCenter
-                        }
+                        id: artistLabel
+                        text: (artist !== "" ? artist + " - " : "") + (album !== "" ? album : "")
+                        color: Theme.secondaryColor
+                        font.pixelSize: Theme.fontSizeSmall
+                        anchors.top: trackName.bottom
+                        width: parent.width
+                        truncationMode: TruncationMode.Fade
                     }
-                }
-                Label {
-                    id: artistLabel
-                    text: (artist !== "" ? artist + " - " : "") + (album !== "" ? album : "")
-                    color: Theme.secondaryColor
-                    font.pixelSize: Theme.fontSizeSmall
                 }
             }
             OpacityRampEffect {
@@ -115,7 +110,7 @@ Page {
             }
             onClicked: {
                 playlistTracksListView.currentIndex = index
-                albumTrackClicked(title, album, artist, lengthformated, path,
+                albumTrackClicked(title, album, artist, lengthformatted, path,
                                   year, tracknr, discnr, trackmbid, artistmbid,
                                   albummbid, genre)
             }

@@ -42,28 +42,40 @@ ListItem {
             left: parent.left
             verticalCenter: parent.verticalCenter
             leftMargin: listPadding
-            rightMargin: listPadding
         }
-        Label {
-            id: titleLbl
-            text: "%1. ".arg(model.index + 1)
-                  + (model.title === "" ? model.filename + " " : model.title + " ")
-                  + (model.length === 0 ? "" : " (" + lengthformated + ")")
-            font.italic: ctl.player.playbackStatus.playbackStatus === 0
-                         && model.playing
-            font.bold: model.playing
-            color: model.playing ? Theme.highlightColor : Theme.primaryColor
-            truncationMode: TruncationMode.Fade
+        Item {
             width: parent.width
-        }
-        Label {
-            id: artistLbl
-            color: Theme.secondaryColor
-            font.pixelSize: Theme.fontSizeSmall
-            text: (model.artist !== "" ? model.artist + " - " : "")
-                  + (model.album !== "" ? model.album : "")
-            width: parent.width
-            truncationMode: TruncationMode.Fade
+            Label {
+                id: titleLbl
+                text: "%1. ".arg(model.index + 1)
+                      + (model.title === "" ? model.filename + " " : model.title)
+                font.italic: ctl.player.playbackStatus.playbackStatus === 0
+                             && model.playing
+                font.bold: model.playing
+                color: model.playing ? Theme.highlightColor : Theme.primaryColor
+                truncationMode: TruncationMode.Fade
+                width: parent.width - 4 * listPadding
+            }
+            Label {
+                id: trackDuration
+                text: lengthformatted
+                width: parent.width - titleLbl.width - listPadding
+                anchors.left: titleLbl.right
+                horizontalAlignment: Text.AlignRight
+                font.italic: ctl.player.playbackStatus.playbackStatus === 0
+                             && model.playing
+                font.bold: model.playing
+            }
+            Label {
+                id: artistLbl
+                color: Theme.secondaryColor
+                anchors.top: titleLbl.bottom
+                font.pixelSize: Theme.fontSizeSmall
+                text: (model.artist !== "" ? model.artist + " - " : "")
+                      + (model.album !== "" ? model.album : "")
+                width: parent.width
+                truncationMode: TruncationMode.Fade
+            }
         }
     }
 

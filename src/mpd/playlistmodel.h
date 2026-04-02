@@ -34,7 +34,7 @@ public:
         artistRole,
         albumRole,
         lengthRole,
-        lengthFormatedRole,
+        lengthFormattedRole,
         tracknoRole,
         yearRole,
         playingRole,

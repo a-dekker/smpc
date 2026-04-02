@@ -225,7 +225,7 @@ BackgroundItem {
                         top: delegateButtons.bottom
                         bottom: parent.bottom
                     }
-                    model: albumTracksModel
+                    model: tracksModel
                     delegate: ListItem {
                         menu: contextMenu
                         contentHeight: mainColumn.height
@@ -241,39 +241,37 @@ BackgroundItem {
                                 rightMargin: Theme.paddingSmall
                             }
 
-                            Row {
-                                id: titleRow
+                            Item {
+                                width: parent.width
                                 Label {
-                                    text: (index + 1) + ". "
-                                    anchors {
-                                        verticalCenter: parent.verticalCenter
-                                    }
-                                    font.pixelSize: Theme.fontSizeSmall
+                                    id: titleRow
+                                    text: tracknr + ". " + (title === "" ? filename : title)
+                                    width: parent.width - 4 * listPadding
+                                    truncationMode: TruncationMode.Fade
+                                    style: isLightTheme ? Text.Outline : Text.Raised
+                                    styleColor: isLightTheme ? "#CCCCCC" : Theme.darkSecondaryColor
                                 }
                                 Label {
-                                    clip: true
-                                    wrapMode: Text.WrapAnywhere
-                                    elide: Text.ElideRight
-                                    text: (title === "" ? filename : title)
-                                    anchors {
-                                        verticalCenter: parent.verticalCenter
-                                    }
-                                    font.pixelSize: Theme.fontSizeSmall
+                                    id: trackDuration
+                                    text: lengthformatted
+                                    width: parent.width - titleRow.width - listPadding
+                                    anchors.left: titleRow.right
+                                    horizontalAlignment: Text.AlignRight
+                                    style: isLightTheme ? Text.Outline : Text.Raised
+                                    styleColor: isLightTheme ? "#CCCCCC" : Theme.darkSecondaryColor
                                 }
                                 Label {
-                                    text: (length === 0 ? "" : " (" + lengthformated + ")")
-                                    anchors {
-                                        verticalCenter: parent.verticalCenter
-                                    }
+                                    id: artistLabel
+                                    text: (artist !== "" ? artist + " - " : "")
+                                          + (album !== "" ? album : "")
+                                    color: Theme.secondaryColor
+                                    anchors.top: titleRow.bottom
                                     font.pixelSize: Theme.fontSizeSmall
+                                    styleColor: isLightTheme ? "#CCCCCC" : Theme.primaryColor
+                                    style: isLightTheme ? Text.Outline : Text.Raised
+                                    width: parent.width - Theme.paddingSmall
+                                    truncationMode: TruncationMode.Fade
                                 }
-                            }
-                            Label {
-                                id: artistLabel
-                                text: (artist !== "" ? artist + " - " : "")
-                                      + (album !== "" ? album : "")
-                                color: Theme.secondaryColor
-                                font.pixelSize: Theme.fontSizeTiny
                             }
                         }
 
@@ -327,7 +325,7 @@ BackgroundItem {
                     showView.interactive = false
                 }
                 Component.onDestruction: {
-                    clearTrackList()
+                    // clearTrackList()
                 }
             }
         }

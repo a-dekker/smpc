@@ -90,7 +90,7 @@ QString MpdFileEntry::getAlbum() const
 QString MpdFileEntry::getLengthFormatted() const
 {
     if(mTrack!=NULL)
-        return getTrack()->getLengthFormated();
+        return getTrack()->getLengthFormatted();
     return "";
 }
 QString MpdFileEntry::getYear() const

@@ -8,6 +8,9 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Thu Apr 02 2026 Arno Dekker <jack.tar@example.com> 1.3.42-1
+- Align song lengths to the right
+- Mutiple fixes in show cover mode in landscape
 * Sat May 24 2025 Arno Dekker <jack.tar@example.com> 1.3.41-1
 - Show all genres in the song info, not just the last one in case of multiple genres
 - Include artist in search when selecting 'show album' in playlist in case of duplicate album names

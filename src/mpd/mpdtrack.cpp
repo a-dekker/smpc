@@ -87,7 +87,7 @@ bool MpdTrack::getPlaying() const
 {
     return mPlaying;
 }
-QString MpdTrack::getLengthFormated() const
+QString MpdTrack::getLengthFormatted() const
 {
     QString temp;
     int hours=0,min=0,sec=0;

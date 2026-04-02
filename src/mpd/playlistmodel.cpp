@@ -61,8 +61,8 @@ QVariant PlaylistModel::data(const QModelIndex &index, int role) const
         return mEntries->at(index.row())->getAlbum();
     else if(role==lengthRole)
         return mEntries->at(index.row())->getLength();
-    else if(role==lengthFormatedRole)
-        return mEntries->at(index.row())->getLengthFormated();
+    else if(role==lengthFormattedRole)
+        return mEntries->at(index.row())->getLengthFormatted();
     else if(role==tracknoRole)
         return mEntries->at(index.row())->getTrackNr();
     else if(role==yearRole)
@@ -151,7 +151,7 @@ QHash<int, QByteArray> PlaylistModel::roleNames() const {
     roles[artistRole] = "artist";
     roles[albumRole] = "album";
     roles[lengthRole] = "length";
-    roles[lengthFormatedRole] = "lengthformated";
+    roles[lengthFormattedRole] = "lengthformatted";
     roles[tracknoRole] = "tracknr";
     roles[yearRole] = "year";
     roles[playingRole] = "playing";

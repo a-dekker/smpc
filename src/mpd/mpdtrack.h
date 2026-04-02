@@ -16,7 +16,7 @@ class MpdTrack : public QObject
 
     Q_PROPERTY(QString title READ getTitle NOTIFY changed )
     Q_PROPERTY(QString uri READ getFileUri NOTIFY changed )
-    Q_PROPERTY(QString lengthformatted READ getLengthFormated NOTIFY changed )
+    Q_PROPERTY(QString lengthformatted READ getLengthFormatted NOTIFY changed )
     Q_PROPERTY(int length READ getLength NOTIFY changed )
     Q_PROPERTY(QString artist READ getArtist NOTIFY changed )
     Q_PROPERTY(QString album READ getAlbum NOTIFY changed )
@@ -42,7 +42,7 @@ public:
     QString getAlbum() const;
     QString getArtist() const;
     QString getAlbumArtist() const;
-    QString getLengthFormated() const;
+    QString getLengthFormatted() const;
     QString getYear() const;
     QString getFileName() const;
 
