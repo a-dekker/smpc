@@ -5,6 +5,7 @@ LastFMArtistProvider::LastFMArtistProvider(QString artistName,QObject *parent) :
 
     mXMLNetAccess = 0;
     mArtistArtAccess = 0;
+    mDeezerNetAccess = 0;
     mImageData = 0;
     mImageURL = "";
     mArtistInfo = "";
@@ -23,6 +24,11 @@ LastFMArtistProvider::~LastFMArtistProvider() {
         mArtistArtAccess->deleteLater();
         mArtistArtAccess = 0;
     }
+    if ( mDeezerNetAccess ) {
+        disconnect(mDeezerNetAccess);
+        mDeezerNetAccess->deleteLater();
+        mDeezerNetAccess = 0;
+    }
     if ( mLastInformation ) {
         delete ( mLastInformation );
     }
@@ -40,11 +46,10 @@ void LastFMArtistProvider::downloadImageData(QUrl imageURL) {
 }
 
 void LastFMArtistProvider::xmlDownloaded(QNetworkReply *reply) {
+    // Last.fm only provides the biography, the image comes from Deezer.
+    // A missing biography must not prevent getting the image.
     QByteArray data = reply->readAll();
-    if(data.size() == 0 ) {
-        emit failed();
-        return;
-    }
+    reply->deleteLater();
     // qDebug() << "XML received";
 
     // netaccess not needed anymore
@@ -73,6 +78,49 @@ void LastFMArtistProvider::xmlDownloaded(QNetworkReply *reply) {
             }
         }
     }
+    searchArtistImage();
+}
+
+void LastFMArtistProvider::searchArtistImage() {
+    QUrl requestURL("https://api.deezer.com/search/artist");
+    QUrlQuery query;
+    query.addQueryItem("q", mArtistName);
+    query.addQueryItem("limit", "5");
+    requestURL.setQuery(query);
+
+    if( !mDeezerNetAccess )
+    {
+        mDeezerNetAccess = new QNetworkAccessManager(this);
+        connect(mDeezerNetAccess,SIGNAL(finished(QNetworkReply*)),this,SLOT(deezerSearchDone(QNetworkReply*)));
+    }
+    mDeezerNetAccess->get(QNetworkRequest(requestURL));
+}
+
+void LastFMArtistProvider::deezerSearchDone(QNetworkReply *reply) {
+    QByteArray data = reply->readAll();
+    bool networkError = reply->error() != QNetworkReply::NoError;
+    reply->deleteLater();
+    if ( networkError ) {
+        emit failed();
+        return;
+    }
+
+    // Only accept an exact name match, a wrong picture is worse than none
+    mImageURL = "";
+    QJsonArray results = QJsonDocument::fromJson(data).object().value("data").toArray();
+    for ( int i = 0; i < results.size(); i++ ) {
+        QJsonObject artist = results.at(i).toObject();
+        if ( artist.value("name").toString().compare(mArtistName, Qt::CaseInsensitive) != 0 ) {
+            continue;
+        }
+        QString url = artist.value("picture_xl").toString();
+        // Artists without a picture get a url with an empty image id
+        if ( !url.isEmpty() && !url.contains("/artist//") ) {
+            mImageURL = url;
+            break;
+        }
+    }
+
     if ( mImageURL != "" ) {
         downloadImageData(mImageURL);
     } else {
@@ -92,33 +140,10 @@ void LastFMArtistProvider::parseArtist(QXmlStreamReader &xmlReader) {
         return;
     }
 
-    bool foundPreferredArtistArt = false;
-
     while ( !(xmlReader.tokenType() == QXmlStreamReader::EndElement && xmlReader.name() == "artist") ) {
         if (xmlReader.tokenType() == QXmlStreamReader::Invalid) {
             return;
         }
-        if ( xmlReader.tokenType() == QXmlStreamReader::StartElement &&
-             xmlReader.name() == "image" && !foundPreferredArtistArt ) {
-
-            // Get image size attribute
-            QXmlStreamAttributes attributes = xmlReader.attributes();
-            if ( attributes.hasAttribute("size") && attributes.value("size").toString() == mDownloadSize) {
-                // Found desired cover size
-                xmlReader.readNext();
-                if ( xmlReader.tokenType() == QXmlStreamReader::Characters ) {
-                    mImageURL = xmlReader.text().toString();
-                    foundPreferredArtistArt = true;
-                }
-            }
-            else {
-                xmlReader.readNext();
-                if ( xmlReader.tokenType() == QXmlStreamReader::Characters ) {
-                    mImageURL = xmlReader.text().toString();
-                }
-            }
-        }
-
         if ( xmlReader.tokenType() == QXmlStreamReader::StartElement &&
              xmlReader.name() == "bio" ) {
             parseWikiInformation(xmlReader);

@@ -1,4 +1,5 @@
 #include "networkaccess.h"
+#include <localdb/coversource.h>
 
 /** Constructor for NetworkAccess object. Handles all the network stuff
  */
@@ -1202,6 +1203,7 @@ void NetworkAccess::onServerConnected() {
     qDebug() << "Connected to mpd server";
 
     mIdling = false;
+    mCoverMisses.clear();
 
     // Create new ServerInfo instance
     if (mServerInfo != nullptr) {
@@ -1718,6 +1720,107 @@ void NetworkAccess::searchTracks(QVariant request) {
     emit ready();
 }
 
+void NetworkAccess::clearCoverMisses() { mCoverMisses.clear(); }
+
+void NetworkAccess::fetchAlbumArt(MpdAlbum album) {
+    QByteArray data;
+    QString key = album.getArtist() + '\n' + album.getTitle();
+    qint64 now = QDateTime::currentMSecsSinceEpoch();
+    // Albums without a cover are looked up again after some time
+    bool knownMiss = mCoverMisses.contains(key) &&
+                     now - mCoverMisses.value(key) < COVER_MISS_TIMEOUT;
+    if (connected() && mServerInfo && mServerInfo->getAlbumartSupported() &&
+        !knownMiss) {
+        data = getAlbumArt_prv(album.getTitle(), album.getArtist());
+        if (data.isEmpty()) {
+            mCoverMisses.insert(key, now);
+        } else {
+            mCoverMisses.remove(key);
+        }
+    }
+    emit CoverSource::instance()->localCoverReady(album, data);
+}
+
+bool NetworkAccess::readCoverLine(QByteArray &line) {
+    while (!mTCPSocket->canReadLine()) {
+        if (mTCPSocket->state() != QTcpSocket::ConnectedState ||
+            !mTCPSocket->waitForReadyRead(READYREAD)) {
+            return false;
+        }
+    }
+    line = mTCPSocket->readLine();
+    if (line.endsWith('\n')) {
+        line.chop(1);
+    }
+    return true;
+}
+
+QByteArray NetworkAccess::getAlbumArt_prv(const QString &album,
+                                          const QString &artist) {
+    auto escape = [](QString arg) {
+        return arg.replace("\\", "\\\\").replace("\"", "\\\"");
+    };
+
+    // Any track of the album tells us the folder to look for a cover in
+    QString command = QString("find album \"%1\"").arg(escape(album));
+    if (!artist.isEmpty()) {
+        command += QString(" %1 \"%2\"")
+                       .arg(mUseAlbumArtist ? "albumartist" : "artist")
+                       .arg(escape(artist));
+    }
+    sendMPDCommand(command + " window 0:1\n");
+    QString file;
+    QByteArray line;
+    while (readCoverLine(line)) {
+        if (line.startsWith("file: ")) {
+            file = QString::fromUtf8(line.mid(6));
+        } else if (line.startsWith("OK") || line.startsWith("ACK")) {
+            break;
+        }
+    }
+    if (file.isEmpty()) {
+        return QByteArray();
+    }
+
+    // The cover is sent in chunks, size is the total size of the image
+    QByteArray image;
+    int totalSize = -1;
+    while (totalSize < 0 || image.size() < totalSize) {
+        sendMPDCommand(QString("albumart \"%1\" %2\n")
+                           .arg(escape(file))
+                           .arg(image.size()));
+        int received = 0;
+        bool ok = false;
+        while (readCoverLine(line)) {
+            if (line.startsWith("size: ")) {
+                totalSize = line.mid(6).toInt();
+            } else if (line.startsWith("binary: ")) {
+                int length = line.mid(8).toInt();
+                while (received < length) {
+                    if (mTCPSocket->bytesAvailable() == 0 &&
+                        !mTCPSocket->waitForReadyRead(READYREAD)) {
+                        return QByteArray();
+                    }
+                    QByteArray chunk = mTCPSocket->read(length - received);
+                    received += chunk.size();
+                    image.append(chunk);
+                }
+            } else if (line.startsWith("OK")) {
+                ok = true;
+                break;
+            } else if (line.startsWith("ACK")) {
+                return QByteArray();
+            }
+        }
+        // Stop on connection trouble, an empty chunk or an unreasonable size
+        if (!ok || received == 0 || totalSize <= 0 ||
+            totalSize > 32 * 1024 * 1024) {
+            return QByteArray();
+        }
+    }
+    return image;
+}
+
 void NetworkAccess::setQMLThread(QThread *thread) {
     if (thread) {
         Q_ASSERT(mQMLThread == nullptr);
@@ -1808,6 +1911,13 @@ void NetworkAccess::checkServerCapabilities() {
             }
         }
         mServerInfo->setMBIDTagsSupported(mbTrackId && mbArtistId && mbAlbumId);
+    }
+}
+
+void NetworkAccess::refreshCollectionInfo() {
+    if (connected()) {
+        getCollectionInfo();
+        emit collectionInfoReady();
     }
 }
 

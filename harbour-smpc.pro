@@ -14,13 +14,15 @@ DEFINES += QT_USE_FAST_CONCATENATION QT_USE_FAST_OPERATOR_PLUS
 # C++ sources
 SOURCES += main.cpp \
     src/localdb/qmlimageprovider.cpp \
-    src/localdb/lastfmartistprovider.cpp \
+    src/localdb/artistinfoprovider.cpp \
     src/localdb/lastfmalbumprovider.cpp \
     src/localdb/imagedownloader.cpp \
     src/localdb/imagedatabase.cpp \
     src/localdb/databasefilljob.cpp \
     src/localdb/artistinformation.cpp \
     src/localdb/albuminformation.cpp \
+    src/localdb/coversource.cpp \
+    src/localdb/imageutil.cpp \
     src/mpd/serverprofile.cpp \
     src/mpd/playlistmodel.cpp \
     src/mpd/networkaccess.cpp \
@@ -44,7 +46,7 @@ SOURCES += main.cpp \
 HEADERS += \
     src/controller.h \
     src/localdb/qmlimageprovider.h \
-    src/localdb/lastfmartistprovider.h \
+    src/localdb/artistinfoprovider.h \
     src/localdb/lastfmalbumprovider.h \
     src/localdb/imagedownloader.h \
     src/localdb/imagedatabase.h \
@@ -52,6 +54,8 @@ HEADERS += \
     src/localdb/databasefilljob.h \
     src/localdb/artistinformation.h \
     src/localdb/albuminformation.h \
+    src/localdb/coversource.h \
+    src/localdb/imageutil.h \
     src/mpd/serverprofile.h \
     src/mpd/playlistmodel.h \
     src/mpd/networkaccess.h \

@@ -36,6 +36,7 @@ Controller::Controller(QQuickView *viewer, QObject *parent)
     qRegisterMetaType<MpdAlbum>("MpdAlbum");
     qRegisterMetaType<MpdArtist>("MpdArtist");
     mWasConnected = false;
+    mArtistFillMode = ArtistInfoProvider::ModeBoth;
     mFileModels = new QStack<FileModel *>();
     // Set empty qml properties for later usage
     mQuickView->rootContext()->setContextProperty("coverstring", "");
@@ -313,11 +314,13 @@ void Controller::connectSignals() {
     connect(mImgDB, SIGNAL(coverArtistArtReady(QVariant)), item,
             SLOT(coverArtistArtReceiver(QVariant)));
 
-    connect(this, SIGNAL(requestArtistImageFill(QList<MpdArtist *> *)), mImgDB,
-            SLOT(fillDatabase(QList<MpdArtist *> *)));
+    connect(this, SIGNAL(requestArtistImageFill(QList<MpdArtist *> *, int)),
+            mImgDB, SLOT(fillArtistDatabase(QList<MpdArtist *> *, int)));
 
     connect(item, SIGNAL(bulkDownloadArtists()), this,
             SLOT(fillArtistImages()));
+    connect(item, SIGNAL(bulkDownloadArtistInfo()), this,
+            SLOT(fillArtistInfo()));
     connect(item, SIGNAL(bulkDownloadAlbums()), this, SLOT(fillAlbumImages()));
 
     connect(this, SIGNAL(requestDBStatistic()), mImgDB,
@@ -365,6 +368,21 @@ void Controller::connectSignals() {
     connect(this, SIGNAL(removeSongFromSaved(QVariant)), mNetAccess,
             SLOT(removeTrackFromSavedPlaylist(QVariant)));
 
+    // Refresh the server database stats when the database settings are opened
+    connect(item, SIGNAL(requestCollectionInfo()), mNetAccess,
+            SLOT(refreshCollectionInfo()));
+    connect(mNetAccess, SIGNAL(collectionInfoReady()), this,
+            SLOT(updateCollectionInfo()));
+
+    connect(this, SIGNAL(requestClearCoverMisses()), mNetAccess,
+            SLOT(clearCoverMisses()));
+    connect(CoverSource::instance(), SIGNAL(localEnabledChanged(bool)),
+            mNetAccess, SLOT(clearCoverMisses()));
+
+    // Covers stored on the MPD server are fetched over the MPD connection
+    connect(CoverSource::instance(), SIGNAL(localCoverRequested(MpdAlbum)),
+            mNetAccess, SLOT(fetchAlbumArt(MpdAlbum)));
+
     // Set downloading enabled variable to imagedatabase
     connect(this, SIGNAL(newDownloadEnabled(bool)), mImgDB,
             SLOT(setDownloadEnabled(bool)));
@@ -401,6 +419,10 @@ void Controller::connectedToServer() {
     mWasConnected = true;
     emit sendPopup(popupString);
     emit connected(mProfilename);
+    updateCollectionInfo();
+}
+
+void Controller::updateCollectionInfo() {
     mQuickView->rootContext()->setContextProperty("totalArtists", totalArtists);
     mQuickView->rootContext()->setContextProperty("totalAlbums", totalAlbums);
     mQuickView->rootContext()->setContextProperty("totalSongs", totalSongs);
@@ -491,6 +513,11 @@ void Controller::readSettings() {
     mSectionsInSearch = settings.value("sections_in_search", 1).toInt();
     mSectionsInPlaylist = settings.value("sections_in_playlist", 1).toInt();
     mDownloadEnabled = settings.value("lastfm_download", 1).toInt();
+    mLocalCoverEnabled = settings.value("local_cover_download", 0).toInt();
+    // Last.fm and the covers of the MPD server are mutually exclusive
+    if (mLocalCoverEnabled) {
+        mDownloadEnabled = 0;
+    }
     mNetAccess->setSortAlbumsByYear(
         settings.value("sort_album_by_year", 0).toInt());
     mNetAccess->setUseAlbumArtist(
@@ -508,6 +535,8 @@ void Controller::readSettings() {
     mShowDebugLog = settings.value("debuglog_enabled", false).toBool();
 
     emit newDownloadEnabled(mDownloadEnabled);
+    CoverSource::instance()->setLastFmEnabled(mDownloadEnabled);
+    CoverSource::instance()->setLocalEnabled(mLocalCoverEnabled);
 
     mQuickView->rootContext()->setContextProperty("artistView",
                                                   mArtistViewSetting);
@@ -521,6 +550,8 @@ void Controller::readSettings() {
                                                   mSectionsInPlaylist);
     mQuickView->rootContext()->setContextProperty("lastfmEnabled",
                                                   mDownloadEnabled);
+    mQuickView->rootContext()->setContextProperty("localCoverEnabled",
+                                                  mLocalCoverEnabled);
     mQuickView->rootContext()->setContextProperty("artistsViewUseAlbumArtist",
                                                   mNetAccess->useAlbumArtist());
     mQuickView->rootContext()->setContextProperty(
@@ -584,6 +615,7 @@ void Controller::writeSettings() {
     settings.setValue("sections_in_search", mSectionsInSearch);
     settings.setValue("sections_in_playlist", mSectionsInPlaylist);
     settings.setValue("lastfm_download", mDownloadEnabled);
+    settings.setValue("local_cover_download", mLocalCoverEnabled);
     settings.setValue("sort_album_by_year", mNetAccess->sortAlbumsByYear());
     settings.setValue("artist_view_albumartist", mNetAccess->useAlbumArtist());
     settings.setValue("show_covernowplaying", mCoverInNowPlaying);
@@ -777,6 +809,16 @@ void Controller::reconnectServer() {
 }
 
 void Controller::fillArtistImages() {
+    mArtistFillMode = ArtistInfoProvider::ModeImageOnly;
+    requestArtistFill();
+}
+
+void Controller::fillArtistInfo() {
+    mArtistFillMode = ArtistInfoProvider::ModeInfoOnly;
+    requestArtistFill();
+}
+
+void Controller::requestArtistFill() {
     // Disconnect artit list signal (prevent appearing of artist lists page to
     // UI)
     disconnect(mNetAccess, SIGNAL(artistsReady(QList<QObject *> *)), this,
@@ -796,7 +838,8 @@ void Controller::fillArtistImages(QList<QObject *> *artistList) {
             SLOT(updateArtistsModel(QList<QObject *> *)));
     // qDebug() << "Received artist list for image bulk downloader";
 
-    emit requestArtistImageFill((QList<MpdArtist *> *)artistList);
+    emit requestArtistImageFill((QList<MpdArtist *> *)artistList,
+                                mArtistFillMode);
 }
 
 void Controller::newDBStatisticReceiver(DatabaseStatistic *statistic) {
@@ -808,6 +851,8 @@ void Controller::newDBStatisticReceiver(DatabaseStatistic *statistic) {
 }
 
 void Controller::fillAlbumImages() {
+    // Covers might have been added to the server, look for them again
+    emit requestClearCoverMisses();
     // qDebug() << "Bulk download of albums requested";
     emit requestArtistAlbumMap();
 }
@@ -856,9 +901,28 @@ void Controller::receiveSettingKey(QVariant setting) {
                                                           mSectionsInPlaylist);
         } else if (settings.at(0) == "lastfmEnabled") {
             mDownloadEnabled = settings.at(1).toInt();
+            if (mDownloadEnabled && mLocalCoverEnabled) {
+                mLocalCoverEnabled = 0;
+                mQuickView->rootContext()->setContextProperty(
+                    "localCoverEnabled", mLocalCoverEnabled);
+                CoverSource::instance()->setLocalEnabled(false);
+            }
             mQuickView->rootContext()->setContextProperty("lastfmEnabled",
                                                           mDownloadEnabled);
             emit newDownloadEnabled(mDownloadEnabled);
+            CoverSource::instance()->setLastFmEnabled(mDownloadEnabled);
+        } else if (settings.at(0) == "localCoverEnabled") {
+            mLocalCoverEnabled = settings.at(1).toInt();
+            if (mLocalCoverEnabled && mDownloadEnabled) {
+                mDownloadEnabled = 0;
+                mQuickView->rootContext()->setContextProperty("lastfmEnabled",
+                                                              mDownloadEnabled);
+                emit newDownloadEnabled(mDownloadEnabled);
+                CoverSource::instance()->setLastFmEnabled(false);
+            }
+            mQuickView->rootContext()->setContextProperty("localCoverEnabled",
+                                                          mLocalCoverEnabled);
+            CoverSource::instance()->setLocalEnabled(mLocalCoverEnabled);
         } else if (settings.at(0) == "sortAlbumsByYear") {
             mNetAccess->setSortAlbumsByYear(settings.at(1).toInt());
             mQuickView->rootContext()->setContextProperty(

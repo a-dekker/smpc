@@ -17,6 +17,7 @@
 #include <mpd/mpdartist.h>
 #include <localdb/albuminformation.h>
 #include <localdb/artistinformation.h>
+#include <localdb/coversource.h>
 #include <localdb/lastfmalbumprovider.h>
 #include "databasefilljob.h"
 #include "databasestatistic.h"
@@ -37,6 +38,8 @@ public:
     bool syncAlbums(QList<MpdAlbum*> *albums,MpdArtist *artist);
     bool syncArtists(QList<MpdAlbum*> &artists);
     bool hasAlbumArt(QString album,QString artist);
+    /** Looks up the database entry of an artist. Returns false if there is none. */
+    bool artistEntry(QString artist, int &imageID, bool &hasInfo);
     bool hasArtistArt(QString artist);
 
     int imageIDFromHash(QString hashValue);
@@ -59,7 +62,7 @@ public:
 public slots:
     void albumReady(AlbumInformation *albumInformation);
     void fillDatabase(QMap<MpdArtist*, QList<MpdAlbum*>* > *map);
-    void fillDatabase(QList<MpdArtist*> *artistList);
+    void fillArtistDatabase(QList<MpdArtist*> *artistList, int mode);
     void enterAlbumInformation(AlbumInformation *info);
     void enterArtistInformation(ArtistInformation *info);
 
@@ -121,7 +124,7 @@ signals:
     void requestAlbumDownload(MpdAlbum album);
     void coverAlbumArtReady(QVariant url);
 
-    void requestArtistDownload(MpdArtist artist);
+    void requestArtistDownload(MpdArtist artist, int mode);
     void coverArtistArtReady(QVariant url);
 
     void albumEntered(QString name);

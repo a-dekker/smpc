@@ -6,6 +6,10 @@
 #include <QNetworkReply>
 #include <QNetworkAccessManager>
 #include <QXmlStreamReader>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonArray>
+#include <QUrlQuery>
 
 #include <mpd/mpdartist.h>
 #include <common.h>
@@ -43,6 +47,7 @@ private:
     QByteArray *mImageData;
     QNetworkAccessManager *mXMLNetAccess;
     QNetworkAccessManager *mArtistArtAccess;
+    QNetworkAccessManager *mDeezerNetAccess;
     ArtistInformation *mLastInformation;
 
     QString mDownloadSize;
@@ -50,9 +55,11 @@ private:
     void parseArtist(QXmlStreamReader &xmlReader);
     void parseWikiInformation(QXmlStreamReader &xmlReader);
     void downloadImageData(QUrl imageURL);
+    void searchArtistImage();
 
 private slots:
     void xmlDownloaded(QNetworkReply*);
+    void deezerSearchDone(QNetworkReply*);
     void imageDownloaded(QNetworkReply*);
 //    void downloadError(QNetworkReply*);
 

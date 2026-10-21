@@ -2,7 +2,7 @@
 
 ServerInfo::ServerInfo()
 {
-
+    pAlbumartSupported = false;
 }
 
 void ServerInfo::setVersion(MPD_version_t version) {
@@ -45,6 +45,11 @@ MPD_version_t *ServerInfo::getVersion() {
 
 bool ServerInfo::getIdleSupported() {
     return pIdleSupported;
+}
+
+bool ServerInfo::getAlbumartSupported()
+{
+    return pAlbumartSupported;
 }
 
 bool ServerInfo::getListFilterSupported() {

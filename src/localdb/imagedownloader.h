@@ -11,7 +11,7 @@
 #include <mpd/mpdalbum.h>
 #include <mpd/mpdartist.h>
 #include <localdb/lastfmalbumprovider.h>
-#include <localdb/lastfmartistprovider.h>
+#include <localdb/artistinfoprovider.h>
 #include <mpd/mpdartist.h>
 #include <localdb/albuminformation.h>
 #include <localdb/artistinformation.h>
@@ -38,23 +38,33 @@ private:
     int mRunningArtistDownloads;
 
     QQueue<MpdAlbum> *mAlbumQueue;
-    QQueue<MpdArtist> *mArtistQueue;
+    // Artists with the mode (ArtistInfoProvider::Mode) to download them with
+    QQueue<QPair<MpdArtist,int> > *mArtistQueue;
 
     LastFMAlbumProvider *mAlbumProvider;
-    LastFMArtistProvider *mArtistProvider;
+    ArtistInfoProvider *mArtistProvider;
+
+    // Album waiting for an answer about its cover stored on the MPD server
+    bool mLocalPending;
+    QString mLocalTitle;
+    QString mLocalArtist;
+
+    void startAlbumDownload(MpdAlbum albumObj);
 
 
 
 signals:
     void albumInformationReady(AlbumInformation *info);
     void artistInformationReady(ArtistInformation *info);
+    void localCoverRequested(MpdAlbum album);
 
 public slots:
     void requestAlbumArt(MpdAlbum albumObj);
     void albumInformationReceiver(AlbumInformation *info);
     void albumDownloadFailure();
+    void localCoverReceiver(MpdAlbum album, QByteArray data);
 
-    void requestArtistArt(MpdArtist artistObj);
+    void requestArtistArt(MpdArtist artistObj, int mode = ArtistInfoProvider::ModeBoth);
     void artistInformationReceiver(ArtistInformation *info);
     void artistDownloadFailure();
 

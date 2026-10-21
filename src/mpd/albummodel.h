@@ -6,6 +6,7 @@
 
 #include <localdb/imagedatabase.h>
 #include <localdb/imagedownloader.h>
+#include <localdb/coversource.h>
 #include <mpd/mpdalbum.h>
 
 

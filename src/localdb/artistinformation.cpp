@@ -5,6 +5,8 @@ ArtistInformation::ArtistInformation(QString artist, QString artistInfo, QString
     mArtistInfo = artistInfo;
     mImageURL = url;
     mImageData = imgData;
+    mInfoFetched = true;
+    mImageFetched = true;
     if(mImageData) {
         mImgHash = createImageHash(mImageData);
     }
@@ -21,6 +23,8 @@ ArtistInformation::ArtistInformation(const ArtistInformation &copyObject) : QObj
     mImgHash = copyObject.mImgHash;
     mArtistInfo = copyObject.mArtistInfo;
     mArtistName = copyObject.mArtistName;
+    mInfoFetched = copyObject.mInfoFetched;
+    mImageFetched = copyObject.mImageFetched;
 }
 
 ArtistInformation::~ArtistInformation()

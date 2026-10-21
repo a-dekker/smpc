@@ -63,6 +63,7 @@ ApplicationWindow {
 
     // Database stuff (local-metadata DB)
     signal bulkDownloadArtists
+    signal bulkDownloadArtistInfo
     signal bulkDownloadAlbums
     signal cleanupBlacklisted
     signal cleanupArtists
@@ -81,6 +82,9 @@ ApplicationWindow {
     signal newSettingKey(variant setting)
 
     signal wakeUpServer(int index)
+
+    // Requests new database stats of the server
+    signal requestCollectionInfo
 
     // Propertys of application
     property string hostname

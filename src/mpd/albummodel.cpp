@@ -66,7 +66,7 @@ QVariant AlbumModel::data(const QModelIndex &index, int role) const
             if ( imageID == -1 ) {
                 // Start image retrieval
                 qDebug() << "Returning dummy image for album: " << album->getTitle() << " and artist " << album->getArtist();
-                if ( mDownloadEnabled ) {
+                if ( CoverSource::instance()->anyEnabled() ) {
                     emit requestAlbumInformation(*album);
                 }
                 // Return dummy for the time being
@@ -79,6 +79,10 @@ QVariant AlbumModel::data(const QModelIndex &index, int role) const
                     return url;
                 }
                 qDebug() << "returning dummy image for blacklisted album: " << album->getTitle();
+                // A cover might have been added to the server since
+                if ( CoverSource::instance()->localEnabled() ) {
+                    emit requestAlbumInformation(*album);
+                }
                 return DUMMY_ALBUMIMAGE;
             } else {
                 qDebug() << "returning database image for album: " << album->getTitle();

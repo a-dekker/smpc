@@ -2,6 +2,7 @@
 #define NETWORKACCESS_H
 
 #include <QObject>
+#include <QSet>
 #include <QtNetwork>
 #include <QQmlEngine>
 #include <mpd/mpdalbum.h>
@@ -21,6 +22,9 @@
 #define IDLEWAIT 2000
 
 #define CONNECTION_TIMEOUT 10000
+
+// Time in ms after which an album without cover on the server is looked up again
+#define COVER_MISS_TIMEOUT 5 * 60 * 1000
 
 /* Time after a resync of status with server is done. This is only to compensate
  for timedrift and will probably removed later. */
@@ -180,6 +184,8 @@ signals:
      * @brief ready Emitted when a network request is finished. Can be used for busy indicators.
      */
     void ready();
+    /** The database stats of the server (totalSongs, ...) were updated */
+    void collectionInfoReady();
     /**
      * @brief requestExit Emitted when the network handler is ready to quit. This is when the connection is disconnected after the request
      * to exit.
@@ -195,6 +201,25 @@ public slots:
      * @brief connectToHost Request to server previously set with setConnectParameters();.
      */
     void connectToHost();
+
+    /**
+     * @brief refreshCollectionInfo Reads the database stats of the server
+     * again and signals collectionInfoReady() when done.
+     */
+    void refreshCollectionInfo();
+
+    /**
+     * @brief fetchAlbumArt Retrieves the cover (cover.jpg, ...) of the given
+     * album from the server with the "albumart" command and hands it to
+     * CoverSource::localCoverReady(). Data is empty if no cover was found.
+     */
+    void fetchAlbumArt(MpdAlbum album);
+
+    /**
+     * @brief clearCoverMisses Forget which albums had no cover, for example
+     * because covers were added to the server.
+     */
+    void clearCoverMisses();
 
     /*
      * Simple control slots
@@ -740,6 +765,24 @@ private:
      * @return escaped arg
      */
     QString escapeCommandArgument(const QString arg);
+
+    /**
+     * @brief getAlbumArt_prv Reads the cover of an album from the server.
+     * @return image data, empty if the album has no cover
+     */
+    QByteArray getAlbumArt_prv(const QString &album, const QString &artist);
+
+    /**
+     * @brief readCoverLine Reads one line of a response to the albumart command.
+     * @return false on timeout or lost connection
+     */
+    bool readCoverLine(QByteArray &line);
+
+    /**
+     * @brief mCoverMisses Albums which are known to have no cover on the server.
+     * Prevents asking again for a while (value: time of the miss in ms).
+     */
+    QHash<QString, qint64> mCoverMisses;
 
     /**
      * @brief getCollectionInfo();

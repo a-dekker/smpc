@@ -19,12 +19,19 @@ public:
     QByteArray *getImageData() { return mImageData; }
     QString getImageHash() { return mImgHash; }
 
+    /** Whether the biography / the image were looked up for this artist */
+    bool infoFetched() { return mInfoFetched; }
+    bool imageFetched() { return mImageFetched; }
+    void setFetched(bool info, bool image) { mInfoFetched = info; mImageFetched = image; }
+
 private:
     QString mArtistName;
     QString mArtistInfo;
     QString mImageURL;
     QString mImgHash;
     QByteArray *mImageData;
+    bool mInfoFetched;
+    bool mImageFetched;
 
     QString createImageHash(QByteArray *imgData);
 

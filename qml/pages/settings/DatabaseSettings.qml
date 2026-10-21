@@ -3,6 +3,9 @@ import Sailfish.Silica 1.0
 
 Page {
 
+    // Update mpd stats
+    Component.onCompleted: requestCollectionInfo()
+
     PageHeader {
         id: header
         title: qsTr("Database")
@@ -225,7 +228,7 @@ Page {
                 }
                 Label {
                     id: artistsRemaining
-                    text: dbStatistic.getArtistplaylistSize()
+                    text: dbStatistic.getArtistQueueSize()
                     horizontalAlignment: Text.AlignRight
                     width: parent.width - (Theme.paddingLarge * 2)
                     color: Theme.secondaryColor
@@ -242,7 +245,7 @@ Page {
                 }
                 Label {
                     id: albumRemaining
-                    text: dbStatistic.getAlbumplaylistSize()
+                    text: dbStatistic.getAlbumQueueSize()
                     horizontalAlignment: Text.AlignRight
                     width: parent.width - (Theme.paddingLarge * 2)
                     color: Theme.secondaryColor
@@ -254,9 +257,25 @@ Page {
                 checked: lastfmEnabled
                 onClicked: {
                     if (checked) {
+                        localCoverEnabledSwitch.checked = false
                         newSettingKey(["lastfmEnabled", "1"])
                     } else {
                         newSettingKey(["lastfmEnabled", "0"])
+                    }
+                }
+            }
+
+            TextSwitch {
+                id: localCoverEnabledSwitch
+                text: qsTr("Use album cover from MPD server")
+                description: qsTr("Album art is read from a cover image (cover.jpg .png .webp, etc.) in the album folder on the server. Requires MPD 0.21 or newer.")
+                checked: localCoverEnabled
+                onClicked: {
+                    if (checked) {
+                        lastfmEnabledSwitch.checked = false
+                        newSettingKey(["localCoverEnabled", "1"])
+                    } else {
+                        newSettingKey(["localCoverEnabled", "0"])
                     }
                 }
             }
@@ -311,27 +330,40 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 Button {
                     id: downloadArtistImagesBtn
-                    visible: lastfmEnabled
+                    visible: lastfmEnabled || localCoverEnabled
                     width: isPortrait ? mainColumn.width - Theme.paddingLarge
                                         * 2 : (mainColumn.width / 2) * 0.95
-                    text: qsTr("Download artist images")
+                    text: qsTr("↓ Artist images [Deezer]")
                     onClicked: pageStack.push(dialogComponent, {
                                                   "confirmationRole": 4
                                               })
-                    enabled: dbStatistic.getArtistplaylistSize() === 0
-                             && lastfmEnabled
+                    enabled: dbStatistic.getArtistQueueSize() === 0
+                             && (lastfmEnabled || localCoverEnabled)
+                }
+                Button {
+                    id: downloadArtistInfoBtn
+                    visible: lastfmEnabled || localCoverEnabled
+                    width: isPortrait ? mainColumn.width - Theme.paddingLarge
+                                        * 2 : (mainColumn.width / 2) * 0.95
+                    text: qsTr("↓ Artist info [Wikipedia]")
+                    onClicked: pageStack.push(dialogComponent, {
+                                                  "confirmationRole": 6
+                                              })
+                    enabled: dbStatistic.getArtistQueueSize() === 0
+                             && (lastfmEnabled || localCoverEnabled)
                 }
                 Button {
                     id: downloadAlbumImagesBtn
-                    visible: lastfmEnabled
+                    visible: lastfmEnabled || localCoverEnabled
                     width: isPortrait ? mainColumn.width - Theme.paddingLarge
                                         * 2 : (mainColumn.width / 2) * 0.95
-                    text: qsTr("Download album images")
+                    text: qsTr("↓ Album images")
+                          + (localCoverEnabledSwitch.checked ? " [MPD]" : " [Last.fm]")
                     onClicked: pageStack.push(dialogComponent, {
                                                   "confirmationRole": 5
                                               })
-                    enabled: dbStatistic.getAlbumplaylistSize() === 0
-                             && lastfmEnabled
+                    enabled: dbStatistic.getAlbumQueueSize() === 0
+                             && (lastfmEnabled || localCoverEnabled)
                 }
                 Button {
                     id: clearBlacklistBtn
@@ -341,8 +373,8 @@ Page {
                     onClicked: pageStack.push(dialogComponent, {
                                                   "confirmationRole": 0
                                               })
-                    enabled: dbStatistic.getArtistplaylistSize() === 0
-                             && dbStatistic.getAlbumplaylistSize() === 0
+                    enabled: dbStatistic.getArtistQueueSize() === 0
+                             && dbStatistic.getAlbumQueueSize() === 0
                 }
                 Button {
                     id: clearArtistBtn
@@ -352,8 +384,8 @@ Page {
                     onClicked: pageStack.push(dialogComponent, {
                                                   "confirmationRole": 1
                                               })
-                    enabled: dbStatistic.getArtistplaylistSize() === 0
-                             && dbStatistic.getAlbumplaylistSize() === 0
+                    enabled: dbStatistic.getArtistQueueSize() === 0
+                             && dbStatistic.getAlbumQueueSize() === 0
                 }
                 Button {
                     id: clearAlbumBtn
@@ -363,6 +395,8 @@ Page {
                     onClicked: pageStack.push(dialogComponent, {
                                                   "confirmationRole": 2
                                               })
+                    enabled: dbStatistic.getArtistQueueSize() === 0
+                             && dbStatistic.getAlbumQueueSize() === 0
                 }
                 Button {
                     id: clearDBBtn
@@ -372,8 +406,8 @@ Page {
                     onClicked: pageStack.push(dialogComponent, {
                                                   "confirmationRole": 3
                                               })
-                    enabled: dbStatistic.getArtistplaylistSize() === 0
-                             && dbStatistic.getAlbumplaylistSize() === 0
+                    enabled: dbStatistic.getArtistQueueSize() === 0
+                             && dbStatistic.getAlbumQueueSize() === 0
                 }
             }
         }
@@ -431,10 +465,16 @@ Page {
                                 "Do you really want to delete the complete local database cache? There is no turning back!")
                     break
                 case 4:
-                    confirmationDialog.headerText = qsTr("Download artists")
+                    confirmationDialog.headerText = qsTr("Download artists [Deezer]")
                     confirmationDialog.questionText = qsTr(
-                                "This will download metadata information for all your artists in your MPD database. "
+                                "This will download the images for all artists in your MPD database which have none yet. "
                                 + "This action will run in the background but take some time.")
+                    break
+                case 6:
+                    confirmationDialog.headerText = qsTr("Download artist info [wikipedia]")
+                    confirmationDialog.questionText = qsTr(
+                                "This will download the biography for all artists in your MPD database which have none yet. "
+                                + "\n⚠️This action will run in the background and can take HOURS because of download rate limits.")
                     break
                 case 5:
                     confirmationDialog.headerText = qsTr("Download albums")
@@ -463,6 +503,9 @@ Page {
                     break
                 case 5:
                     bulkDownloadAlbums()
+                    break
+                case 6:
+                    bulkDownloadArtistInfo()
                     break
                 }
             }

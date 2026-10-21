@@ -1,13 +1,17 @@
 #include <localdb/imagedownloader.h>
+#include <localdb/coversource.h>
+
+#include <localdb/imageutil.h>
 
 ImageDownloader::ImageDownloader()
 {
     mRunningAlbumDownloads = 0;
     mRunningArtistDownloads = 0;
+    mLocalPending = false;
     mAlbumProvider = new LastFMAlbumProvider("","",this);
-    mArtistProvider = new LastFMArtistProvider("",this);
+    mArtistProvider = new ArtistInfoProvider("",this);
     mAlbumQueue = new QQueue<MpdAlbum>();
-    mArtistQueue = new QQueue<MpdArtist>();
+    mArtistQueue = new QQueue<QPair<MpdArtist,int> >();
 
 //    mWorkingThread = new QThread(this);
 //    moveToThread(mWorkingThread);
@@ -16,6 +20,9 @@ ImageDownloader::ImageDownloader()
     connect(mAlbumProvider,SIGNAL(ready(AlbumInformation*)),this,SIGNAL(albumInformationReady(AlbumInformation*)));
     connect(mAlbumProvider,SIGNAL(ready(AlbumInformation*)),this,SLOT(albumInformationReceiver(AlbumInformation*)));
     connect(mAlbumProvider,SIGNAL(failed()),this,SLOT(albumDownloadFailure()));
+
+    connect(CoverSource::instance(),SIGNAL(localCoverReady(MpdAlbum,QByteArray)),this,SLOT(localCoverReceiver(MpdAlbum,QByteArray)));
+    connect(this,SIGNAL(localCoverRequested(MpdAlbum)),CoverSource::instance(),SIGNAL(localCoverRequested(MpdAlbum)));
 
     connect(mArtistProvider,SIGNAL(ready(ArtistInformation*)),this,SIGNAL(artistInformationReady(ArtistInformation*)));
     connect(mArtistProvider,SIGNAL(ready(ArtistInformation*)),this,SLOT(artistInformationReceiver(ArtistInformation*)));
@@ -49,7 +56,7 @@ void ImageDownloader::requestAlbumArt(MpdAlbum albumObj)
         // qDebug() << "No download running, start now";
         mDownloadCounterMutex.lock();
         mRunningAlbumDownloads++;
-        mAlbumProvider->requestDownload(albumObj);
+        startAlbumDownload(albumObj);
         mDownloadCounterMutex.unlock();
     } else {
         // Download already running, enqueue
@@ -57,7 +64,7 @@ void ImageDownloader::requestAlbumArt(MpdAlbum albumObj)
     }
 }
 
-void ImageDownloader::requestArtistArt(MpdArtist artistObj)
+void ImageDownloader::requestArtistArt(MpdArtist artistObj, int mode)
 {
 //    qDebug() << "Art requested for: " << artistObj.getName();
     // No running download, start downloading right away
@@ -68,11 +75,11 @@ void ImageDownloader::requestArtistArt(MpdArtist artistObj)
 //        qDebug() << "No download running, start now";
         mDownloadCounterMutex.lock();
         mRunningArtistDownloads++;
-        mArtistProvider->requestDownload(artistObj);
+        mArtistProvider->requestDownload(artistObj,mode);
         mDownloadCounterMutex.unlock();
     } else {
         // Download already running, enqueue
-        mArtistQueue->enqueue(artistObj);
+        mArtistQueue->enqueue(qMakePair(artistObj,mode));
     }
 }
 
@@ -88,7 +95,7 @@ void ImageDownloader::albumInformationReceiver(AlbumInformation *info)
         mRunningAlbumDownloads++;
         MpdAlbum albumObj = mAlbumQueue->dequeue();
 //        qDebug() << "Start downloading from queue item: " << albumObj.getTitle();
-        mAlbumProvider->requestDownload(albumObj);
+        startAlbumDownload(albumObj);
         mDownloadCounterMutex.unlock();
     } else {
 //        qDebug() << "finished";
@@ -107,7 +114,7 @@ void ImageDownloader::albumDownloadFailure()
         mRunningAlbumDownloads++;
         MpdAlbum albumObj = mAlbumQueue->dequeue();
 //        qDebug() << "Start downloading from queue item: " << albumObj.getTitle();
-        mAlbumProvider->requestDownload(albumObj);
+        startAlbumDownload(albumObj);
         mDownloadCounterMutex.unlock();
     } else {
 //        qDebug() << "finished";
@@ -125,9 +132,9 @@ void ImageDownloader::artistInformationReceiver(ArtistInformation *info)
     if ( running == 0 && ( mArtistQueue->size() >0 ) ) {
         mDownloadCounterMutex.lock();
         mRunningArtistDownloads++;
-        MpdArtist artistObj = mArtistQueue->dequeue();
+        QPair<MpdArtist,int> queued = mArtistQueue->dequeue();
         // qDebug() << "Start downloading from queue item: " << artistObj.getName();
-        mArtistProvider->requestDownload(artistObj);
+        mArtistProvider->requestDownload(queued.first,queued.second);
         mDownloadCounterMutex.unlock();
     } else {
         // qDebug() << "finished";
@@ -144,9 +151,9 @@ void ImageDownloader::artistDownloadFailure()
     if ( running == 0 && ( mArtistQueue->size() >0 ) ) {
         mDownloadCounterMutex.lock();
         mRunningArtistDownloads++;
-        MpdArtist artistObj = mArtistQueue->dequeue();
+        QPair<MpdArtist,int> queued = mArtistQueue->dequeue();
         // qDebug() << "Start downloading from queue item: " << artistObj.getName();
-        mArtistProvider->requestDownload(artistObj);
+        mArtistProvider->requestDownload(queued.first,queued.second);
         mDownloadCounterMutex.unlock();
     } else {
         // qDebug() << "finished";
@@ -166,11 +173,44 @@ int ImageDownloader::getAlbumQueueSize()
 void ImageDownloader::setDownloadSize(QString size)
 {
     mAlbumProvider->setDownloadSize(size);
-    mArtistProvider->setDownloadSize(size);
 }
 
 void ImageDownloader::clearDownloadQueue()
 {
     mArtistQueue->clear();
     mAlbumQueue->clear();
+}
+
+void ImageDownloader::startAlbumDownload(MpdAlbum albumObj)
+{
+    if ( CoverSource::instance()->localEnabled() ) {
+        // Try the cover stored on the MPD server first
+        mLocalPending = true;
+        mLocalTitle = albumObj.getTitle();
+        mLocalArtist = albumObj.getArtist();
+        emit localCoverRequested(albumObj);
+    } else {
+        mAlbumProvider->requestDownload(albumObj);
+    }
+}
+
+void ImageDownloader::localCoverReceiver(MpdAlbum album, QByteArray data)
+{
+    // The answer is broadcast to all downloaders, only handle our own request
+    if ( !mLocalPending || album.getTitle() != mLocalTitle || album.getArtist() != mLocalArtist ) {
+        return;
+    }
+    mLocalPending = false;
+
+    QByteArray cover = ImageUtil::squareJpeg(data);
+    if ( !cover.isEmpty() ) {
+        AlbumInformation *info = new AlbumInformation(mLocalTitle,mLocalArtist,"","",new QByteArray(cover),0);
+        emit albumInformationReady(info);
+        albumInformationReceiver(info);
+    } else if ( CoverSource::instance()->lastFmEnabled() ) {
+        // No local cover, fall back to last.fm
+        mAlbumProvider->requestDownload(MpdAlbum(this,mLocalTitle,mLocalArtist));
+    } else {
+        albumDownloadFailure();
+    }
 }

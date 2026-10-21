@@ -13,6 +13,8 @@
 #include <localdb/imagedatabase.h>
 #include <localdb/databasestatistic.h>
 #include <localdb/lastfmalbumprovider.h>
+#include <localdb/coversource.h>
+#include <localdb/artistinfoprovider.h>
 #include <localdb/qmlimageprovider.h>
 
 // MPD Connection
@@ -94,10 +96,11 @@ signals:
     void requestCoverArt(MpdAlbum album);
     void requestCoverArtistArt(MpdArtist artist);
 
-    void requestArtistImageFill(QList<MpdArtist*>*);
+    void requestArtistImageFill(QList<MpdArtist*>*, int mode);
     void requestAlbumFill(QMap<MpdArtist*, QList<MpdAlbum*>* > *);
 
     void requestDBStatistic();
+    void requestClearCoverMisses();
     void newDownloadSize(QString);
     void newDownloadEnabled(bool);
 
@@ -146,6 +149,10 @@ private:
     DatabaseStatistic *mDBStatistic;
     int mDownloadSize;
     int mDownloadEnabled;
+    int mLocalCoverEnabled;
+    // What the running artist bulk download looks up (ArtistInfoProvider::Mode)
+    int mArtistFillMode;
+    void requestArtistFill();
     QString getLastFMArtSize(int index);
 
     // GUI Settings
@@ -179,6 +186,7 @@ private slots:
     //void decVolume();
     /*Privates*/
     void connectedToServer();
+    void updateCollectionInfo();
     void disconnectedToServer();
     void updateAlbumsModel(QList<QObject*>* list);
     void updateArtistsModel(QList<QObject*>* list);
@@ -210,6 +218,7 @@ private slots:
     void reconnectServer();
 
     void fillArtistImages();
+    void fillArtistInfo();
     void fillArtistImages(QList<QObject*>*);
 
     void fillAlbumImages();
