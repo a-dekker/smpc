@@ -28,14 +28,25 @@ Page {
 
     SilicaGridView {
         id: gridView
-        property int columns:
-            Screen.sizeCategory >= Screen.Large ?
-                3 : (orientation === Orientation.Landscape || orientation === Orientation.LandscapeInverted) ?
-                    4 : 2
+        property int columns: Screen.sizeCategory
+                              >= Screen.Large ? 3 : (orientation === Orientation.Landscape
+                                                     || orientation
+                                                     === Orientation.LandscapeInverted) ? 4 : 2
         anchors.top: mainPage.top
         anchors.bottom: mainPage.bottom
         anchors.horizontalCenter: parent.horizontalCenter
-        width: columns*cellWidth
+        property bool landscape: orientation === Orientation.Landscape
+                                 || orientation === Orientation.LandscapeInverted
+        property int rows: Math.ceil((columns === 3 ? 9 : 8) / columns)
+        property real maxCellSize: mainPage.width * 0.7 / columns
+        // in landscape make sure all rows fit above the control panel;
+        // its full height is used so opening/closing it does not resize the grid;
+        // the screen size is used because mainPage.height shrinks with the panel
+        property real fitCellSize: (Math.min(
+                                        Screen.width,
+                                        Screen.height) - (headerItem ? headerItem.height : 0)
+                                    - quickControlPanel.height) / rows
+        width: columns * cellWidth
 
         header: Item {
             width: GridView.view.width
@@ -50,32 +61,34 @@ Page {
                 Label {
                     width: parent.width
                     horizontalAlignment: Text.AlignHCenter
-                    text: connected ? qsTr("Connected to: %1").arg(profilename) : qsTr(
-                                          "Disconnected")
+                    text: connected ? qsTr("Connected to: %1").arg(
+                                          profilename) : qsTr("Disconnected")
                     color: Theme.highlightColor
                 }
             }
         }
 
-
-        cellHeight: Theme.itemSizeHuge
-        cellWidth: cellHeight
+        cellWidth: landscape ? Math.min(maxCellSize, fitCellSize) : maxCellSize
+        cellHeight: cellWidth
 
         model: ObjectModel {
             MainMenuItem {
                 text: qsTr("Playlist")
                 iconSource: "image://theme/icon-m-document"
                 onClicked: if (connected)
-                               pageStack.push(Qt.resolvedUrl("database/CurrentPlaylistPage.qml"))
+                               pageStack.push(
+                                           Qt.resolvedUrl(
+                                               "database/CurrentPlaylistPage.qml"))
             }
             MainMenuItem {
                 text: qsTr("Artists")
                 iconSource: "image://theme/icon-m-mic"
                 enabled: connected
-                onClicked:{
+                onClicked: {
                     if (connected) {
                         requestArtists()
-                        pageStack.push(Qt.resolvedUrl("database/ArtistListPage.qml"))
+                        pageStack.push(Qt.resolvedUrl(
+                                           "database/ArtistListPage.qml"))
                     }
                 }
             }
@@ -87,7 +100,8 @@ Page {
                     artistname = ""
                     if (connected) {
                         requestAlbums()
-                        pageStack.push(Qt.resolvedUrl("database/AlbumListPage.qml"), {
+                        pageStack.push(Qt.resolvedUrl(
+                                           "database/AlbumListPage.qml"), {
                                            "artistname": artistname
                                        })
                     }
@@ -97,37 +111,46 @@ Page {
             MainMenuItem {
                 text: qsTr("Files")
                 iconSource: "image://theme/icon-m-folder"
-                onClicked: if (connected) filesClicked("/")
+                onClicked: if (connected)
+                               filesClicked("/")
             }
 
             MainMenuItem {
                 text: qsTr("Search")
                 iconSource: "image://theme/icon-m-search"
-                onClicked: if (connected) pageStack.push(Qt.resolvedUrl("database/SearchPage.qml"))
+                onClicked: if (connected)
+                               pageStack.push(Qt.resolvedUrl(
+                                                  "database/SearchPage.qml"))
             }
 
             MainMenuItem {
                 text: qsTr("Connect")
                 iconSource: "image://theme/icon-m-computer"
-                onClicked: pageStack.push(Qt.resolvedUrl("settings/ConnectServerPage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl(
+                                              "settings/ConnectServerPage.qml"))
             }
             MainMenuItem {
                 text: qsTr("Settings")
                 iconSource: "image://theme/icon-m-developer-mode"
-                onClicked: pageStack.push(Qt.resolvedUrl("settings/SettingsPage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl(
+                                              "settings/SettingsPage.qml"))
             }
             MainMenuItem {
                 text: qsTr("About")
                 iconSource: "image://theme/icon-m-about"
-                onClicked: pageStack.push(Qt.resolvedUrl("settings/AboutPage.qml"))
+                onClicked: pageStack.push(Qt.resolvedUrl(
+                                              "settings/AboutPage.qml"))
             }
             Loader {
                 active: gridView.columns === 3
-                sourceComponent:  Component {
+                sourceComponent: Component {
                     MainMenuItem {
+                        width: gridView.cellWidth
                         text: qsTr("Playback")
                         iconSource: "image://theme/icon-m-music"
-                        onClicked: pageStack.push(Qt.resolvedUrl("settings/PlaybackSettings.qml"))
+                        onClicked: pageStack.push(
+                                       Qt.resolvedUrl(
+                                           "settings/PlaybackSettings.qml"))
                     }
                 }
             }

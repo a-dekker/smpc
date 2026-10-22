@@ -5,20 +5,24 @@ BackgroundItem {
     id: gridItem
     property alias text: itemLabel.text
     property alias iconSource: itemIcon.source
-    width: Theme.itemSizeHuge
+    width: GridView.view ? GridView.view.cellWidth : Theme.itemSizeHuge
     height: width
     Rectangle {
         anchors.fill: parent
         anchors.margins: Theme.paddingSmall
-        color: Theme.rgba(
-                   Theme.highlightBackgroundColor,
-                   Theme.highlightBackgroundOpacity)
+        color: Theme.rgba(Theme.highlightBackgroundColor,
+                          Theme.highlightBackgroundOpacity)
     }
     Column {
         anchors.centerIn: parent
         Image {
             id: itemIcon
-            //source: icon
+            // scale the icon along with the button size
+            property real size: Theme.iconSizeMedium * gridItem.width / Theme.itemSizeHuge
+            width: size
+            height: size
+            sourceSize: Qt.size(size, size)
+            fillMode: Image.PreserveAspectFit
             anchors.horizontalCenter: parent.horizontalCenter
         }
         Label {
