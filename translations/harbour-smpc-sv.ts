@@ -156,7 +156,7 @@
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="29"/>
         <source>Show albums from artist</source>
-        <translation type="unfinished">Visa album av artist</translation>
+        <translation>Visa album av artist</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="41"/>
@@ -166,7 +166,7 @@
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="45"/>
         <source>Replacing album</source>
-        <translation type="unfinished"></translation>
+        <translation>Ersätter album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="52"/>
@@ -176,7 +176,7 @@
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="54"/>
         <source>Adding album</source>
-        <translation type="unfinished">Lägger till album</translation>
+        <translation>Lägger till album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="60"/>
@@ -186,7 +186,7 @@
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="62"/>
         <source>Playing album</source>
-        <translation type="unfinished">Spelar upp album</translation>
+        <translation>Spelar upp album</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/AlbumTracksPage.qml" line="366"/>
@@ -499,12 +499,12 @@
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="270"/>
         <source>Use album cover from MPD server</source>
-        <translation type="unfinished"></translation>
+        <translation>Använd albumomslag från MPD-server</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="271"/>
         <source>Album art is read from a cover image (cover.jpg .png .webp, etc.) in the album folder on the server. Requires MPD 0.21 or newer.</source>
-        <translation type="unfinished"></translation>
+        <translation>Albumkonst läses från en omslagsbild (cover.jpg .png .webp, etc.) i albumets mapp på servern. Kräver MPD 0.21 eller nyare.</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="290"/>
@@ -539,32 +539,32 @@
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="336"/>
         <source>↓ Artist images [Deezer]</source>
-        <translation type="unfinished"></translation>
+        <translation>↓ Artistbilder [Deezer]</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="348"/>
         <source>↓ Artist info [Wikipedia]</source>
-        <translation type="unfinished"></translation>
+        <translation>↓ Artistinfo [Wikipedia]</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="360"/>
         <source>↓ Album images</source>
-        <translation type="unfinished"></translation>
+        <translation>↓ Albumbilder</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="468"/>
         <source>Download artists [Deezer]</source>
-        <translation type="unfinished"></translation>
+        <translation>Ladda ner artister [Deezer]</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="469"/>
         <source>This will download the images for all artists in your MPD database which have none yet. This action will run in the background but take some time.</source>
-        <translation type="unfinished"></translation>
+        <translation>Detta kommer att ladda ner bilder för alla artister i din MPD-databas, som ännu inte har några. Denna åtgärd kommer att köras i bakgrunden men ta lite tid.</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="474"/>
         <source>Download artist info [wikipedia]</source>
-        <translation type="unfinished"></translation>
+        <translation>Ladda ner artistinfo [wikipedia]</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="286"/>
@@ -665,7 +665,8 @@
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="475"/>
         <source>This will download the biography for all artists in your MPD database which have none yet. 
 ⚠️This action will run in the background and can take HOURS because of download rate limits.</source>
-        <translation type="unfinished"></translation>
+        <translation>Detta kommer att ladda ner biografin för alla artister i din MPD-databas, som ännu inte har någon.
+⚠️Denna åtgärd kommer att köras i bakgrunden och kan ta TIMMAR på grund av hastighetsbegränsningar vid nedladdning.</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/DatabaseSettings.qml" line="480"/>
@@ -698,7 +699,7 @@
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="50"/>
         <source>Replacing folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Ersätter mapp</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="57"/>
@@ -708,7 +709,7 @@
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="59"/>
         <source>Adding folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägger till mapp</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="65"/>
@@ -718,7 +719,7 @@
     <message>
         <location filename="../qml/pages/database/FileBrowserPage.qml" line="67"/>
         <source>Playing folder</source>
-        <translation type="unfinished"></translation>
+        <translation>Spelar upp mapp</translation>
     </message>
 </context>
 <context>
@@ -1232,7 +1233,7 @@
     <message>
         <location filename="../qml/pages/database/SearchPage.qml" line="103"/>
         <source>Adding all results</source>
-        <translation type="unfinished"></translation>
+        <translation>Lägger till alla sökträffar</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/SearchPage.qml" line="111"/>
@@ -1242,7 +1243,7 @@
     <message>
         <location filename="../qml/pages/database/SearchPage.qml" line="114"/>
         <source>Playing all results</source>
-        <translation type="unfinished"></translation>
+        <translation>Spelar upp alla sökträffar</translation>
     </message>
     <message>
         <location filename="../qml/pages/database/SearchPage.qml" line="184"/>
@@ -1382,7 +1383,7 @@
     <message>
         <location filename="../qml/pages/settings/SettingsPage.qml" line="66"/>
         <source>for troubleshooting, requires restart</source>
-        <translation>vid felsökning, kräver omstart.</translation>
+        <translation>för felsökning, kräver omstart.</translation>
     </message>
     <message>
         <location filename="../qml/pages/settings/SettingsPage.qml" line="83"/>
@@ -1455,12 +1456,12 @@
         <location filename="../qml/components/SongDialog.qml" line="201"/>
         <location filename="../qml/components/SongDialog.qml" line="474"/>
         <source>Track: </source>
-        <translation type="unfinished"></translation>
+        <translation>Spår: </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="216"/>
         <source>Disc: </source>
-        <translation type="unfinished"></translation>
+        <translation>Skiva: </translation>
     </message>
     <message>
         <location filename="../qml/components/SongDialog.qml" line="262"/>
@@ -1516,7 +1517,7 @@
     <message>
         <location filename="../qml/components/TrackDelegate.qml" line="95"/>
         <source>Show albums from artist</source>
-        <translation type="unfinished">Visa album av artist</translation>
+        <translation>Visa album av artist</translation>
     </message>
     <message>
         <location filename="../qml/components/TrackDelegate.qml" line="106"/>
